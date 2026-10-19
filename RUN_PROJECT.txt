@@ -1,0 +1,550 @@
+GLOBAL MUTUAL FUND ETL PLATFORM
+RUNNING GUIDE
+==============================
+
+This guide explains how to install, start, test, and stop the complete project.
+The project has three main runtime parts:
+
+1. PostgreSQL database
+2. Python ETL pipeline
+3. Node.js REST API and React/Vite dashboard
+
+The commands below are written for Linux and macOS shells.
+
+
+1. PROJECT REQUIREMENTS
+=======================
+
+Install the following software before starting:
+
+- Python 3.10 or newer
+- Node.js and npm
+- Docker Engine
+- Docker Compose support
+- Git
+- curl
+
+Verify the installations:
+
+    python3 --version
+    node --version
+    npm --version
+    docker --version
+    git --version
+
+The project uses PostgreSQL on port 5433. Make sure another application is not
+using that port.
+
+
+2. OPEN THE PROJECT
+===================
+
+Open a terminal and move to the project directory:
+
+    cd "/home/asim/Desktop/MF ETL PIPELINE"
+
+All commands in this guide assume that the current directory is the project root.
+
+
+3. CREATE THE PYTHON ENVIRONMENT
+================================
+
+Create a virtual environment:
+
+    python3 -m venv .venv
+
+Activate it:
+
+    source .venv/bin/activate
+
+Upgrade pip:
+
+    python -m pip install --upgrade pip
+
+Install Python dependencies:
+
+    pip install -r requirements.txt
+
+The main Python dependencies include:
+
+- SQLAlchemy
+- psycopg
+- Alembic
+- Pydantic
+- HTTPX
+- PyYAML
+- OpenPyXL
+- PyPDF
+- Pytest
+
+The virtual environment must be activated before running Python ETL commands.
+
+
+4. CONFIGURE THE PYTHON ETL
+============================
+
+Create the root environment file from the safe template:
+
+    cp .env.example .env
+
+The root .env file contains settings similar to:
+
+    DATABASE_URL=postgresql+psycopg://mfetl:mfetl@localhost:5433/mfetl
+    HTTP_TIMEOUT_SECONDS=20
+    USER_AGENT=GlobalMutualFundETL/0.1 (contact: set your email)
+
+Do not commit the real .env file to GitHub. It is intentionally ignored by Git.
+
+If you use the project defaults, no additional database configuration is needed.
+
+
+5. START POSTGRESQL
+===================
+
+OPTION A: Fresh machine with Docker Compose
+--------------------------------------------
+
+From the project root, start the database service:
+
+    docker compose up -d db
+
+Check the database status:
+
+    docker compose ps
+
+Check that PostgreSQL accepts connections:
+
+    pg_isready -h 127.0.0.1 -p 5433
+
+Expected output:
+
+    127.0.0.1:5433 - accepting connections
+
+OPTION B: Existing project database container
+----------------------------------------------
+
+If the project container already exists and is stopped, start it directly:
+
+    docker start mf-etl-pipeline-db
+
+Then verify it:
+
+    pg_isready -h 127.0.0.1 -p 5433
+
+The configured database values are:
+
+    Database: mfetl
+    User: mfetl
+    Password: mfetl
+    Host: localhost
+    Port: 5433
+
+
+6. APPLY DATABASE MIGRATIONS
+============================
+
+Make sure the Python virtual environment is active:
+
+    source .venv/bin/activate
+
+Apply all Alembic migrations:
+
+    alembic upgrade head
+
+This creates or updates the following PostgreSQL tables:
+
+- sources
+- funds
+- nav_observations
+- etl_runs
+- api_etl_runs
+- api_source_checks
+
+Check the current migration revision:
+
+    alembic current
+
+If Alembic reports a connection error, PostgreSQL is not running or the
+DATABASE_URL is incorrect.
+
+
+7. REGISTER THE SOURCES
+=======================
+
+Synchronize the source catalogue with PostgreSQL:
+
+    python -m app.cli sync-sources
+
+This creates source registry records for the requested countries and expansion
+markets. A source catalogue entry is not automatically treated as a successful
+integration. The project records verification and integration status separately.
+
+
+8. INSPECT THE CATALOGUE
+========================
+
+Show the configured source inventory:
+
+    python -m app.cli inventory
+
+Verify source accessibility:
+
+    python -m app.cli verify-sources
+
+The verification command checks source accessibility. Accessibility alone does
+not guarantee that usable mutual-fund data can be extracted.
+
+Verification evidence is written to:
+
+- reports/source_verification.json
+- reports/source_verification.md
+- reports/source_catalogue.json
+- reports/global_mutual_fund_source_inventory.xlsx
+
+
+9. RUN THE PYTHON ETL PIPELINE
+==============================
+
+Run all registered Python connectors:
+
+    python -m app.cli run --all
+
+The run performs these operations:
+
+1. Calls each registered connector.
+2. Checks source availability.
+3. Downloads or reads the provider data.
+4. Parses source-specific formats.
+5. Validates records with Pydantic.
+6. Normalizes fund and NAV fields.
+7. Upserts funds into PostgreSQL.
+8. Upserts NAV observations without creating duplicates.
+9. Records failures and rejected rows.
+10. Writes execution reports and sample exports.
+
+Run one connector only:
+
+    python -m app.cli run --source cvm_open_fund_data
+
+Other available connector IDs include:
+
+    csrc_public_fund_index
+    gsfm_unit_prices
+    asisa_cis_fund_list
+    finma_swiss_fund_list
+    fca_authorised_funds
+    sec_open_end_fund_classes
+    cnmv_spanish_fund_register
+    fi_sweden_ucits_holdings
+    cbi_authorised_ucits
+    amf_geco
+    dk_bde_nonmonetary_funds
+    de_bde_nonmonetary_funds
+    it_bde_nonmonetary_funds
+    nl_bde_nonmonetary_funds
+    lu_bde_nonmonetary_funds
+    hk_sfc_authorised_unit_trusts
+
+Run a source for one country:
+
+    python -m app.cli run --country BR
+
+Limit extraction dates where the connector supports date filtering:
+
+    python -m app.cli run \
+      --source cvm_open_fund_data \
+      --start-date 2026-01-01 \
+      --end-date 2026-01-31
+
+The main generated reports are:
+
+- reports/latest_run.json
+- reports/latest_run.md
+- reports/sample_funds.json
+- reports/sample_nav.json
+- reports/*_rejected_records.jsonl
+
+Raw provider files are stored under data/raw/ and are ignored by Git.
+
+
+10. CONFIGURE THE REST API
+==========================
+
+Open a second terminal. Leave the Python or database terminal available.
+
+Move to the API directory:
+
+    cd "/home/asim/Desktop/MF ETL PIPELINE/api"
+
+Create the API environment file:
+
+    cp .env.example .env
+
+Open api/.env and set a private administrator key:
+
+    ADMIN_API_KEY=replace_with_a_long_random_secret
+
+Use a long random value for real usage. Do not commit api/.env to GitHub.
+Do not place a real key in api/.env.example.
+
+The API environment also contains:
+
+    PORT=3001
+    PYTHON_EXECUTABLE=./.venv/bin/python
+    ETL_TIMEOUT_MS=900000
+    FRONTEND_ORIGIN=http://localhost:5173
+
+Install Node.js dependencies:
+
+    npm install
+
+Start the API:
+
+    npm start
+
+Expected output:
+
+    API listening on port 3001
+
+The API is available at:
+
+    http://localhost:3001
+
+Keep this terminal running.
+
+
+11. TEST THE REST API
+=====================
+
+Open a third terminal and run:
+
+    curl http://localhost:3001/health
+
+Expected response:
+
+    {"status":"ok","version":"1.0.0"}
+
+Check database health:
+
+    curl http://localhost:3001/api/v1/health/database
+
+Check platform statistics:
+
+    curl http://localhost:3001/api/v1/stats
+
+List countries:
+
+    curl http://localhost:3001/api/v1/countries
+
+List registered sources:
+
+    curl http://localhost:3001/api/v1/sources
+
+List Brazil funds:
+
+    curl "http://localhost:3001/api/v1/funds?country=BR&limit=25&page=1"
+
+List ETL history:
+
+    curl http://localhost:3001/api/v1/etl/runs
+
+
+12. TRIGGER AN ETL RUN THROUGH THE API
+======================================
+
+The API ETL endpoint requires the exact ADMIN_API_KEY configured in api/.env.
+Restart the API after changing the key.
+
+Start all connectors:
+
+    curl -X POST http://localhost:3001/api/v1/etl/runs \
+      -H "Content-Type: application/json" \
+      -H "X-API-Key: YOUR_ADMIN_API_KEY" \
+      -d '{"all":true}'
+
+The API returns HTTP 202 and a run ID. Poll the run using:
+
+    curl http://localhost:3001/api/v1/etl/runs/RUN_ID
+
+Start selected sources instead:
+
+    curl -X POST http://localhost:3001/api/v1/etl/runs \
+      -H "Content-Type: application/json" \
+      -H "X-API-Key: YOUR_ADMIN_API_KEY" \
+      -d '{"sourceIds":["cvm_open_fund_data"]}'
+
+If the response says ADMIN_KEY_NOT_CONFIGURED, check that:
+
+1. api/.env exists.
+2. ADMIN_API_KEY is not blank.
+3. The request header uses the same key.
+4. The API was restarted after editing api/.env.
+
+
+13. START THE REACT DASHBOARD
+=============================
+
+Open a fourth terminal:
+
+    cd "/home/asim/Desktop/MF ETL PIPELINE/frontend"
+
+Create the frontend environment file:
+
+    cp .env.example .env
+
+Install frontend dependencies:
+
+    npm install
+
+Start the Vite development server:
+
+    npm run dev
+
+Open the dashboard in a browser:
+
+    http://localhost:5173/
+
+The dashboard includes:
+
+- Overview metrics
+- Country coverage
+- Source registry
+- Source connectivity checks
+- Fund search and filtering
+- Fund detail pages
+- NAV history
+- CSV export
+- API explorer
+- ETL controls
+- ETL run history and outcomes
+
+The Vite development proxy forwards /api and /health requests to port 3001.
+
+
+14. RUN AUTOMATED TESTS
+=======================
+
+Python tests:
+
+    cd "/home/asim/Desktop/MF ETL PIPELINE"
+    source .venv/bin/activate
+    python -m pytest
+
+API tests:
+
+    cd "/home/asim/Desktop/MF ETL PIPELINE/api"
+    npm test
+
+Frontend production build:
+
+    cd "/home/asim/Desktop/MF ETL PIPELINE/frontend"
+    npm run build
+
+Python syntax compilation:
+
+    cd "/home/asim/Desktop/MF ETL PIPELINE"
+    ./.venv/bin/python -m compileall -q app migrations
+
+Optional live integration test:
+
+    cd "/home/asim/Desktop/MF ETL PIPELINE/api"
+    npm run test:integration
+
+The live integration test requires PostgreSQL, the API, and a previously
+successful ETL report. It checks PostgreSQL rows and matching API responses
+without refetching or changing provider data.
+
+
+15. CURRENT VERIFIED DATA
+=========================
+
+The recorded project snapshot contains:
+
+- 162,584 funds
+- 252,030 NAV observations
+- 17 integrated source datasets
+- 38 registered source rows in the current database
+
+The strongest NAV coverage comes from Brazil. Several other sources provide
+fund-master data without NAV or currency fields. Canada, Mexico, Japan, South
+Korea, Singapore, Taiwan, Russia, and the UAE remain documented gaps or source
+candidates rather than successful integrations.
+
+These limitations are intentional and evidence-based. The project does not
+claim complete global market coverage.
+
+
+16. STOP THE PROJECT
+====================
+
+Stop the API and frontend by pressing Ctrl+C in their running terminals.
+
+Stop PostgreSQL when finished:
+
+    docker stop mf-etl-pipeline-db
+
+If PostgreSQL was started using Docker Compose:
+
+    docker compose down
+
+The database volume is persistent unless it is explicitly removed.
+
+
+17. COMMON PROBLEMS
+====================
+
+Problem: connection refused on port 5433
+
+Solution:
+
+    docker start mf-etl-pipeline-db
+    pg_isready -h 127.0.0.1 -p 5433
+
+Problem: Alembic cannot connect
+
+Solutions:
+
+- Start PostgreSQL first.
+- Activate the Python virtual environment.
+- Check DATABASE_URL in the root .env file.
+- Run alembic upgrade head again.
+
+Problem: ADMIN_KEY_NOT_CONFIGURED
+
+Solutions:
+
+- Create api/.env from api/.env.example.
+- Set ADMIN_API_KEY in api/.env.
+- Restart npm start.
+- Send the same value in the X-API-Key header.
+
+Problem: frontend shows API errors
+
+Solutions:
+
+- Confirm the API is running on port 3001.
+- Confirm the dashboard is running on port 5173.
+- Check the API health endpoint.
+- Restart the Vite development server after changing frontend/.env.
+
+Problem: an ETL source fails
+
+Expected behavior:
+
+- The source failure is recorded in the run result.
+- Other sources may continue depending on the execution path.
+- Inspect reports/latest_run.json and the source reject file.
+- Verify whether the provider changed its URL, format, or access policy.
+
+
+18. IMPORTANT SECURITY NOTES
+============================
+
+- Never commit root .env, api/.env, or frontend/.env.
+- Never publish an admin API key.
+- Replace the example API key with a new private value.
+- Review upstream provider licensing before commercial redistribution.
+- Source connectivity does not prove that the source contains usable fund data.
+
+
+END OF GUIDE
