@@ -1,0 +1,9 @@
+{
+  "source_id": "hk_sfc_authorised_unit_trusts",
+  "url": "https://apps.sfc.hk/productlistWeb/searchProduct/UTMF.do?lang=EN",
+  "path": "data/raw/hong_kong/sfc_unit_trusts_mutual_funds.html",
+  "bytes": 1063819,
+  "sha256": "03b851ce3496a0aaa26d3454b56409ece688e8e5b0fea8cef13ddcf8660c867c",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:22:25.322135+00:00"
+}

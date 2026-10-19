@@ -1,0 +1,11 @@
+{
+  "source_id": "cnmv_spanish_fund_register",
+  "url": "https://www.cnmv.es/portal/Publicaciones/descarga-informacion-individual?ejercicio=2026",
+  "index_url": "https://www.cnmv.es/portal/Publicaciones/descarga-informacion-individual?ejercicio=2026",
+  "period": "202605",
+  "path": "data/raw/spain/cnmv_monthly_fund_data.zip",
+  "bytes": 2269513,
+  "sha256": "ad2203b724b06dd1fcf2a00d992a53854d2ae99a7bbdf41d9998d4229fd83df0",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:21:52.370418+00:00"
+}

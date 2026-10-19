@@ -1,0 +1,9 @@
+{
+  "source_id": "dk_bde_nonmonetary_funds",
+  "url": "https://www.bde.es/webbe/en/estadisticas/otras-clasificaciones/clasificacion-entidades/listas-instituciones-financieras/listas-fondos-inversion-pais/lista-if-dk.csv",
+  "path": "data/raw/denmark/bde_denmark_non_monetary_funds.csv",
+  "bytes": 1643242,
+  "sha256": "52ecbf0a8eea00defbd516af32bf74069100c7f2415edc8480443eb559f447ea",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:22:14.798764+00:00"
+}

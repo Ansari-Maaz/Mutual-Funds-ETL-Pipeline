@@ -1,0 +1,1 @@
+"""Global mutual fund ETL."""

@@ -1,0 +1,9 @@
+{
+  "source_id": "fca_authorised_funds",
+  "url": "https://www.fca.org.uk/publication/fca/foi2026_01166-annex-a.csv",
+  "path": "data/raw/united_kingdom/fca_fund_register.csv",
+  "bytes": 2099836,
+  "sha256": "7582ab7887cb4207475d78ff9691bccac794d72a494f1266cb302826887f2123",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:21:40.063244+00:00"
+}

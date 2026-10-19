@@ -1,0 +1,16 @@
+.env
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+data/raw/*
+!data/raw/.gitkeep
+*.log
+node_modules/
+api/node_modules/
+frontend/node_modules/
+frontend/dist/
+global-mutual-fund-etl-submission.zip
+api/.env
+frontend/.env

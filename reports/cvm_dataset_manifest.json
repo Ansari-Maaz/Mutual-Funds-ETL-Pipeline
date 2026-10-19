@@ -1,0 +1,29 @@
+[
+  {
+    "url": "https://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/DADOS/inf_diario_fi_202610.zip",
+    "path": "data/raw/cvm/inf_diario_fi_202610.zip",
+    "bytes": 5638758,
+    "sha256": "e00f8da4f36b6e685a18e5ffcd568843d8793f449da94f43f3f2b4723b9e3e87",
+    "downloaded": false,
+    "checked_at": "2026-10-19T12:26:17.174382+00:00",
+    "downloaded_at": "2026-10-18T11:45:57.395854+00:00"
+  },
+  {
+    "url": "https://dados.cvm.gov.br/dados/FI/CAD/DADOS/registro_fundo_classe.zip",
+    "path": "data/raw/cvm/registro_fundo_classe.zip",
+    "bytes": 6834972,
+    "sha256": "50f7d856dcd479b89edb0242316d4f7b2369c0e6bb0ef1c2ce39a86e8099a374",
+    "downloaded": false,
+    "checked_at": "2026-10-19T12:26:17.186175+00:00",
+    "downloaded_at": "2026-10-18T11:45:58.840285+00:00"
+  },
+  {
+    "url": "https://dados.cvm.gov.br/dados/FI/CAD/DADOS/cad_fi.csv",
+    "path": "data/raw/cvm/cad_fi.csv",
+    "bytes": 17921566,
+    "sha256": "4b2e152c3310375434c7710d2015fae782d1efc98ec367e9629fc5b20d9eb497",
+    "downloaded": false,
+    "checked_at": "2026-10-19T12:26:17.217002+00:00",
+    "downloaded_at": "2026-10-18T11:46:02.813961+00:00"
+  }
+]

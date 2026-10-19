@@ -1,0 +1,9 @@
+{
+  "source_id": "cbi_authorised_ucits",
+  "url": "https://registers.centralbank.ie/downloadspage.aspx",
+  "path": "data/raw/ireland/central_bank_authorised_ucits.pdf",
+  "bytes": 675786,
+  "sha256": "01e69dd74004316c29122c7d9b0694e8b279344fb9a68e0728ccc83c792a0614",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:21:58.124189+00:00"
+}

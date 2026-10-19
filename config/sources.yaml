@@ -1,0 +1,118 @@
+# Candidate catalogue. Candidate URLs below are official home/documentation pages, not
+# asserted API endpoints. Verification status remains explicit until checked live.
+- source_id: us_sec_nport
+  country_code: US
+  country_name: United States
+  region: North America
+  organization: U.S. Securities and Exchange Commission
+  source_name: Form N-PORT data sets
+  official_website: https://www.sec.gov/
+  endpoint_url: https://www.sec.gov/data-research/sec-markets-data/form-n-port-data-sets
+  documentation_url: https://www.sec.gov/data-research/sec-markets-data/form-n-port-data-sets
+  source_category: Regulator structured filings
+  access_method: Quarterly bulk downloads
+  response_format: ZIP/CSV
+  authentication_required: false
+  registration_required: false
+  license_status: Unknown
+  commercial_reuse_status: Unknown
+  rate_limit_notes: Follow SEC fair access guidance; no automated bulk download performed.
+  fund_master_available: true
+  current_nav_available: false
+  historical_nav_available: false
+  holdings_available: true
+  available_identifiers: SEC filing identifiers; fund identifiers vary by table
+  historical_coverage: October 2019 onward; quarterly published datasets with monthly reporting periods
+  update_frequency: Quarterly dataset publication
+  verification_status: Discovered
+  usable_fund_data_confirmed: false
+  integration_status: Not Started
+  evidence_url: https://www.sec.gov/data-research/sec-markets-data/form-n-port-data-sets
+  notes: Official source documentation reviewed. Large bulk archives; fund filings are not a daily NAV service. Not downloaded or parsed in this environment.
+- source_id: au_apir
+  country_code: AU
+  country_name: Australia
+  region: Asia-Pacific
+  organization: APIR Systems
+  source_name: APIR product reference data
+  official_website: https://www.apir.com.au/
+  endpoint_url: https://www.apir.com.au/
+  documentation_url: https://www.apir.com.au/
+  source_category: Industry registry
+  access_method: Web search and subscription data service
+  response_format: Website / subscriber delivery
+  authentication_required: true
+  registration_required: true
+  license_status: Permission Required
+  commercial_reuse_status: Permission Required
+  rate_limit_notes: Subscriber terms apply
+  fund_master_available: true
+  current_nav_available: false
+  historical_nav_available: false
+  holdings_available: false
+  available_identifiers: APIR code, SPIN
+  historical_coverage: Not confirmed
+  update_frequency: Not confirmed
+  verification_status: Discovered
+  usable_fund_data_confirmed: false
+  integration_status: Not Started
+  evidence_url: https://www.apir.com.au/
+  notes: APIR describes a large product reference database and subscription ADS. No public bulk feed confirmed; no credentials supplied.
+- source_id: gb_fca_register
+  country_code: GB
+  country_name: United Kingdom
+  region: Europe
+  organization: Financial Conduct Authority
+  source_name: Financial Services Register API
+  official_website: https://www.fca.org.uk/firms/financial-services-register
+  endpoint_url: https://www.fca.org.uk/firms/financial-services-register
+  documentation_url: https://www.fca.org.uk/firms/financial-services-register
+  source_category: Regulator register
+  access_method: API key after free registration
+  response_format: API (format to verify)
+  authentication_required: true
+  registration_required: true
+  license_status: Unknown
+  commercial_reuse_status: Unknown
+  rate_limit_notes: No SLA; API portal terms apply
+  fund_master_available: false
+  current_nav_available: false
+  historical_nav_available: false
+  holdings_available: false
+  available_identifiers: Register firm references
+  historical_coverage: Current and historical authorisation records
+  update_frequency: Register updates
+  verification_status: Discovered
+  usable_fund_data_confirmed: false
+  integration_status: Not Started
+  evidence_url: https://www.fca.org.uk/firms/financial-services-register
+  notes: Register documents firms and people, not fund prices or NAV; API requires registration.
+- source_id: ca_ific
+  country_code: CA
+  country_name: Canada
+  region: North America
+  organization: Securities and Investment Management Association
+  source_name: Investment funds industry statistics
+  official_website: https://www.sima-amvi.ca/
+  endpoint_url: https://www.sima-amvi.ca/
+  documentation_url: https://www.sima-amvi.ca/
+  source_category: Industry association
+  access_method: Public statistical reports
+  response_format: PDF/XLSX
+  authentication_required: false
+  registration_required: false
+  license_status: Unknown
+  commercial_reuse_status: Unknown
+  rate_limit_notes: Public website terms apply
+  fund_master_available: false
+  current_nav_available: false
+  historical_nav_available: false
+  holdings_available: false
+  available_identifiers: None confirmed
+  historical_coverage: Aggregate statistics
+  update_frequency: Periodic reports
+  verification_status: Discovered
+  usable_fund_data_confirmed: false
+  integration_status: Not Started
+  evidence_url: https://www.sima-amvi.ca/
+  notes: Association publishes industry statistics; fund-level NAV source not confirmed.

@@ -1,0 +1,11 @@
+{
+  "source_id": "amf_geco",
+  "url": "https://geco.amf-france.org/back-office/funds/compartments",
+  "index_url": "https://geco.amf-france.org/liste-des-produits-d-epargne",
+  "records": 15955,
+  "path": "data/raw/france/geco_compartments.json",
+  "bytes": 72286418,
+  "sha256": "acc06d437306418272d8e4092cb08503e61ece6ac774d72c0f168669af0634dd",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:22:04.649737+00:00"
+}

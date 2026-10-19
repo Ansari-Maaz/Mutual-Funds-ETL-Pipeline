@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: mfetl
+      POSTGRES_USER: mfetl
+      POSTGRES_PASSWORD: mfetl
+    ports: ["5433:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mfetl -d mfetl"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  pgdata:

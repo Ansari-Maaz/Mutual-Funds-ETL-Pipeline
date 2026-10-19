@@ -1,0 +1,9 @@
+{
+  "source_id": "afm_cis_register",
+  "url": "https://www.afm.nl/export.aspx?format=csv&type=883bcff1-0f26-442f-9faf-a39ff911b109",
+  "path": "data/raw/netherlands/afm_cis_register.csv",
+  "bytes": 103600,
+  "sha256": "e6fc3840ce91d2e192ad64592648e429b411ab9d57777ead5adcd429a211157a",
+  "downloaded": false,
+  "checked_at": "2026-10-18T12:04:28.362330+00:00"
+}

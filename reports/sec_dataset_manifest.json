@@ -1,0 +1,9 @@
+{
+  "source_id": "sec_open_end_fund_classes",
+  "url": "https://www.sec.gov/files/investment/data/other/investment-company-series-class-information/investment-company-series-class-2026.csv",
+  "path": "data/raw/united_states/sec_series_classes.csv",
+  "bytes": 8051163,
+  "sha256": "9fdb6d24157bbec44244366dfddebe2300404ab591da479cf537db884078af6a",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:21:41.192512+00:00"
+}

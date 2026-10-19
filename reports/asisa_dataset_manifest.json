@@ -1,0 +1,9 @@
+{
+  "source_id": "asisa_cis_fund_list",
+  "url": "https://www.asisa.org.za/media/jf5m4adc/list-of-cis-as-at-30-june-2026.xlsx",
+  "path": "data/raw/south_africa/asisa_cis_fund_list_20260630.xlsx",
+  "bytes": 135485,
+  "sha256": "8ea937e28f03660e54a0f0a0a87545c8abcb8a782e6f275144d1868bdbc5b6f8",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:21:31.831475+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "source_id": "lu_bde_nonmonetary_funds",
+  "url": "https://www.bde.es/webbe/en/estadisticas/otras-clasificaciones/clasificacion-entidades/listas-instituciones-financieras/listas-fondos-inversion-pais/lista-if-lu.csv",
+  "path": "data/raw/luxembourg/bde_lu_nonmonetary_funds.csv",
+  "bytes": 31254211,
+  "sha256": "4864efe3fe7fd1f2b2e4b3c8a111b772969d5997ae027fa205b0134a2e7c0ee6",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:22:18.122395+00:00"
+}

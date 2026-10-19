@@ -1,0 +1,9 @@
+{
+  "source_id": "de_bde_nonmonetary_funds",
+  "url": "https://www.bde.es/webbe/en/estadisticas/otras-clasificaciones/clasificacion-entidades/listas-instituciones-financieras/listas-fondos-inversion-pais/lista-if-de.csv",
+  "path": "data/raw/germany/bde_de_nonmonetary_funds.csv",
+  "bytes": 9842335,
+  "sha256": "11cbf48ad80a7d2b2f86aaa9488abb1c4da38dba27ed8c21d802670b04c47468",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:22:15.254654+00:00"
+}

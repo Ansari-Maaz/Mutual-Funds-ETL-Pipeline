@@ -1,0 +1,12 @@
+{
+  "source_id": "fi_sweden_ucits_holdings",
+  "url": "https://www.fi.se/en/our-registers/quarterly-fund-holdings/?navigation=open",
+  "index_url": "https://www.fi.se/en/our-registers/quarterly-fund-holdings/?navigation=open",
+  "period": "",
+  "path": "data/raw/sweden/fi_quarterly_fund_holdings.zip",
+  "files_extracted": 726,
+  "bytes": 6693565,
+  "sha256": "e49b23b25fd5f84438ebd54a42fd5575ef148a241f257312b630fcb2c7e614b1",
+  "downloaded": false,
+  "checked_at": "2026-10-19T12:21:53.937732+00:00"
+}
