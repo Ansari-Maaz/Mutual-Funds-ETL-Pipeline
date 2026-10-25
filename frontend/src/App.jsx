@@ -35,6 +35,7 @@ function App() {
   const [runs, setRuns] = useState([]);
   const [funds, setFunds] = useState([]);
   const [health, setHealth] = useState('checking');
+  const [loadError, setLoadError] = useState('');
   const [toast, setToast] = useState('');
 
   const load = useCallback(async () => {
@@ -43,11 +44,15 @@ function App() {
         request('/api/v1/stats'), request('/api/v1/sources'), request('/api/v1/countries'),
         request('/api/v1/etl/runs?limit=8'), request('/api/v1/health/database'),
       ]);
+      const failed = [s, c, r, f, h].find((result) => !result.response.ok);
+      if (failed) throw new Error(failed.body?.error?.message || `API request failed (${failed.response.status})`);
       setStats(s.body?.data || null); setSources(c.body?.data || []); setCountries(r.body?.data || []); setRuns(f.body?.data || []);
       setHealth(h.response.ok ? 'online' : 'degraded');
       const fundPage = await request('/api/v1/funds?limit=6&sort=retrieved_at&order=desc');
+      if (!fundPage.response.ok) throw new Error(fundPage.body?.error?.message || `Fund request failed (${fundPage.response.status})`);
       setFunds(fundPage.body?.data || []);
-    } catch { setHealth('offline'); }
+      setLoadError('');
+    } catch (error) { setHealth('offline'); setLoadError(error.message || 'Could not load dashboard data from the API.'); }
   }, []);
   useEffect(() => { load(); }, [load]);
   useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(''), 3200); return () => clearTimeout(t); }, [toast]);
@@ -62,7 +67,7 @@ function App() {
     </aside>
     <main className="main">
       <header className="topbar"><div className="crumb"><span>Workspace</span><span className="slash">/</span><b>{nav.find((n) => n.id === page)?.label}</b></div><div className="top-actions"><span className="live-pill"><i/> LIVE DATABASE</span><button className="avatar" title="Administrator">A</button></div></header>
-      <div className="content">{page === 'overview' && <Overview stats={stats} sources={sources} countries={countries} runs={runs} funds={funds} onNavigate={setPage} refresh={load}/>} {page === 'explorer' && <ApiExplorer notify={setToast}/>} {page === 'etl' && <EtlControl countries={countries} sources={sources} runs={runs} notify={setToast} refresh={load}/>} {page === 'funds' && <FundExplorer notify={setToast}/>} {page === 'sources' && <Sources sources={sources} refresh={load} notify={setToast}/>}</div>
+      <div className="content">{loadError && <div className="error-box" role="alert">Dashboard data could not be loaded: {loadError}</div>}{page === 'overview' && <Overview stats={stats} sources={sources} countries={countries} runs={runs} funds={funds} onNavigate={setPage} refresh={load}/>} {page === 'explorer' && <ApiExplorer notify={setToast}/>} {page === 'etl' && <EtlControl countries={countries} sources={sources} runs={runs} notify={setToast} refresh={load}/>} {page === 'funds' && <FundExplorer notify={setToast}/>} {page === 'sources' && <Sources sources={sources} refresh={load} notify={setToast}/>}</div>
       <footer className="footer"><span>FundFlow <b>ETL Console</b></span><span>Source registry & data coverage reflect your configured PostgreSQL database.</span><a href="https://github.com" onClick={(e) => e.preventDefault()}>Documentation <ExternalLink size={12}/></a></footer>
     </main>
     {toast && <div className="toast"><CheckCircle2 size={17}/>{toast}<button onClick={() => setToast('')}><XCircle size={15}/></button></div>}

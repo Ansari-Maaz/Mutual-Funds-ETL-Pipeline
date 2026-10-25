@@ -229,8 +229,6 @@ def sync_sources() -> None:
     from app.models.schema import Source
     values=[]
     rows=catalogue()
-    researched_codes={r["country_code"] for r in rows if r.get("verification_status")!="Undiscovered"}
-    obsolete_ids=[r["source_id"] for r in country_rows() if r["country_code"] in researched_codes]
     for row in rows:
         values.append({"source_id":row["source_id"],"country_code":row["country_code"],
           "organization":str(row.get("organization","Unknown")),"source_name":row.get("source_name","Unknown"),
@@ -239,9 +237,6 @@ def sync_sources() -> None:
           "integration_status":row.get("integration_status","Not Started"),
           "license_status":row.get("license_status","Unknown")})
     with SessionLocal() as session:
-        if obsolete_ids:
-            from sqlalchemy import delete
-            session.execute(delete(Source).where(Source.source_id.in_(obsolete_ids)))
         for row in values:
             stmt=insert(Source).values(**row).on_conflict_do_update(index_elements=[Source.source_id],set_={k:v for k,v in row.items() if k!="source_id"})
             session.execute(stmt)

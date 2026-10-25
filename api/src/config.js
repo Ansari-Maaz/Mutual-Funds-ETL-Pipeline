@@ -11,7 +11,9 @@ module.exports = {
   port: Number(process.env.PORT || 3001),
   databaseUrl: postgresUrl(process.env.DATABASE_URL),
   pythonExecutable: process.env.PYTHON_EXECUTABLE
-    ? (path.isAbsolute(process.env.PYTHON_EXECUTABLE) ? process.env.PYTHON_EXECUTABLE : path.resolve(projectRoot, process.env.PYTHON_EXECUTABLE))
+    ? (path.isAbsolute(process.env.PYTHON_EXECUTABLE) || !process.env.PYTHON_EXECUTABLE.includes('/')
+      ? process.env.PYTHON_EXECUTABLE
+      : path.resolve(projectRoot, process.env.PYTHON_EXECUTABLE))
     : path.join(projectRoot, '.venv/bin/python'),
   etlTimeoutMs: Number(process.env.ETL_TIMEOUT_MS || 900000),
   adminApiKey: process.env.ADMIN_API_KEY || '',
