@@ -7,6 +7,7 @@ import io
 import json
 import urllib.request
 import zipfile
+from copy import deepcopy
 from collections import defaultdict
 from datetime import date, datetime, timezone
 from decimal import Decimal, InvalidOperation
@@ -111,9 +112,16 @@ class CvmConnector(BaseConnector):
         download_cvm_data(month_list)
 
         registry_zip=zipfile.ZipFile(RAW/"registro_fundo_classe.zip")
+        self._rejects=[]
         classes: dict[str,dict[str,str]]={}
+        funds: dict[str,dict[str,str]]={}
         class_ids: dict[str,str]={}
         subclasses: dict[tuple[str,str],str]={}
+        with io.TextIOWrapper(registry_zip.open("registro_fundo.csv"),encoding="latin-1",newline="") as f:
+            for row in csv.DictReader(f,delimiter=";"):
+                fund_id=(row.get("ID_Registro_Fundo") or "").strip()
+                if fund_id:
+                    funds[fund_id]=row
         with io.TextIOWrapper(registry_zip.open("registro_classe.csv"),encoding="latin-1",newline="") as f:
             for row in csv.DictReader(f,delimiter=";"):
                 cnpj=_digits(row.get("CNPJ_Classe"))
@@ -128,7 +136,46 @@ class CvmConnector(BaseConnector):
                     subclasses[key]=name
 
         grouped: dict[str,dict[str,Any]]={}
-        self._rejects=[]
+        for cnpj, registry in classes.items():
+            fund_registry=funds.get((registry.get("ID_Registro_Fundo") or "").strip(), {})
+            fund_name=(registry.get("Denominacao_Social") or "").strip()
+            if not fund_name:
+                self._rejects.append({"reason":"class has no registered name","cnpj":cnpj})
+                continue
+            def parse_date(value: str | None) -> date | None:
+                try:
+                    return date.fromisoformat(value) if value else None
+                except ValueError:
+                    return None
+            def decimal(value: str | None) -> str | None:
+                value=(value or "").strip()
+                if "," in value:
+                    value=value.replace(".", "").replace(",", ".")
+                try:
+                    parsed=Decimal(value)
+                    return str(parsed) if parsed.is_finite() else None
+                except (InvalidOperation, ValueError):
+                    return None
+            grouped[cnpj]={
+                "source_fund_id": cnpj,
+                "name": fund_name,
+                "legal_name": fund_name,
+                "domicile_country": "BR",
+                "currency": "BRL",
+                "isin": None,
+                "provider": (fund_registry.get("Gestor") or "").strip() or None,
+                "manager": (fund_registry.get("Gestor") or "").strip() or None,
+                "administrator": (fund_registry.get("Administrador") or "").strip() or None,
+                "category": (registry.get("Classificacao") or registry.get("Classificacao_Anbima") or "").strip() or None,
+                "fund_type": (registry.get("Tipo_Classe") or "").strip() or None,
+                "inception_date": parse_date(registry.get("Data_Inicio") or registry.get("Data_Constituicao")),
+                "status": (registry.get("Situacao") or "").strip() or None,
+                "target_audience": (registry.get("Publico_Alvo") or "").strip() or None,
+                "net_assets": decimal(registry.get("Patrimonio_Liquido")),
+                "net_assets_date": parse_date(registry.get("Data_Patrimonio_Liquido")),
+                "official_url": REGISTRY_URL,
+                "_navs": [],
+            }
         for month_text in month_list:
             archive=zipfile.ZipFile(RAW/f"inf_diario_fi_{month_text}.zip")
             csv_name=next((n for n in archive.namelist() if n.lower().endswith(".csv")),None)
@@ -162,8 +209,13 @@ class CvmConnector(BaseConnector):
                     if not fund_name:
                         self._rejects.append({"reason":"class has no registered name","cnpj":cnpj,"subclass_id":native_sub,"date":valuation_date.isoformat()})
                         continue
-                    record=grouped.setdefault(source_fund_id,{"source_fund_id":source_fund_id,"name":fund_name,
-                      "domicile_country":"BR","currency":"BRL","isin":None,"_navs":[]})
+                    if source_fund_id not in grouped:
+                        record=deepcopy(grouped[cnpj])
+                        record["source_fund_id"]=source_fund_id
+                        record["name"]=fund_name
+                        record["legal_name"]=fund_name
+                        grouped[source_fund_id]=record
+                    record=grouped[source_fund_id]
                     record["_navs"].append({"source_fund_id":source_fund_id,"valuation_date":valuation_date.isoformat(),
                       "nav":str(nav),"currency":"BRL"})
         self._date_range=(start,end)
@@ -185,4 +237,3 @@ class CvmConnector(BaseConnector):
 
     def extract_nav_history(self,source_fund_id: str,start_date: date | None=None,end_date: date | None=None) -> Iterable[dict[str,Any]]:
         return ()
-

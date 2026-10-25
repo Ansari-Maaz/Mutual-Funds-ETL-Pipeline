@@ -70,7 +70,14 @@ class SecFundsConnector(BaseConnector):
                     continue
                 name = f"{series_name} — {class_name}" if series_name and class_name and series_name != class_name else (series_name or class_name)
                 output.setdefault(class_id, {"source_fund_id": class_id, "name": name,
-                    "domicile_country": "US", "currency": None, "isin": None})
+                    "legal_name": class_name or series_name,
+                    "domicile_country": "US", "currency": "USD", "isin": None,
+                    "provider": (row.get("Entity Name") or "").strip() or None,
+                    "manager": (row.get("Entity Name") or "").strip() or None,
+                    "fund_type": "Open-end mutual fund",
+                    "status": "Registered",
+                    "ticker": (row.get("Class Ticker") or "").strip() or None,
+                    "official_url": URL})
         self._records = list(output.values())
 
     def check_availability(self) -> dict[str, Any]:

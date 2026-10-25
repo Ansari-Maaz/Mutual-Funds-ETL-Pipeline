@@ -63,3 +63,4 @@
   .source-cell{min-width:175px}
   .table-wrap table{min-width:560px}
 }
+ .latest-nav{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid #dbe5e2;border-radius:10px;background:#f7fbfa;margin-bottom:18px}.latest-nav b{font-size:20px;color:#126b62}.latest-nav span{font-size:12px;color:#71807f}.source-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:#126b62;font-weight:700;font-size:12px}

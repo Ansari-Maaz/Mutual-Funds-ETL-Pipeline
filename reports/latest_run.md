@@ -1,12 +1,12 @@
 # Latest execution report
 
-Generated at: 2026-10-19T19:28:22.558665+00:00
+Generated at: 2026-10-20T18:38:39.025813+00:00
 
 ## Ingestion results
 
 | Source | Status | Funds extracted | Funds loaded | NAV observations upserted | Rejected rows | Error |
 |---|---|---:|---:|---:|---:|---|
-| cvm_open_fund_data | Succeeded | 25678 | 25678 | 252029 | 697 |  |
+| cvm_open_fund_data | Succeeded | 37875 | 37875 | 252065 | 697 |  |
 
 ## Database counts
 
@@ -17,7 +17,7 @@ Generated at: 2026-10-19T19:28:22.558665+00:00
 | cbi_authorised_ucits | 6725 | 0 |
 | cnmv_spanish_fund_register | 3116 | 0 |
 | csrc_public_fund_index | 14170 | 0 |
-| cvm_open_fund_data | 25678 | 252029 |
+| cvm_open_fund_data | 37875 | 252065 |
 | de_bde_nonmonetary_funds | 6400 | 0 |
 | dk_bde_nonmonetary_funds | 1486 | 0 |
 | fca_authorised_funds | 3975 | 0 |
@@ -29,7 +29,7 @@ Generated at: 2026-10-19T19:28:22.558665+00:00
 | lu_bde_nonmonetary_funds | 23955 | 0 |
 | nl_bde_nonmonetary_funds | 1306 | 0 |
 | sec_open_end_fund_classes | 39138 | 0 |
-| **Total** | **162584** | **252030** |
+| **Total** | **174781** | **252066** |
 - Database used: Configured project PostgreSQL database.
 - Raw snapshots are ignored by Git; source manifests record URLs, checksums, and sizes.
 - Source rejects are recorded in source-specific JSONL files under `reports/`.

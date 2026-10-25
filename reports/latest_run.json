@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-19T19:28:22.558665+00:00",
+  "generated_at": "2026-10-20T18:38:39.025813+00:00",
   "results": [
     {
       "source_id": "cvm_open_fund_data",
       "status": "Succeeded",
-      "records_extracted": 25678,
-      "records_loaded": 25678,
-      "navs_loaded": 252029,
+      "records_extracted": 37875,
+      "records_loaded": 37875,
+      "navs_loaded": 252065,
       "rejected_records": 697
     }
   ]

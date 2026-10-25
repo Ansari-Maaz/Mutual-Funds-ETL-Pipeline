@@ -4121,6 +4121,14 @@
   },
   {
     "source_id": "cvm_open_fund_data",
+    "source_fund_id": "00332266000131",
+    "name": "VIA PARQUE SHOPPING FUNDO DE INVESTIMENTO IMOBILIÁRIO DE RESPONSABILIDADE LIMITADA",
+    "domicile_country": "BR",
+    "currency": "BRL",
+    "isin": null
+  },
+  {
+    "source_id": "cvm_open_fund_data",
     "source_fund_id": "00346750000110",
     "name": "NECTON FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO",
     "domicile_country": "BR",
@@ -4161,6 +4169,14 @@
   },
   {
     "source_id": "cvm_open_fund_data",
+    "source_fund_id": "00613094000174",
+    "name": "FUNDO DE INVESTIMENTO IMOBILIÁRIO PANAMBY",
+    "domicile_country": "BR",
+    "currency": "BRL",
+    "isin": null
+  },
+  {
+    "source_id": "cvm_open_fund_data",
     "source_fund_id": "00743026000120",
     "name": "BANRISUL VIP FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA LONGO PRAZO RESPONSABILIDADE LIMITADA",
     "domicile_country": "BR",
@@ -4171,6 +4187,14 @@
     "source_id": "cvm_open_fund_data",
     "source_fund_id": "00756851000169",
     "name": "BB RENDA FIXA REFERENCIADO DI ÁGIL FUNDO DE INVESTIMENTO EM COTAS DE FIF RESPONSABILIDADE LIMITADA",
+    "domicile_country": "BR",
+    "currency": "BRL",
+    "isin": null
+  },
+  {
+    "source_id": "cvm_open_fund_data",
+    "source_fund_id": "00762723000128",
+    "name": "CENTRO TÊXTIL INTERNACIONAL FUNDO DE INVESTIMENTO IMOBILIÁRIO DE RESPONSABILIDADE LIMITADA",
     "domicile_country": "BR",
     "currency": "BRL",
     "isin": null
@@ -4625,6 +4649,14 @@
   },
   {
     "source_id": "cvm_open_fund_data",
+    "source_fund_id": "00868235000108",
+    "name": "HERMES FUNDO DE INVESTIMENTO IMOBILIÁRIO DE RESPONSABILIDADE LIMITADA",
+    "domicile_country": "BR",
+    "currency": "BRL",
+    "isin": null
+  },
+  {
+    "source_id": "cvm_open_fund_data",
     "source_fund_id": "00885758000154",
     "name": "SANTANDER PB JATOBÁ RENDA FIXA CRÉDITO PRIVADO - FUNDO DE  INVESTIMENTO FINANCEIRO",
     "domicile_country": "BR",
@@ -4643,6 +4675,14 @@
     "source_id": "cvm_open_fund_data",
     "source_fund_id": "00885762000112",
     "name": "BRADESCO H FIF - CLASSE DE  INVESTIMENTO RF REFERENCIADA DI LP TÍTULOS PÚBLICOS - RESP LIMITADA",
+    "domicile_country": "BR",
+    "currency": "BRL",
+    "isin": null
+  },
+  {
+    "source_id": "cvm_open_fund_data",
+    "source_fund_id": "00888897000131",
+    "name": "BTG PACTUAL HEDGE FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA",
     "domicile_country": "BR",
     "currency": "BRL",
     "isin": null
@@ -4755,46 +4795,6 @@
     "source_id": "cvm_open_fund_data",
     "source_fund_id": "01045435000115",
     "name": "WESTERN ASSET MULTIRENDA 10 FUNDO DE INVESTIMENTO EM COTAS DE FIF MULTIMERCADO RESPON LIMITADA",
-    "domicile_country": "BR",
-    "currency": "BRL",
-    "isin": null
-  },
-  {
-    "source_id": "cvm_open_fund_data",
-    "source_fund_id": "01063897000165",
-    "name": "ITAÚ SMALL CAP VALUATION FIF CIC EM AÇÕES RESP LIMITADA",
-    "domicile_country": "BR",
-    "currency": "BRL",
-    "isin": null
-  },
-  {
-    "source_id": "cvm_open_fund_data",
-    "source_fund_id": "01069185000153",
-    "name": "IU BNP PARIBAS CORPORATE VI FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA RESPONSABILIDADE LIMITADA",
-    "domicile_country": "BR",
-    "currency": "BRL",
-    "isin": null
-  },
-  {
-    "source_id": "cvm_open_fund_data",
-    "source_fund_id": "01071664000104",
-    "name": "NAZARIO FUNDO DE INVESTIMENTO FINANCEIRO EM AÇÕES",
-    "domicile_country": "BR",
-    "currency": "BRL",
-    "isin": null
-  },
-  {
-    "source_id": "cvm_open_fund_data",
-    "source_fund_id": "01103103000140",
-    "name": "BALANCED GROWTH FUNDO DE INVESTIMENTO FINANCEIRO EM COTAS DE FUNDOS DE INVESTIMENTO MULTIMERCADO",
-    "domicile_country": "BR",
-    "currency": "BRL",
-    "isin": null
-  },
-  {
-    "source_id": "cvm_open_fund_data",
-    "source_fund_id": "01107772000190",
-    "name": "CONCÓRDIA EXTRA FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA",
     "domicile_country": "BR",
     "currency": "BRL",
     "isin": null
@@ -12012,7 +12012,7 @@
     "source_fund_id": "C000000012",
     "name": "BNY Mellon Appreciation Fund, Inc. — Investor Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12020,7 +12020,7 @@
     "source_fund_id": "C000000023",
     "name": "BNY Mellon California AMT-Free Municipal Bond Fund, Inc. — Class Z",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12028,7 +12028,7 @@
     "source_fund_id": "C000000074",
     "name": "Small Cap Growth Stock Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12036,7 +12036,7 @@
     "source_fund_id": "C000000075",
     "name": "Large Cap Core Stock Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12044,7 +12044,7 @@
     "source_fund_id": "C000000076",
     "name": "Domestic Equity Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12052,7 +12052,7 @@
     "source_fund_id": "C000000077",
     "name": "Equity Income Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12060,7 +12060,7 @@
     "source_fund_id": "C000000078",
     "name": "Index 500 Stock Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12068,7 +12068,7 @@
     "source_fund_id": "C000000079",
     "name": "Active/Passive Moderate Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12076,7 +12076,7 @@
     "source_fund_id": "C000000080",
     "name": "Active/Passive Balanced Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12084,7 +12084,7 @@
     "source_fund_id": "C000000081",
     "name": "High Yield Bond Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12092,7 +12092,7 @@
     "source_fund_id": "C000000082",
     "name": "Select Bond Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12100,7 +12100,7 @@
     "source_fund_id": "C000000083",
     "name": "Government Money Market Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12108,7 +12108,7 @@
     "source_fund_id": "C000000084",
     "name": "Small Cap Value Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12116,7 +12116,7 @@
     "source_fund_id": "C000000085",
     "name": "Mid Cap Growth Stock Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12124,7 +12124,7 @@
     "source_fund_id": "C000000086",
     "name": "International Growth Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12132,7 +12132,7 @@
     "source_fund_id": "C000000087",
     "name": "INTERNATIONAL EQUITY PORTFOLIO — International Equity Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12140,7 +12140,7 @@
     "source_fund_id": "C000000088",
     "name": "Mid Cap Value Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12148,7 +12148,7 @@
     "source_fund_id": "C000000089",
     "name": "Index 400 Stock Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12156,7 +12156,7 @@
     "source_fund_id": "C000000090",
     "name": "Focused Appreciation Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12164,7 +12164,7 @@
     "source_fund_id": "C000000091",
     "name": "Growth Stock Portfolio",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12172,7 +12172,7 @@
     "source_fund_id": "C000000105",
     "name": "BNY Mellon Large Cap Securities Fund, Inc.",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12180,7 +12180,7 @@
     "source_fund_id": "C000000108",
     "name": "BNY Mellon Research Growth Fund, Inc. — Class Z",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12188,7 +12188,7 @@
     "source_fund_id": "C000000110",
     "name": "BNY Mellon Intermediate Municipal Bond Fund, Inc.",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12196,7 +12196,7 @@
     "source_fund_id": "C000000115",
     "name": "BNY Mellon Midcap Index Fund, Inc. — Investor Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12204,7 +12204,7 @@
     "source_fund_id": "C000000131",
     "name": "BNY Mellon Opportunistic Municipal Securities Fund — Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12212,7 +12212,7 @@
     "source_fund_id": "C000000133",
     "name": "BNY Mellon Opportunistic Municipal Securities Fund — Class C",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12220,7 +12220,7 @@
     "source_fund_id": "C000000134",
     "name": "BNY Mellon New Jersey Municipal Bond Fund, Inc. — Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12228,7 +12228,7 @@
     "source_fund_id": "C000000136",
     "name": "BNY Mellon New Jersey Municipal Bond Fund, Inc. — Class C",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12236,7 +12236,7 @@
     "source_fund_id": "C000000137",
     "name": "BNY Mellon Active MidCap Fund — Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12244,7 +12244,7 @@
     "source_fund_id": "C000000139",
     "name": "BNY Mellon Active MidCap Fund — Class C",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12252,7 +12252,7 @@
     "source_fund_id": "C000000140",
     "name": "BNY Mellon Active MidCap Fund — Class I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12260,7 +12260,7 @@
     "source_fund_id": "C000000142",
     "name": "BNY Mellon New York AMT-Free Municipal Bond Fund — Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12268,7 +12268,7 @@
     "source_fund_id": "C000000144",
     "name": "BNY Mellon New York AMT-Free Municipal Bond Fund — Class C",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12276,7 +12276,7 @@
     "source_fund_id": "C000000147",
     "name": "BNY Mellon Short Term Municipal Bond Fund — Class D",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12284,7 +12284,7 @@
     "source_fund_id": "C000000149",
     "name": "BNY Mellon Sustainable U.S. Equity Fund, Inc. — Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12292,7 +12292,7 @@
     "source_fund_id": "C000000151",
     "name": "BNY Mellon Sustainable U.S. Equity Fund, Inc. — Class C",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12300,7 +12300,7 @@
     "source_fund_id": "C000000152",
     "name": "BNY Mellon Sustainable U.S. Equity Fund, Inc. — Class I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12308,7 +12308,7 @@
     "source_fund_id": "C000000154",
     "name": "BNY Mellon Sustainable U.S. Equity Fund, Inc. — Class Z",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12316,7 +12316,7 @@
     "source_fund_id": "C000000155",
     "name": "BNY Mellon Worldwide Growth Fund, Inc. — Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12324,7 +12324,7 @@
     "source_fund_id": "C000000157",
     "name": "BNY Mellon Worldwide Growth Fund, Inc. — Class C",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12332,7 +12332,7 @@
     "source_fund_id": "C000000158",
     "name": "BNY Mellon Worldwide Growth Fund, Inc. — Class I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12340,7 +12340,7 @@
     "source_fund_id": "C000000251",
     "name": "BNY Dreyfus Treasury Obligations Cash Management — Institutional Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12348,7 +12348,7 @@
     "source_fund_id": "C000000252",
     "name": "BNY Dreyfus Treasury Obligations Cash Management — Investor Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12356,7 +12356,7 @@
     "source_fund_id": "C000000253",
     "name": "BNY Dreyfus Treasury Obligations Cash Management — Administrative Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12364,7 +12364,7 @@
     "source_fund_id": "C000000254",
     "name": "BNY Dreyfus Treasury Obligations Cash Management — Participant Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12372,7 +12372,7 @@
     "source_fund_id": "C000000255",
     "name": "BNY DREYFUS TREASURY SECURITIES CASH MANAGEMENT — Institutional Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12380,7 +12380,7 @@
     "source_fund_id": "C000000256",
     "name": "BNY DREYFUS TREASURY SECURITIES CASH MANAGEMENT — Investor Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12388,7 +12388,7 @@
     "source_fund_id": "C000000257",
     "name": "BNY DREYFUS TREASURY SECURITIES CASH MANAGEMENT — Administrative Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12396,7 +12396,7 @@
     "source_fund_id": "C000000258",
     "name": "BNY DREYFUS TREASURY SECURITIES CASH MANAGEMENT — Participant Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12404,7 +12404,7 @@
     "source_fund_id": "C000000265",
     "name": "BNY Dreyfus Money Market Fund — BNY Dreyfus Money Market Fund - Wealth Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12412,7 +12412,7 @@
     "source_fund_id": "C000000266",
     "name": "BNY Dreyfus Money Market Fund — BNY Dreyfus Money Market Fund - Service Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12420,7 +12420,7 @@
     "source_fund_id": "C000000286",
     "name": "BNY Dreyfus Government Cash Management — dreyfus government cash management - Investor Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12428,7 +12428,7 @@
     "source_fund_id": "C000000287",
     "name": "BNY Dreyfus Government Cash Management — dreyfus government cash mangement - Institutional Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12436,7 +12436,7 @@
     "source_fund_id": "C000000288",
     "name": "BNY Dreyfus Government Cash Management — dreyfus government cash management - Administrative Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12444,7 +12444,7 @@
     "source_fund_id": "C000000289",
     "name": "BNY Dreyfus Government Cash Management — Dreyfus Government Cash Management - Participant Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12452,7 +12452,7 @@
     "source_fund_id": "C000000290",
     "name": "BNY Dreyfus Government Securities Cash Management — Dreyfus Government Securities Cash Management - Investor Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12460,7 +12460,7 @@
     "source_fund_id": "C000000291",
     "name": "BNY Dreyfus Government Securities Cash Management — Dreyfus Government Securities Cash Management - Institutional Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12468,7 +12468,7 @@
     "source_fund_id": "C000000292",
     "name": "BNY Dreyfus Government Securities Cash Management — Dreyfus Government Securities Cash Management - Administrative Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12476,7 +12476,7 @@
     "source_fund_id": "C000000293",
     "name": "BNY Dreyfus Government Securities Cash Management — Dreyfus Government Securities Cash Management - Participant Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12484,7 +12484,7 @@
     "source_fund_id": "C000000294",
     "name": "BNY Mellon International Stock Index Fund — Investor Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12492,7 +12492,7 @@
     "source_fund_id": "C000000295",
     "name": "BNY Mellon S&P 500 Index Fund",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12500,7 +12500,7 @@
     "source_fund_id": "C000000296",
     "name": "BNY Mellon Smallcap Stock Index Fund — Investor Shares",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12508,7 +12508,7 @@
     "source_fund_id": "C000000304",
     "name": "Integrity Mid-North American Resources Fund — Integrity Mid-North American Resources Fund, Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12516,7 +12516,7 @@
     "source_fund_id": "C000000308",
     "name": "Integrity High Income Fund — Integrity High Income Fund Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12524,7 +12524,7 @@
     "source_fund_id": "C000000309",
     "name": "Integrity High Income Fund — Integrity High Income Fund Class C",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12532,7 +12532,7 @@
     "source_fund_id": "C000000337",
     "name": "INVESCO Energy Fund — Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12540,7 +12540,7 @@
     "source_fund_id": "C000000339",
     "name": "INVESCO Energy Fund — Class C",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12548,7 +12548,7 @@
     "source_fund_id": "C000000341",
     "name": "INVESCO Energy Fund — Investor Class",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12556,7 +12556,7 @@
     "source_fund_id": "C000000361",
     "name": "INVESCO Technology Fund — Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12564,7 +12564,7 @@
     "source_fund_id": "C000000363",
     "name": "INVESCO Technology Fund — Class C",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12572,7 +12572,7 @@
     "source_fund_id": "C000000365",
     "name": "INVESCO Technology Fund — Investor Class",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12580,7 +12580,7 @@
     "source_fund_id": "C000000366",
     "name": "INVESCO Dividend Income Fund — Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12588,7 +12588,7 @@
     "source_fund_id": "C000000368",
     "name": "INVESCO Dividend Income Fund — Class C",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12596,7 +12596,7 @@
     "source_fund_id": "C000000369",
     "name": "INVESCO Dividend Income Fund — Investor Class",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12604,7 +12604,7 @@
     "source_fund_id": "C000000395",
     "name": "Invesco Limited Term Municipal Income Fund — Class A",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12612,7 +12612,7 @@
     "source_fund_id": "C000000396",
     "name": "Invesco Limited Term Municipal Income Fund — Class A2",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12620,7 +12620,7 @@
     "source_fund_id": "C000000397",
     "name": "Invesco Premier Portfolio — Investor Class",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12628,7 +12628,7 @@
     "source_fund_id": "C000000400",
     "name": "Invesco Premier U.S. Government Money Portfolio — Investor Class",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12636,7 +12636,7 @@
     "source_fund_id": "C000000404",
     "name": "INVESCO V.I. Government Securities Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12644,7 +12644,7 @@
     "source_fund_id": "C000000405",
     "name": "INVESCO V.I. Government Securities Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12652,7 +12652,7 @@
     "source_fund_id": "C000000408",
     "name": "INVESCO V.I. High Yield Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12660,7 +12660,7 @@
     "source_fund_id": "C000000409",
     "name": "INVESCO V.I. High Yield Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12668,7 +12668,7 @@
     "source_fund_id": "C000000410",
     "name": "INVESCO V.I. EQV International Equity Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12676,7 +12676,7 @@
     "source_fund_id": "C000000411",
     "name": "INVESCO V.I. EQV International Equity Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12684,7 +12684,7 @@
     "source_fund_id": "C000000414",
     "name": "INVESCO V.I. Main Street Mid Cap Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12692,7 +12692,7 @@
     "source_fund_id": "C000000415",
     "name": "INVESCO V.I. Main Street Mid Cap Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12700,7 +12700,7 @@
     "source_fund_id": "C000000416",
     "name": "INVESCO V.I. Government Money Market Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12708,7 +12708,7 @@
     "source_fund_id": "C000000417",
     "name": "INVESCO V.I. Government Money Market Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12716,7 +12716,7 @@
     "source_fund_id": "C000000420",
     "name": "INVESCO V.I. Global Real Estate Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12724,7 +12724,7 @@
     "source_fund_id": "C000000421",
     "name": "INVESCO V.I. Global Real Estate Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12732,7 +12732,7 @@
     "source_fund_id": "C000000422",
     "name": "INVESCO V.I. Small Cap Equity Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12740,7 +12740,7 @@
     "source_fund_id": "C000000423",
     "name": "INVESCO V.I. Small Cap Equity Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12748,7 +12748,7 @@
     "source_fund_id": "C000000432",
     "name": "INVESCO V.I. Health Care Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12756,7 +12756,7 @@
     "source_fund_id": "C000000433",
     "name": "INVESCO V.I. Health Care Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12764,7 +12764,7 @@
     "source_fund_id": "C000000438",
     "name": "INVESCO V.I. Technology Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12772,7 +12772,7 @@
     "source_fund_id": "C000000439",
     "name": "INVESCO V.I. Technology Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12780,7 +12780,7 @@
     "source_fund_id": "C000000452",
     "name": "INVESCO V.I. Core Equity Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12788,7 +12788,7 @@
     "source_fund_id": "C000000453",
     "name": "INVESCO V.I. Core Equity Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12796,7 +12796,7 @@
     "source_fund_id": "C000000456",
     "name": "INVESCO V.I. Core Plus Bond Fund — Series I",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   },
   {
@@ -12804,7 +12804,7 @@
     "source_fund_id": "C000000457",
     "name": "INVESCO V.I. Core Plus Bond Fund — Series II",
     "domicile_country": "US",
-    "currency": null,
+    "currency": "USD",
     "isin": null
   }
 ]

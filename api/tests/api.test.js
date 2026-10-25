@@ -58,6 +58,29 @@ describe('REST API contract', () => {
     await request(app).get('/api/v1/funds/999').expect(404);
   });
 
+  test('fund details include source metadata and the latest NAV when available', async () => {
+    const query = vi.fn().mockResolvedValue({
+      rows: [{
+        ...funds[0],
+        provider: 'Official Asset Manager',
+        category: 'Equity',
+        source_organization: 'CVM',
+        source_name: 'Official fund data',
+        source_endpoint_url: 'https://dados.cvm.gov.br/',
+        latest_nav: '12.3400000000',
+        latest_nav_date: '2026-10-19',
+        latest_nav_currency: 'BRL',
+      }],
+    });
+    const res = await request(createApp({ pool: fakePool(query) })).get('/api/v1/funds/7').expect(200);
+    expect(res.body.data).toMatchObject({
+      provider: 'Official Asset Manager',
+      category: 'Equity',
+      latestNav: { value: '12.3400000000', date: '2026-10-19', currency: 'BRL' },
+      source: { organization: 'CVM', url: 'https://dados.cvm.gov.br/' },
+    });
+  });
+
   test('source checks reject a URL that is outside the documented official host', async () => {
     const query = vi.fn().mockResolvedValue({ rows: [{ source_id: 'cvm_open_fund_data', endpoint_url: 'https://example.org/steal' }] });
     const res = await request(createApp({ pool: fakePool(query) })).post('/api/v1/sources/cvm_open_fund_data/check').expect(422);

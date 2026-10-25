@@ -1,8 +1,33 @@
 const express = require('express');
 const { z } = require('zod');
 const router = express.Router();
+const dateOnly = (value) => value == null ? null : value instanceof Date ? value.toISOString().slice(0, 10) : String(value).slice(0, 10);
 const listQuery = z.object({ page: z.coerce.number().int().min(1).max(1_000_000).default(1), limit: z.coerce.number().int().min(1).max(100).default(25), country: z.string().length(2).optional(), currency: z.string().length(3).optional(), source: z.string().max(100).optional(), q: z.string().max(200).optional(), sort: z.enum(['name','country','currency','retrieved_at']).default('name'), order: z.enum(['asc','desc']).default('asc') });
-const jsonFund = (r) => ({ id: r.id, sourceId: r.source_id, sourceFundId: r.source_fund_id, name: r.name, country: r.domicile_country, currency: r.currency, isin: r.isin, retrievedAt: r.retrieved_at });
+const jsonFund = (r) => ({
+  id: r.id,
+  sourceId: r.source_id,
+  sourceFundId: r.source_fund_id,
+  name: r.name,
+  legalName: r.legal_name,
+  country: r.domicile_country,
+  currency: r.currency,
+  isin: r.isin,
+  provider: r.provider,
+  category: r.category,
+  fundType: r.fund_type,
+  inceptionDate: dateOnly(r.inception_date),
+  status: r.status,
+  officialUrl: r.official_url,
+  ticker: r.ticker,
+  manager: r.manager,
+  administrator: r.administrator,
+  netAssets: r.net_assets,
+  netAssetsDate: dateOnly(r.net_assets_date),
+  targetAudience: r.target_audience,
+  retrievedAt: r.retrieved_at,
+  source: r.source_organization ? { organization: r.source_organization, name: r.source_name, url: r.source_endpoint_url } : null,
+  latestNav: r.latest_nav == null ? null : { value: r.latest_nav, date: dateOnly(r.latest_nav_date), currency: r.latest_nav_currency },
+});
 
 router.get('/', async (req, res, next) => {
   try {
@@ -24,7 +49,22 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   if (!/^\d+$/.test(req.params.id)) return res.status(400).json({ error: { code: 'INVALID_ID', message: 'Fund id must be a positive integer' } });
   try {
-    const { rows } = await req.app.locals.pool.query('SELECT * FROM funds WHERE id=$1', [Number(req.params.id)]);
+    const { rows } = await req.app.locals.pool.query(`
+      SELECT f.*, s.organization AS source_organization, s.source_name,
+             s.endpoint_url AS source_endpoint_url,
+             latest.nav AS latest_nav, latest.valuation_date AS latest_nav_date,
+             latest.currency AS latest_nav_currency
+      FROM funds f
+      LEFT JOIN sources s ON s.source_id = f.source_id
+      LEFT JOIN LATERAL (
+        SELECT nav, valuation_date, currency
+        FROM nav_observations
+        WHERE fund_id = f.id
+        ORDER BY valuation_date DESC
+        LIMIT 1
+      ) latest ON true
+      WHERE f.id=$1
+    `, [Number(req.params.id)]);
     if (!rows.length) return res.status(404).json({ error: { code: 'FUND_NOT_FOUND', message: 'Fund not found' } });
     res.json({ data: jsonFund(rows[0]) });
   } catch (error) { next(error); }

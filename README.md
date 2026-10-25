@@ -14,6 +14,7 @@ The project was built for the MFAPIs global mutual-fund data assignment. It prio
 - Source manifests with URLs, download timestamps, file sizes, and SHA-256 hashes.
 - Express REST API with protected ETL controls and source connectivity checks.
 - React/Vite dashboard for source monitoring, fund search, NAV history, API exploration, and ETL run history.
+- Fund profile view with source-backed provider, category, fund type, status, inception date, latest NAV, and official source link when available.
 - Automated Python and API tests plus a production frontend build.
 
 ## Architecture
@@ -194,7 +195,11 @@ curl http://localhost:3001/api/v1/stats
 curl http://localhost:3001/api/v1/countries
 curl http://localhost:3001/api/v1/sources
 curl 'http://localhost:3001/api/v1/funds?country=BR&limit=25&page=1'
+curl http://localhost:3001/api/v1/funds/123
+curl 'http://localhost:3001/api/v1/funds/123/nav?limit=100'
 ```
+
+The individual fund response includes nullable profile attributes and the latest stored NAV. Missing values remain `null` and are displayed in the dashboard as unavailable from the source; the UI does not substitute financial values.
 
 Trigger a protected ETL run:
 
