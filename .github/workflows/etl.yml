@@ -30,7 +30,7 @@ jobs:
       - name: Apply database migrations
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: alembic upgrade head
+        run: python -m alembic upgrade head
 
       - name: Synchronize source catalogue
         env:
