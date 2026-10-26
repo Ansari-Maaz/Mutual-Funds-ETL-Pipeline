@@ -18392,6 +18392,726 @@
     "currency": "EUR"
   },
   {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000097610",
+    "fund_name": "Cava-Oblig",
+    "valuation_date": "2026-10-22",
+    "nav": "4291.9600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000285629",
+    "fund_name": "CamGestion ConvertiblesEuropeO",
+    "valuation_date": "2026-10-22",
+    "nav": "53.6700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000297632",
+    "fund_name": "Sirius",
+    "valuation_date": "2026-10-22",
+    "nav": "78.8900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000298721",
+    "fund_name": "Betelgeuse",
+    "valuation_date": "2026-10-22",
+    "nav": "75.5300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000299364",
+    "fund_name": "Afer-Sfer",
+    "valuation_date": "2026-10-22",
+    "nav": "81.2400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000937435",
+    "fund_name": "Bellatrix C",
+    "valuation_date": "2026-10-22",
+    "nav": "412.3000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000945891",
+    "fund_name": "Bellatrix D",
+    "valuation_date": "2026-10-22",
+    "nav": "310.4700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000970873",
+    "fund_name": "Insertion Emplois Dynamique",
+    "valuation_date": "2026-10-22",
+    "nav": "392.6500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000979403",
+    "fund_name": "Zelis Actions Europeennes",
+    "valuation_date": "2026-10-22",
+    "nav": "238.3900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007024393",
+    "fund_name": "Afer-Actions Euro ISR A",
+    "valuation_date": "2026-10-22",
+    "nav": "267.8000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007371810",
+    "fund_name": "VEGA Patrimoine",
+    "valuation_date": "2026-10-22",
+    "nav": "5042.7700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007430806",
+    "fund_name": "Decouvertes (d)",
+    "valuation_date": "2026-10-22",
+    "nav": "2468.1200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007495049",
+    "fund_name": "Hmg Rendement",
+    "valuation_date": "2026-10-22",
+    "nav": "3679.2200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010028902",
+    "fund_name": "BNPP Valeur Francaises ISR C",
+    "valuation_date": "2026-10-22",
+    "nav": "229.4200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010094789",
+    "fund_name": "Afer Patrimoine",
+    "valuation_date": "2026-10-22",
+    "nav": "595.3800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010094839",
+    "fund_name": "Afer Actions Monde",
+    "valuation_date": "2026-10-22",
+    "nav": "2151.5600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010128587",
+    "fund_name": "Bnpp Smcap Euroland Isr C Cl",
+    "valuation_date": "2026-10-22",
+    "nav": "648.3700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010135103",
+    "fund_name": "Carmignac Patrimoine A Eur",
+    "valuation_date": "2026-10-22",
+    "nav": "858.8200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010147603",
+    "fund_name": "Carmignac Invest.Latitude",
+    "valuation_date": "2026-10-22",
+    "nav": "444.4300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010148981",
+    "fund_name": "Carmignac Investissement A",
+    "valuation_date": "2026-10-22",
+    "nav": "3052.4100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010149120",
+    "fund_name": "Carmignac Securite AW Eur",
+    "valuation_date": "2026-10-22",
+    "nav": "1916.7300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010149161",
+    "fund_name": "Carmignac Court Terme",
+    "valuation_date": "2026-10-22",
+    "nav": "4058.3300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010149179",
+    "fund_name": "Carmignac Absolut Return Europ",
+    "valuation_date": "2026-10-22",
+    "nav": "409.0600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010149203",
+    "fund_name": "Carmignac Multi Expert. A EUR",
+    "valuation_date": "2026-10-22",
+    "nav": "233.5600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010149302",
+    "fund_name": "Carmignac Emergents",
+    "valuation_date": "2026-10-22",
+    "nav": "1752.2000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010241240",
+    "fund_name": "Hmg Globetrotter (c)",
+    "valuation_date": "2026-10-22",
+    "nav": "374.4000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010242461",
+    "fund_name": "VEGA Euro Opportunités",
+    "valuation_date": "2026-10-22",
+    "nav": "175.3600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010286005",
+    "fund_name": "Sextant Pea A",
+    "valuation_date": "2026-10-22",
+    "nav": "1143.8900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010286013",
+    "fund_name": "Sextant Grand Large A",
+    "valuation_date": "2026-10-22",
+    "nav": "490.6900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010321828",
+    "fund_name": "Echiquier Major",
+    "valuation_date": "2026-10-22",
+    "nav": "370.9800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010345769",
+    "fund_name": "CNP-Assur-Pierre",
+    "valuation_date": "2026-10-22",
+    "nav": "377.0900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010363648",
+    "fund_name": "SLGP Income Euro Selection P",
+    "valuation_date": "2026-10-22",
+    "nav": "178.2700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010458190",
+    "fund_name": "VEGA France Opportunités",
+    "valuation_date": "2026-10-22",
+    "nav": "206.3300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010491803",
+    "fund_name": "Echiquier Oblig",
+    "valuation_date": "2026-10-22",
+    "nav": "173.0600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010522193",
+    "fund_name": "CamGestion ConvertiblesEuropeI",
+    "valuation_date": "2026-10-22",
+    "nav": "211514.7600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010611293",
+    "fund_name": "Echiquier Arty",
+    "valuation_date": "2026-10-22",
+    "nav": "1870.2600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010734046",
+    "fund_name": "SLGP ValEuro Select R",
+    "valuation_date": "2026-10-22",
+    "nav": "53.5700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010734442",
+    "fund_name": "SLGP Green Bonds Investments P",
+    "valuation_date": "2026-10-22",
+    "nav": "49.7900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010734467",
+    "fund_name": "SLGP Green Bonds Investments R",
+    "valuation_date": "2026-10-22",
+    "nav": "35.2500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010772020",
+    "fund_name": "Bnp Paribas Deep Value Classic",
+    "valuation_date": "2026-10-22",
+    "nav": "326.7600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010821470",
+    "fund_name": "Afer Diversifie Durable ISR",
+    "valuation_date": "2026-10-22",
+    "nav": "918.1000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010859769",
+    "fund_name": "Echiquier Global",
+    "valuation_date": "2026-10-22",
+    "nav": "522.1700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010868174",
+    "fund_name": "Echiquier Global G",
+    "valuation_date": "2026-10-22",
+    "nav": "616.0100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011037894",
+    "fund_name": "VEGA Euro Rendement",
+    "valuation_date": "2026-10-22",
+    "nav": "156.9600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011050863",
+    "fund_name": "Sextant Europe A",
+    "valuation_date": "2026-10-22",
+    "nav": "225.6200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010076638",
+    "fund_name": "Bnp Paribas Horizon Equilibre",
+    "valuation_date": "2026-10-21",
+    "nav": "49.8500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010097667",
+    "fund_name": "CPR Croissance Défensive P",
+    "valuation_date": "2026-10-21",
+    "nav": "344.5400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010097683",
+    "fund_name": "CPR Croissance Reactive P",
+    "valuation_date": "2026-10-21",
+    "nav": "584.9700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010106450",
+    "fund_name": "Optigest Monde C",
+    "valuation_date": "2026-10-21",
+    "nav": "420.8000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010156604",
+    "fund_name": "Amundi Oblig International Eur",
+    "valuation_date": "2026-10-21",
+    "nav": "252.5700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010236760",
+    "fund_name": "Optigest Europe",
+    "valuation_date": "2026-10-21",
+    "nav": "193.6400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010836163",
+    "fund_name": "CPR Silver Age P",
+    "valuation_date": "2026-10-21",
+    "nav": "3062.4600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010915181",
+    "fund_name": "Palatine Eurp Su Empl Palatine",
+    "valuation_date": "2026-10-21",
+    "nav": "357.9200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010547869",
+    "fund_name": "Sextant Pme A",
+    "valuation_date": "2026-10-20",
+    "nav": "294.7300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007006457",
+    "fund_name": "Chaussier International",
+    "valuation_date": "2026-10-16",
+    "nav": "314.7900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007023304",
+    "fund_name": "Chaussier PME Croissance",
+    "valuation_date": "2026-10-16",
+    "nav": "165.3100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007497425",
+    "fund_name": "Chaussier Croissance",
+    "valuation_date": "2026-10-16",
+    "nav": "152.5600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010286021",
+    "fund_name": "Sextant Autour Du Monde A",
+    "valuation_date": "2025-04-16",
+    "nav": "243.3100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007389002",
+    "fund_name": "Cogefi Rendement P",
+    "valuation_date": "2019-06-19",
+    "nav": "504.7300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007079132",
+    "fund_name": "Cogefi Europe P",
+    "valuation_date": "2019-06-18",
+    "nav": "38.6800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010319418",
+    "fund_name": "Cogefi Europe I",
+    "valuation_date": "2019-06-18",
+    "nav": "1324.5500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010762518",
+    "fund_name": "Cogefi Prospective",
+    "valuation_date": "2019-06-18",
+    "nav": "101.9900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010790444",
+    "fund_name": "Cogefi Equilibre P",
+    "valuation_date": "2019-06-18",
+    "nav": "28.1300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011749613",
+    "fund_name": "Cogefi Chrysalide P",
+    "valuation_date": "2019-06-18",
+    "nav": "113.1100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010345793",
+    "fund_name": "CNP-Assur-Valeurs",
+    "valuation_date": "2019-05-06",
+    "nav": "184.6800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007070883",
+    "fund_name": "Echiquier Value",
+    "valuation_date": "2018-03-05",
+    "nav": "4274.6500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010321802",
+    "fund_name": "Echiquier Agressor",
+    "valuation_date": "2018-03-05",
+    "nav": "1958.5600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010321810",
+    "fund_name": "Echiquier Agenor",
+    "valuation_date": "2018-03-05",
+    "nav": "337.2500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010330902",
+    "fund_name": "Echiquier Agressor Pea",
+    "valuation_date": "2018-03-05",
+    "nav": "343.1100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010434019",
+    "fund_name": "Echiquier Patrimoine",
+    "valuation_date": "2018-03-05",
+    "nav": "926.5000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010979039",
+    "fund_name": "Echiquier Convertibles Europ D",
+    "valuation_date": "2018-03-05",
+    "nav": "11442.3800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011039304",
+    "fund_name": "Echiquier Arty R",
+    "valuation_date": "2018-03-05",
+    "nav": "1536.3200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011188150",
+    "fund_name": "Echiquier Agressor I",
+    "valuation_date": "2018-03-05",
+    "nav": "1819.5900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011188259",
+    "fund_name": "Echiquier Agenor I",
+    "valuation_date": "2018-03-05",
+    "nav": "2253.3300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011188267",
+    "fund_name": "Echiquier Global I",
+    "valuation_date": "2018-03-05",
+    "nav": "2246.3800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011188275",
+    "fund_name": "Echiquier Major I",
+    "valuation_date": "2018-03-05",
+    "nav": "1671.8600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011360700",
+    "fund_name": "Echiquier Value",
+    "valuation_date": "2018-03-05",
+    "nav": "212.1200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011404425",
+    "fund_name": "Echiquier Value D",
+    "valuation_date": "2018-03-05",
+    "nav": "192.4600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011435197",
+    "fund_name": "Echiquier Agressor Partage",
+    "valuation_date": "2018-03-05",
+    "nav": "1423.9500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011558246",
+    "fund_name": "Echiquier Entrepreneurs",
+    "valuation_date": "2018-03-05",
+    "nav": "205.0100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011645555",
+    "fund_name": "Echiquier Arty I",
+    "valuation_date": "2018-03-05",
+    "nav": "1188.9800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011667989",
+    "fund_name": "Echiquier Arty D",
+    "valuation_date": "2018-03-05",
+    "nav": "1090.7600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011829050",
+    "fund_name": "Echiquier Oblig I",
+    "valuation_date": "2018-03-05",
+    "nav": "109.1800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0012870657",
+    "fund_name": "Echiquier Global Allocation",
+    "valuation_date": "2018-03-05",
+    "nav": "110.8300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0012870673",
+    "fund_name": "Echiquier Global Allocation G",
+    "valuation_date": "2018-03-05",
+    "nav": "113.2900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0012870681",
+    "fund_name": "Echiquier Global Allocation I",
+    "valuation_date": "2018-03-05",
+    "nav": "1096.7800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0013084043",
+    "fund_name": "Echiquier Arty G",
+    "valuation_date": "2018-03-05",
+    "nav": "1094.2000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0013092467",
+    "fund_name": "Echiquier Prime Patrimoine",
+    "valuation_date": "2018-03-05",
+    "nav": "98.2600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0013111382",
+    "fund_name": "Echiquier Entrepreneurs G",
+    "valuation_date": "2018-03-05",
+    "nav": "1590.6700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0013184041",
+    "fund_name": "Echiquier Prime",
+    "valuation_date": "2018-03-05",
+    "nav": "106.4200000000",
+    "currency": "EUR"
+  },
+  {
     "source_id": "gsfm_unit_prices",
     "source_fund_id": "MAN0002AU",
     "fund_name": "Man AHL Alpha (AUD) Fund",

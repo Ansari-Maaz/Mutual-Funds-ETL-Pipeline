@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-26T10:34:46.894129+00:00",
+  "generated_at": "2026-10-26T10:38:00.486316+00:00",
   "results": [
     {
-      "source_id": "ch_six_fund_explorer_navs",
+      "source_id": "fr_lacotebleue_navs",
       "status": "Succeeded",
-      "records_extracted": 47,
-      "records_loaded": 47,
-      "navs_loaded": 47,
+      "records_extracted": 90,
+      "records_loaded": 90,
+      "navs_loaded": 90,
       "rejected_records": 0
     }
   ]

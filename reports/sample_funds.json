@@ -11544,6 +11544,726 @@
     "isin": null
   },
   {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000097610",
+    "name": "Cava-Oblig",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0000097610"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000285629",
+    "name": "CamGestion ConvertiblesEuropeO",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0000285629"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000297632",
+    "name": "Sirius",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0000297632"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000298721",
+    "name": "Betelgeuse",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0000298721"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000299364",
+    "name": "Afer-Sfer",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0000299364"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000937435",
+    "name": "Bellatrix C",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0000937435"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000945891",
+    "name": "Bellatrix D",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0000945891"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000970873",
+    "name": "Insertion Emplois Dynamique",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0000970873"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0000979403",
+    "name": "Zelis Actions Europeennes",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0000979403"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007006457",
+    "name": "Chaussier International",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0007006457"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007023304",
+    "name": "Chaussier PME Croissance",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0007023304"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007024393",
+    "name": "Afer-Actions Euro ISR A",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0007024393"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007070883",
+    "name": "Echiquier Value",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0007070883"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007079132",
+    "name": "Cogefi Europe P",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0007079132"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007371810",
+    "name": "VEGA Patrimoine",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0007371810"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007389002",
+    "name": "Cogefi Rendement P",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0007389002"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007430806",
+    "name": "Decouvertes (d)",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0007430806"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007495049",
+    "name": "Hmg Rendement",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0007495049"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0007497425",
+    "name": "Chaussier Croissance",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0007497425"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010028902",
+    "name": "BNPP Valeur Francaises ISR C",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010028902"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010076638",
+    "name": "Bnp Paribas Horizon Equilibre",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010076638"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010094789",
+    "name": "Afer Patrimoine",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010094789"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010094839",
+    "name": "Afer Actions Monde",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010094839"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010097667",
+    "name": "CPR Croissance Défensive P",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010097667"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010097683",
+    "name": "CPR Croissance Reactive P",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010097683"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010106450",
+    "name": "Optigest Monde C",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010106450"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010128587",
+    "name": "Bnpp Smcap Euroland Isr C Cl",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010128587"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010135103",
+    "name": "Carmignac Patrimoine A Eur",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010135103"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010147603",
+    "name": "Carmignac Invest.Latitude",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010147603"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010148981",
+    "name": "Carmignac Investissement A",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010148981"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010149120",
+    "name": "Carmignac Securite AW Eur",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010149120"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010149161",
+    "name": "Carmignac Court Terme",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010149161"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010149179",
+    "name": "Carmignac Absolut Return Europ",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010149179"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010149203",
+    "name": "Carmignac Multi Expert. A EUR",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010149203"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010149302",
+    "name": "Carmignac Emergents",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010149302"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010156604",
+    "name": "Amundi Oblig International Eur",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010156604"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010236760",
+    "name": "Optigest Europe",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010236760"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010241240",
+    "name": "Hmg Globetrotter (c)",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010241240"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010242461",
+    "name": "VEGA Euro Opportunités",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010242461"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010286005",
+    "name": "Sextant Pea A",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010286005"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010286013",
+    "name": "Sextant Grand Large A",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010286013"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010286021",
+    "name": "Sextant Autour Du Monde A",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010286021"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010319418",
+    "name": "Cogefi Europe I",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010319418"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010321802",
+    "name": "Echiquier Agressor",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010321802"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010321810",
+    "name": "Echiquier Agenor",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010321810"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010321828",
+    "name": "Echiquier Major",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010321828"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010330902",
+    "name": "Echiquier Agressor Pea",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010330902"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010345769",
+    "name": "CNP-Assur-Pierre",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010345769"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010345793",
+    "name": "CNP-Assur-Valeurs",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010345793"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010363648",
+    "name": "SLGP Income Euro Selection P",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010363648"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010434019",
+    "name": "Echiquier Patrimoine",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010434019"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010458190",
+    "name": "VEGA France Opportunités",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010458190"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010491803",
+    "name": "Echiquier Oblig",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010491803"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010522193",
+    "name": "CamGestion ConvertiblesEuropeI",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010522193"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010547869",
+    "name": "Sextant Pme A",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010547869"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010611293",
+    "name": "Echiquier Arty",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010611293"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010734046",
+    "name": "SLGP ValEuro Select R",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010734046"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010734442",
+    "name": "SLGP Green Bonds Investments P",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010734442"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010734467",
+    "name": "SLGP Green Bonds Investments R",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010734467"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010762518",
+    "name": "Cogefi Prospective",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010762518"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010772020",
+    "name": "Bnp Paribas Deep Value Classic",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010772020"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010790444",
+    "name": "Cogefi Equilibre P",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010790444"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010821470",
+    "name": "Afer Diversifie Durable ISR",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010821470"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010836163",
+    "name": "CPR Silver Age P",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010836163"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010859769",
+    "name": "Echiquier Global",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010859769"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010868174",
+    "name": "Echiquier Global G",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010868174"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010915181",
+    "name": "Palatine Eurp Su Empl Palatine",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010915181"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0010979039",
+    "name": "Echiquier Convertibles Europ D",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0010979039"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011037894",
+    "name": "VEGA Euro Rendement",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011037894"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011039304",
+    "name": "Echiquier Arty R",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011039304"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011050863",
+    "name": "Sextant Europe A",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011050863"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011188150",
+    "name": "Echiquier Agressor I",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011188150"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011188259",
+    "name": "Echiquier Agenor I",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011188259"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011188267",
+    "name": "Echiquier Global I",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011188267"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011188275",
+    "name": "Echiquier Major I",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011188275"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011360700",
+    "name": "Echiquier Value",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011360700"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011404425",
+    "name": "Echiquier Value D",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011404425"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011435197",
+    "name": "Echiquier Agressor Partage",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011435197"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011558246",
+    "name": "Echiquier Entrepreneurs",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011558246"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011645555",
+    "name": "Echiquier Arty I",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011645555"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011667989",
+    "name": "Echiquier Arty D",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011667989"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011749613",
+    "name": "Cogefi Chrysalide P",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011749613"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0011829050",
+    "name": "Echiquier Oblig I",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0011829050"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0012870657",
+    "name": "Echiquier Global Allocation",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0012870657"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0012870673",
+    "name": "Echiquier Global Allocation G",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0012870673"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0012870681",
+    "name": "Echiquier Global Allocation I",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0012870681"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0013084043",
+    "name": "Echiquier Arty G",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0013084043"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0013092467",
+    "name": "Echiquier Prime Patrimoine",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0013092467"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0013111382",
+    "name": "Echiquier Entrepreneurs G",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0013111382"
+  },
+  {
+    "source_id": "fr_lacotebleue_navs",
+    "source_fund_id": "FR-LCB-FR0013184041",
+    "name": "Echiquier Prime",
+    "domicile_country": "FR",
+    "currency": "EUR",
+    "isin": "FR0013184041"
+  },
+  {
     "source_id": "gsfm_unit_prices",
     "source_fund_id": "MAN0002AU",
     "name": "Man AHL Alpha (AUD) Fund",
