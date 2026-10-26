@@ -14416,6 +14416,806 @@
     "isin": "MT7000039640"
   },
   {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0052221412-A (EUR)",
+    "name": "Allianz Euro Cash",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0052221412"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0057107152-A (USD)",
+    "name": "Allianz Money Market US $",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0057107152"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0072229809-A (EUR)",
+    "name": "Best-in-One",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0072229809"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0087342167-ARTIFICIAL (USD)",
+    "name": "Allianz PIMCO High Yield Income Fund",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0087342167"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0147989353-A (EUR)",
+    "name": "MetallRente FONDS PORTFOLIO",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0147989353"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0158827195-A (EUR)",
+    "name": "Allianz Global Sustainability",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0158827195"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0158827518-AT (EUR)",
+    "name": "Allianz Global Sustainability",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0158827518"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0158827781-AT (USD)",
+    "name": "Allianz Global Sustainability",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0158827781"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0158827948-A (USD)",
+    "name": "Allianz Global Sustainability",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0158827948"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0158828326-CT (EUR)",
+    "name": "Allianz Global Sustainability",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0158828326"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0165915058-AT (EUR)",
+    "name": "Allianz European Opportunistic Bond",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0165915058"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0165915215-A (EUR)",
+    "name": "Allianz European Opportunistic Bond",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0165915215"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0165915488-CT (EUR)",
+    "name": "Allianz European Opportunistic Bond",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0165915488"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0165915991-I (EUR)",
+    "name": "Allianz European Opportunistic Bond",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0165915991"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0178431259-A (EUR)",
+    "name": "Allianz Treasury Short Term Plus Euro",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0178431259"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0178432067-I (EUR)",
+    "name": "Allianz Treasury Short Term Plus Euro",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0178432067"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0178439310-AT (EUR)",
+    "name": "Allianz Best Styles Euroland Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0178439310"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0178439401-A (EUR)",
+    "name": "Allianz Best Styles Euroland Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0178439401"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0178439666-CT (EUR)",
+    "name": "Allianz Best Styles Euroland Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0178439666"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0178440839-I (EUR)",
+    "name": "Allianz Best Styles Euroland Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0178440839"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0239367716-A (EUR)",
+    "name": "Allianz FinanzPlan 2030",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0239367716"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0239368102-A (EUR)",
+    "name": "Allianz FinanzPlan 2035",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0239368102"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0239368953-A (EUR)",
+    "name": "Allianz FinanzPlan 2040",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0239368953"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0239369506-A (EUR)",
+    "name": "Allianz FinanzPlan 2045",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0239369506"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0239384059-A (EUR)",
+    "name": "Allianz FinanzPlan 2050",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0239384059"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256839191-A (EUR)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256839191"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256839274-AT (EUR)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256839274"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256839860-CT (EUR)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256839860"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256839944-A (EUR)",
+    "name": "Allianz Euroland Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256839944"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256840447-AT (EUR)",
+    "name": "Allianz Euroland Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256840447"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256840793-CT (EUR)",
+    "name": "Allianz Euroland Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256840793"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256843979-A (EUR)",
+    "name": "Allianz US Equity Fund",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256843979"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256844787-CT (EUR)",
+    "name": "Allianz US Equity Fund",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256844787"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256863811-A (USD)",
+    "name": "Allianz US Equity Fund",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0256863811"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256863902-AT (USD)",
+    "name": "Allianz US Equity Fund",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0256863902"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256880153-I (EUR)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256880153"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256881128-IT (EUR)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256881128"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256881474-P (EUR)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256881474"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256881631-PT (EUR)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256881631"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256881987-W (EUR)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256881987"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256883504-WT (EUR)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256883504"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256884064-IT (EUR)",
+    "name": "Allianz Euroland Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256884064"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256884577-W (EUR)",
+    "name": "Allianz Euroland Equity Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0256884577"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0256905836-I (USD)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0256905836"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0261743842-C (EUR)",
+    "name": "Allianz FinanzPlan 2030",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0261743842"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0261744147-C (EUR)",
+    "name": "Allianz FinanzPlan 2035",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0261744147"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0261744907-C (EUR)",
+    "name": "Allianz FinanzPlan 2040",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0261744907"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0261745383-C (EUR)",
+    "name": "Allianz FinanzPlan 2045",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0261745383"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0261745896-C (EUR)",
+    "name": "Allianz FinanzPlan 2050",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0261745896"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0264555375-A (GBP)",
+    "name": "Allianz Europe Equity Growth",
+    "domicile_country": "LU",
+    "currency": "GBP",
+    "isin": "LU0264555375"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0268208047-C (EUR)",
+    "name": "PremiumMandat Balance",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0268208047"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0268210969-C (EUR)",
+    "name": "PremiumMandat Dynamik",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0268210969"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0268212239-A (EUR)",
+    "name": "Allianz Multi Asset Risk Control",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0268212239"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0279127962-AT (EUR)",
+    "name": "Allianz Strategie 2036 Plus",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0279127962"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293294277-AT (EUR)",
+    "name": "Allianz Enhanced Short Term Euro",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293294277"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293294434-CT (EUR)",
+    "name": "Allianz Enhanced Short Term Euro",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293294434"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293295324-I (EUR)",
+    "name": "Allianz Enhanced Short Term Euro",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293295324"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293295597-IT (EUR)",
+    "name": "Allianz Enhanced Short Term Euro",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293295597"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293313325-AT (EUR)",
+    "name": "Allianz High Dividend Emerging Markets Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293313325"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293313671-CT (EUR)",
+    "name": "Allianz High Dividend Emerging Markets Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293313671"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293313911-I (EUR)",
+    "name": "Allianz High Dividend Emerging Markets Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293313911"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293314059-IT (EUR)",
+    "name": "Allianz High Dividend Emerging Markets Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293314059"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293314216-AT (USD)",
+    "name": "Allianz High Dividend Emerging Markets Equity",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0293314216"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293315023-A (EUR)",
+    "name": "Allianz Europe Small Cap Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293315023"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293315296-AT (EUR)",
+    "name": "Allianz Europe Small Cap Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293315296"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293315536-P (EUR)",
+    "name": "Allianz Europe Small Cap Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293315536"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293315882-I (EUR)",
+    "name": "Allianz Europe Small Cap Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293315882"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0293315965-IT (EUR)",
+    "name": "Allianz Europe Small Cap Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0293315965"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0294427389-WT (EUR)",
+    "name": "Allianz Europe Small Cap Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0294427389"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0316909273-ARTIFICIAL (EUR)",
+    "name": "Flexible Portfolio",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0316909273"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0321021072-A (EUR)",
+    "name": "VermögensManagement Substanz",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0321021072"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0321021155-A (EUR)",
+    "name": "VermögensManagement Balance",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0321021155"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0321021312-A (EUR)",
+    "name": "VermögensManagement Wachstum",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0321021312"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0321021585-A (EUR)",
+    "name": "VermögensManagement Chance",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0321021585"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0322926154-A (EUR)",
+    "name": "VermögensManagement Einkommen Europa",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0322926154"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0342677829-A (EUR)",
+    "name": "Allianz Global Equity Unconstrained",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0342677829"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0342679015-AT (USD)",
+    "name": "Allianz Global Equity Unconstrained",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0342679015"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348723411-A (USD)",
+    "name": "Allianz Global Hi-Tech Growth",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348723411"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348724146-AT (EUR)",
+    "name": "Allianz Global Hi-Tech Growth",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0348724146"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348735423-A (USD)",
+    "name": "Allianz Hong Kong Equity",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348735423"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348738526-IT (USD)",
+    "name": "Allianz Hong Kong Equity",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348738526"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348740696-AT (EUR)",
+    "name": "Allianz India Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0348740696"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348740779-AT (USD)",
+    "name": "Allianz India Equity",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348740779"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348741405-CT (USD)",
+    "name": "Allianz India Equity",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348741405"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348742635-I (USD)",
+    "name": "Allianz India Equity",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348742635"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348744680-A (EUR)",
+    "name": "Allianz Asia Pacific Income",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0348744680"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348744763-A (USD)",
+    "name": "Allianz Asia Pacific Income",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348744763"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348751388-A (USD)",
+    "name": "Allianz Japan Equity",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348751388"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348752352-AT (EUR)",
+    "name": "Allianz Japan Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0348752352"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348753244-CT (H-EUR)",
+    "name": "Allianz Japan Equity",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0348753244"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348755371-IT (USD)",
+    "name": "Allianz Japan Equity",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348755371"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348766576-A (USD)",
+    "name": "Allianz Little Dragons",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348766576"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348767384-AT (USD)",
+    "name": "Allianz Little Dragons",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348767384"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348783233-A (USD)",
+    "name": "Allianz Oriental Income",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348783233"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348783662-A (H-USD)",
+    "name": "Allianz Oriental Income",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348783662"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348784041-AT (EUR)",
+    "name": "Allianz Oriental Income",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0348784041"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348784397-AT (USD)",
+    "name": "Allianz Oriental Income",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348784397"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348785444-CT (EUR)",
+    "name": "Allianz Oriental Income",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0348785444"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348785790-I (USD)",
+    "name": "Allianz Oriental Income",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348785790"
+  },
+  {
+    "source_id": "lu_allianz_daily_navs",
+    "source_fund_id": "LU-ALLIANZ-LU0348786764-IT (USD)",
+    "name": "Allianz Oriental Income",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0348786764"
+  },
+  {
     "source_id": "lu_bde_nonmonetary_funds",
     "source_fund_id": "LUK000282C00005",
     "name": "ASP-LUX SICAR S.A. - ASP - LUX SICAR S.A. - COMPARTMENT 5",

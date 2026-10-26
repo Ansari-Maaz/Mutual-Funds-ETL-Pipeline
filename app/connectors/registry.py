@@ -42,6 +42,7 @@ from app.connectors.ch_six_fund_explorer import ChSixFundExplorerConnector  # no
 from app.connectors.fr_lacotebleue import FrLaCoteBleueConnector  # noqa: E402
 from app.connectors.nl_euronext_funds import NlEuronextFundsConnector  # noqa: E402
 from app.connectors.lu_euronext_funds import LuEuronextFundsConnector  # noqa: E402
+from app.connectors.lu_allianz_daily_nav import LuAllianzDailyNavConnector  # noqa: E402
 
 register(CvmConnector.source_id,CvmConnector)
 register(CsrcConnector.source_id,CsrcConnector)
@@ -72,3 +73,4 @@ register(ChSixFundExplorerConnector.source_id,ChSixFundExplorerConnector)
 register(FrLaCoteBleueConnector.source_id,FrLaCoteBleueConnector)
 register(NlEuronextFundsConnector.source_id,NlEuronextFundsConnector)
 register(LuEuronextFundsConnector.source_id,LuEuronextFundsConnector)
+register(LuAllianzDailyNavConnector.source_id,LuAllianzDailyNavConnector)

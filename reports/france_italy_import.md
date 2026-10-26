@@ -29,3 +29,6 @@ The new `nl_euronext_fund_navs` connector imports **84** valid NL-prefixed Amste
 
 ## Luxembourg
 The new `lu_euronext_fund_navs` connector imports **49** LU-prefixed fund rows from Euronext's public all-markets CSV with ISIN, ticker, currency, valuation date, NAV/last price and name-based subcategory. The official [CSSF fund statistics and register](https://www.cssf.lu/en/statistics/) remains the Luxembourg regulatory source; CSSF's new fund-identification API requires an access agreement, and its public statistics do not provide a free bulk daily NAV feed. The existing Banco de España Luxembourg master remains the broader identity source.
+
+## Luxembourg official issuer NAV enrichment
+The new `lu_allianz_daily_navs` connector imports **1,895 LU-prefixed Allianz Global Investors share classes** from the issuer's public Luxembourg fund explorer JSON. Each row has ISIN, fund name, asset-class subcategory, SFDR category, share-class currency, NAV and valuation date. Source: [Allianz Luxembourg fund explorer](https://regulatory.allianzgi.com/en-gb/facilities-services/luxemburg-en/funds/mutual-funds). This is official issuer data for Allianz funds, not a claim that it covers every Luxembourg manager.

@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-26T11:25:12.135522+00:00",
+  "generated_at": "2026-10-26T11:31:40.168392+00:00",
   "results": [
     {
-      "source_id": "lu_euronext_fund_navs",
+      "source_id": "lu_allianz_daily_navs",
       "status": "Succeeded",
-      "records_extracted": 49,
-      "records_loaded": 49,
-      "navs_loaded": 49,
+      "records_extracted": 1895,
+      "records_loaded": 1895,
+      "navs_loaded": 1895,
       "rejected_records": 0
     }
   ]

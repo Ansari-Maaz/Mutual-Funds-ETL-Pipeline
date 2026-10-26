@@ -1,12 +1,12 @@
 # Latest execution report
 
-Generated at: 2026-10-26T11:25:12.135522+00:00
+Generated at: 2026-10-26T11:31:40.168392+00:00
 
 ## Ingestion results
 
 | Source | Status | Funds extracted | Funds loaded | NAV observations upserted | Rejected rows | Error |
 |---|---|---:|---:|---:|---:|---|
-| lu_euronext_fund_navs | Succeeded | 49 | 49 | 49 | 0 |  |
+| lu_allianz_daily_navs | Succeeded | 1895 | 1895 | 1895 | 0 |  |
 
 ## Database counts
 
@@ -32,6 +32,7 @@ Generated at: 2026-10-26T11:25:12.135522+00:00
 | hk_sfc_authorised_unit_trusts | 2255 | 0 |
 | it_bde_nonmonetary_funds | 1326 | 0 |
 | it_borsa_navs | 68 | 68 |
+| lu_allianz_daily_navs | 1895 | 1895 |
 | lu_bde_nonmonetary_funds | 23955 | 0 |
 | lu_euronext_fund_navs | 49 | 49 |
 | nl_bde_nonmonetary_funds | 1306 | 0 |
@@ -41,7 +42,7 @@ Generated at: 2026-10-26T11:25:12.135522+00:00
 | uk_ft_morningstar_prices | 253 | 253 |
 | uk_fundslibrary_unit_prices | 33 | 33 |
 | us_qqqm_etf | 1 | 1 |
-| **Total** | **181274** | **281648** |
+| **Total** | **183169** | **283543** |
 - Database used: Configured project PostgreSQL database.
 - Raw snapshots are ignored by Git; source manifests record URLs, checksums, and sizes.
 - Source rejects are recorded in source-specific JSONL files under `reports/`.
