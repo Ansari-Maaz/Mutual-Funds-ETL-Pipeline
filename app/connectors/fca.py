@@ -69,7 +69,11 @@ class FcaFundsConnector(BaseConnector):
                 if not product_id or not name:
                     continue
                 output.setdefault(product_id, {"source_fund_id": product_id, "name": name,
-                    "domicile_country": "GB", "currency": None, "isin": None})
+                    "domicile_country": "GB", "currency": None, "isin": None,
+                    "manager": (row.get("Operator Name") or "").strip() or None,
+                    "category": (row.get("Scheme Type") or row.get("Product Type") or "").strip() or None,
+                    "fund_type": (row.get("Product Type") or "Mutual fund").strip() or "Mutual fund",
+                    "status": row.get("Status", "").strip() or None})
         self._records = list(output.values())
 
     def check_availability(self) -> dict[str, Any]:

@@ -499,23 +499,3 @@ API tests use a mocked database adapter. The separate live integration check reu
 `GET /health`; `GET /api/v1/health/database`; `GET /api/v1/health/etl`; `GET /api/v1/countries`; `GET /api/v1/sources`; `GET /api/v1/sources/:id`; `POST /api/v1/sources/:id/check`; `GET /api/v1/funds`; `GET /api/v1/funds/:id`; `GET /api/v1/funds/:id/nav`; `GET /api/v1/stats`; `GET /api/v1/etl/runs`; `GET /api/v1/etl/runs/:id`; `POST /api/v1/etl/runs` (admin key required).
 
 Fund filtering supports `country`, `currency`, `source`, and `q`, with `page`, `limit` (maximum 100), `sort`, and `order`. The existing fund schema does not store manager, expense ratio, fund category, inception date, or descriptive history; those fields are intentionally absent. NAV history is available only for the funds that have persisted NAV observations. Records and source registry values are returned as stored; registered candidate countries are not claimed as integrated markets.
-
-### Initialize a Render production database
-
-The API's database health check only verifies connectivity. It does not apply schema migrations, register the source catalog, or run ETL. Local PostgreSQL data is not copied to Render, and the API must use Render's intended PostgreSQL `DATABASE_URL` explicitly.
-
-After confirming the Render API service's `DATABASE_URL` is the **Internal Database URL of the intended Render PostgreSQL instance** (or the intended external URL), deploy the application with Python dependencies available. In the Render service Shell, from the repository root, run:
-
-```sh
-./scripts/initialize-production.sh
-```
-
-This runs `alembic upgrade head` and the repeatable `sync-sources` upserts. It does not drop tables or remove funds/NAV observations. Then trigger ingestion through the dashboard's ETL control with the production `ADMIN_API_KEY`, or use:
-
-```sh
-curl -X POST "$RENDER_API_URL/api/v1/etl/runs" \
-  -H 'Content-Type: application/json' -H "X-API-Key: $ADMIN_API_KEY" \
-  -d '{"all":true}'
-```
-
-Poll the returned run ID at `/api/v1/etl/runs/<id>` until it finishes. Successful source outcomes and loaded record counts are required before expecting nonzero counts; only connectors that complete successfully contribute records. Confirm the dashboard's `/api/v1/stats`, `/api/v1/countries`, and `/api/v1/sources` responses after the run. Initialization is safe to repeat, while ETL provider requests and resulting upserts remain explicit ingestion actions.

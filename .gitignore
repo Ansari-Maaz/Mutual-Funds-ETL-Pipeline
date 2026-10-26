@@ -14,3 +14,5 @@ frontend/dist/
 global-mutual-fund-etl-submission.zip
 api/.env
 frontend/.env
+.venv/
+venv/

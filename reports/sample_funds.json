@@ -1600,6 +1600,1574 @@
     "isin": null
   },
   {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-011E9D7EFB1105D5458A",
+    "name": "Macquarie Australian Enhanced Plus Equities Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-014FC7FB04690A955774",
+    "name": "Antipodes Asia Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-040C2B805B2C06A13D47",
+    "name": "Morningstar Multi Asset Growth Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-0569EDC6343906C97793",
+    "name": "Firetrail Australian High Conviction Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-08E7CBD0594529352EE6",
+    "name": "Perpetual Income Share Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-096B74481BA8E7E5221A",
+    "name": "Vanguard International Credit Securities Index Fund (Hedged)",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-107B7C5F6AA69CC9777C",
+    "name": "Pengana International Equities Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-11A770F636BAD8381AFE",
+    "name": "Vanguard Global Infrastructure Index Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-1246A24E4889B3B390E0",
+    "name": "Greencape Australian Equities Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-16A034F15854B3890DE4",
+    "name": "Perpetual Balanced Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-1BA8F4E0CD76BBBB0A5F",
+    "name": "Vanguard Australian Shares High Yield Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-1E8E1CE6E821AA724E72",
+    "name": "Platinum European Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-2670F76934338F9228ED",
+    "name": "Perpetual Australian Share Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-275DEBAF917121CF1E9F",
+    "name": "Morningstar Multi Asset Real Return Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-29CE9FAD403E2F7D8E70",
+    "name": "Perpetual Industrial Share Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-2C42C4F58C629993681C",
+    "name": "Vanguard Ethically Conscious Growth Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-2F41BF260CD0CB8334AA",
+    "name": "Pengana Global Private Credit Trust",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-2F697256D6A497E952CD",
+    "name": "Morningstar Multi Asset All Growth Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-332C98A20A0559CAE12C",
+    "name": "Morningstar High Growth Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-38221C3F47F9F26D0399",
+    "name": "Fidelity Australian Equities Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-39067A4C170ABEEDB912",
+    "name": "Vanguard International Shares Index Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-391B25B74CE0571177AA",
+    "name": "Plato Australian Shares Income Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-3A5908C88DCA90D5957A",
+    "name": "Vanguard International Fixed Interest Index Fund (Hedged)",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-3B8E9D1AC7F81521E7AC",
+    "name": "Australian Ethical Australian Shares Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-40B8F6F958873C8C7088",
+    "name": "Australian Ethical Emerging Companies Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-419BB6B94F7BB5CCFD89",
+    "name": "Vanguard Global Active Managed Bond Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-43B8427069CF25A44AA0",
+    "name": "IFM Investors Australian Infrastructure Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-46AF31ED1BE7A8F47684",
+    "name": "Vanguard Conservative Index Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-4A489A1380F64E66895E",
+    "name": "L1 Capital Catalyst Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-4AE28EEAB950BD1680D2",
+    "name": "Bennelong Australian Equities Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-4E68E98F77CDE8ADE714",
+    "name": "Morningstar Balanced Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-4FBBA0DCF3350C82D6E4",
+    "name": "Macquarie Australian Shares Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-5137B755701AE068B1FF",
+    "name": "Vanguard Growth Index Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-518892D1828251C3F4B7",
+    "name": "Magellan Global Fund (Open Class)",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-51993A67BC2097AC83B9",
+    "name": "CFS Balanced Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-5DF436151326C24E1C17",
+    "name": "Vanguard Australian Fixed Interest Index Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-5EAD331DCA353E6DCD07",
+    "name": "First Sentier Global Listed Infrastructure Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-60ED06F285701E84C8A8",
+    "name": "Perpetual Wholesale International Share Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-640679B2F4C928CB062B",
+    "name": "Morningstar Conservative Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-64ACDC67C44422B048F3",
+    "name": "Vanguard Ethically Conscious High Growth Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-66386D554D64AA2E9390",
+    "name": "Vanguard Ethically Conscious Australian Shares Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-6681227125008182E0D9",
+    "name": "Platinum International Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-679E2CFD1D2001AB5BC8",
+    "name": "Tribeca Alpha Plus Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-6ECE5167C272ACFAECBD",
+    "name": "CFS Diversified Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-7234A45B2F3BE195917D",
+    "name": "PIMCO Global Bond Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-7A042D27300A7681082C",
+    "name": "CFS Imputation Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-7A40A997EEF8AB5D6AF3",
+    "name": "MFS Global Equity Trust",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-7B62F27C946928C4B373",
+    "name": "Maple-Brown Abbott Australian Shares Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-7C7D07EAADF84A09C06B",
+    "name": "Platinum Asia Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-7CEFFE69CC050B5F5A70",
+    "name": "Vanguard Australian Shares Index Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-8024F0430005B8230DA8",
+    "name": "CFS Global Resources Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-8359BDFCC30DF4F545C2",
+    "name": "Australian Ethical Balanced Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-83612EAC1F3E2AC178AF",
+    "name": "Australian Ethical Green & Sustainable Bond Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-877D73871C7592E53107",
+    "name": "NAOS Small Cap Opportunities Company Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-8DC4243FC838E5950FA5",
+    "name": "Vanguard Ethically Conscious Balanced Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-9CAA673D7BD32250DFE6",
+    "name": "Vanguard High Growth Index Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-A523D4A35B58FD9A72EA",
+    "name": "Perpetual Diversified Growth Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-A746F2F2DC0B03A84BA5",
+    "name": "Vanguard Australian Property Securities Index Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-A7CA58D3424EA65A33F3",
+    "name": "Vanguard Australian Corporate Fixed Interest Index Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-AB81F8D2868F87AA05C7",
+    "name": "Vanguard High Yield Australian Fixed Interest Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-ADEAC8418CB4B145DC16",
+    "name": "Macquarie Australian Equities Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-B1F761A9E66B35F32902",
+    "name": "Australian Ethical Moderate Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-B645852BB5A816CBF378",
+    "name": "Schroders Australian Equity Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-B698AB6F84FC247C9712",
+    "name": "Janus Henderson Global Natural Resources Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-B7D41554A7DB82585883",
+    "name": "CFS High Growth Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-B7E919D04BE1FD0EDA80",
+    "name": "Australian Ethical Bond Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-B829C346A955A07C054D",
+    "name": "Macquarie Diversified Fixed Interest Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-BBCBA86EC81C82F5F91F",
+    "name": "CFS Australian Share Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-BC48B83DBB13CFA1FF35",
+    "name": "Australian Ethical Income Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-BC82EA719EFEC53D3555",
+    "name": "SG Hiscock Property Securities Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-BCBBFAE4F29B07A3C508",
+    "name": "CFS Cash Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-BCD0B49F7EF758E37A18",
+    "name": "Perpetual Smaller Companies Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-BD22FBFF14C57A098F94",
+    "name": "Dimensional Global Core Equity Trust",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-BD694855C993B5501A6E",
+    "name": "Australian Ethical Conservative Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-BDC9C17A7B335AE40E43",
+    "name": "Macquarie Global Listed Infrastructure Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-C25721B0996DBBA1DF8C",
+    "name": "CFS Geared Share Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-C2BF5AFC58647855164C",
+    "name": "CFS Global Share Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-C323188B8C5117707EA0",
+    "name": "Vanguard Ethically Conscious Global Aggregate Bond Index Fund (Hedged)",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-C5C067BD2ED699A1AE90",
+    "name": "Vanguard Balanced Index Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-C7305A162624D1A487DC",
+    "name": "QIC Diversified Alternatives Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-D165BB02304C6FC70201",
+    "name": "CFS Conservative Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-D35A58097A229404D662",
+    "name": "Fidelity Global Equities Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-D4199572634255AD7115",
+    "name": "Munro Global Growth Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-D44E09409FC43ECDC126",
+    "name": "T. Rowe Price Global Equity Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-D67A7C88F502AC566ED1",
+    "name": "Australian Ethical High Conviction Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-DD1CDE2CE3873562D978",
+    "name": "Vanguard International Shares Index Fund - AUD Hedged",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-E4EB7482F39AEFAF9C61",
+    "name": "Regal Australian Long Short Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-E4F2E3AE7C605233710C",
+    "name": "Australian Ethical High Growth Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-E6864EB4F61DC203ECD5",
+    "name": "First Sentier Australian Shares Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-E736B63F975B9AF1BB6A",
+    "name": "Walter Scott Global Equity Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-ED29536FF5351E6428DC",
+    "name": "Vanguard Diversified Bonds Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-EED2D0F3C62F6961F0EA",
+    "name": "Hyperion Global Growth Companies Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-EFF3A5BAD92AEBA9F85B",
+    "name": "Antipodes Global Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-F12C408FB5D4DF9FBB73",
+    "name": "Colonial First State FirstChoice Global Share Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-F971731CC1E1F9ABB04E",
+    "name": "Macquarie Australian Small Companies Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "au_user_managed_funds",
+    "source_fund_id": "AU-MF-FE0A061DCA8E6FE49B2A",
+    "name": "Vanguard Cash Plus Fund",
+    "domicile_country": "AU",
+    "currency": "AUD",
+    "isin": null
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-A",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie A",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BF0",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BF0",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BF1",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BF1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BF2",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BF2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BF3",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BF3",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BFE",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BFE",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BFF",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BFF",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BFI",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BFI",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BFP",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BFP",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BM0",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BM0",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BM1",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BM1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BM2",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BM2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BOE",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BOE",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BOE0",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BOE0",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BOE1",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BOE1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BOE2",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BOE2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BOE3",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BOE3",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BOE4",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BOE4",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BOE5",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BOE5",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BOE6",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BOE6",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-BOE7",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie BOE7",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30071-EMP",
+    "name": "SURA FONDEO, S.A. DE C.V., F.I.I.D. - Serie EMP",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-A",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie A",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BF0",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BF0",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BF1",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BF1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BF2",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BF2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BFE",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BFE",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BFI",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BFI",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BFP",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BFP",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BM1",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BM1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BM2",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BM2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BOE0",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BOE0",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BOE2",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BOE2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BOE3",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BOE3",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30074-BOE4",
+    "name": "SURA RENTA VARIABLE, S.A. DE C.V., F.I.R.V. - Serie BOE4",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-A",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie A",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-E1",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-E1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-E2",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-E2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-E3",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-E3",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-F1",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-F1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-F2",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-F2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-F3",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-F3",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-F4",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-F4",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-FF",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-FF",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-M1",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-M1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-M2",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-M2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-M3",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-M3",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30099-B-N1",
+    "name": "COMPASS INVESTMENTS CATORCE, S.A. DE C.V., F.I.R.V. - Serie B-N1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30159-A",
+    "name": "GBM GLOBAL, S.A. DE C.V., F.I.R.V. - Serie A",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30159-B1",
+    "name": "GBM GLOBAL, S.A. DE C.V., F.I.R.V. - Serie B1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-A",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie A",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BE",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BE",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BE1",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BE1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BES",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BES",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BFF",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BFF",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BFFE",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BFFE",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BM",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BM",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BM1",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BM1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BME",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BME",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BMF",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BMF",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BMM",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BMM",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BMS",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BMS",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BO",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BO",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BO1",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BO1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BO2",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BO2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BOS",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BOS",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BX",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BX",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BX1",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BX1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BXE",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BXE",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BXE1",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BXE1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BXES",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BXES",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-30160-BXS",
+    "name": "GBM FONDO DE DEUDA INTERNACIONAL EN PESOS, S.A. DE C.V., F.I.R.V. - Serie BXS",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-A",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie A",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-EC",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie EC",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-F1",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie F1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-F2",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie F2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-F3",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie F3",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-FB",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie FB",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-FFR",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie FFR",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-FFX",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie FFX",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-FZ",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie FZ",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-M1",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie M1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-M2",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie M2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-MZ",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie MZ",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-X1",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie X1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-X2",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie X2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-X3",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie X3",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31266-XZ",
+    "name": "PRINCIPAL DEUDA LP, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie XZ",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-A",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie A",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-EC",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie EC",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-F1",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie F1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-F2",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie F2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-F3",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie F3",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-FB",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie FB",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-FFX",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie FFX",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-FZ",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie FZ",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-M1",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie M1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-M2",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie M2",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-MZ",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie MZ",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
+    "source_id": "bmv_mexico_funds",
+    "source_fund_id": "MX-BMV-31267-X1",
+    "name": "PRINCIPAL DEUDA R, S.A. DE C.V., FONDO DE INVERSIÓN EN INSTRUMENTOS DE DEUDA - Serie X1",
+    "domicile_country": "MX",
+    "currency": "MXN",
+    "isin": ""
+  },
+  {
     "source_id": "cbi_authorised_ucits",
     "source_fund_id": "0002803f3accad40fda46544",
     "name": "BlueDot UCITS ICAV",
@@ -5598,6 +7166,806 @@
     "domicile_country": "DE",
     "currency": null,
     "isin": null
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-BE0945682293",
+    "name": "DPAM B Equities US Behavioral Value L",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "BE0945682293"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-BE0948778213",
+    "name": "DPAM B Equities EMU  Behavioral Value L",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "BE0948778213"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0000295230",
+    "name": "Comgest Renaissance Europe C C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0000295230"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0007028493",
+    "name": "AMUNDI TRESO 6 MOIS I - C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0007028493"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0007038138",
+    "name": "AMUNDI EURO LIQUIDITY-RATED RESPONSIBLE I (C)",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0007038138"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0007061379",
+    "name": "AMUNDI STAR 2 AMUNDI STAR 2 I2-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0007061379"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0007435920",
+    "name": "AMUNDI EURO LIQUIDITY SHORT TERM RESPONSIBLE I-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0007435920"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0007450002",
+    "name": "CG Nouvelle Asie C C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0007450002"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010001206",
+    "name": "AMUNDI DYNARBITRAGE VAR 4 C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010001206"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010153320",
+    "name": "AMUNDI ACTIONS USA RESPONSABLE P-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010153320"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010157511",
+    "name": "AMUNDI STAR 2 AMUNDI STAR 2 I-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010157511"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010175232",
+    "name": "AMUNDI ACTIONS USA RESPONSABLE I-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010175232"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010251660",
+    "name": "AMUNDI EURO LIQUIDITY SELECT IC (C)",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010251660"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010319996",
+    "name": "AMUNDI ABS RESPONSIBLE I (C)",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010319996"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010363515",
+    "name": "Amundi Select Europe I - C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010363515"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010628644",
+    "name": "AMUNDI CREDIT EURO - I2 I2-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010628644"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010754127",
+    "name": "Amundi ETF Euro Inflation N/A-ACCU-EUR",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010754127"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010754135",
+    "name": "AMUNDI ETF GOVT BOND EURO BROAD INVESTMENT GRADE 1-3 UCITS ETF DR N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010754135"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010754143",
+    "name": "AMUNDI ETF GOVT BOND EURO BROAD INVESTMENT GRADE 10-15 UCITS ETF DR N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010754143"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010754168",
+    "name": "AMUNDI ETF GOVT BOND EURO BROAD INVESTMENT GRADE 3-5 UCITS ETF DR N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010754168"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010754176",
+    "name": "AMUNDI ETF GOVT BOND EURO BROAD INVESTMENT GRADE 5-7 UCITS ETF DR N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010754176"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010754184",
+    "name": "AMUNDI ETF GOVT BOND EURO BROAD INVESTMENT GRADE 7-10 UCITS ETF DR N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010754184"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010754192",
+    "name": "AMUNDI ETF GOVT BOND EUROMTS BROAD INVESTMENT GRADE UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010754192"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010754200",
+    "name": "AMUNDI ETF GOVIES 0-6 MONTHS EURO INVESTMENT GRADE UCITS ETF DR N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010754200"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010755199",
+    "name": "Axiom Obligataire Part C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010755199"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010816413",
+    "name": "AMUNDI TRESO 6 MOIS P - C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010816413"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010821728",
+    "name": "AMUNDI ETF ALL COMMODITIES S&P GSCI LIGHT ENERGY N/A",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0010821728"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010821744",
+    "name": "Amundi ETF COMMODITIES S&P GSCI METALS UCITS ETF C",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0010821744"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010821850",
+    "name": "AMUNDI ETF SHORT GOVT BOND EUROMTS BROAD INVESTMENT GRADE DAILY UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010821850"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010821876",
+    "name": "AMUNDI ETF SHORT GOVT BOND EUROMTS BROAD INVESTMENT GRADE 1-3 DAILY UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010821876"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010823385",
+    "name": "AMUNDI ETF SHORT GOVT BOND EUROMTS BROAD INVESTMENT GRADE 10-15 DAILY UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010823385"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010823401",
+    "name": "AMUNDI ETF SHORT GOVT BOND EUROMTS BROAD INVESTMENT GRADE 3-5 DAILY UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010823401"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010823443",
+    "name": "AMUNDI ETF SHORT GOVT BOND EUROMTS BROAD INVESTMENT GRADE 5-7 DAILY UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010823443"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010823450",
+    "name": "AMUNDI ETF SHORT GOVT BOND EUROMTS BROAD INVESTMENT GRADE 7-10 DAILY UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010823450"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010829697",
+    "name": "AMUNDI ENHANCED ULTRA SHORT TERM BOND SELECT P - C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010829697"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010830844",
+    "name": "AMUNDI ENHANCED ULTRA SHORT TERM BOND SELECT I - C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010830844"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010830885",
+    "name": "AMUNDI ENHANCED ULTRA SHORT TERM BOND SELECT E - C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010830885"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010871145",
+    "name": "Amundi ETF MSCI Switzerland B",
+    "domicile_country": null,
+    "currency": "CHF",
+    "isin": "FR0010871145"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010871160",
+    "name": "Amundi ETF MSCI World UCITS ETF B",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0010871160"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010871186",
+    "name": "Amundi ETF MSCI World Ex Europe UCITS ETF B",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0010871186"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010871202",
+    "name": "Amundi ETF MSCI Japan UCITS ETF B",
+    "domicile_country": null,
+    "currency": "JPY",
+    "isin": "FR0010871202"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010892190",
+    "name": "AMUNDI ETF GOVT BOND LOWEST RATED EUROMTS INVESTMENT GRADE UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010892190"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010912576",
+    "name": "AMUNDI ETF S&P 500 UCITS ETF B",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0010912576"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010930636",
+    "name": "AMUNDI ETF GOVT BOND HIGHEST RATED EUROMTS INVESTMENT GRADE UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010930636"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010959676",
+    "name": "AMUNDI ETF MSCI EMERGING MARKETS UCITS ETF A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010959676"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010959692",
+    "name": "AMUNDI ETF MSCI EMERGING MARKETS UCITS ETF B",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0010959692"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0010984963",
+    "name": "Amundi Select Europe I2 - C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0010984963"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011018316",
+    "name": "AMUNDI ETF MSCI EM ASIA UCITS ETF B",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0011018316"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011018324",
+    "name": "AMUNDI ETF MSCI EM LATIN AMERICA UCITS ETF B",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0011018324"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011020965",
+    "name": "AMUNDI ETF MSCI EM ASIA UCITS ETF A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011020965"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011020973",
+    "name": "AMUNDI ETF MSCI EM LATIN AMERICA UCITS ETF A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011020973"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011041045",
+    "name": "Amundi Oblig Internationales P - C",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0011041045"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011088657",
+    "name": "AMUNDI 3 - 6 M I-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011088657"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011159862",
+    "name": "Amundi Short Term Yield Solution E-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011159862"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011161215",
+    "name": "AMUNDI ETF GOVT BOND HIGHEST RATED EUROMTS INVESTMENT GRADE 1-3 UCITS ETF C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011161215"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011176635",
+    "name": "AMUNDI EURO LIQUIDITY SHORT TERM RESPONSIBLE E-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011176635"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011199371",
+    "name": "AMUNDI EQUILIBRE CLIMAT C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011199371"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011307099",
+    "name": "AMUNDI CASH INSTITUTIONS SRI DP-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011307099"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011307107",
+    "name": "AMUNDI CASH CORPORATE DP C/D",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011307107"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011314269",
+    "name": "AMUNDI PROTECTION 95 AMUNDI PROTECTION 95 Parts C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011314269"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011365212",
+    "name": "AMUNDI 3 - 6 M E-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011365212"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011399633",
+    "name": "AMUNDI EURO LIQUIDITY SHORT TERM GOVIES E-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011399633"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011799915",
+    "name": "AMUNDI EURO LIQUIDITY SELECT E-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011799915"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0011807015",
+    "name": "AMUNDI ETF GOVT BOND LOWEST RATED EUROMTS INVESTMENT GRADE 1-3 UCITS ETF C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0011807015"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012353431",
+    "name": "AMUNDI INDEX EQUITY EUROPE LOW CARBON I-EUR C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0012353431"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012353449",
+    "name": "AMUNDI INDEX EQUITY GLOBAL LOW CARBON I-EUR C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0012353449"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012355188",
+    "name": "AMUNDI INDEX EQUITY GLOBAL MULTI SMART ALLOCATION SCIENTIFIC BETA I-EUR C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0012355188"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012355253",
+    "name": "AMUNDI INDEX EQUITY GLOBAL MULTI SMART ALLOCATION SCIENTIFIC BETA I2-EUR C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0012355253"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012386530",
+    "name": "AMUNDI INDEX EQUITY GLOBAL LOW CARBON I2-EUR C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0012386530"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012386571",
+    "name": "AMUNDI INDEX EQUITY GLOBAL LOW CARBON P-EUR C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0012386571"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012395507",
+    "name": "AMUNDI INDEX EQUITY EUROPE LOW CARBON I2-EUR C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0012395507"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012395523",
+    "name": "AMUNDI INDEX EQUITY EUROPE LOW CARBON P-EUR C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0012395523"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012647451",
+    "name": "AMUNDI ETF FLOATING RATE USD CORPORATE UCITS ETF C",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0012647451"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012880417",
+    "name": "AMUNDI INDEX EQUITY EUROPE LOW CARBON I-USD C",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0012880417"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012880425",
+    "name": "AMUNDI INDEX EQUITY EUROPE LOW CARBON O-EUR C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0012880425"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012880433",
+    "name": "AMUNDI INDEX EQUITY GLOBAL LOW CARBON I-USD C",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0012880433"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0012880441",
+    "name": "AMUNDI INDEX EQUITY GLOBAL LOW CARBON O-EUR C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0012880441"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013016607",
+    "name": "AMUNDI EURO LIQUIDITY-RATED RESPONSIBLE I2 (C)",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013016607"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013016615",
+    "name": "AMUNDI EURO LIQUIDITY SHORT TERM RESPONSIBLE I2 (C)",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013016615"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013053444",
+    "name": "AMUNDI RESPONSIBLE INVESTING Euro corporate bond climate Part I2 EUR-C/D",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013053444"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013060126",
+    "name": "AMUNDI REVENUS AMUNDI REVENUS OR -C/D DIST EUR",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013060126"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013095312",
+    "name": "AMUNDI EURO LIQUIDITY SELECT I2-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013095312"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013108941",
+    "name": "AMUNDI 3 - 6 M AMUNDI 3 - 6 M I2-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013108941"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013140514",
+    "name": "AMUNDI ETF MSCI EUROPE MOMENTUM FACTOR UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013140514"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013140522",
+    "name": "AMUNDI ETF MSCI EUROPE QUALITY FACTOR UCITS ETF N/A",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013140522"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013155926",
+    "name": "AMUNDI LCR CREDIT EUROPE Part I-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013155926"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013155934",
+    "name": "AMUNDI LCR GOV EUROPE Part I-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013155934"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013201274",
+    "name": "AMUNDI 3 - 6 M I-USD C",
+    "domicile_country": null,
+    "currency": "USD",
+    "isin": "FR0013201274"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013240447",
+    "name": "AMUNDI ABS RESPONSIBLE L (C)",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013240447"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013289360",
+    "name": "AMUNDI ENHANCED ULTRA SHORT TERM BOND SELECT R (C)",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013289360"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013289402",
+    "name": "AMUNDI EURO LIQUIDITY-RATED RESPONSIBLE U (C)",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013289402"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013294766",
+    "name": "AMUNDI RESPONSIBLE INVESTING - Euro corporate bond climate GREEN BONDS, I CHF (C)",
+    "domicile_country": null,
+    "currency": "CHF",
+    "isin": "FR0013294766"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013295250",
+    "name": "AMUNDI RESPONSIBLE INVESTING - FR0013295250\tAMUNDI RESPONSIBLE INVESTING - AMUNDI RESPONSIBLE INVESTING - Euro corporate bond climate GREEN BONDS, R CHF (C)",
+    "domicile_country": null,
+    "currency": "CHF",
+    "isin": "FR0013295250"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013295896",
+    "name": "AMUNDI EQUILIBRE CLIMAT AMUNDI EQUILIBRE CLIMAT - R (C)",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013295896"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013308269",
+    "name": "AMUNDI YIELD-ENHANCED SOLUTION AMUNDI YIELD-ENHANCED SOLUTION C EUR",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013308269"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013335502",
+    "name": "AMUNDI ABS RESPONSIBLE I3-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013335502"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013340908",
+    "name": "AMUNDI RESPONSIBLE INVESTING EUROPEAN HIGH YIELD SRI Action R-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013340908"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013340916",
+    "name": "AMUNDI RESPONSIBLE INVESTING EUROPEAN HIGH YIELD SRI Action P-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013340916"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013340932",
+    "name": "EUROPEAN HIGH YIELD SRI AMUNDI RESPONSIBLE INVESTING - EUROPEAN HIGH YIELD SRI Action I-C",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013340932"
+  },
+  {
+    "source_id": "de_bundesanzeiger_navs",
+    "source_fund_id": "DE-BANZ-FR0013385051",
+    "name": "AMUNDI ENHANCED ULTRA SHORT TERM BOND SELECT R1 (C)",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "FR0013385051"
   },
   {
     "source_id": "dk_bde_nonmonetary_funds",
@@ -12008,6 +14376,806 @@
     "isin": null
   },
   {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-007c338ff2bb42d8085e",
+    "name": "Scotia Wealth Global Equity Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-0f09321d197e06f53a8c",
+    "name": "Scotia Wealth Focus International Value Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-113c394f0c24471d584f",
+    "name": "Scotia Wealth Focus U.S. Growth Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-15e67941d4b6af38cdc7",
+    "name": "Scotia Mortgage Income Fund - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-23446f03d2c344d4681d",
+    "name": "Scotia Wealth International Core Equity Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-2aa16654aa6ff9018e91",
+    "name": "Scotia U.S. $ Money Market Fund - Series M",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-4cc9ea080685686e4292",
+    "name": "Scotia India Equity Fund - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-4f69e59a92a6446bc361",
+    "name": "Scotia Wealth Global Infrastructure Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-51343bab83c1c3e0cf3b",
+    "name": "Scotia Dividend Balanced Fund - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-54c660d4f414d31b2c6f",
+    "name": "Scotia Money Market Fund - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-5805344c350be7881b13",
+    "name": "Scotia Canadian Dividend Fund - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-5aa5aa82b2973bfe0a01",
+    "name": "Scotia Wealth Global Infrastructure Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-5dd2cfdc2dfdf4f81e29",
+    "name": "Scotia Wealth U.S. Dividend Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-6a58a59cf91da2e41641",
+    "name": "Scotia Wealth Real Estate Income Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-6bdff4574972e69ec143",
+    "name": "Scotia Wealth U.S. Large Cap Growth Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-730eb5f1176710f296d2",
+    "name": "Scotia Wealth Short-Mid Government Bond Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-7881cd35bc4d5b901088",
+    "name": "Scotia Wealth International Core Equity Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-788c478194c5fadd2c76",
+    "name": "Scotia Wealth Canadian Bond Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-809a99373c89f081aa5b",
+    "name": "Scotia Wealth World Infrastructure Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-830aa15251eaf133bb08",
+    "name": "Scotia Wealth Total Return Bond Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-86f85477ec71d128c904",
+    "name": "Scotia Low Carbon Global Equity Fund - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-88a257fa3a373391538f",
+    "name": "Scotia U.S. $ Bond Fund - Series M",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-8ac69088dba085a97479",
+    "name": "Scotia Wealth Quantitative Canadian Small Cap Equity Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-8dd411597ad882ecfea9",
+    "name": "Scotia Wealth Focus U.S. Value Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-91d4f13f33f27364370b",
+    "name": "Scotia Wealth Focus International Value Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-94f5b1170917dca0c109",
+    "name": "Scotia Wealth Focus U.S. Value Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-9565166b3a941bba5ed2",
+    "name": "Scotia Wealth Global High Yield Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-9ef7881e0136e488b6cd",
+    "name": "Scotia Wealth Emerging Markets Pool - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-9fa1aff1d6f0cb031c93",
+    "name": "Scotia Low Carbon Canadian Fixed Income Fund - Series M",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS101|I|CAD",
+    "name": "Scotia Wealth Emerging Markets Pool - Series I",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1312|A|CAD",
+    "name": "Scotia Global Dividend Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1330|A|CAD",
+    "name": "Scotia INNOVA Income Portfolio Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1331|A|CAD",
+    "name": "Scotia INNOVA Balanced Income Portfolio Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1332|A|CAD",
+    "name": "Scotia INNOVA Balanced Growth Portfolio Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1333|A|CAD",
+    "name": "Scotia INNOVA Growth Portfolio Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1334|A|CAD",
+    "name": "Scotia INNOVA Maximum Growth Portfolio Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1346|A|CAD",
+    "name": "Scotia Partners Balanced Income Portfolio Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1347|A|CAD",
+    "name": "Scotia Partners Balanced Growth Portfolio Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1348|A|CAD",
+    "name": "Scotia Partners Growth Portfolio Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1349|A|CAD",
+    "name": "Scotia Partners Maximum Growth Portfolio Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1369|A|CAD",
+    "name": "Scotia Canadian Equity Blend Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1370|A|CAD",
+    "name": "Scotia U.S. Equity Blend Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1385|A|CAD",
+    "name": "Scotia Canadian Dividend Class - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1431|T|CAD",
+    "name": "Scotia INNOVA Balanced Income Portfolio Class - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1432|T|CAD",
+    "name": "Scotia INNOVA Balanced Growth Portfolio Class - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1433|T|CAD",
+    "name": "Scotia INNOVA Growth Portfolio Class - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1434|T|CAD",
+    "name": "Scotia INNOVA Maximum Growth Portfolio Class - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1446|T|CAD",
+    "name": "Scotia Partners Balanced Income Portfolio Class - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1447|T|CAD",
+    "name": "Scotia Partners Balanced Growth Portfolio Class - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1448|T|CAD",
+    "name": "Scotia Partners Growth Portfolio Class - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS1449|T|CAD",
+    "name": "Scotia Partners Maximum Growth Portfolio Class - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS2201|A|CAD",
+    "name": "Scotia Essentials Income Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS2204|A|CAD",
+    "name": "Scotia Essentials Balanced Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS2207|A|CAD",
+    "name": "Scotia Essentials Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS2210|A|CAD",
+    "name": "Scotia Essentials Maximum Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS267|A|CAD",
+    "name": "Scotia Low Carbon Global Balanced Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS268|A|CAD",
+    "name": "Scotia Low Carbon Canadian Fixed Income Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS269|A|CAD",
+    "name": "Scotia Low Carbon Global Equity Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS2801|T|CAD",
+    "name": "Scotia Essentials Income Portfolio - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS2804|T|CAD",
+    "name": "Scotia Essentials Balanced Portfolio - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS2807|T|CAD",
+    "name": "Scotia Essentials Growth Portfolio - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS2810|T|CAD",
+    "name": "Scotia Essentials Maximum Growth Portfolio - Series T",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS307|A|CAD",
+    "name": "Scotia India Equity Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS308|A US$|USD",
+    "name": "Scotia U.S. $ Balanced Fund - Series A US$",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS310|A|CAD",
+    "name": "Scotia Dividend Balanced Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS311|A|CAD",
+    "name": "Scotia Global Balanced Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS312|A|CAD",
+    "name": "Scotia Global Dividend Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS313|A|CAD",
+    "name": "Scotia Partners Income Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS330|A|CAD",
+    "name": "Scotia INNOVA Income Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS331|A|CAD",
+    "name": "Scotia INNOVA Balanced Income Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS332|A|CAD",
+    "name": "Scotia INNOVA Balanced Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS333|A|CAD",
+    "name": "Scotia INNOVA Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS334|A|CAD",
+    "name": "Scotia INNOVA Maximum Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS3353|A US$|USD",
+    "name": "Scotia U.S. Equity Fund - Series A US$",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS338|A|CAD",
+    "name": "Scotia Selected Income Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS339|A|CAD",
+    "name": "Scotia Diversified Monthly Income Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS340|A|CAD",
+    "name": "Scotia Selected Balanced Income Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS341|A|CAD",
+    "name": "Scotia Selected Balanced Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS342|A|CAD",
+    "name": "Scotia Selected Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS344|A|CAD",
+    "name": "Scotia Selected Maximum Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS346|A|CAD",
+    "name": "Scotia Partners Balanced Income Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS347|A|CAD",
+    "name": "Scotia Partners Balanced Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS348|A|CAD",
+    "name": "Scotia Partners Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS349|A|CAD",
+    "name": "Scotia Partners Maximum Growth Portfolio - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS350|A|CAD",
+    "name": "Scotia Canadian Equity Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS353|A|CAD",
+    "name": "Scotia U.S. Equity Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS357|A|CAD",
+    "name": "Scotia Money Market Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS359|A US$|USD",
+    "name": "Scotia U.S. $ Bond Fund - Series A US$",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS361|A|CAD",
+    "name": "Scotia Mortgage Income Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS362|A|CAD",
+    "name": "Scotia Resource Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS371|A|CAD",
+    "name": "Scotia Diversified Balanced Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS372|A|CAD",
+    "name": "Scotia Canadian Growth Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS373|A|CAD",
+    "name": "Scotia U.S. Dividend Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS374|A|CAD",
+    "name": "Scotia Global Growth Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS375|A US$|USD",
+    "name": "Scotia U.S. $ Money Market Fund - Series A US$",
+    "domicile_country": "CA",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS377|A|CAD",
+    "name": "Scotia Canadian Income Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS378|A|CAD",
+    "name": "Scotia Canadian Balanced Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS379|A|CAD",
+    "name": "Scotia Global Bond Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS381|A|CAD",
+    "name": "Scotia Canadian Equity Index Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
+    "source_id": "scotia_canada_daily_nav",
+    "source_fund_id": "CA-SCOTIA-BNS382|A|CAD",
+    "name": "Scotia U.S. Equity Index Fund - Series A",
+    "domicile_country": "CA",
+    "currency": "CAD",
+    "isin": null
+  },
+  {
     "source_id": "sec_open_end_fund_classes",
     "source_fund_id": "C000000012",
     "name": "BNY Mellon Appreciation Fund, Inc. — Investor Shares",
@@ -12806,5 +15974,1077 @@
     "domicile_country": "US",
     "currency": "USD",
     "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-0007EA7850D2",
+    "name": "Algebris Financial Income I EUR",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-02EDD063FBF6",
+    "name": "Superfund Blockchain",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-0351C0BBE62C",
+    "name": "Guinness Global Quality Mid Cap Y Gbp Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-03DEB3116E8E",
+    "name": "Balanced Fund Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-052A0E7F358D",
+    "name": "Sico Gulf Equity Fund",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-0574A26C3CF5",
+    "name": "Algebris Global Credit Opportunities I USD",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-06D58201B4F0",
+    "name": "Artemis Income I Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-06DE0C544F83",
+    "name": "GBP Distributing Share Class (H)",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-09FD4B471F1A",
+    "name": "Janus Henderson China Opp Fund A Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-0A58FDB1E6C6",
+    "name": "CPS-Master Private Fund",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-0C63C6F42A1E",
+    "name": "c ex Japan P-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-0C75E039C72C",
+    "name": "GBP Distributing Class (H)",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-0C89F6CBD6DE",
+    "name": "EUR Accumulating Share Class",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-0D6E648BB44C",
+    "name": "Growth Strategy",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-0E788D5BEB65",
+    "name": "Global Total Fd PCG A",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-114297D4DB3D",
+    "name": "Allocator World Fund W-Acc-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-12C0F57D34D1",
+    "name": "Janus Henderson UK Eq Inc & Grwth Fd A Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-160667B9012D",
+    "name": "ed Futures-I-Cap",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-16136A1768C9",
+    "name": "Candriam Bonds Emerg Mkt-C-Cap",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-16C3D2CC1C1D",
+    "name": "Gate Village 5, Level 4, Unit 11, DIFC, Multi Asset Open Defen W-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-176F6EC2864E",
+    "name": "CAM Gti VCC",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-18AD214AD224",
+    "name": "Algebris Financial Credit I USD",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-19D28C539DDF",
+    "name": "CAM-GTF VCC",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-1B36137C5630",
+    "name": "Artemis SmartGARP Glo Eq I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-1BF3C50715A0",
+    "name": "Superfund Trend",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-1BF815075F42",
+    "name": "Janus Henderson Multi-Mgr Actv Fd A Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-1C301DC9B318",
+    "name": "Algebris Global Credit Opportunities I EUR",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-1D3D82C22CEC",
+    "name": "Global Total Fd PCG B",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-1D8B2586275D",
+    "name": "Asia Funds W-Acc-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-217647F766C9",
+    "name": "Sustainable Water & Waste W-INC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-2189B4EDF5ED",
+    "name": "Trojan Global Income O Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-22855BA1FF94",
+    "name": "American Special Sits W-Acc-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-22CB9E54D9B8",
+    "name": "Royal London Sustainable Leaders A Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-233B793B9C3D",
+    "name": "Trojan Ethical O Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-24C1A522403A",
+    "name": "SICO Capital Money Market SAR",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-253FF47740F2",
+    "name": "Janus Henderson Cautious Mngd Fund A Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-25AD069B9E2D",
+    "name": "Candriam Equities L Biotecth-C-Cap",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-25C8300FCC86",
+    "name": "Candriam Sust GlblHighYield-I-Cap",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-268470ED7A1D",
+    "name": "Candriam Sust Eq World-C-Cap",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-2833E205897F",
+    "name": "Index UK P-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-2845D1986ED8",
+    "name": "Janus Henderson UK Alpha Fund A Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-2969F7EC9233",
+    "name": "EdenTree Sustainable Managed Income A",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-2DC1E64F8362",
+    "name": "Artemis UK Smaller Cos I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-2DED66FC660F",
+    "name": "Global Special Sits W-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-32B8B139F7DA",
+    "name": "GBP Distributing Share Class",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-3419C9AEC94A",
+    "name": "Index Emerging Markets P-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-3543D808B871",
+    "name": "Superfund Gold Silver + Mining",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-364C67470FF6",
+    "name": "Candriam Equities L Eurp Opt Olit -I-Cap",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-370C9D503ED4",
+    "name": "Trojan Ethical Income O Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-376B7E2D02F3",
+    "name": "Balanced Strategy",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-3829CA6F0AED",
+    "name": "UK Smaller Companies W-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-38BD4776E166",
+    "name": "Capital Gearing Portfolio GBP V",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-38D86A351438",
+    "name": "NYLIM GF US High YieldCorp Bond-R-Cap",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-393DD240CC73",
+    "name": "CP Global Alpha Fund",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-39E011F4522B",
+    "name": "Sust Multi Asset Con. Fd W-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-3A7729AD7501",
+    "name": "EdenTree Sustainable UK Equity Opp A",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-3B7585ECB67B",
+    "name": "Income Fund Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-3C676046E234",
+    "name": "CP Dual-Purpose Fund",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-3C705C10AD79",
+    "name": "Balanced Fund Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-3CC9FDF04C89",
+    "name": "High Income Bond Fund B Quarterly",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-3E53B49D0262",
+    "name": "Global Dividend Fund W-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-3E7477972E41",
+    "name": "High Growth Strategy GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-42F07C647225",
+    "name": "Algebris Global Credit Opportunities I GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-431B9DEE2EC8",
+    "name": "Artemis UK Select Fund Class I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-43864736BB94",
+    "name": "Index Japan P-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-440CA9A74A76",
+    "name": "Janus Henderson US Growth Fund A Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-45898A62098E",
+    "name": "ASB Global Technology",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-45EC87C5407D",
+    "name": "Artemis SmartGARP UK Eq I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-46E113564351",
+    "name": "Candriam Equities Onco impt-I-Cap",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-48F015C43BA5",
+    "name": "Sustainable Asia Equity Fund W-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-4AEB0D080792",
+    "name": "EUR Accumulating Class",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-4AF6523E6C04",
+    "name": "Superfund Trend Gold",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-4E57187A32E4",
+    "name": "Multi Asset Open Advent W-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-501537762EA9",
+    "name": "GBP Accumulating Share Class",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-50859F07B4C5",
+    "name": "USD Distributing Class",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-517E7B25565E",
+    "name": "Global Enhanced W-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-523C9A4111D9",
+    "name": "ed A Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-525E7ACF0500",
+    "name": "Smaller Companies Fund Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5283298568C7",
+    "name": "SICO Kingdom Equity Fund SAR",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5299250D81EE",
+    "name": "c Opps W-Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-53F80FD2AD3D",
+    "name": "Candriam Long Short Credit R-Cap",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-542D70261C00",
+    "name": "Algebris Global Equity Select B EUR",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5549D529C9FA",
+    "name": "Algebris Core Italy R EUR",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5716F0BEBE95",
+    "name": "Sust Multi Asset Balanced Fund W-ACC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-577851708026",
+    "name": "Multi Asset Inc & Grwth Fund W-INC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-57FA47C3AEF3",
+    "name": "Artemis Short-Dn Strat Bond",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5A46584F096C",
+    "name": "Multi Asset Income Fund W-INC-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5AB163510383",
+    "name": "Algebris Strategic Credit Fund R EUR",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5B81C76F195B",
+    "name": "Nutshell Growth Fund Gbp Inst Founder",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5BA28AD22751",
+    "name": "Candriam Bonds Gbl Hi Yield -C Cap",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5BB6C7B2BB83",
+    "name": "Artemis US Select I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5BF050EB1284",
+    "name": "The Equity Idx Tracker Fd Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5DCA285352DB",
+    "name": "Strategic Bond Fund P-Acc-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5E1A4E29DE3D",
+    "name": "Trojan Fund Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-5FF2AE546D37",
+    "name": "Absolute Return M Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-60A119B550AE",
+    "name": "Algebris Financial Equity R EUR",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-61407C441D0A",
+    "name": "Candriam Sust Bond Euro Corp R Cap",
+    "domicile_country": "GB",
+    "currency": "EUR",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-616B6216E64D",
+    "name": "Candriam Sust Bond Emerg Mkts I Dist",
+    "domicile_country": "GB",
+    "currency": "USD",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-61A14FDC012D",
+    "name": "Janus Henderson Sterling Bond Unit Trust Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_ft_morningstar_prices",
+    "source_fund_id": "GB-FT-620F4599BF66",
+    "name": "Open World Fund W-Acc-GBP",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": null
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-0745088",
+    "name": "Aegon AM CG Aegon Ethical Equity Class B Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-0765172",
+    "name": "Janus Henderson Investors Preference & Bond - CLOSED Class I Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-0765600",
+    "name": "Janus Henderson Investors Preference & Bond - CLOSED Class I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-0846710",
+    "name": "Lazard Emerging Markets Class A Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-3254406",
+    "name": "Jupiter (Onshore) UK Alpha (MERGED INTO NEW UK ALPHA FUND) Class R Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B24F1G7",
+    "name": "Lazard Emerging Markets Class A Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B2Q1J81",
+    "name": "Ninety One Global Income Opportunities Class I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B39R2Q2",
+    "name": "M&G Global Dividend Class I GBP Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B39R2R3",
+    "name": "M&G Global Dividend Class I GBP Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B469J89",
+    "name": "Fidelity (Onshore) Strategic Bond Class W Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B4Z1M21",
+    "name": "M&G Global High Yield Bond Class I GBP Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B591W91",
+    "name": "Ninety One Global Income Opportunities Class I Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B6ZD1B3",
+    "name": "M&G Global High Yield Bond Class I GBP Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B76V7S2",
+    "name": "Schroder UK Mid 250 Class Z Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B76V7X7",
+    "name": "Schroder UK Mid 250 Class Z Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B7JDJQ7",
+    "name": "Legal & General Active Short Dated Sterling Corporate Bond I Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B7K3T22",
+    "name": "abrdn OEIC abrdn Global Absolute Return Strategies (CLOSED) Platform 1 Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B7T1DJ2",
+    "name": "BNY Mellon Real Return (GB) Class B Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B7V9479",
+    "name": "BNY Mellon Long-Term Global Equity (GB) Class W Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B8169Q1",
+    "name": "CT UK Equity Income Class Z Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B888FR3",
+    "name": "CT UK Equity Income Class Z Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B89QL12",
+    "name": "Legal & General Active Short Dated Sterling Corporate Bond I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B8B8CK2",
+    "name": "Legal & General Mixed Investment 0-35% Fund I Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B8C2TM4",
+    "name": "CT Global Select Class Z Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B8FZHY8",
+    "name": "Aegon AM CG Aegon Ethical Equity Class B Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B8K6W52",
+    "name": "BNY Mellon Long-Term Global Equity (GB) Class W Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B8KRCM2",
+    "name": "Legal & General Mixed Investment 0-35% Fund I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-B9MRLD1",
+    "name": "Jupiter (Onshore) UK Alpha (MERGED INTO NEW UK ALPHA FUND) Class R Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-BCRWZS5",
+    "name": "Fidelity (Onshore) Strategic Bond Class W Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-BMHTPN1",
+    "name": "Legal & General Mixed Investment 20-60% Fund I Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-BMHTPP3",
+    "name": "Legal & General Mixed Investment 20-60% Fund I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-BMHTPV9",
+    "name": "Legal & General Mixed Investment 40-85% Fund I Inc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "uk_fundslibrary_unit_prices",
+    "source_fund_id": "GB-FL-BMHTPW0",
+    "name": "Legal & General Mixed Investment 40-85% Fund I Acc",
+    "domicile_country": "GB",
+    "currency": "GBP",
+    "isin": ""
+  },
+  {
+    "source_id": "us_qqqm_etf",
+    "source_fund_id": "QQQM",
+    "name": "Invesco NASDAQ 100 ETF",
+    "domicile_country": "US",
+    "currency": "USD",
+    "isin": "US46138G6492"
   }
 ]

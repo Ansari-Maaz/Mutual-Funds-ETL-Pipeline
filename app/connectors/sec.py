@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import json
 import urllib.request
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -14,8 +15,10 @@ from app.connectors.base import BaseConnector
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw" / "united_states"
+NAV_RAW = RAW / "nasdaq_mutual_fund_navs.csv"
 REPORTS = ROOT / "reports"
 URL = "https://www.sec.gov/files/investment/data/other/investment-company-series-class-information/investment-company-series-class-2026.csv"
+TICKER_URL = "https://www.sec.gov/files/company_tickers_mf.json"
 
 
 def download_sec_series_classes(*, refresh: bool = False) -> dict[str, Any]:
@@ -45,6 +48,7 @@ class SecFundsConnector(BaseConnector):
 
     def __init__(self) -> None:
         self._records: list[dict[str, Any]] | None = None
+        self._navs: dict[str, list[dict[str, Any]]] = {}
 
     def get_source_metadata(self) -> dict[str, Any]:
         return {"country_code": "US", "organization": "U.S. Securities and Exchange Commission",
@@ -78,7 +82,32 @@ class SecFundsConnector(BaseConnector):
                     "status": "Registered",
                     "ticker": (row.get("Class Ticker") or "").strip() or None,
                     "official_url": URL})
+        # The SEC ticker JSON is a compact supplemental mapping of class ID to
+        # ticker. It has no fund names, so it enriches the CSV master rather
+        # than creating duplicate fund rows.
+        ticker_json = RAW / "sec_company_tickers_mf.json"
+        if ticker_json.exists():
+            payload = json.loads(ticker_json.read_text(encoding="utf-8"))
+            for row in payload.get("data", []):
+                if len(row) < 4:
+                    continue
+                class_id, ticker = str(row[2]).strip(), str(row[3]).strip()
+                if class_id in output and ticker:
+                    output[class_id]["ticker"] = ticker
         self._records = list(output.values())
+        self._navs = {}
+        if NAV_RAW.exists():
+            by_ticker = {(r.get("ticker") or "").casefold(): r for r in self._records if r.get("ticker")}
+            with NAV_RAW.open("r", encoding="utf-8-sig", newline="") as stream:
+                for row in csv.DictReader(stream):
+                    fund = by_ticker.get((row.get("ticker") or "").strip().casefold())
+                    if not fund:
+                        continue
+                    self._navs.setdefault(fund["source_fund_id"], []).append({
+                        "source_fund_id": fund["source_fund_id"],
+                        "valuation_date": row["valuation_date"],
+                        "nav": row["nav"], "currency": "USD",
+                    })
 
     def check_availability(self) -> dict[str, Any]:
         self._load()
@@ -88,3 +117,11 @@ class SecFundsConnector(BaseConnector):
         if self._records is None:
             self._load()
         return iter(self._records or [])
+
+    def extract_nav_history(self, source_fund_id: str, start_date: date | None = None,
+                            end_date: date | None = None) -> Iterable[dict[str, Any]]:
+        if self._records is None:
+            self._load()
+        rows = self._navs.get(source_fund_id, [])
+        return iter(row for row in rows if (not start_date or date.fromisoformat(row["valuation_date"]) >= start_date)
+                    and (not end_date or date.fromisoformat(row["valuation_date"]) <= end_date))

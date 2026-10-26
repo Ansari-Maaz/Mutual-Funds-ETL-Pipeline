@@ -1,0 +1,9 @@
+{
+  "source_id": "au_user_managed_funds",
+  "origin": "User-provided file",
+  "path": "data/raw/australia/australian_managed_funds.csv",
+  "bytes": 14984,
+  "sha256": "c2737e86c45a78772893b5babf33c3ecf31c5d933fdd4bd29a5f84222201f97c",
+  "checked_at": "2026-10-26T06:53:52.198475+00:00",
+  "limitations": "All 96 rows have empty ISIN and nav_aud fields in the supplied CSV."
+}

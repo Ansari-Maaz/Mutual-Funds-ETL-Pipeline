@@ -3,10 +3,10 @@ const router = express.Router();
 
 router.get('/stats', async (req, res, next) => {
   try {
-    const [funds, navs, countries, sources, latest, successful] = await Promise.all([
+    const [funds, navs, assignmentCountries, sources, latest, successful] = await Promise.all([
       req.app.locals.pool.query('SELECT count(*)::int AS total FROM funds'),
       req.app.locals.pool.query('SELECT count(*)::int AS total FROM nav_observations'),
-      req.app.locals.pool.query('SELECT count(DISTINCT country_code)::int AS total FROM sources'),
+      req.app.locals.pool.query("SELECT count(DISTINCT country_code)::int AS total FROM sources WHERE country_code <> 'ES'"),
       req.app.locals.pool.query('SELECT count(*)::int AS total, count(*) FILTER (WHERE integration_status=\'Integrated\')::int AS integrated FROM sources'),
       req.app.locals.pool.query(`SELECT id::text,status,requested_at,started_at,finished_at FROM api_etl_runs
         UNION ALL SELECT 'python-'||id::text, lower(status), started_at, started_at, finished_at FROM etl_runs
@@ -16,7 +16,7 @@ router.get('/stats', async (req, res, next) => {
         UNION ALL SELECT finished_at FROM etl_runs WHERE lower(status)='succeeded'
       ) successful_runs`),
     ]);
-    res.json({ data: { totalFunds: funds.rows[0].total, navObservations: navs.rows[0].total, configuredCountries: countries.rows[0].total, registeredSources: sources.rows[0].total, integratedSources: sources.rows[0].integrated, latestRun: latest.rows[0] || null, lastSuccessfulRunAt: successful.rows[0].last_successful_at || null } });
+    res.json({ data: { totalFunds: funds.rows[0].total, navObservations: navs.rows[0].total, configuredCountries: assignmentCountries.rows[0].total, registeredSources: sources.rows[0].total, integratedSources: sources.rows[0].integrated, latestRun: latest.rows[0] || null, lastSuccessfulRunAt: successful.rows[0].last_successful_at || null } });
   } catch (error) { next(error); }
 });
 

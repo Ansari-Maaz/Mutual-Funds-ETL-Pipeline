@@ -2,7 +2,7 @@ const express = require('express');
 const { z } = require('zod');
 const router = express.Router();
 const dateOnly = (value) => value == null ? null : value instanceof Date ? value.toISOString().slice(0, 10) : String(value).slice(0, 10);
-const listQuery = z.object({ page: z.coerce.number().int().min(1).max(1_000_000).default(1), limit: z.coerce.number().int().min(1).max(100).default(25), country: z.string().length(2).optional(), currency: z.string().length(3).optional(), source: z.string().max(100).optional(), q: z.string().max(200).optional(), sort: z.enum(['name','country','currency','retrieved_at']).default('name'), order: z.enum(['asc','desc']).default('asc') });
+const listQuery = z.object({ page: z.coerce.number().int().min(1).max(1_000_000).default(1), limit: z.coerce.number().int().min(1).max(100).default(25), country: z.string().length(2).optional(), currency: z.string().length(3).optional(), q: z.string().max(200).optional(), category: z.string().max(100).optional(), fund_type: z.string().max(100).optional(), status: z.string().max(100).optional(), isin: z.string().max(20).optional(), has_nav: z.enum(['true','false']).optional(), sort: z.enum(['name','country','currency','retrieved_at']).default('name'), order: z.enum(['asc','desc']).default('asc') });
 const jsonFund = (r) => ({
   id: r.id,
   sourceId: r.source_id,
@@ -33,10 +33,13 @@ router.get('/', async (req, res, next) => {
   try {
     const parsed = listQuery.safeParse(req.query);
     if (!parsed.success) return res.status(400).json({ error: { code: 'INVALID_QUERY', message: parsed.error.issues.map((e) => `${e.path.join('.')}: ${e.message}`).join('; ') } });
-    const { page, limit, country, currency, source, q, sort, order } = parsed.data;
+    const { page, limit, country, currency, q, category, fund_type, status, isin, has_nav, sort, order } = parsed.data;
     const values = []; const where = [];
-    for (const [field, value] of [['f.domicile_country', country], ['f.currency', currency], ['f.source_id', source]]) if (value) { values.push(value); where.push(`${field}=$${values.length}`); }
+    for (const [field, value] of [['f.domicile_country', country], ['f.currency', currency], ['f.category', category], ['f.fund_type', fund_type], ['f.status', status]]) if (value) { values.push(value); where.push(`${field}=$${values.length}`); }
     if (q) { values.push(`%${q.replace(/[\\%_]/g, '\\$&')}%`); where.push(`f.name ILIKE $${values.length} ESCAPE '\\'`); }
+    if (isin) { values.push(`%${isin.replace(/[\\%_]/g, '\\$&')}%`); where.push(`f.isin ILIKE $${values.length} ESCAPE '\\'`); }
+    if (has_nav === 'true') where.push('EXISTS (SELECT 1 FROM nav_observations nav_filter WHERE nav_filter.fund_id=f.id)');
+    if (has_nav === 'false') where.push('NOT EXISTS (SELECT 1 FROM nav_observations nav_filter WHERE nav_filter.fund_id=f.id)');
     const filter = where.length ? `WHERE ${where.join(' AND ')}` : '';
     const count = await req.app.locals.pool.query(`SELECT count(*)::int AS total FROM funds f ${filter}`, values);
     const sortColumn = { name: 'f.name', country: 'f.domicile_country', currency: 'f.currency', retrieved_at: 'f.retrieved_at' }[sort];

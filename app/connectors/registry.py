@@ -30,6 +30,13 @@ from app.connectors.bde_european_funds import (  # noqa: E402
     BdeGermanyConnector, BdeItalyConnector, BdeNetherlandsConnector, BdeLuxembourgConnector,
 )
 from app.connectors.hk_sfc_funds import HkSfcFundsConnector  # noqa: E402
+from app.connectors.australian_managed_funds import AustralianManagedFundsConnector  # noqa: E402
+from app.connectors.us_qqqm import QqqmEtfConnector  # noqa: E402
+from app.connectors.scotia_canada import ScotiaCanadaConnector  # noqa: E402
+from app.connectors.bmv_mexico import BmvMexicoConnector  # noqa: E402
+from app.connectors.uk_fundslibrary import UkFundsLibraryConnector  # noqa: E402
+from app.connectors.uk_ft_morningstar import UkFtMorningstarConnector  # noqa: E402
+from app.connectors.de_bundesanzeiger import DeBundesanzeigerConnector  # noqa: E402
 
 register(CvmConnector.source_id,CvmConnector)
 register(CsrcConnector.source_id,CsrcConnector)
@@ -48,3 +55,10 @@ register(BdeItalyConnector.source_id,BdeItalyConnector)
 register(BdeNetherlandsConnector.source_id,BdeNetherlandsConnector)
 register(BdeLuxembourgConnector.source_id,BdeLuxembourgConnector)
 register(HkSfcFundsConnector.source_id,HkSfcFundsConnector)
+register(AustralianManagedFundsConnector.source_id,AustralianManagedFundsConnector)
+register(QqqmEtfConnector.source_id,QqqmEtfConnector)
+register(ScotiaCanadaConnector.source_id,ScotiaCanadaConnector)
+register(BmvMexicoConnector.source_id,BmvMexicoConnector)
+register(UkFundsLibraryConnector.source_id,UkFundsLibraryConnector)
+register(UkFtMorningstarConnector.source_id,UkFtMorningstarConnector)
+register(DeBundesanzeigerConnector.source_id,DeBundesanzeigerConnector)
