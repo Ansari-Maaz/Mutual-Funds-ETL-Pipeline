@@ -23,3 +23,6 @@ Source: [SIX Fund Explorer](https://www.six-group.com/en/market-data/mutual-fund
 
 ## France NAV enrichment
 The new `fr_lacotebleue_navs` connector imports **90** unique French-prefixed ISINs with validated NAV, currency, manager, valuation date and category derived from the published fund name. The source is a public third-party table at [La Cote Bleue](https://actusite.lacotebleue.fr/opcvm/), not an AMF regulator feed. AMF GECO remains the official French identity master; its public guidance directs users to GECO or the management company for individual NAV values and does not provide a free bulk daily NAV file.
+
+## Netherlands
+The new `nl_euronext_fund_navs` connector imports **84** valid NL-prefixed Amsterdam fund rows with ISIN, ticker, currency, valuation date, last published value/NAV and a name-based subcategory. The public Euronext page documents the fund price field as daily NAV per unit. The official [AFM collective-investment register](https://www.afm.nl/en/sector/registers/vergunningenregisters/beleggingsinstellingen) remains the regulatory master; its public CSV contains names and managers but no ISIN or class-level NAV. The existing Banco de España Netherlands fund master remains broader at **1,306** open-ended identities, while Euronext covers the publicly listed subset.

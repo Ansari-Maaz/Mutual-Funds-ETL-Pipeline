@@ -19664,6 +19664,678 @@
     "currency": "EUR"
   },
   {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000286045",
+    "fund_name": "GS NORTH AMER FD",
+    "valuation_date": "2026-10-26",
+    "nav": "111.6100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000286318",
+    "fund_name": "GS EQ INV FD",
+    "valuation_date": "2026-10-26",
+    "nav": "21.1900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000287084",
+    "fund_name": "OPTIMIX INCOM FD C",
+    "valuation_date": "2026-10-26",
+    "nav": "30.3500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000287100",
+    "fund_name": "OPTIMIX MIX FD   E",
+    "valuation_date": "2026-10-26",
+    "nav": "45.6300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000288736",
+    "fund_name": "ROLINCO CUMPREF",
+    "valuation_date": "2026-10-26",
+    "nav": "45.5500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000289627",
+    "fund_name": "KEMPEN ORANGE FD",
+    "valuation_date": "2026-10-26",
+    "nav": "151.2900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000289783",
+    "fund_name": "Rob GSEF EUR E",
+    "valuation_date": "2026-10-26",
+    "nav": "90.6200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000289817",
+    "fund_name": "ROLINCO",
+    "valuation_date": "2026-10-26",
+    "nav": "73.1400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000289858",
+    "fund_name": "GS HOOG DIV A FD",
+    "valuation_date": "2026-10-26",
+    "nav": "49.9200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000292225",
+    "fund_name": "GS EMERGING EUR FD",
+    "valuation_date": "2026-10-26",
+    "nav": "34.1200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000292332",
+    "fund_name": "GS EUROPE FD",
+    "valuation_date": "2026-10-26",
+    "nav": "46.1500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000292746",
+    "fund_name": "GS EUR DUUR AAN FD",
+    "valuation_date": "2026-10-26",
+    "nav": "16.6300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293140",
+    "fund_name": "GS DYN MIX FD I",
+    "valuation_date": "2026-10-26",
+    "nav": "29.4600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293157",
+    "fund_name": "GS DYN MIX FD II",
+    "valuation_date": "2026-10-26",
+    "nav": "37.5400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293165",
+    "fund_name": "GS DYN MIX FD III",
+    "valuation_date": "2026-10-26",
+    "nav": "45.4500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293173",
+    "fund_name": "GS DYN MIX FD IV",
+    "valuation_date": "2026-10-26",
+    "nav": "54.5600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293181",
+    "fund_name": "GS DYN MIX FD V",
+    "valuation_date": "2026-10-26",
+    "nav": "63.0600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293348",
+    "fund_name": "KE EUR HGHDV FD N",
+    "valuation_date": "2026-10-26",
+    "nav": "8.9800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000440204",
+    "fund_name": "TRIODOS GROENFONDS",
+    "valuation_date": "2026-10-26",
+    "nav": "54.9900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000440675",
+    "fund_name": "KEMPEN ORANJE PART",
+    "valuation_date": "2026-10-26",
+    "nav": "333.5400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000442077",
+    "fund_name": "GS WERELD MIX FD",
+    "valuation_date": "2026-10-26",
+    "nav": "15.3300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000442101",
+    "fund_name": "GS EUR RENTE FD",
+    "valuation_date": "2026-10-26",
+    "nav": "12.3200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006089229",
+    "fund_name": "KEMPEN GBL HDiv N",
+    "valuation_date": "2026-10-26",
+    "nav": "49.0300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006238131",
+    "fund_name": "ROB AFRIKA FONDS",
+    "valuation_date": "2026-10-26",
+    "nav": "151.3900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006294092",
+    "fund_name": "BNP ESG GPS IND FD",
+    "valuation_date": "2026-10-26",
+    "nav": "58.4600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006294167",
+    "fund_name": "BNP GL IN MF EQ FD",
+    "valuation_date": "2026-10-26",
+    "nav": "112.7000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311706",
+    "fund_name": "Arcona Property Fd",
+    "valuation_date": "2026-10-26",
+    "nav": "4.9800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311730",
+    "fund_name": "GS EUR SM CAPS FD",
+    "valuation_date": "2026-10-26",
+    "nav": "117.3200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311771",
+    "fund_name": "GS ENH INDX SUS EM",
+    "valuation_date": "2026-10-26",
+    "nav": "64.1300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311789",
+    "fund_name": "GS DUURZAAM AAN FD",
+    "valuation_date": "2026-10-26",
+    "nav": "75.5200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311797",
+    "fund_name": "GS EUR OBLIG FD",
+    "valuation_date": "2026-10-26",
+    "nav": "29.2600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311805",
+    "fund_name": "GS GLOBAL FD",
+    "valuation_date": "2026-10-26",
+    "nav": "189.5100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311813",
+    "fund_name": "GS GLOB HIYIELD FD",
+    "valuation_date": "2026-10-26",
+    "nav": "15.9900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311839",
+    "fund_name": "GS GLOB OBL FD",
+    "valuation_date": "2026-10-26",
+    "nav": "14.2400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311847",
+    "fund_name": "GS GLOB R ESTAT FD",
+    "valuation_date": "2026-10-26",
+    "nav": "78.1400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311862",
+    "fund_name": "GS LION FD",
+    "valuation_date": "2026-10-26",
+    "nav": "28.7700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0009265404",
+    "fund_name": "GS GLOB OPPORT FD",
+    "valuation_date": "2026-10-26",
+    "nav": "45.9500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0009388743",
+    "fund_name": "ADD VALUE FUND",
+    "valuation_date": "2026-10-26",
+    "nav": "130.7300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010558805",
+    "fund_name": "OPT EuroRente Fd",
+    "valuation_date": "2026-10-26",
+    "nav": "24.7900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010558813",
+    "fund_name": "OPT Wereld Aand Fd",
+    "valuation_date": "2026-10-26",
+    "nav": "80.9800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010579090",
+    "fund_name": "CARDANO EUR CREDIT",
+    "valuation_date": "2026-10-26",
+    "nav": "19.4500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010579124",
+    "fund_name": "CARDANO SDG EQ GLO",
+    "valuation_date": "2026-10-26",
+    "nav": "67.7000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010579157",
+    "fund_name": "CARDANO MIX DEFENS",
+    "valuation_date": "2026-10-26",
+    "nav": "32.2500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010579165",
+    "fund_name": "CARDANO MIX NEUTRA",
+    "valuation_date": "2026-10-26",
+    "nav": "35.9600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010579173",
+    "fund_name": "CARDANO MIX OFFENS",
+    "valuation_date": "2026-10-26",
+    "nav": "34.1700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010619748",
+    "fund_name": "US CONSERV HD EQ G",
+    "valuation_date": "2026-10-26",
+    "nav": "70.8500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010831046",
+    "fund_name": "US LARGE CAP EQ G",
+    "valuation_date": "2026-10-26",
+    "nav": "77.7600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0011309349",
+    "fund_name": "CARDANO IND GLOBAL",
+    "valuation_date": "2026-10-26",
+    "nav": "72.6200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0011327432",
+    "fund_name": "Triodos Mult Impac",
+    "valuation_date": "2026-10-26",
+    "nav": "27.8300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0011354865",
+    "fund_name": "RG WOCE E G",
+    "valuation_date": "2026-10-26",
+    "nav": "169.4400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0012044739",
+    "fund_name": "KGPFN",
+    "valuation_date": "2026-10-26",
+    "nav": "19.6700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0012125736",
+    "fund_name": "GS ENH INDX SUS EQ",
+    "valuation_date": "2026-10-26",
+    "nav": "50.4300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0012727432",
+    "fund_name": "BNP NL",
+    "valuation_date": "2026-10-26",
+    "nav": "302.0900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0012817134",
+    "fund_name": "GS EUR DEELN FD",
+    "valuation_date": "2026-10-26",
+    "nav": "28.2200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013087968",
+    "fund_name": "TRI FAIR SHARE FND",
+    "valuation_date": "2026-10-26",
+    "nav": "36.0200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013689193",
+    "fund_name": "MMEQ",
+    "valuation_date": "2026-10-26",
+    "nav": "234.5700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013689201",
+    "fund_name": "MMBAL",
+    "valuation_date": "2026-10-26",
+    "nav": "174.6300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013689219",
+    "fund_name": "DEFBAL",
+    "valuation_date": "2026-10-26",
+    "nav": "152.6500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013689227",
+    "fund_name": "DEF",
+    "valuation_date": "2026-10-26",
+    "nav": "86.8300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013908692",
+    "fund_name": "TRI RENEW EUROP FD",
+    "valuation_date": "2026-10-26",
+    "nav": "47.3900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270209",
+    "fund_name": "ASNU OBLIGATIEFOND",
+    "valuation_date": "2026-10-26",
+    "nav": "24.6900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270217",
+    "fund_name": "ASNU SMALL MIDCAPF",
+    "valuation_date": "2026-10-26",
+    "nav": "47.7300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270225",
+    "fund_name": "ASNU AANDELENFONDS",
+    "valuation_date": "2026-10-26",
+    "nav": "228.7800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270233",
+    "fund_name": "ASNU MILIEU WATER",
+    "valuation_date": "2026-10-26",
+    "nav": "54.6400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270258",
+    "fund_name": "ASN Energie&Innov",
+    "valuation_date": "2026-10-26",
+    "nav": "24.9100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270266",
+    "fund_name": "ASN Microkred. fnd",
+    "valuation_date": "2026-10-26",
+    "nav": "51.1100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270274",
+    "fund_name": "ASN MIXF ZEER DEF",
+    "valuation_date": "2026-10-26",
+    "nav": "50.5400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270282",
+    "fund_name": "ASN MIXF DEFENSIEF",
+    "valuation_date": "2026-10-26",
+    "nav": "58.2800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270290",
+    "fund_name": "ASN MIXF NEUTRAAL",
+    "valuation_date": "2026-10-26",
+    "nav": "69.3200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270308",
+    "fund_name": "ASN MIXF OFFENSIEF",
+    "valuation_date": "2026-10-26",
+    "nav": "87.4600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270316",
+    "fund_name": "ASN MIXF ZEER OFF",
+    "valuation_date": "2026-10-26",
+    "nav": "103.0600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014332553",
+    "fund_name": "CARDANO IND EUROPE",
+    "valuation_date": "2026-10-26",
+    "nav": "33.5200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014332561",
+    "fund_name": "CARDANO INDEX NA",
+    "valuation_date": "2026-10-26",
+    "nav": "156.0700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014332579",
+    "fund_name": "CARDANO IND PAC",
+    "valuation_date": "2026-10-26",
+    "nav": "43.7100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014332587",
+    "fund_name": "CARDANO INDEX EM",
+    "valuation_date": "2026-10-26",
+    "nav": "54.4800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014926404",
+    "fund_name": "KEMPEN SUST GHDF N",
+    "valuation_date": "2026-10-26",
+    "nav": "40.3200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015000GU4",
+    "fund_name": "CARDANO IFIF",
+    "valuation_date": "2026-10-26",
+    "nav": "24.2500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015000W73",
+    "fund_name": "DFIS2",
+    "valuation_date": "2026-10-26",
+    "nav": "753.2600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015002OB4",
+    "fund_name": "OBAM N.V.",
+    "valuation_date": "2026-10-26",
+    "nav": "29.1800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015002QB9",
+    "fund_name": "IC N-Am Eq ESG Idx",
+    "valuation_date": "2026-10-26",
+    "nav": "29.7200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015002QC7",
+    "fund_name": "IC Eur Eq ESG Idx",
+    "valuation_date": "2026-10-26",
+    "nav": "27.8800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015063751",
+    "fund_name": "Cardano ESGT EMD",
+    "valuation_date": "2026-10-26",
+    "nav": "28.4300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015073U44",
+    "fund_name": "AGHY FUND",
+    "valuation_date": "2026-10-26",
+    "nav": "14.9000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015074B04",
+    "fund_name": "OPTIMIX GLOB QUAL",
+    "valuation_date": "2026-10-26",
+    "nav": "85.6300000000",
+    "currency": "EUR"
+  },
+  {
     "source_id": "scotia_canada_daily_nav",
     "source_fund_id": "CA-SCOTIA-007c338ff2bb42d8085e",
     "fund_name": "Scotia Wealth Global Equity Pool - Series M",

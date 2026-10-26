@@ -1,12 +1,12 @@
 # Latest execution report
 
-Generated at: 2026-10-26T10:38:00.486316+00:00
+Generated at: 2026-10-26T11:22:42.169794+00:00
 
 ## Ingestion results
 
 | Source | Status | Funds extracted | Funds loaded | NAV observations upserted | Rejected rows | Error |
 |---|---|---:|---:|---:|---:|---|
-| fr_lacotebleue_navs | Succeeded | 90 | 90 | 90 | 0 |  |
+| nl_euronext_fund_navs | Succeeded | 84 | 84 | 84 | 0 |  |
 
 ## Database counts
 
@@ -34,12 +34,13 @@ Generated at: 2026-10-26T10:38:00.486316+00:00
 | it_borsa_navs | 68 | 68 |
 | lu_bde_nonmonetary_funds | 23955 | 0 |
 | nl_bde_nonmonetary_funds | 1306 | 0 |
+| nl_euronext_fund_navs | 84 | 84 |
 | scotia_canada_daily_nav | 373 | 373 |
 | sec_open_end_fund_classes | 39138 | 24846 |
 | uk_ft_morningstar_prices | 253 | 253 |
 | uk_fundslibrary_unit_prices | 33 | 33 |
 | us_qqqm_etf | 1 | 1 |
-| **Total** | **181141** | **281515** |
+| **Total** | **181225** | **281599** |
 - Database used: Configured project PostgreSQL database.
 - Raw snapshots are ignored by Git; source manifests record URLs, checksums, and sizes.
 - Source rejects are recorded in source-specific JSONL files under `reports/`.

@@ -16016,6 +16016,678 @@
     "isin": null
   },
   {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000286045",
+    "name": "GS NORTH AMER FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000286045"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000286318",
+    "name": "GS EQ INV FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000286318"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000287084",
+    "name": "OPTIMIX INCOM FD C",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000287084"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000287100",
+    "name": "OPTIMIX MIX FD   E",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000287100"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000288736",
+    "name": "ROLINCO CUMPREF",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000288736"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000289627",
+    "name": "KEMPEN ORANGE FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000289627"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000289783",
+    "name": "Rob GSEF EUR E",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000289783"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000289817",
+    "name": "ROLINCO",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000289817"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000289858",
+    "name": "GS HOOG DIV A FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000289858"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000292225",
+    "name": "GS EMERGING EUR FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000292225"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000292332",
+    "name": "GS EUROPE FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000292332"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000292746",
+    "name": "GS EUR DUUR AAN FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000292746"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293140",
+    "name": "GS DYN MIX FD I",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000293140"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293157",
+    "name": "GS DYN MIX FD II",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000293157"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293165",
+    "name": "GS DYN MIX FD III",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000293165"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293173",
+    "name": "GS DYN MIX FD IV",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000293173"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293181",
+    "name": "GS DYN MIX FD V",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000293181"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000293348",
+    "name": "KE EUR HGHDV FD N",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000293348"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000440204",
+    "name": "TRIODOS GROENFONDS",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000440204"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000440675",
+    "name": "KEMPEN ORANJE PART",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000440675"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000442077",
+    "name": "GS WERELD MIX FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000442077"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0000442101",
+    "name": "GS EUR RENTE FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0000442101"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006089229",
+    "name": "KEMPEN GBL HDiv N",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006089229"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006238131",
+    "name": "ROB AFRIKA FONDS",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006238131"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006294092",
+    "name": "BNP ESG GPS IND FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006294092"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006294167",
+    "name": "BNP GL IN MF EQ FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006294167"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311706",
+    "name": "Arcona Property Fd",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006311706"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311730",
+    "name": "GS EUR SM CAPS FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006311730"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311771",
+    "name": "GS ENH INDX SUS EM",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006311771"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311789",
+    "name": "GS DUURZAAM AAN FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006311789"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311797",
+    "name": "GS EUR OBLIG FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006311797"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311805",
+    "name": "GS GLOBAL FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006311805"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311813",
+    "name": "GS GLOB HIYIELD FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006311813"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311839",
+    "name": "GS GLOB OBL FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006311839"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311847",
+    "name": "GS GLOB R ESTAT FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006311847"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0006311862",
+    "name": "GS LION FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0006311862"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0009265404",
+    "name": "GS GLOB OPPORT FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0009265404"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0009388743",
+    "name": "ADD VALUE FUND",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0009388743"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010558805",
+    "name": "OPT EuroRente Fd",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0010558805"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010558813",
+    "name": "OPT Wereld Aand Fd",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0010558813"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010579090",
+    "name": "CARDANO EUR CREDIT",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0010579090"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010579124",
+    "name": "CARDANO SDG EQ GLO",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0010579124"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010579157",
+    "name": "CARDANO MIX DEFENS",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0010579157"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010579165",
+    "name": "CARDANO MIX NEUTRA",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0010579165"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010579173",
+    "name": "CARDANO MIX OFFENS",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0010579173"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010619748",
+    "name": "US CONSERV HD EQ G",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0010619748"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0010831046",
+    "name": "US LARGE CAP EQ G",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0010831046"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0011309349",
+    "name": "CARDANO IND GLOBAL",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0011309349"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0011327432",
+    "name": "Triodos Mult Impac",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0011327432"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0011354865",
+    "name": "RG WOCE E G",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0011354865"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0012044739",
+    "name": "KGPFN",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0012044739"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0012125736",
+    "name": "GS ENH INDX SUS EQ",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0012125736"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0012727432",
+    "name": "BNP NL",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0012727432"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0012817134",
+    "name": "GS EUR DEELN FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0012817134"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013087968",
+    "name": "TRI FAIR SHARE FND",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0013087968"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013689193",
+    "name": "MMEQ",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0013689193"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013689201",
+    "name": "MMBAL",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0013689201"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013689219",
+    "name": "DEFBAL",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0013689219"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013689227",
+    "name": "DEF",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0013689227"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0013908692",
+    "name": "TRI RENEW EUROP FD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0013908692"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270209",
+    "name": "ASNU OBLIGATIEFOND",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270209"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270217",
+    "name": "ASNU SMALL MIDCAPF",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270217"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270225",
+    "name": "ASNU AANDELENFONDS",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270225"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270233",
+    "name": "ASNU MILIEU WATER",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270233"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270258",
+    "name": "ASN Energie&Innov",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270258"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270266",
+    "name": "ASN Microkred. fnd",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270266"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270274",
+    "name": "ASN MIXF ZEER DEF",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270274"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270282",
+    "name": "ASN MIXF DEFENSIEF",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270282"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270290",
+    "name": "ASN MIXF NEUTRAAL",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270290"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270308",
+    "name": "ASN MIXF OFFENSIEF",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270308"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014270316",
+    "name": "ASN MIXF ZEER OFF",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014270316"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014332553",
+    "name": "CARDANO IND EUROPE",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014332553"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014332561",
+    "name": "CARDANO INDEX NA",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014332561"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014332579",
+    "name": "CARDANO IND PAC",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014332579"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014332587",
+    "name": "CARDANO INDEX EM",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014332587"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0014926404",
+    "name": "KEMPEN SUST GHDF N",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0014926404"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015000GU4",
+    "name": "CARDANO IFIF",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0015000GU4"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015000W73",
+    "name": "DFIS2",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0015000W73"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015002OB4",
+    "name": "OBAM N.V.",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0015002OB4"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015002QB9",
+    "name": "IC N-Am Eq ESG Idx",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0015002QB9"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015002QC7",
+    "name": "IC Eur Eq ESG Idx",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0015002QC7"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015063751",
+    "name": "Cardano ESGT EMD",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0015063751"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015073U44",
+    "name": "AGHY FUND",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0015073U44"
+  },
+  {
+    "source_id": "nl_euronext_fund_navs",
+    "source_fund_id": "NL-EURONEXT-NL0015074B04",
+    "name": "OPTIMIX GLOB QUAL",
+    "domicile_country": "NL",
+    "currency": "EUR",
+    "isin": "NL0015074B04"
+  },
+  {
     "source_id": "scotia_canada_daily_nav",
     "source_fund_id": "CA-SCOTIA-007c338ff2bb42d8085e",
     "name": "Scotia Wealth Global Equity Pool - Series M",

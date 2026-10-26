@@ -40,6 +40,7 @@ from app.connectors.de_bundesanzeiger import DeBundesanzeigerConnector  # noqa: 
 from app.connectors.it_borsa_nav import ItBorsaNavConnector  # noqa: E402
 from app.connectors.ch_six_fund_explorer import ChSixFundExplorerConnector  # noqa: E402
 from app.connectors.fr_lacotebleue import FrLaCoteBleueConnector  # noqa: E402
+from app.connectors.nl_euronext_funds import NlEuronextFundsConnector  # noqa: E402
 
 register(CvmConnector.source_id,CvmConnector)
 register(CsrcConnector.source_id,CsrcConnector)
@@ -68,3 +69,4 @@ register(DeBundesanzeigerConnector.source_id,DeBundesanzeigerConnector)
 register(ItBorsaNavConnector.source_id,ItBorsaNavConnector)
 register(ChSixFundExplorerConnector.source_id,ChSixFundExplorerConnector)
 register(FrLaCoteBleueConnector.source_id,FrLaCoteBleueConnector)
+register(NlEuronextFundsConnector.source_id,NlEuronextFundsConnector)
