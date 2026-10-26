@@ -26,3 +26,6 @@ The new `fr_lacotebleue_navs` connector imports **90** unique French-prefixed IS
 
 ## Netherlands
 The new `nl_euronext_fund_navs` connector imports **84** valid NL-prefixed Amsterdam fund rows with ISIN, ticker, currency, valuation date, last published value/NAV and a name-based subcategory. The public Euronext page documents the fund price field as daily NAV per unit. The official [AFM collective-investment register](https://www.afm.nl/en/sector/registers/vergunningenregisters/beleggingsinstellingen) remains the regulatory master; its public CSV contains names and managers but no ISIN or class-level NAV. The existing Banco de España Netherlands fund master remains broader at **1,306** open-ended identities, while Euronext covers the publicly listed subset.
+
+## Luxembourg
+The new `lu_euronext_fund_navs` connector imports **49** LU-prefixed fund rows from Euronext's public all-markets CSV with ISIN, ticker, currency, valuation date, NAV/last price and name-based subcategory. The official [CSSF fund statistics and register](https://www.cssf.lu/en/statistics/) remains the Luxembourg regulatory source; CSSF's new fund-identification API requires an access agreement, and its public statistics do not provide a free bulk daily NAV feed. The existing Banco de España Luxembourg master remains the broader identity source.

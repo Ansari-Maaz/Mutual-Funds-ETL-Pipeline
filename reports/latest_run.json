@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-26T11:22:42.169794+00:00",
+  "generated_at": "2026-10-26T11:25:12.135522+00:00",
   "results": [
     {
-      "source_id": "nl_euronext_fund_navs",
+      "source_id": "lu_euronext_fund_navs",
       "status": "Succeeded",
-      "records_extracted": 84,
-      "records_loaded": 84,
-      "navs_loaded": 84,
+      "records_extracted": 49,
+      "records_loaded": 49,
+      "navs_loaded": 49,
       "rejected_records": 0
     }
   ]

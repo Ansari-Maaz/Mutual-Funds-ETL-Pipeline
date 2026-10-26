@@ -15216,6 +15216,398 @@
     "isin": null
   },
   {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU0237484448",
+    "name": "WPSH EUR",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU0237484448"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU0237485098",
+    "name": "WP STEWART HOLD FD",
+    "domicile_country": "LU",
+    "currency": "USD",
+    "isin": "LU0237485098"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1136401384",
+    "name": "PHARUS LIQUIDITY",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1136401384"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1136401467",
+    "name": "PHARUS SICAV_CONS",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1136401467"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1136402192",
+    "name": "PHARUS EQUITY LEAD",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1136402192"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1136402432",
+    "name": "PHARUS TARGET",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1136402432"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1136402788",
+    "name": "SAFE SICAV-SAFE DY",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1136402788"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148873406",
+    "name": "NEW MILLENNIUM EUR",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1148873406"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148873588",
+    "name": "NEW MILLENNIUM EQ",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1148873588"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148873661",
+    "name": "NEW MILLENNIUM EUR",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1148873661"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148873745",
+    "name": "NEW MILLENNIUM AUG",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1148873745"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874040",
+    "name": "NEW MILLENNIUM INF",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1148874040"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874123",
+    "name": "NEW MILLENNIUM EU",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1148874123"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874396",
+    "name": "NEW MILLENNIUM AUG",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1148874396"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874479",
+    "name": "NEW MILLENNIUM ITA",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1148874479"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874552",
+    "name": "NEW MILLENNIUM BAL",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1148874552"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874800",
+    "name": "NEW MILLENNIUM VOL",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1148874800"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1176781729",
+    "name": "PHARUS SICAV",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1176781729"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1176783774",
+    "name": "SUMUS STRATEGIC",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1176783774"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1242466289",
+    "name": "BASE INV BONDS VAL",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1242466289"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1242466875",
+    "name": "BASE INV FLEX LOW",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1242466875"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1246176264",
+    "name": "SELECTRA J LAMARC",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1246176264"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1246176850",
+    "name": "SELECTRA J LAMARCK",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1246176850"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1253867847",
+    "name": "PHARUS TREND PL",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1253867847"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1275426275",
+    "name": "COMPAM FUND-SB EQ",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1275426275"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1275426358",
+    "name": "COMPAM FUND SB",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1275426358"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1275426432",
+    "name": "COMPAM FUND - SB B",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1275426432"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1275426515",
+    "name": "COMPAM GLOBAL DIV",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1275426515"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1363165751",
+    "name": "NEW MILLEN MULTI",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1363165751"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1363165918",
+    "name": "NEW MILLEN EVERG",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1363165918"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1371515534",
+    "name": "PHARUS GLOBAL V EQ",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1371515534"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1371515880",
+    "name": "PHARUS GLOBAL V EQ",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1371515880"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1397788552",
+    "name": "FINLABO DYNAMIC EQ",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1397788552"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1437803767",
+    "name": "PHARUS SICAV EU TR",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1437803767"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1468873846",
+    "name": "COMPAM FUND SB CON",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1468873846"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1472302576",
+    "name": "COMPAM FUND FLEX B",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1472302576"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1574104151",
+    "name": "PHARUS GLOBAL V EQ",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1574104151"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1602468800",
+    "name": "NEW MILLENNIUM PIR",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1602468800"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1769738383",
+    "name": "COMPAM FUND GLOBAL",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1769738383"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1783934646",
+    "name": "COMPAM FUND A G EQ",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1783934646"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1867072495",
+    "name": "SAFE SICAV-ELECTRI",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1867072495"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1867072735",
+    "name": "PHARUS ASIAN VALUE",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1867072735"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1868872802",
+    "name": "PHARUS BEST REG. C",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU1868872802"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2249747283",
+    "name": "NEW MILLENNIUM TR",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU2249747283"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2264552998",
+    "name": "QSF -QUA FAM GLOB",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU2264552998"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2358390594",
+    "name": "VARENNE VALEUR",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU2358390594"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2550860493",
+    "name": "SAFE ACT INC CLA Q",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU2550860493"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2837863583",
+    "name": "QSF Fam Int Eq Acc",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU2837863583"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2837863666",
+    "name": "QSF Fam Glob Q Acc",
+    "domicile_country": "LU",
+    "currency": "EUR",
+    "isin": "LU2837863666"
+  },
+  {
     "source_id": "nl_bde_nonmonetary_funds",
     "source_fund_id": "NL0017461",
     "name": "Cardano ESG Transition Enhanced Index Equity Global (I)",

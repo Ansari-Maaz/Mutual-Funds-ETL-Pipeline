@@ -19664,6 +19664,398 @@
     "currency": "EUR"
   },
   {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU0237484448",
+    "fund_name": "WPSH EUR",
+    "valuation_date": "2026-10-26",
+    "nav": "750.2400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU0237485098",
+    "fund_name": "WP STEWART HOLD FD",
+    "valuation_date": "2026-10-26",
+    "nav": "863.4400000000",
+    "currency": "USD"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1136401384",
+    "fund_name": "PHARUS LIQUIDITY",
+    "valuation_date": "2026-10-26",
+    "nav": "114.7200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1136401467",
+    "fund_name": "PHARUS SICAV_CONS",
+    "valuation_date": "2026-10-26",
+    "nav": "113.4400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1136402192",
+    "fund_name": "PHARUS EQUITY LEAD",
+    "valuation_date": "2026-10-26",
+    "nav": "162.0600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1136402432",
+    "fund_name": "PHARUS TARGET",
+    "valuation_date": "2026-10-26",
+    "nav": "59.1700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1136402788",
+    "fund_name": "SAFE SICAV-SAFE DY",
+    "valuation_date": "2026-10-26",
+    "nav": "105.2200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148873406",
+    "fund_name": "NEW MILLENNIUM EUR",
+    "valuation_date": "2026-10-26",
+    "nav": "117.5700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148873588",
+    "fund_name": "NEW MILLENNIUM EQ",
+    "valuation_date": "2026-10-26",
+    "nav": "199.7200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148873661",
+    "fund_name": "NEW MILLENNIUM EUR",
+    "valuation_date": "2026-10-26",
+    "nav": "140.5800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148873745",
+    "fund_name": "NEW MILLENNIUM AUG",
+    "valuation_date": "2026-10-26",
+    "nav": "173.6800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874040",
+    "fund_name": "NEW MILLENNIUM INF",
+    "valuation_date": "2026-10-26",
+    "nav": "119.6000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874123",
+    "fund_name": "NEW MILLENNIUM EU",
+    "valuation_date": "2026-10-26",
+    "nav": "146.1300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874396",
+    "fund_name": "NEW MILLENNIUM AUG",
+    "valuation_date": "2026-10-26",
+    "nav": "279.0900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874479",
+    "fund_name": "NEW MILLENNIUM ITA",
+    "valuation_date": "2026-10-26",
+    "nav": "162.6100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874552",
+    "fund_name": "NEW MILLENNIUM BAL",
+    "valuation_date": "2026-10-26",
+    "nav": "170.1800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1148874800",
+    "fund_name": "NEW MILLENNIUM VOL",
+    "valuation_date": "2026-10-26",
+    "nav": "108.7600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1176781729",
+    "fund_name": "PHARUS SICAV",
+    "valuation_date": "2026-10-26",
+    "nav": "29.0100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1176783774",
+    "fund_name": "SUMUS STRATEGIC",
+    "valuation_date": "2026-10-26",
+    "nav": "14.4300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1242466289",
+    "fund_name": "BASE INV BONDS VAL",
+    "valuation_date": "2026-10-26",
+    "nav": "158.2400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1242466875",
+    "fund_name": "BASE INV FLEX LOW",
+    "valuation_date": "2026-10-26",
+    "nav": "136.9300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1246176264",
+    "fund_name": "SELECTRA J LAMARC",
+    "valuation_date": "2026-10-26",
+    "nav": "133.0300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1246176850",
+    "fund_name": "SELECTRA J LAMARCK",
+    "valuation_date": "2026-10-26",
+    "nav": "126.3000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1253867847",
+    "fund_name": "PHARUS TREND PL",
+    "valuation_date": "2026-10-26",
+    "nav": "224.5800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1275426275",
+    "fund_name": "COMPAM FUND-SB EQ",
+    "valuation_date": "2026-10-26",
+    "nav": "221.2710000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1275426358",
+    "fund_name": "COMPAM FUND SB",
+    "valuation_date": "2026-10-26",
+    "nav": "235.6800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1275426432",
+    "fund_name": "COMPAM FUND - SB B",
+    "valuation_date": "2026-10-26",
+    "nav": "110.6410000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1275426515",
+    "fund_name": "COMPAM GLOBAL DIV",
+    "valuation_date": "2026-10-26",
+    "nav": "100.0000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1363165751",
+    "fund_name": "NEW MILLEN MULTI",
+    "valuation_date": "2026-10-26",
+    "nav": "119.6700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1363165918",
+    "fund_name": "NEW MILLEN EVERG",
+    "valuation_date": "2026-10-26",
+    "nav": "92.9200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1371515534",
+    "fund_name": "PHARUS GLOBAL V EQ",
+    "valuation_date": "2026-10-26",
+    "nav": "214.5200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1371515880",
+    "fund_name": "PHARUS GLOBAL V EQ",
+    "valuation_date": "2026-10-26",
+    "nav": "192.2600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1397788552",
+    "fund_name": "FINLABO DYNAMIC EQ",
+    "valuation_date": "2026-10-26",
+    "nav": "115.5900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1437803767",
+    "fund_name": "PHARUS SICAV EU TR",
+    "valuation_date": "2026-10-26",
+    "nav": "132.5400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1468873846",
+    "fund_name": "COMPAM FUND SB CON",
+    "valuation_date": "2026-10-26",
+    "nav": "204.7460000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1472302576",
+    "fund_name": "COMPAM FUND FLEX B",
+    "valuation_date": "2026-10-26",
+    "nav": "115.3240000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1574104151",
+    "fund_name": "PHARUS GLOBAL V EQ",
+    "valuation_date": "2026-10-26",
+    "nav": "120.3300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1602468800",
+    "fund_name": "NEW MILLENNIUM PIR",
+    "valuation_date": "2026-10-26",
+    "nav": "117.8300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1769738383",
+    "fund_name": "COMPAM FUND GLOBAL",
+    "valuation_date": "2026-10-26",
+    "nav": "100.5770000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1783934646",
+    "fund_name": "COMPAM FUND A G EQ",
+    "valuation_date": "2026-10-26",
+    "nav": "79.0900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1867072495",
+    "fund_name": "SAFE SICAV-ELECTRI",
+    "valuation_date": "2026-10-26",
+    "nav": "200.9300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1867072735",
+    "fund_name": "PHARUS ASIAN VALUE",
+    "valuation_date": "2026-10-26",
+    "nav": "159.6600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU1868872802",
+    "fund_name": "PHARUS BEST REG. C",
+    "valuation_date": "2026-10-26",
+    "nav": "94.2500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2249747283",
+    "fund_name": "NEW MILLENNIUM TR",
+    "valuation_date": "2026-10-26",
+    "nav": "139.6300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2264552998",
+    "fund_name": "QSF -QUA FAM GLOB",
+    "valuation_date": "2026-10-26",
+    "nav": "108.5500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2358390594",
+    "fund_name": "VARENNE VALEUR",
+    "valuation_date": "2026-10-26",
+    "nav": "145.1000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2550860493",
+    "fund_name": "SAFE ACT INC CLA Q",
+    "valuation_date": "2026-10-26",
+    "nav": "100.0000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2837863583",
+    "fund_name": "QSF Fam Int Eq Acc",
+    "valuation_date": "2026-10-26",
+    "nav": "129.3300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "lu_euronext_fund_navs",
+    "source_fund_id": "LU-EURONEXT-LU2837863666",
+    "fund_name": "QSF Fam Glob Q Acc",
+    "valuation_date": "2026-10-26",
+    "nav": "105.2200000000",
+    "currency": "EUR"
+  },
+  {
     "source_id": "nl_euronext_fund_navs",
     "source_fund_id": "NL-EURONEXT-NL0000286045",
     "fund_name": "GS NORTH AMER FD",
