@@ -8032,6 +8032,382 @@
     "currency": "MXN"
   },
   {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0002769351",
+    "fund_name": "UBS (CH) Property Fund - Swiss Commercial \"Interswiss\"",
+    "valuation_date": "2026-10-26",
+    "nav": "197.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0002770102",
+    "fund_name": "Immo Helvetic",
+    "valuation_date": "2026-10-26",
+    "nav": "255.5000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0002782263",
+    "fund_name": "LA FONCIERE, Lausanne",
+    "valuation_date": "2026-10-26",
+    "nav": "149.4000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0002785456",
+    "fund_name": "SOLVALOR 61, Lausanne",
+    "valuation_date": "2026-10-26",
+    "nav": "354.5000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0009778769",
+    "fund_name": "IMMOFONDS",
+    "valuation_date": "2026-10-26",
+    "nav": "648.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0012913700",
+    "fund_name": "UBS (CH) Property Fund - Swiss Residential \"Siat\"",
+    "valuation_date": "2026-10-26",
+    "nav": "242.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0014420829",
+    "fund_name": "UBS(CH)Property Fund-Swiss Residential \"Anfos\"",
+    "valuation_date": "2026-10-26",
+    "nav": "96.2000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0014420852",
+    "fund_name": "UBS (CH) Property Fund - Léman Residential \"Foncipars\"",
+    "valuation_date": "2026-10-26",
+    "nav": "148.2000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0014420878",
+    "fund_name": "UBS (CH) Property Fund - Swiss Mixed \"Sima\"",
+    "valuation_date": "2026-10-26",
+    "nav": "151.6000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0014420886",
+    "fund_name": "UBS (CH) Property Fund - Swiss Commercial \"Swissreal\"",
+    "valuation_date": "2026-10-26",
+    "nav": "62.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0014586710",
+    "fund_name": "Fonds Immobilier Romand (FIR)",
+    "valuation_date": "2026-10-26",
+    "nav": "246.5000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0026168846",
+    "fund_name": "Swissinvest Real Estate Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "202.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0026465366",
+    "fund_name": "UBS (CH) Property Fund - Direct Residential",
+    "valuation_date": "2026-10-26",
+    "nav": "22.3000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0026725611",
+    "fund_name": "Bonhote-Immobilier SICAV-BIM",
+    "valuation_date": "2026-10-26",
+    "nav": "174.4000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0031069328",
+    "fund_name": "UBS (CH) Property Fund - Direct LivingPlus",
+    "valuation_date": "2026-10-26",
+    "nav": "141.8000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0033624211",
+    "fund_name": "Procimmo Real Estate SICAV - Industrial",
+    "valuation_date": "2026-10-26",
+    "nav": "162.6000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0034995214",
+    "fund_name": "Patrimonium Swiss Real Estate Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "173.6000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0037237630",
+    "fund_name": "Streetbox Real Estate SICAV - Swiss",
+    "valuation_date": "2026-10-26",
+    "nav": "603.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0037430946",
+    "fund_name": "Swisscanto (CH) Real Estate Fund Responsible IFCA",
+    "valuation_date": "2026-10-26",
+    "nav": "209.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0039415010",
+    "fund_name": "Realstone",
+    "valuation_date": "2026-10-26",
+    "nav": "153.2000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0100778445",
+    "fund_name": "UBS (CH) Property Fund - Direct Mixed Urban",
+    "valuation_date": "2026-10-26",
+    "nav": "139.4000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0107006550",
+    "fund_name": "Procimmo Real Estate SICAV - Residential",
+    "valuation_date": "2026-10-26",
+    "nav": "153.2000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0111959190",
+    "fund_name": "Swisscanto(CH) Real Estate Fund Responsible Swiss Commercial",
+    "valuation_date": "2026-10-26",
+    "nav": "97.2000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0120791253",
+    "fund_name": "SF Sustainable Property Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "135.6000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0124238004",
+    "fund_name": "Edmond de Rothschild Real Estate SICAV - Swiss",
+    "valuation_date": "2026-10-26",
+    "nav": "153.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0142902003",
+    "fund_name": "GOOD BUILDINGS Swiss Real Estate Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "150.8000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0200600911",
+    "fund_name": "COMUNUS SICAV - SWISS",
+    "valuation_date": "2026-10-26",
+    "nav": "219.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0204643222",
+    "fund_name": "MobiFonds Swiss Property",
+    "valuation_date": "2026-10-26",
+    "nav": "188.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0215751527",
+    "fund_name": "Dominicé Swiss Property Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "153.4000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0245633950",
+    "fund_name": "UBS (CH) Property Fund - Direct LogisticsPlus",
+    "valuation_date": "2026-10-26",
+    "nav": "112.8000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0258245064",
+    "fund_name": "Suisse Romande Property Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "123.8000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0267501291",
+    "fund_name": "Sustainable Real Estate Switzerland",
+    "valuation_date": "2026-10-26",
+    "nav": "114.4000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0285087455",
+    "fund_name": "SF Retail Properties Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "116.4000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0293784861",
+    "fund_name": "Swiss Life REF (CH) ESG Swiss Properties",
+    "valuation_date": "2026-10-26",
+    "nav": "135.2000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0324608568",
+    "fund_name": "Cronos Immo Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "132.2000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0335507932",
+    "fund_name": "Helvetica Swiss Commercial Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "100.8000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0344799694",
+    "fund_name": "SF Commercial Properties Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "80.8000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0395718866",
+    "fund_name": "Schroder ImmoPLUS",
+    "valuation_date": "2026-10-26",
+    "nav": "163.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0414551033",
+    "fund_name": "Baloise Swiss Property Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "141.2000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0433089270",
+    "fund_name": "ZIF Immobilien Direkt Schweiz",
+    "valuation_date": "2026-10-26",
+    "nav": "140.8000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0444142555",
+    "fund_name": "Swiss Central City Real Estate Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "90.8000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0495275668",
+    "fund_name": "Helvetica Swiss Living Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "100.6000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0513838323",
+    "fund_name": "Helvetia (CH) Swiss Property Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "134.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0555854626",
+    "fund_name": "PURE Swiss Opportunity REF",
+    "valuation_date": "2026-10-26",
+    "nav": "115.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH1139099068",
+    "fund_name": "Swiss Prime Site Solutions Investment Fund Commercial",
+    "valuation_date": "2026-10-26",
+    "nav": "104.8000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH1414005335",
+    "fund_name": "PRETIUM Real Estate Fund",
+    "valuation_date": "2026-10-26",
+    "nav": "97.0000000000",
+    "currency": "CHF"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH1522278584",
+    "fund_name": "Swiss Life REF (CH) ESG Diversified Commercial Switzerland",
+    "valuation_date": "2026-10-26",
+    "nav": "103.8000000000",
+    "currency": "CHF"
+  },
+  {
     "source_id": "cvm_open_fund_data",
     "source_fund_id": "04609220000178",
     "fund_name": "KOVR EXCLUSIVO PREVIDENCIÁRIO FUNDO DE INVESTIMENTO EM RENDA FIXA",
@@ -18022,6 +18398,550 @@
     "valuation_date": "2026-10-14",
     "nav": "1.4608000000",
     "currency": "AUD"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IE000FW9A4J6",
+    "fund_name": "Open fund — IE000FW9A4J6",
+    "valuation_date": "2026-10-23",
+    "nav": "111.8630000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IE000R9RIBW8",
+    "fund_name": "Open fund — IE000R9RIBW8",
+    "valuation_date": "2026-10-23",
+    "nav": "966.0000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IE000ROCQO77",
+    "fund_name": "Open fund — IE000ROCQO77",
+    "valuation_date": "2026-10-23",
+    "nav": "1468.0000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IE000Y50XF14",
+    "fund_name": "Open fund — IE000Y50XF14",
+    "valuation_date": "2026-10-23",
+    "nav": "2042.0000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IE00BVDPXK98",
+    "fund_name": "Open fund — IE00BVDPXK98",
+    "valuation_date": "2026-10-23",
+    "nav": "11.6500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005090870",
+    "fund_name": "Open fund — IT0005090870",
+    "valuation_date": "2026-10-23",
+    "nav": "17.2750000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005090912",
+    "fund_name": "Open fund — IT0005090912",
+    "valuation_date": "2026-10-23",
+    "nav": "26.2250000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005091084",
+    "fund_name": "Open fund — IT0005091084",
+    "valuation_date": "2026-10-23",
+    "nav": "6.2690000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005091100",
+    "fund_name": "Open fund — IT0005091100",
+    "valuation_date": "2026-10-23",
+    "nav": "24.2860000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005091126",
+    "fund_name": "Open fund — IT0005091126",
+    "valuation_date": "2026-10-23",
+    "nav": "15.9060000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005091183",
+    "fund_name": "Open fund — IT0005091183",
+    "valuation_date": "2026-10-23",
+    "nav": "12.8740000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005091233",
+    "fund_name": "Open fund — IT0005091233",
+    "valuation_date": "2026-10-23",
+    "nav": "37.0550000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005114530",
+    "fund_name": "Open fund — IT0005114530",
+    "valuation_date": "2026-10-23",
+    "nav": "214.0110000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005252801",
+    "fund_name": "Open fund — IT0005252801",
+    "valuation_date": "2026-10-23",
+    "nav": "6.5920000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005279515",
+    "fund_name": "Open fund — IT0005279515",
+    "valuation_date": "2026-10-23",
+    "nav": "124.6880000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005279572",
+    "fund_name": "Open fund — IT0005279572",
+    "valuation_date": "2026-10-23",
+    "nav": "115.8680000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005279630",
+    "fund_name": "Open fund — IT0005279630",
+    "valuation_date": "2026-10-23",
+    "nav": "114.4250000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005279697",
+    "fund_name": "Open fund — IT0005279697",
+    "valuation_date": "2026-10-23",
+    "nav": "122.8730000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005279754",
+    "fund_name": "Open fund — IT0005279754",
+    "valuation_date": "2026-10-23",
+    "nav": "144.7720000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1136401384",
+    "fund_name": "Open fund — LU1136401384",
+    "valuation_date": "2026-10-23",
+    "nav": "114.6400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1136401467",
+    "fund_name": "Open fund — LU1136401467",
+    "valuation_date": "2026-10-23",
+    "nav": "112.6500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1136402192",
+    "fund_name": "Open fund — LU1136402192",
+    "valuation_date": "2026-10-23",
+    "nav": "161.8200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1136402432",
+    "fund_name": "Open fund — LU1136402432",
+    "valuation_date": "2026-10-23",
+    "nav": "55.3900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1136402788",
+    "fund_name": "Open fund — LU1136402788",
+    "valuation_date": "2026-10-23",
+    "nav": "105.5300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148873406",
+    "fund_name": "Open fund — LU1148873406",
+    "valuation_date": "2026-10-23",
+    "nav": "115.3900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148873588",
+    "fund_name": "Open fund — LU1148873588",
+    "valuation_date": "2026-10-23",
+    "nav": "202.6300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148873661",
+    "fund_name": "Open fund — LU1148873661",
+    "valuation_date": "2026-10-23",
+    "nav": "139.1700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148873745",
+    "fund_name": "Open fund — LU1148873745",
+    "valuation_date": "2026-10-23",
+    "nav": "173.5500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874040",
+    "fund_name": "Open fund — LU1148874040",
+    "valuation_date": "2026-10-23",
+    "nav": "118.7900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874123",
+    "fund_name": "Open fund — LU1148874123",
+    "valuation_date": "2026-10-23",
+    "nav": "145.0600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874396",
+    "fund_name": "Open fund — LU1148874396",
+    "valuation_date": "2026-10-23",
+    "nav": "278.4900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874479",
+    "fund_name": "Open fund — LU1148874479",
+    "valuation_date": "2026-10-23",
+    "nav": "159.6100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874552",
+    "fund_name": "Open fund — LU1148874552",
+    "valuation_date": "2026-10-23",
+    "nav": "170.3800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874800",
+    "fund_name": "Open fund — LU1148874800",
+    "valuation_date": "2026-10-23",
+    "nav": "107.4100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1176781729",
+    "fund_name": "Open fund — LU1176781729",
+    "valuation_date": "2026-10-23",
+    "nav": "28.6500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1176783774",
+    "fund_name": "Open fund — LU1176783774",
+    "valuation_date": "2026-10-23",
+    "nav": "14.1200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1242466289",
+    "fund_name": "Open fund — LU1242466289",
+    "valuation_date": "2026-10-23",
+    "nav": "139.0100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1242466875",
+    "fund_name": "Open fund — LU1242466875",
+    "valuation_date": "2026-10-23",
+    "nav": "132.5300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1246176264",
+    "fund_name": "Open fund — LU1246176264",
+    "valuation_date": "2026-10-23",
+    "nav": "132.9900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1246176850",
+    "fund_name": "Open fund — LU1246176850",
+    "valuation_date": "2026-10-23",
+    "nav": "137.3000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1253867847",
+    "fund_name": "Open fund — LU1253867847",
+    "valuation_date": "2026-10-23",
+    "nav": "247.9400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1275426275",
+    "fund_name": "Open fund — LU1275426275",
+    "valuation_date": "2026-10-23",
+    "nav": "219.8490000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1275426358",
+    "fund_name": "Open fund — LU1275426358",
+    "valuation_date": "2026-10-23",
+    "nav": "230.1120000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1275426432",
+    "fund_name": "Open fund — LU1275426432",
+    "valuation_date": "2026-10-23",
+    "nav": "110.7150000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1275426515",
+    "fund_name": "Open fund — LU1275426515",
+    "valuation_date": "2026-10-23",
+    "nav": "103.1610000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1363165751",
+    "fund_name": "Open fund — LU1363165751",
+    "valuation_date": "2026-10-23",
+    "nav": "119.8200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1363165918",
+    "fund_name": "Open fund — LU1363165918",
+    "valuation_date": "2026-10-23",
+    "nav": "92.9200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1371515534",
+    "fund_name": "Open fund — LU1371515534",
+    "valuation_date": "2026-10-23",
+    "nav": "207.9800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1371515880",
+    "fund_name": "Open fund — LU1371515880",
+    "valuation_date": "2026-10-23",
+    "nav": "195.5200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1397788552",
+    "fund_name": "Open fund — LU1397788552",
+    "valuation_date": "2026-10-23",
+    "nav": "117.9400000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1437803767",
+    "fund_name": "Open fund — LU1437803767",
+    "valuation_date": "2026-10-23",
+    "nav": "132.9800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1468873846",
+    "fund_name": "Open fund — LU1468873846",
+    "valuation_date": "2026-10-23",
+    "nav": "189.4930000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1472302576",
+    "fund_name": "Open fund — LU1472302576",
+    "valuation_date": "2026-10-23",
+    "nav": "115.1890000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1574104151",
+    "fund_name": "Open fund — LU1574104151",
+    "valuation_date": "2026-10-23",
+    "nav": "137.2300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1602468800",
+    "fund_name": "Open fund — LU1602468800",
+    "valuation_date": "2026-10-23",
+    "nav": "118.4600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1769738383",
+    "fund_name": "Open fund — LU1769738383",
+    "valuation_date": "2026-10-23",
+    "nav": "99.0360000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1783934646",
+    "fund_name": "Open fund — LU1783934646",
+    "valuation_date": "2026-10-23",
+    "nav": "100.2900000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1867072495",
+    "fund_name": "Open fund — LU1867072495",
+    "valuation_date": "2026-10-23",
+    "nav": "199.2600000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1867072735",
+    "fund_name": "Open fund — LU1867072735",
+    "valuation_date": "2026-10-23",
+    "nav": "158.2000000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1868872802",
+    "fund_name": "Open fund — LU1868872802",
+    "valuation_date": "2026-10-23",
+    "nav": "97.8500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2249747283",
+    "fund_name": "Open fund — LU2249747283",
+    "valuation_date": "2026-10-23",
+    "nav": "136.9800000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2264552998",
+    "fund_name": "Open fund — LU2264552998",
+    "valuation_date": "2026-10-23",
+    "nav": "108.3200000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2358390594",
+    "fund_name": "Open fund — LU2358390594",
+    "valuation_date": "2026-10-23",
+    "nav": "162.5300000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2550860493",
+    "fund_name": "Open fund — LU2550860493",
+    "valuation_date": "2026-10-23",
+    "nav": "99.9500000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2837863583",
+    "fund_name": "Open fund — LU2837863583",
+    "valuation_date": "2026-10-23",
+    "nav": "136.8700000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2837863666",
+    "fund_name": "Open fund — LU2837863666",
+    "valuation_date": "2026-10-23",
+    "nav": "104.5100000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-MT7000024006",
+    "fund_name": "Open fund — MT7000024006",
+    "valuation_date": "2026-10-23",
+    "nav": "112.3720000000",
+    "currency": "EUR"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-MT7000039640",
+    "fund_name": "Open fund — MT7000039640",
+    "valuation_date": "2026-10-23",
+    "nav": "100.0000000000",
+    "currency": "EUR"
   },
   {
     "source_id": "scotia_canada_daily_nav",

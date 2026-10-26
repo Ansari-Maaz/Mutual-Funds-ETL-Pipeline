@@ -3968,6 +3968,382 @@
     "isin": null
   },
   {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0002769351",
+    "name": "UBS (CH) Property Fund - Swiss Commercial \"Interswiss\"",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0002769351"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0002770102",
+    "name": "Immo Helvetic",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0002770102"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0002782263",
+    "name": "LA FONCIERE, Lausanne",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0002782263"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0002785456",
+    "name": "SOLVALOR 61, Lausanne",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0002785456"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0009778769",
+    "name": "IMMOFONDS",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0009778769"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0012913700",
+    "name": "UBS (CH) Property Fund - Swiss Residential \"Siat\"",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0012913700"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0014420829",
+    "name": "UBS(CH)Property Fund-Swiss Residential \"Anfos\"",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0014420829"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0014420852",
+    "name": "UBS (CH) Property Fund - Léman Residential \"Foncipars\"",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0014420852"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0014420878",
+    "name": "UBS (CH) Property Fund - Swiss Mixed \"Sima\"",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0014420878"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0014420886",
+    "name": "UBS (CH) Property Fund - Swiss Commercial \"Swissreal\"",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0014420886"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0014586710",
+    "name": "Fonds Immobilier Romand (FIR)",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0014586710"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0026168846",
+    "name": "Swissinvest Real Estate Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0026168846"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0026465366",
+    "name": "UBS (CH) Property Fund - Direct Residential",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0026465366"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0026725611",
+    "name": "Bonhote-Immobilier SICAV-BIM",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0026725611"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0031069328",
+    "name": "UBS (CH) Property Fund - Direct LivingPlus",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0031069328"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0033624211",
+    "name": "Procimmo Real Estate SICAV - Industrial",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0033624211"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0034995214",
+    "name": "Patrimonium Swiss Real Estate Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0034995214"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0037237630",
+    "name": "Streetbox Real Estate SICAV - Swiss",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0037237630"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0037430946",
+    "name": "Swisscanto (CH) Real Estate Fund Responsible IFCA",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0037430946"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0039415010",
+    "name": "Realstone",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0039415010"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0100778445",
+    "name": "UBS (CH) Property Fund - Direct Mixed Urban",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0100778445"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0107006550",
+    "name": "Procimmo Real Estate SICAV - Residential",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0107006550"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0111959190",
+    "name": "Swisscanto(CH) Real Estate Fund Responsible Swiss Commercial",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0111959190"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0120791253",
+    "name": "SF Sustainable Property Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0120791253"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0124238004",
+    "name": "Edmond de Rothschild Real Estate SICAV - Swiss",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0124238004"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0142902003",
+    "name": "GOOD BUILDINGS Swiss Real Estate Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0142902003"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0200600911",
+    "name": "COMUNUS SICAV - SWISS",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0200600911"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0204643222",
+    "name": "MobiFonds Swiss Property",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0204643222"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0215751527",
+    "name": "Dominicé Swiss Property Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0215751527"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0245633950",
+    "name": "UBS (CH) Property Fund - Direct LogisticsPlus",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0245633950"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0258245064",
+    "name": "Suisse Romande Property Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0258245064"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0267501291",
+    "name": "Sustainable Real Estate Switzerland",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0267501291"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0285087455",
+    "name": "SF Retail Properties Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0285087455"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0293784861",
+    "name": "Swiss Life REF (CH) ESG Swiss Properties",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0293784861"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0324608568",
+    "name": "Cronos Immo Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0324608568"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0335507932",
+    "name": "Helvetica Swiss Commercial Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0335507932"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0344799694",
+    "name": "SF Commercial Properties Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0344799694"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0395718866",
+    "name": "Schroder ImmoPLUS",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0395718866"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0414551033",
+    "name": "Baloise Swiss Property Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0414551033"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0433089270",
+    "name": "ZIF Immobilien Direkt Schweiz",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0433089270"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0444142555",
+    "name": "Swiss Central City Real Estate Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0444142555"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0495275668",
+    "name": "Helvetica Swiss Living Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0495275668"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0513838323",
+    "name": "Helvetia (CH) Swiss Property Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0513838323"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH0555854626",
+    "name": "PURE Swiss Opportunity REF",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH0555854626"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH1139099068",
+    "name": "Swiss Prime Site Solutions Investment Fund Commercial",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH1139099068"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH1414005335",
+    "name": "PRETIUM Real Estate Fund",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH1414005335"
+  },
+  {
+    "source_id": "ch_six_fund_explorer_navs",
+    "source_fund_id": "CH-SIX-CH1522278584",
+    "name": "Swiss Life REF (CH) ESG Diversified Commercial Switzerland",
+    "domicile_country": "CH",
+    "currency": "CHF",
+    "isin": "CH1522278584"
+  },
+  {
     "source_id": "cnmv_spanish_fund_register",
     "source_fund_id": "100:0:1",
     "name": "DIRECTOR GROWTH, FI — CLASE A",
@@ -12774,6 +13150,550 @@
     "domicile_country": "IT",
     "currency": null,
     "isin": null
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IE000FW9A4J6",
+    "name": "Open fund — IE000FW9A4J6",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "IE000FW9A4J6"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IE000R9RIBW8",
+    "name": "Open fund — IE000R9RIBW8",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "IE000R9RIBW8"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IE000ROCQO77",
+    "name": "Open fund — IE000ROCQO77",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "IE000ROCQO77"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IE000Y50XF14",
+    "name": "Open fund — IE000Y50XF14",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "IE000Y50XF14"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IE00BVDPXK98",
+    "name": "Open fund — IE00BVDPXK98",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "IE00BVDPXK98"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005090870",
+    "name": "Open fund — IT0005090870",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005090870"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005090912",
+    "name": "Open fund — IT0005090912",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005090912"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005091084",
+    "name": "Open fund — IT0005091084",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005091084"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005091100",
+    "name": "Open fund — IT0005091100",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005091100"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005091126",
+    "name": "Open fund — IT0005091126",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005091126"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005091183",
+    "name": "Open fund — IT0005091183",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005091183"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005091233",
+    "name": "Open fund — IT0005091233",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005091233"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005114530",
+    "name": "Open fund — IT0005114530",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005114530"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005252801",
+    "name": "Open fund — IT0005252801",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005252801"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005279515",
+    "name": "Open fund — IT0005279515",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005279515"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005279572",
+    "name": "Open fund — IT0005279572",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005279572"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005279630",
+    "name": "Open fund — IT0005279630",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005279630"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005279697",
+    "name": "Open fund — IT0005279697",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005279697"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-IT0005279754",
+    "name": "Open fund — IT0005279754",
+    "domicile_country": "IT",
+    "currency": "EUR",
+    "isin": "IT0005279754"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1136401384",
+    "name": "Open fund — LU1136401384",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1136401384"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1136401467",
+    "name": "Open fund — LU1136401467",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1136401467"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1136402192",
+    "name": "Open fund — LU1136402192",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1136402192"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1136402432",
+    "name": "Open fund — LU1136402432",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1136402432"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1136402788",
+    "name": "Open fund — LU1136402788",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1136402788"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148873406",
+    "name": "Open fund — LU1148873406",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1148873406"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148873588",
+    "name": "Open fund — LU1148873588",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1148873588"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148873661",
+    "name": "Open fund — LU1148873661",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1148873661"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148873745",
+    "name": "Open fund — LU1148873745",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1148873745"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874040",
+    "name": "Open fund — LU1148874040",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1148874040"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874123",
+    "name": "Open fund — LU1148874123",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1148874123"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874396",
+    "name": "Open fund — LU1148874396",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1148874396"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874479",
+    "name": "Open fund — LU1148874479",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1148874479"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874552",
+    "name": "Open fund — LU1148874552",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1148874552"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1148874800",
+    "name": "Open fund — LU1148874800",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1148874800"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1176781729",
+    "name": "Open fund — LU1176781729",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1176781729"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1176783774",
+    "name": "Open fund — LU1176783774",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1176783774"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1242466289",
+    "name": "Open fund — LU1242466289",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1242466289"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1242466875",
+    "name": "Open fund — LU1242466875",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1242466875"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1246176264",
+    "name": "Open fund — LU1246176264",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1246176264"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1246176850",
+    "name": "Open fund — LU1246176850",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1246176850"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1253867847",
+    "name": "Open fund — LU1253867847",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1253867847"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1275426275",
+    "name": "Open fund — LU1275426275",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1275426275"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1275426358",
+    "name": "Open fund — LU1275426358",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1275426358"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1275426432",
+    "name": "Open fund — LU1275426432",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1275426432"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1275426515",
+    "name": "Open fund — LU1275426515",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1275426515"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1363165751",
+    "name": "Open fund — LU1363165751",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1363165751"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1363165918",
+    "name": "Open fund — LU1363165918",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1363165918"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1371515534",
+    "name": "Open fund — LU1371515534",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1371515534"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1371515880",
+    "name": "Open fund — LU1371515880",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1371515880"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1397788552",
+    "name": "Open fund — LU1397788552",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1397788552"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1437803767",
+    "name": "Open fund — LU1437803767",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1437803767"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1468873846",
+    "name": "Open fund — LU1468873846",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1468873846"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1472302576",
+    "name": "Open fund — LU1472302576",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1472302576"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1574104151",
+    "name": "Open fund — LU1574104151",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1574104151"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1602468800",
+    "name": "Open fund — LU1602468800",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1602468800"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1769738383",
+    "name": "Open fund — LU1769738383",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1769738383"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1783934646",
+    "name": "Open fund — LU1783934646",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1783934646"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1867072495",
+    "name": "Open fund — LU1867072495",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1867072495"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1867072735",
+    "name": "Open fund — LU1867072735",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1867072735"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU1868872802",
+    "name": "Open fund — LU1868872802",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU1868872802"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2249747283",
+    "name": "Open fund — LU2249747283",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU2249747283"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2264552998",
+    "name": "Open fund — LU2264552998",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU2264552998"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2358390594",
+    "name": "Open fund — LU2358390594",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU2358390594"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2550860493",
+    "name": "Open fund — LU2550860493",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU2550860493"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2837863583",
+    "name": "Open fund — LU2837863583",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU2837863583"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-LU2837863666",
+    "name": "Open fund — LU2837863666",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "LU2837863666"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-MT7000024006",
+    "name": "Open fund — MT7000024006",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "MT7000024006"
+  },
+  {
+    "source_id": "it_borsa_navs",
+    "source_fund_id": "IT-BORSA-MT7000039640",
+    "name": "Open fund — MT7000039640",
+    "domicile_country": null,
+    "currency": "EUR",
+    "isin": "MT7000039640"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",

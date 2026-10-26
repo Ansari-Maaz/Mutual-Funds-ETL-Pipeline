@@ -38,6 +38,7 @@ from app.connectors.uk_fundslibrary import UkFundsLibraryConnector  # noqa: E402
 from app.connectors.uk_ft_morningstar import UkFtMorningstarConnector  # noqa: E402
 from app.connectors.de_bundesanzeiger import DeBundesanzeigerConnector  # noqa: E402
 from app.connectors.it_borsa_nav import ItBorsaNavConnector  # noqa: E402
+from app.connectors.ch_six_fund_explorer import ChSixFundExplorerConnector  # noqa: E402
 
 register(CvmConnector.source_id,CvmConnector)
 register(CsrcConnector.source_id,CsrcConnector)
@@ -64,3 +65,4 @@ register(UkFundsLibraryConnector.source_id,UkFundsLibraryConnector)
 register(UkFtMorningstarConnector.source_id,UkFtMorningstarConnector)
 register(DeBundesanzeigerConnector.source_id,DeBundesanzeigerConnector)
 register(ItBorsaNavConnector.source_id,ItBorsaNavConnector)
+register(ChSixFundExplorerConnector.source_id,ChSixFundExplorerConnector)
