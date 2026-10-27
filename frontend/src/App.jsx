@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Activity, ArrowDownToLine, ArrowLeft, ArrowRight, BarChart3, Check, CheckCircle2, ChevronDown, CircleHelp, Clock3, Code2, Database, ExternalLink, FileJson2, Filter, Globe2, History, LayoutDashboard, LoaderCircle, Menu, Moon, Play, RefreshCw, Search, Server, ShieldCheck, Sun, Terminal, WalletCards, X, XCircle } from 'lucide-react';
+import { Activity, ArrowDownToLine, ArrowLeft, ArrowRight, BarChart3, Check, CheckCircle2, ChevronDown, CircleHelp, Clock3, Code2, Database, ExternalLink, FileJson2, Filter, Globe2, History, LayoutDashboard, LoaderCircle, Menu, Moon, PanelLeftClose, PanelLeftOpen, Play, RefreshCw, Search, Server, ShieldCheck, Sun, Terminal, WalletCards, X, XCircle } from 'lucide-react';
 import { apiBase, request } from './api';
 
 const nav = [
@@ -42,6 +42,7 @@ function App() {
   const [loadError, setLoadError] = useState('');
   const [toast, setToast] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const load = useCallback(async () => {
     try {
@@ -64,7 +65,7 @@ function App() {
   useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(''), 3200); return () => clearTimeout(t); }, [toast]);
 
   const navigate = (nextPage) => { setPage(nextPage); setSidebarOpen(false); };
-  return <div className={`shell ${sidebarOpen ? 'sidebar-open' : ''}`}>
+  return <div className={`shell ${sidebarOpen ? 'sidebar-open' : ''} ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
     <button className="sidebar-backdrop" aria-label="Close navigation" onClick={() => setSidebarOpen(false)}/>
     <aside className="sidebar" aria-label="Primary navigation">
       <div className="brand"><div className="brandmark"><BarChart3 size={19}/></div><div><b>FUND<span>FLOW</span></b><small>GLOBAL ETL CONSOLE</small></div><button className="sidebar-close icon-btn" aria-label="Close navigation" onClick={() => setSidebarOpen(false)}><X size={18}/></button></div>
@@ -74,7 +75,7 @@ function App() {
       <div className="side-bottom"><div className="side-system"><div className={`status-dot ${health}`}/><div><b>System status</b><small>{health === 'online' ? 'API & database connected' : health === 'checking' ? 'Checking services…' : 'Connection issue'}</small></div><button title="Refresh data" className="icon-btn" onClick={load}><RefreshCw size={14}/></button></div><div className="side-foot"><span>BUILD 1.0.0</span><span>·</span><span>LOCAL</span></div></div>
     </aside>
     <main className="main">
-      <header className="topbar"><button className="menu-toggle icon-btn" aria-label="Open navigation" aria-expanded={sidebarOpen} onClick={() => setSidebarOpen(true)}><Menu size={19}/></button><div className="crumb"><span>Workspace</span><span className="slash">/</span><b>{nav.find((n) => n.id === page)?.label}</b></div><div className="top-actions"><span className="live-pill"><i/> LIVE DATABASE</span><button className="theme-toggle icon-btn" title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme === 'light' ? <Moon size={16}/> : <Sun size={16}/>}</button><button className="avatar" title="Administrator">A</button></div></header>
+      <header className="topbar"><button className="desktop-sidebar-toggle icon-btn" aria-label={sidebarCollapsed ? 'Expand navigation' : 'Collapse navigation'} aria-expanded={!sidebarCollapsed} onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>{sidebarCollapsed ? <PanelLeftOpen size={19}/> : <PanelLeftClose size={19}/>}</button><button className="menu-toggle icon-btn" aria-label="Open navigation" aria-expanded={sidebarOpen} onClick={() => setSidebarOpen(true)}><Menu size={19}/></button><div className="crumb"><span>Workspace</span><span className="slash">/</span><b>{nav.find((n) => n.id === page)?.label}</b></div><div className="top-actions"><span className="live-pill"><i/> LIVE DATABASE</span><button className="theme-toggle icon-btn" title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme === 'light' ? <Moon size={16}/> : <Sun size={16}/>}</button><button className="avatar" title="Administrator">A</button></div></header>
       <div className="content">{loadError && <div className="error-box" role="alert">Dashboard data could not be loaded: {loadError}</div>}{page === 'overview' && <Overview stats={stats} sources={sources} countries={countries} runs={runs} funds={funds} onNavigate={setPage} refresh={load}/>} {page === 'explorer' && <ApiExplorer notify={setToast}/>} {page === 'etl' && <EtlControl countries={countries} sources={sources} runs={runs} notify={setToast} refresh={load}/>} {page === 'funds' && <FundExplorer notify={setToast}/>} {page === 'sources' && <Sources sources={sources} refresh={load} notify={setToast}/>}</div>
       <footer className="footer"><span>FundFlow <b>ETL Console</b></span><span>Source registry & data coverage reflect your configured PostgreSQL database.</span><a href="https://github.com" onClick={(e) => e.preventDefault()}>Documentation <ExternalLink size={12}/></a></footer>
     </main>
