@@ -81,6 +81,30 @@ describe('REST API contract', () => {
     });
   });
 
+  test('fund holdings return filed positions and sourced optional metrics by reporting date', async () => {
+    const query = vi.fn()
+      .mockResolvedValueOnce({ rows: [{ holdings_status: 'available', holdings_report_date: '2026-06-30' }] })
+      .mockResolvedValueOnce({ rows: [{ reporting_date: '2026-06-30' }, { reporting_date: '2026-03-31' }] })
+      .mockResolvedValueOnce({ rows: [{
+        id: 42, fund_id: 7, reporting_date: '2026-06-30', security_name: 'Example issuer',
+        ticker: 'EXM', isin: 'US0000000001', quantity: '10', market_value: '250', currency: 'USD',
+        portfolio_weight: '2.5', first_bought_date: null, share_change_percentage: null,
+        one_year_return: null, forward_pe: null, sector: null, data_source: 'sec_edgar_nport',
+        source_url: 'https://www.sec.gov/Archives/example.xml', metrics_source: null,
+      }] });
+    const res = await request(createApp({ pool: fakePool(query) }))
+      .get('/api/v1/funds/7/holdings?report_date=2026-06-30').expect(200);
+    expect(res.body).toMatchObject({
+      status: 'available', reportDate: '2026-06-30', reportDates: ['2026-06-30', '2026-03-31'],
+      data: [{ security_name: 'Example issuer', ticker: 'EXM', isin: 'US0000000001',
+        portfolio_weight: '2.5', data_source: 'sec_edgar_nport',
+        source_url: 'https://www.sec.gov/Archives/example.xml' }],
+    });
+    expect(query.mock.calls[2][0]).toContain('FROM portfolio_holdings h');
+    expect(query.mock.calls[2][0]).toContain('FROM holding_metrics');
+    expect(query.mock.calls[2][1]).toEqual([7, '2026-06-30', 1000]);
+  });
+
   test('source checks reject a URL that is outside the documented official host', async () => {
     const query = vi.fn().mockResolvedValue({ rows: [{ source_id: 'cvm_open_fund_data', endpoint_url: 'https://example.org/steal' }] });
     const res = await request(createApp({ pool: fakePool(query) })).post('/api/v1/sources/cvm_open_fund_data/check').expect(422);

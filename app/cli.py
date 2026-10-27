@@ -246,6 +246,8 @@ def sync_sources() -> None:
 def main() -> None:
     parser=argparse.ArgumentParser(prog="mfetl"); sub=parser.add_subparsers(dest="cmd",required=True)
     sub.add_parser("verify-sources"); sub.add_parser("inventory"); sub.add_parser("sync-sources")
+    sec_holdings=sub.add_parser("sync-sec-holdings"); sec_holdings.add_argument("--fund-id", type=int, action="append", help="Limit the sync to a local US fund ID; repeat to select multiple funds")
+    cvm_holdings=sub.add_parser("sync-cvm-holdings"); cvm_holdings.add_argument("--month", required=True, help="CVM CDA reporting month in YYYYMM format")
     download=sub.add_parser("download"); download.add_argument("--source",default="cvm_open_fund_data"); download.add_argument("--start-date"); download.add_argument("--end-date"); download.add_argument("--refresh",action="store_true")
     run=sub.add_parser("run"); run.add_argument("--all",action="store_true"); run.add_argument("--country"); run.add_argument("--source"); run.add_argument("--start-date"); run.add_argument("--end-date")
     args=parser.parse_args()
@@ -253,6 +255,12 @@ def main() -> None:
     elif args.cmd=="inventory":
         export_catalogue(); generate_workbook()
     elif args.cmd=="sync-sources": sync_sources()
+    elif args.cmd=="sync-sec-holdings":
+        from app.holdings.sec_nport import sync_sec_holdings
+        print(json.dumps(sync_sec_holdings(set(args.fund_id) if args.fund_id else None),indent=2))
+    elif args.cmd=="sync-cvm-holdings":
+        from app.holdings.cvm_cda import sync_cvm_holdings
+        print(json.dumps(sync_cvm_holdings(args.month),indent=2))
     elif args.cmd=="download":
         if args.source=="dk_bde_nonmonetary_funds":
             from app.connectors.denmark_bde_funds import download_denmark_fund_list

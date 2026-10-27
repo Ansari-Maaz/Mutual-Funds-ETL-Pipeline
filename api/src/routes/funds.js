@@ -1,8 +1,12 @@
 const express = require('express');
 const { z } = require('zod');
 const router = express.Router();
-const dateOnly = (value) => value == null ? null : value instanceof Date ? value.toISOString().slice(0, 10) : String(value).slice(0, 10);
-const listQuery = z.object({ page: z.coerce.number().int().min(1).max(1_000_000).default(1), limit: z.coerce.number().int().min(1).max(100).default(25), country: z.string().length(2).optional(), currency: z.string().length(3).optional(), q: z.string().max(200).optional(), category: z.string().max(100).optional(), fund_type: z.string().max(100).optional(), status: z.string().max(100).optional(), isin: z.string().max(20).optional(), has_nav: z.enum(['true','false']).optional(), sort: z.enum(['name','country','currency','retrieved_at']).default('name'), order: z.enum(['asc','desc']).default('asc') });
+// PostgreSQL DATE values are parsed by node-postgres as local-midnight Date
+// objects. Use local calendar parts so ISO conversion cannot shift them back a day.
+const dateOnly = (value) => value == null ? null : value instanceof Date
+  ? `${value.getFullYear()}-${String(value.getMonth() + 1).padStart(2, '0')}-${String(value.getDate()).padStart(2, '0')}`
+  : String(value).slice(0, 10);
+const listQuery = z.object({ page: z.coerce.number().int().min(1).max(1_000_000).default(1), limit: z.coerce.number().int().min(1).max(100).default(25), country: z.string().length(2).optional(), currency: z.string().length(3).optional(), q: z.string().max(200).optional(), category: z.string().max(100).optional(), fund_type: z.string().max(100).optional(), status: z.string().max(100).optional(), holdings_status: z.enum(['available','unavailable','not_checked']).optional(), isin: z.string().max(20).optional(), has_nav: z.enum(['true','false']).optional(), sort: z.enum(['name','country','currency','retrieved_at']).default('name'), order: z.enum(['asc','desc']).default('asc') });
 const jsonFund = (r) => ({
   id: r.id,
   sourceId: r.source_id,
@@ -24,6 +28,8 @@ const jsonFund = (r) => ({
   netAssets: r.net_assets,
   netAssetsDate: dateOnly(r.net_assets_date),
   targetAudience: r.target_audience,
+  holdingsStatus: r.holdings_status || 'not_checked',
+  holdingsReportDate: dateOnly(r.holdings_report_date),
   retrievedAt: r.retrieved_at,
   source: r.source_organization ? { organization: r.source_organization, name: r.source_name, url: r.source_endpoint_url } : null,
   latestNav: r.latest_nav == null ? null : { value: r.latest_nav, date: dateOnly(r.latest_nav_date), currency: r.latest_nav_currency },
@@ -33,9 +39,9 @@ router.get('/', async (req, res, next) => {
   try {
     const parsed = listQuery.safeParse(req.query);
     if (!parsed.success) return res.status(400).json({ error: { code: 'INVALID_QUERY', message: parsed.error.issues.map((e) => `${e.path.join('.')}: ${e.message}`).join('; ') } });
-    const { page, limit, country, currency, q, category, fund_type, status, isin, has_nav, sort, order } = parsed.data;
+    const { page, limit, country, currency, q, category, fund_type, status, holdings_status, isin, has_nav, sort, order } = parsed.data;
     const values = []; const where = [];
-    for (const [field, value] of [['f.domicile_country', country], ['f.currency', currency], ['f.category', category], ['f.fund_type', fund_type], ['f.status', status]]) if (value) { values.push(value); where.push(`${field}=$${values.length}`); }
+    for (const [field, value] of [['f.domicile_country', country], ['f.currency', currency], ['f.category', category], ['f.fund_type', fund_type], ['f.status', status], ['f.holdings_status', holdings_status]]) if (value) { values.push(value); where.push(`${field}=$${values.length}`); }
     if (q) { values.push(`%${q.replace(/[\\%_]/g, '\\$&')}%`); where.push(`f.name ILIKE $${values.length} ESCAPE '\\'`); }
     if (isin) { values.push(`%${isin.replace(/[\\%_]/g, '\\$&')}%`); where.push(`f.isin ILIKE $${values.length} ESCAPE '\\'`); }
     if (has_nav === 'true') where.push('EXISTS (SELECT 1 FROM nav_observations nav_filter WHERE nav_filter.fund_id=f.id)');
@@ -84,6 +90,42 @@ router.get('/:id/nav', async (req, res, next) => {
     values.push(limit);
     const { rows } = await req.app.locals.pool.query(`SELECT id,fund_id,valuation_date,nav,currency,retrieved_at FROM nav_observations WHERE ${filters.join(' AND ')} ORDER BY valuation_date DESC LIMIT $${values.length}`, values);
     res.json({ data: rows, count: rows.length });
+  } catch (error) { next(error); }
+});
+
+router.get('/:id/holdings', async (req, res, next) => {
+  if (!/^\d+$/.test(req.params.id)) return res.status(400).json({ error: { code: 'INVALID_ID', message: 'Fund id must be a positive integer' } });
+  const query = z.object({ report_date: z.string().date().optional(), limit: z.coerce.number().int().min(1).max(5000).default(1000) }).safeParse(req.query);
+  if (!query.success) return res.status(400).json({ error: { code: 'INVALID_QUERY', message: 'Use a valid report_date and a limit from 1 to 5000' } });
+  try {
+    const fundId = Number(req.params.id);
+    const { rows: funds } = await req.app.locals.pool.query(
+      'SELECT holdings_status,holdings_report_date FROM funds WHERE id=$1', [fundId]);
+    if (!funds.length) return res.status(404).json({ error: { code: 'FUND_NOT_FOUND', message: 'Fund not found' } });
+    const { rows: dates } = await req.app.locals.pool.query(
+      'SELECT DISTINCT reporting_date::text AS reporting_date FROM portfolio_holdings WHERE fund_id=$1 ORDER BY reporting_date DESC', [fundId]);
+    const reportDate = query.data.report_date || dateOnly(funds[0].holdings_report_date) || (dates.length ? dateOnly(dates[0].reporting_date) : null);
+    if (!reportDate) return res.json({ data: [], status: funds[0].holdings_status || 'not_checked', reportDate: null, reportDates: dates.map((row) => dateOnly(row.reporting_date)), count: 0 });
+    const { rows } = await req.app.locals.pool.query(`
+      SELECT h.id,h.fund_id,h.reporting_date::text AS reporting_date,h.security_name,h.ticker,h.isin,h.cusip,
+             h.quantity,h.market_value,h.market_value_currency AS currency,
+             COALESCE(h.portfolio_weight,m.portfolio_weight) AS portfolio_weight,
+             h.data_source,h.source_url,h.accession_number,
+             m.first_bought_date,m.share_change_percentage,m.one_year_return,
+             m.forward_pe,m.sector,m.data_source AS metrics_source,
+             m.source_url AS metrics_source_url,m.as_of_date::text AS metrics_as_of_date,
+             m.calculation_basis AS metrics_calculation_basis
+      FROM portfolio_holdings h
+      LEFT JOIN LATERAL (
+        SELECT first_bought_date,portfolio_weight,share_change_percentage,one_year_return,forward_pe,
+               sector,data_source,source_url,as_of_date,calculation_basis
+        FROM holding_metrics WHERE holding_id=h.id AND as_of_date=h.reporting_date
+        ORDER BY retrieved_at DESC,id DESC LIMIT 1
+      ) m ON true
+      WHERE h.fund_id=$1 AND h.reporting_date=$2
+      ORDER BY h.portfolio_weight DESC NULLS LAST,h.market_value DESC NULLS LAST,h.security_name
+      LIMIT $3`, [fundId, reportDate, query.data.limit]);
+    res.json({ data: rows, status: funds[0].holdings_status || 'not_checked', reportDate, reportDates: dates.map((row) => dateOnly(row.reporting_date)), count: rows.length });
   } catch (error) { next(error); }
 });
 

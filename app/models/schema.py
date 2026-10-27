@@ -41,6 +41,48 @@ class Fund(Base):
     net_assets_date: Mapped[date | None] = mapped_column(Date)
     target_audience: Mapped[str | None] = mapped_column(String(200))
     retrieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    sec_series_id: Mapped[str | None] = mapped_column(String(10))
+    sec_cik: Mapped[str | None] = mapped_column(String(10))
+    holdings_status: Mapped[str] = mapped_column(String(20), default="not_checked", server_default="not_checked")
+    holdings_report_date: Mapped[date | None] = mapped_column(Date)
+
+class PortfolioHolding(Base):
+    __tablename__ = "portfolio_holdings"
+    __table_args__ = (UniqueConstraint("fund_id", "reporting_date", "holding_index", name="uq_fund_holding_report_item"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    fund_id: Mapped[int] = mapped_column(ForeignKey("funds.id", ondelete="CASCADE"), index=True)
+    reporting_date: Mapped[date] = mapped_column(Date, index=True)
+    accession_number: Mapped[str | None] = mapped_column(String(50))
+    holding_index: Mapped[int] = mapped_column()
+    security_name: Mapped[str | None] = mapped_column(String(500))
+    ticker: Mapped[str | None] = mapped_column(String(50))
+    isin: Mapped[str | None] = mapped_column(String(12))
+    cusip: Mapped[str | None] = mapped_column(String(12))
+    quantity: Mapped[Decimal | None] = mapped_column(Numeric(36, 12))
+    market_value: Mapped[Decimal | None] = mapped_column(Numeric(36, 12))
+    market_value_currency: Mapped[str | None] = mapped_column(String(3))
+    portfolio_weight: Mapped[Decimal | None] = mapped_column(Numeric(18, 12))
+    data_source: Mapped[str] = mapped_column(String(100), default="sec_edgar_nport")
+    source_url: Mapped[str | None] = mapped_column(Text)
+    retrieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+class HoldingMetric(Base):
+    """Optional vendor/derived metrics; kept separate from filed portfolio positions."""
+    __tablename__ = "holding_metrics"
+    __table_args__ = (UniqueConstraint("holding_id", "data_source", "as_of_date", name="uq_holding_metric_source_date"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    holding_id: Mapped[int] = mapped_column(ForeignKey("portfolio_holdings.id", ondelete="CASCADE"), index=True)
+    data_source: Mapped[str] = mapped_column(String(100))
+    source_url: Mapped[str | None] = mapped_column(Text)
+    as_of_date: Mapped[date] = mapped_column(Date, index=True)
+    first_bought_date: Mapped[date | None] = mapped_column(Date)
+    portfolio_weight: Mapped[Decimal | None] = mapped_column(Numeric(18, 12))
+    share_change_percentage: Mapped[Decimal | None] = mapped_column(Numeric(18, 12))
+    one_year_return: Mapped[Decimal | None] = mapped_column(Numeric(18, 12))
+    forward_pe: Mapped[Decimal | None] = mapped_column(Numeric(18, 8))
+    sector: Mapped[str | None] = mapped_column(String(200))
+    calculation_basis: Mapped[str | None] = mapped_column(Text)
+    retrieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 class NavObservation(Base):
     __tablename__ = "nav_observations"

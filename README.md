@@ -74,7 +74,7 @@ The catalogue covers all 20 requested countries and the four expansion markets. 
 - Brazil provides 252,029 NAV observations.
 - Australia provides one explicitly currency-labelled NAV observation.
 - Many other sources provide fund-master snapshots without NAV or currency fields.
-- Broad holdings ingestion is not implemented yet.
+- SEC Form N-PORT holdings snapshots are supported for linked U.S. open-end fund classes; coverage, history window, and publication timing are limited as described below.
 - Commercial reuse terms must be reviewed with each provider before redistribution.
 
 See [reports/latest_run.md](reports/latest_run.md), [reports/dataset_research.md](reports/dataset_research.md), and [docs/LIMITATIONS.md](docs/LIMITATIONS.md) for evidence and limitations.
@@ -425,7 +425,7 @@ Successful runs refresh `reports/sample_funds.json`, `reports/sample_nav.json`, 
 
 The database currently contains 162,584 funds and 252,030 NAV observations across 17 source datasets. Imported core-market source records cover the United States, United Kingdom, Germany, France, Italy, Switzerland, Netherlands, Denmark, Sweden, China, Australia, Hong Kong public-offer products, and Brazil. Canada, Mexico, Japan, South Korea, Singapore, Taiwan and Russia are still missing. Expansion-market datasets cover Ireland, Luxembourg and South Africa; the UAE remains outstanding. Spain is an additional market. Brazil supplies 252,029 observations; Australia contributes one currency-explicit observation. The new German, Italian, Dutch, Danish and Luxembourg sources are open-ended fund-master snapshots without NAV. The Hong Kong SFC list is for public-offer authorization and does not assert Hong Kong domicile. These source counts are not a claim of complete national market coverage. Commercial reuse terms have not been reviewed. See `reports/latest_run.md`, `reports/dataset_research.md`, and `docs/LIMITATIONS.md` for evidence and remaining gaps.
 
-The holdings schema and broad historical backfill are not implemented. Output reports are under `reports/`.
+The holdings schema and SEC N-PORT synchronization command are available. It searches the rolling 450-day filing window for the newest public snapshot per mapped series, commits results by SEC registrant, and retains earlier reporting dates on repeat runs. It does not perform a full historical backfill. Output reports are under `reports/`.
 
 ## Node API and interactive dashboard
 
@@ -492,5 +492,11 @@ API tests use a mocked database adapter. The separate live integration check reu
 ### Route reference
 
 `GET /health`; `GET /api/v1/health/database`; `GET /api/v1/health/etl`; `GET /api/v1/countries`; `GET /api/v1/sources`; `GET /api/v1/sources/:id`; `POST /api/v1/sources/:id/check`; `GET /api/v1/funds`; `GET /api/v1/funds/:id`; `GET /api/v1/funds/:id/nav`; `GET /api/v1/stats`; `GET /api/v1/etl/runs`; `GET /api/v1/etl/runs/:id`; `POST /api/v1/etl/runs` (admin key required).
+
+`GET /api/v1/funds/:id/holdings` returns actual portfolio positions and separately sourced/calculated metrics, including ticker, ISIN, quantity, market value/currency, portfolio weight, first bought date, share change, one-year return, forward P/E, sector, reporting date, and provenance. Unavailable fields remain null and render as em dashes. `report_date` selects a historical snapshot; the API also returns available `reportDates`. Fund search accepts `holdings_status=available|unavailable|not_checked`; the Fund Explorer exposes these options under **Advanced filters**.
+
+Apply migration `0006_portfolio_holding_details` after the existing migrations. It renames and extends the existing holdings table without deleting rows, and creates `holding_metrics` separately from reported positions. For U.S. holdings, refresh the SEC series/class master, run the SEC fund ETL, set `USER_AGENT` to identify the application and include a monitored contact email, then run `python -m app.cli sync-sec-holdings`. The importer observes SEC fair-access limits, handles compressed responses, extracts original XML from official complete submissions, caches downloads under ignored `data/raw/`, links series holdings to mapped share classes, and upserts each holding by fund/report date/position. It commits by registrant so completed work survives a later source or database error. Repeated syncs add newer reporting dates without replacing stored history. SEC's N-PORT data does not cover money market funds or SBICs and is disseminated quarterly. SEC filings do not provide first bought date, one-year return, forward P/E, or sector; these fields stay null until added from a verified, separately attributed source.
+
+For Brazil, run `python -m app.cli sync-cvm-holdings --month YYYYMM` after the CVM fund registry ETL. This downloads the official monthly CDA ZIP, maps reported CNPJ identifiers to existing `cvm_open_fund_data` funds, and upserts snapshot rows. It computes portfolio weight only when reported market value and net assets are both available, and records that calculation and its CVM source in `holding_metrics`. CVM may consolidate holdings while confidentiality restrictions apply; the absence of individually disclosed positions is reported as unavailable, not replaced with fabricated records. Rerunning the same month is safe and preserves other reporting dates.
 
 Fund filtering supports `country`, `currency`, `source`, and `q`, with `page`, `limit` (maximum 100), `sort`, and `order`. The existing fund schema does not store manager, expense ratio, fund category, inception date, or descriptive history; those fields are intentionally absent. NAV history is available only for the funds that have persisted NAV observations. Records and source registry values are returned as stored; registered candidate countries are not claimed as integrated markets.
