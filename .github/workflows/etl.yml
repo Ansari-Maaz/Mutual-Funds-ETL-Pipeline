@@ -2,19 +2,28 @@ name: Mutual Fund ETL
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "0 2 * * 0"
 
 permissions:
   contents: read
 
+concurrency:
+  group: mutual-fund-etl
+  cancel-in-progress: false
+
 jobs:
   etl:
+    name: Run Mutual Fund ETL
     runs-on: ubuntu-latest
+    timeout-minutes: 120
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -44,3 +53,30 @@ jobs:
           HTTP_TIMEOUT_SECONDS: "60"
           USER_AGENT: ${{ secrets.USER_AGENT }}
         run: python -m app.cli run --all
+
+      - name: Synchronize SEC portfolio holdings
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "60"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: python -m app.cli sync-sec-holdings
+
+      - name: Verify production database counts
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          python - <<'PY'
+          from sqlalchemy import text
+          from app.db.session import engine
+
+          with engine.connect() as connection:
+              funds = connection.execute(text("SELECT COUNT(*) FROM funds")).scalar_one()
+              navs = connection.execute(text("SELECT COUNT(*) FROM nav_observations")).scalar_one()
+              sources = connection.execute(text("SELECT COUNT(*) FROM sources")).scalar_one()
+              holdings = connection.execute(text("SELECT COUNT(*) FROM portfolio_holdings")).scalar_one()
+
+          print(f"Funds: {funds}")
+          print(f"NAV observations: {navs}")
+          print(f"Sources: {sources}")
+          print(f"Portfolio holdings: {holdings}")
+          PY
