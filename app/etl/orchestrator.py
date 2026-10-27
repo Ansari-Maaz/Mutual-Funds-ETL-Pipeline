@@ -1,5 +1,6 @@
 from datetime import date, datetime, timezone
 from sqlalchemy.dialects.postgresql import insert
+from pydantic import ValidationError
 from app.db.session import SessionLocal
 from app.etl.transform import fund_from_source, nav_from_source
 from app.etl.load import upsert_funds_batch, upsert_navs_batch
@@ -31,7 +32,16 @@ def run_connector(source_id: str, connector_type, *, start_date: date | None=Non
                 for fund,nav_rows in prepared:
                     source_navs=nav_rows if nav_rows is not None else connector.extract_nav_history(fund.source_fund_id,start_date,end_date)
                     for nav_raw in source_navs:
-                        nav=nav_from_source(source_id,{**nav_raw,"source_fund_id":fund.source_fund_id})
+                        try:
+                            nav=nav_from_source(source_id,{**nav_raw,"source_fund_id":fund.source_fund_id})
+                        except ValidationError as exc:
+                            # A malformed/zero NAV must not discard an otherwise valid
+                            # fund batch. Keep the rejection for source-level reporting.
+                            getattr(connector,"_rejects",[]).append({
+                                "record": {"source_fund_id": fund.source_fund_id, **nav_raw},
+                                "error": str(exc),
+                            })
+                            continue
                         nav_batch.append((fund_ids[fund.source_fund_id],nav))
                     loaded+=1
                 for offset in range(0,len(nav_batch),4000):
