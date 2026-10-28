@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="550" viewBox="0 0 900 550">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="36" y="38" fill="#183244" font-family="Times New Roman,serif" font-size="21" font-weight="700">Fund records by country (top 15)</text>
+<text x="36" y="62" fill="#77868E" font-family="Times New Roman,serif" font-size="12">Local API country registry snapshot · count of fund rows</text>
+<text x="288" y="111" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">United States (US)</text>
+<rect x="300" y="96" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="96" width="470.00" height="16" fill="#2A8B7A"/>
+<text x="782" y="109" fill="#25343C" font-family="Times New Roman,serif" font-size="12">39,139</text>
+<text x="288" y="141" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">Brazil (BR)</text>
+<rect x="300" y="126" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="126" width="454.82" height="16" fill="#2A8B7A"/>
+<text x="782" y="139" fill="#25343C" font-family="Times New Roman,serif" font-size="12">37,875</text>
+<text x="288" y="171" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">France (FR)</text>
+<rect x="300" y="156" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="156" width="341.82" height="16" fill="#2A8B7A"/>
+<text x="782" y="169" fill="#25343C" font-family="Times New Roman,serif" font-size="12">28,465</text>
+<text x="288" y="201" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">Luxembourg (LU)</text>
+<rect x="300" y="186" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="186" width="311.01" height="16" fill="#2A8B7A"/>
+<text x="782" y="199" fill="#25343C" font-family="Times New Roman,serif" font-size="12">25,899</text>
+<text x="288" y="231" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">China (CN)</text>
+<rect x="300" y="216" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="216" width="170.16" height="16" fill="#2A8B7A"/>
+<text x="782" y="229" fill="#25343C" font-family="Times New Roman,serif" font-size="12">14,170</text>
+<text x="288" y="261" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">Ireland (IE)</text>
+<rect x="300" y="246" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="246" width="80.76" height="16" fill="#2A8B7A"/>
+<text x="782" y="259" fill="#25343C" font-family="Times New Roman,serif" font-size="12">6,725</text>
+<text x="288" y="291" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">Germany (DE)</text>
+<rect x="300" y="276" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="276" width="79.83" height="16" fill="#2A8B7A"/>
+<text x="782" y="289" fill="#25343C" font-family="Times New Roman,serif" font-size="12">6,648</text>
+<text x="288" y="321" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">Mexico (MX)</text>
+<rect x="300" y="306" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="306" width="61.86" height="16" fill="#2A8B7A"/>
+<text x="782" y="319" fill="#25343C" font-family="Times New Roman,serif" font-size="12">5,151</text>
+<text x="288" y="351" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">United Kingdom (GB)</text>
+<rect x="300" y="336" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="336" width="51.17" height="16" fill="#2A8B7A"/>
+<text x="782" y="349" fill="#25343C" font-family="Times New Roman,serif" font-size="12">4,261</text>
+<text x="288" y="381" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">Spain (ES)</text>
+<rect x="300" y="366" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="366" width="37.42" height="16" fill="#2A8B7A"/>
+<text x="782" y="379" fill="#25343C" font-family="Times New Roman,serif" font-size="12">3,116</text>
+<text x="288" y="411" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">Hong Kong (HK)</text>
+<rect x="300" y="396" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="396" width="27.08" height="16" fill="#2A8B7A"/>
+<text x="782" y="409" fill="#25343C" font-family="Times New Roman,serif" font-size="12">2,255</text>
+<text x="288" y="441" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">Switzerland (CH)</text>
+<rect x="300" y="426" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="426" width="24.67" height="16" fill="#2A8B7A"/>
+<text x="782" y="439" fill="#25343C" font-family="Times New Roman,serif" font-size="12">2,054</text>
+<text x="288" y="471" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">South Africa (ZA)</text>
+<rect x="300" y="456" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="456" width="23.36" height="16" fill="#2A8B7A"/>
+<text x="782" y="469" fill="#25343C" font-family="Times New Roman,serif" font-size="12">1,945</text>
+<text x="288" y="501" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">Denmark (DK)</text>
+<rect x="300" y="486" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="486" width="17.84" height="16" fill="#2A8B7A"/>
+<text x="782" y="499" fill="#25343C" font-family="Times New Roman,serif" font-size="12">1,486</text>
+<text x="288" y="531" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="12">Italy (IT)</text>
+<rect x="300" y="516" width="470" height="16" fill="#F3F6F7"/>
+<rect x="300" y="516" width="16.74" height="16" fill="#2A8B7A"/>
+<text x="782" y="529" fill="#25343C" font-family="Times New Roman,serif" font-size="12">1,394</text>
+</svg>

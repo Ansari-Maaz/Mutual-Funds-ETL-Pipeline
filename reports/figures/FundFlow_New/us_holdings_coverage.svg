@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="36" y="38" fill="#183244" font-family="Times New Roman,serif" font-size="21" font-weight="700">United States holdings and NAV coverage</text>
+<text x="36" y="62" fill="#77868E" font-family="Times New Roman,serif" font-size="12">Verified local snapshot · latest SEC holdings report span 2025-06-30 through 2026-08-31</text>
+<text x="250" y="116" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="13">US fund records</text>
+<rect x="270" y="100" width="510" height="20" fill="#F3F6F7"/>
+<rect x="270" y="100" width="510.0" height="20" fill="#2A8B7A"/>
+<text x="795" y="116" fill="#25343C" font-family="Times New Roman,serif" font-size="13">39,139</text>
+<text x="250" y="164" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="13">US funds with NAV</text>
+<rect x="270" y="148" width="510" height="20" fill="#F3F6F7"/>
+<rect x="270" y="148" width="323.5" height="20" fill="#2A8B7A"/>
+<text x="795" y="164" fill="#25343C" font-family="Times New Roman,serif" font-size="13">24,826</text>
+<text x="250" y="212" text-anchor="end" fill="#25343C" font-family="Times New Roman,serif" font-size="13">US funds with holdings</text>
+<rect x="270" y="196" width="510" height="20" fill="#F3F6F7"/>
+<rect x="270" y="196" width="227.9" height="20" fill="#507A9D"/>
+<text x="795" y="212" fill="#25343C" font-family="Times New Roman,serif" font-size="13">17,487</text>
+</svg>
