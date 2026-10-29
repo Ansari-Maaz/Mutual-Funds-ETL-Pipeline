@@ -8,13 +8,17 @@ import csv, json, urllib.parse, urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 import psycopg
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'data/raw/united_states/nasdaq_mutual_fund_navs.csv'
+sys.path.insert(0, str(ROOT))
+from app.config import database_url
+OUT = ROOT / 'data/raw/united_states/yahoo_mutual_fund_navs.csv'
 URL = 'https://query1.finance.yahoo.com/v8/finance/spark'
 
 def main():
-    with psycopg.connect('postgresql://mfetl:mfetl@localhost:5433/mfetl') as c:
+    db_url = database_url().replace('postgresql+psycopg://', 'postgresql://', 1)
+    with psycopg.connect(db_url) as c:
         tickers=[r[0] for r in c.execute("select distinct ticker from funds where source_id='sec_open_end_fund_classes' and ticker is not null and ticker<>'' order by ticker")]
     found={}
     for i in range(0,len(tickers),20):

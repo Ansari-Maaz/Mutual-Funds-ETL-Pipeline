@@ -11,12 +11,17 @@ import json
 import time
 import urllib.parse
 import urllib.request
+import urllib.error
+import logging
+import sys
 from datetime import date, timedelta
 from pathlib import Path
 
 import psycopg
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from app.config import database_url
 OUT = ROOT / "data" / "raw" / "united_states" / "nasdaq_mutual_fund_navs.csv"
 
 
@@ -37,7 +42,8 @@ def fetch(ticker: str, start: date, end: date) -> tuple[str, str] | None:
         if not nav or nav.upper() in {"N/A", "NA", "-"}:
             return None
         return valuation_date, nav
-    except Exception:
+    except (ValueError, KeyError, TypeError, json.JSONDecodeError, urllib.error.URLError, OSError) as exc:
+        logging.getLogger(__name__).warning("Nasdaq request failed for %s: %s", ticker, exc)
         return None
 
 
@@ -46,8 +52,8 @@ def main() -> None:
     parser.add_argument("--delay", type=float, default=1.0)
     parser.add_argument("--limit", type=int, default=0)
     args = parser.parse_args()
-    database_url = "postgresql://mfetl:mfetl@localhost:5433/mfetl"
-    with psycopg.connect(database_url) as connection:
+    db_url = database_url().replace("postgresql+psycopg://", "postgresql://", 1)
+    with psycopg.connect(db_url) as connection:
         tickers = [r[0] for r in connection.execute("select distinct ticker from funds where source_id='sec_open_end_fund_classes' and ticker is not null and ticker <> '' order by ticker")]
     if args.limit:
         tickers = tickers[:args.limit]
@@ -56,17 +62,20 @@ def main() -> None:
         with OUT.open(newline="", encoding="utf-8") as stream:
             for row in csv.DictReader(stream):
                 existing[row["ticker"]] = row
-    # The Yahoo batch pass may already have covered most symbols. Query Nasdaq
-    # only for the remaining tickers so the second public source can fill gaps.
+    # Refresh Nasdaq data only in its own output; the SEC connector can merge
+    # the separate Yahoo file without either script replacing the other.
     tickers = [ticker for ticker in tickers if ticker not in existing]
     start = date.today() - timedelta(days=30)
     end = date.today()
+    failures = 0
     for index, ticker in enumerate(tickers, start=1):
         result = fetch(ticker, start, end)
         if result:
             valuation_date, nav = result
             existing[ticker] = {"ticker": ticker, "valuation_date": valuation_date, "nav": nav,
                                 "source_url": "https://api.nasdaq.com/api/quote/" + ticker + "/historical?assetclass=mutualfunds"}
+        else:
+            failures += 1
         if index % 100 == 0 or index == len(tickers):
             OUT.parent.mkdir(parents=True, exist_ok=True)
             with OUT.open("w", newline="", encoding="utf-8") as stream:
@@ -77,6 +86,8 @@ def main() -> None:
         if index < len(tickers):
             time.sleep(max(0.0, args.delay))
     print(f"wrote={len(existing)} path={OUT}")
+    if tickers and not existing:
+        raise SystemExit(f"No Nasdaq rows were retrieved; {failures} tickers failed or returned no data")
 
 
 if __name__ == "__main__":

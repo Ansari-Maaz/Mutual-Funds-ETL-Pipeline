@@ -5,6 +5,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 from app.connectors.base import BaseConnector
+from app.connectors.snapshots import probe_snapshot
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data/raw/italy/borsa_italiana_daily_nav.csv"
@@ -32,7 +33,12 @@ class ItBorsaNavConnector(BaseConnector):
                   "currency":cur,"isin":isin,"status":"NAV published","official_url":URL})
                 self._navs[sid]=[{"source_fund_id":sid,"valuation_date":row["valuation_date"],"nav":row["nav"],"currency":cur}]
     def check_availability(self):
-        self._load(); return {"available":True,"fund_records":len(self._records),"nav_records":len(self._navs)}
+        result = probe_snapshot(self.source_id, URL, RAW)
+        if not result["available"]:
+            return result
+        self._load()
+        return {**result, "available": bool(self._records),
+                "fund_records": len(self._records), "nav_records": len(self._navs)}
     def extract_funds(self,start_date:date|None=None,end_date:date|None=None):
         if self._records is None:self._load()
         return iter(self._records)

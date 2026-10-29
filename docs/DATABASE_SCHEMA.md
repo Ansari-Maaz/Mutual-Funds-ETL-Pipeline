@@ -9,7 +9,7 @@
 
 Apply with `alembic upgrade head`. Example queries:
 
-The checked submission snapshot contains 24 registered source rows, 162,584 funds, and 252,030 NAV observations. Counts are data-snapshot evidence, not a claim of complete national market coverage. Apply migrations with `alembic upgrade head`; refresh the snapshot with the documented ETL commands.
+The saved local evidence snapshot dated 2026-10-28 records 51 source rows, 183,169 funds, and 283,590 NAV observations. Counts are dated data evidence, not a claim of complete national market coverage or current production state. Apply migrations with `alembic upgrade head`; refresh from the intended database with the documented ETL commands.
 
 ```sql
 SELECT country_code, count(*) FROM sources GROUP BY country_code ORDER BY country_code;

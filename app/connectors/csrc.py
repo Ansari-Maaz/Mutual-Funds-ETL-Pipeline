@@ -80,8 +80,7 @@ class CsrcConnector(BaseConnector):
                 "domicile_country": "CN", "currency": None, "isin": None, "_navs": []})
         workbook.close()
         self._records = records
-        if self._rejects:
-            (REPORTS / "csrc_rejected_records.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in self._rejects))
+        (REPORTS / "csrc_rejected_records.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in self._rejects))
 
     def check_availability(self) -> dict[str, Any]:
         self._load()

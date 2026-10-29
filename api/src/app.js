@@ -14,6 +14,7 @@ const { notFound, errorHandler } = require('./middleware/errors');
 
 function createApp({ pool, etlLauncher } = {}) {
   const app = express();
+  app.set('trust proxy', Number(process.env.TRUST_PROXY_HOPS || 1));
   app.locals.pool = pool || require('./db/pool').pool;
   app.locals.etlLauncher = etlLauncher || require('./services/runStore').launchRun;
   app.disable('x-powered-by');

@@ -46,26 +46,15 @@ function parseResults(stdout) {
   catch { return []; }
 }
 
-async function runSources(sourceIds) {
+async function runSources(sourceIds, run = execute) {
   const isFullRun = sourceIds.length === runnableSources.size
     && sourceIds.every((sourceId) => runnableSources.has(sourceId));
-  const args = isFullRun
-    ? ['-m', 'app.cli', 'run', '--all']
-    : null;
-  if (args) return execute(args);
-  let stdout = '';
-  let stderr = '';
-  const results = [];
-  for (const sourceId of sourceIds) {
-    const result = await execute(['-m', 'app.cli', 'run', '--source', sourceId]);
-    stdout = (stdout + result.stdout).slice(-2_000_000);
-    stderr = (stderr + result.stderr).slice(-2_000_000);
-    const parsed = parseResults(result.stdout);
-    if (parsed.length) results.push(...parsed);
-    else results.push({ source_id: sourceId, status: result.exitCode === 0 ? 'Failed' : 'Failed', error: result.error || 'Python ETL did not return structured results' });
-    if (result.exitCode !== 0) break;
-  }
-  return { exitCode: results.every((row) => row.status === 'Succeeded') ? 0 : 1, stdout, stderr, results };
+  if (isFullRun) return run(['-m', 'app.cli', 'run', '--all']);
+  const args = ['-m', 'app.cli', 'run'];
+  for (const sourceId of sourceIds) args.push('--source', sourceId);
+  const result = await run(args);
+  const results = parseResults(result.stdout);
+  return { ...result, results };
 }
 
 module.exports = { execute, parseResults, runSources, terminateChildren, sanitize };

@@ -107,8 +107,16 @@ describe('REST API contract', () => {
 
   test('source checks reject a URL that is outside the documented official host', async () => {
     const query = vi.fn().mockResolvedValue({ rows: [{ source_id: 'cvm_open_fund_data', endpoint_url: 'https://example.org/steal' }] });
-    const res = await request(createApp({ pool: fakePool(query) })).post('/api/v1/sources/cvm_open_fund_data/check').expect(422);
+    const res = await request(createApp({ pool: fakePool(query) })).post('/api/v1/sources/cvm_open_fund_data/check').set('X-API-Key', 'test-admin-key').expect(422);
     expect(res.body.error.code).toBe('SOURCE_URL_NOT_ALLOWLISTED');
+  });
+
+  test('source check without an endpoint returns 422 instead of an unhandled URL error', async () => {
+    const query = vi.fn().mockResolvedValue({ rows: [{ source_id: 'au_user_managed_funds', endpoint_url: null }] });
+    const res = await request(createApp({ pool: fakePool(query) }))
+      .post('/api/v1/sources/au_user_managed_funds/check').set('X-API-Key', 'test-admin-key').expect(422);
+    expect(res.body.error.code).toBe('SOURCE_ENDPOINT_MISSING');
+    expect(query).toHaveBeenCalledTimes(1);
   });
 
   test('source connectivity timeout is saved and returned as an unavailable check', async () => {
@@ -116,7 +124,7 @@ describe('REST API contract', () => {
     global.fetch = vi.fn().mockRejectedValue(Object.assign(new Error('aborted'), { name: 'AbortError' }));
     const query = vi.fn().mockResolvedValueOnce({ rows: [{ source_id: 'cvm_open_fund_data', endpoint_url: 'https://dados.cvm.gov.br/dataset/fi-doc-inf_diario' }] }).mockResolvedValueOnce({ rows: [] });
     try {
-      const res = await request(createApp({ pool: fakePool(query) })).post('/api/v1/sources/cvm_open_fund_data/check').expect(502);
+      const res = await request(createApp({ pool: fakePool(query) })).post('/api/v1/sources/cvm_open_fund_data/check').set('X-API-Key', 'test-admin-key').expect(502);
       expect(res.body.data.status).toBe('unavailable');
       expect(res.body.data.message).toMatch(/timed out/);
       expect(query).toHaveBeenCalledTimes(2);

@@ -24,13 +24,15 @@ class ScotiaCanadaConnector(BaseConnector):
     def _load(self):
         self._records=[]; self._navs={}
         wb=load_workbook(RAW,read_only=True,data_only=True); ws=wb.active
+        seen_fund_ids = set()
         for row in ws.iter_rows(min_row=2,values_only=True):
             name,series,currency,asof,nav,_,_,_,_,code=row
             name=str(name or '').strip(); series=str(series or '').strip(); currency=str(currency or '').strip().upper(); code=str(code or '').strip()
             if not name or not asof or not nav or currency not in {'CAD','USD'}: continue
             key=code+'|'+series+'|'+currency if code else hashlib.sha256(f'{name}|{series}|{currency}'.encode()).hexdigest()[:20]
             sid='CA-SCOTIA-'+key
-            if not any(x['source_fund_id']==sid for x in self._records):
+            if sid not in seen_fund_ids:
+                seen_fund_ids.add(sid)
                 is_etf=' ETF' in name.upper() or name.upper().endswith('ETF')
                 self._records.append({'source_fund_id':sid,'name':f'{name} - Series {series}' if series else name,'legal_name':name,'domicile_country':'CA','currency':currency,'isin':None,'provider':'ScotiaFunds','manager':'Scotiabank','category':category(name),'fund_type':'ETF' if is_etf else 'Mutual fund','status':'Active','official_url':'https://www.scotiafunds.com/en/home/all-funds/mutual-fund','ticker':code or None})
             self._navs.setdefault(sid,[]).append({'source_fund_id':sid,'valuation_date':str(asof),'nav':str(nav),'currency':currency})

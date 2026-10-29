@@ -16,6 +16,7 @@ from app.connectors.base import BaseConnector
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw" / "united_states"
 NAV_RAW = RAW / "nasdaq_mutual_fund_navs.csv"
+YAHOO_NAV_RAW = RAW / "yahoo_mutual_fund_navs.csv"
 REPORTS = ROOT / "reports"
 URL = "https://www.sec.gov/files/investment/data/other/investment-company-series-class-information/investment-company-series-class-2026.csv"
 TICKER_URL = "https://www.sec.gov/files/company_tickers_mf.json"
@@ -96,18 +97,23 @@ class SecFundsConnector(BaseConnector):
                     output[class_id]["ticker"] = ticker
         self._records = list(output.values())
         self._navs = {}
-        if NAV_RAW.exists():
+        if NAV_RAW.exists() or YAHOO_NAV_RAW.exists():
             by_ticker = {(r.get("ticker") or "").casefold(): r for r in self._records if r.get("ticker")}
-            with NAV_RAW.open("r", encoding="utf-8-sig", newline="") as stream:
-                for row in csv.DictReader(stream):
-                    fund = by_ticker.get((row.get("ticker") or "").strip().casefold())
-                    if not fund:
-                        continue
-                    self._navs.setdefault(fund["source_fund_id"], []).append({
-                        "source_fund_id": fund["source_fund_id"],
-                        "valuation_date": row["valuation_date"],
-                        "nav": row["nav"], "currency": "USD",
-                    })
+            # Keep provider outputs separate on disk; merge at read time with
+            # Nasdaq preferred when both publish the same ticker/date key.
+            for nav_path in (YAHOO_NAV_RAW, NAV_RAW):
+                if not nav_path.exists():
+                    continue
+                with nav_path.open("r", encoding="utf-8-sig", newline="") as stream:
+                    for row in csv.DictReader(stream):
+                        fund = by_ticker.get((row.get("ticker") or "").strip().casefold())
+                        if not fund or not row.get("valuation_date") or not row.get("nav"):
+                            continue
+                        self._navs.setdefault(fund["source_fund_id"], []).append({
+                            "source_fund_id": fund["source_fund_id"],
+                            "valuation_date": row["valuation_date"],
+                            "nav": row["nav"], "currency": "USD",
+                        })
 
     def check_availability(self) -> dict[str, Any]:
         self._load()

@@ -40,7 +40,7 @@ async function launchRun(pool, runId, sourceIds) {
     await pool.query("UPDATE api_etl_runs SET status='running', started_at=now() WHERE id=$1", [runId]);
     const outcome = await runSources(sourceIds);
     const results = outcome.results || safeParse(outcome.stdout);
-    const failedCount = results.filter((row) => row.status !== 'Succeeded').length;
+    const failedCount = results.filter((row) => row.status === 'Failed').length;
     const status = outcome.exitCode === 0 && failedCount === 0 ? 'succeeded' : (results.some((row) => row.status === 'Succeeded') ? 'partially_succeeded' : 'failed');
     const error = outcome.error || (outcome.exitCode !== 0 ? `Python process exited with code ${outcome.exitCode}` : null);
     await pool.query(

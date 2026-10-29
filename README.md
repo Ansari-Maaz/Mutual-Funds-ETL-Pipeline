@@ -49,6 +49,8 @@ The project is useful for exploring cross-market fund metadata, available NAV hi
 | API | Fund, NAV, holdings, country, source, health, statistics, and ETL run endpoints | ETL controls require an administrator API key |
 | Dashboard | Overview, fund explorer and profiles, source registry, API explorer, ETL controls, run history | Displays the records returned by the configured database |
 
+Fund profiles expose nullable source-provided attributes and the latest stored NAV, with a registered source link when available.
+
 ## Architecture
 
 ```mermaid
@@ -328,13 +330,21 @@ Base URL for local development: `http://localhost:3001`. Endpoints return JSON; 
 | `GET` | `/api/v1/etl/runs/:id` | Run detail by API UUID or `python-N` ID |
 | `POST` | `/api/v1/etl/runs` | Start a protected run; requires `X-API-Key` and either `all`, `sourceIds`, or `countryCodes` |
 
+Source connectivity checks also require `X-API-Key`; sources without a registered endpoint return HTTP 422. See the [API reference](docs/API.md) and [raw snapshot instructions](docs/RAW_SNAPSHOTS.md).
+
+Source connectivity checks also require `X-API-Key`; sources without a registered endpoint return HTTP 422. See the [API reference](docs/API.md) and [raw snapshot instructions](docs/RAW_SNAPSHOTS.md).
+
 Examples:
 
 ```bash
 curl http://localhost:3001/api/v1/stats
 curl 'http://localhost:3001/api/v1/funds?country=US&has_nav=true&page=1&limit=25'
+curl http://localhost:3001/api/v1/funds/123
+curl 'http://localhost:3001/api/v1/funds/123/nav?limit=100'
 curl 'http://localhost:3001/api/v1/funds/123/holdings?report_date=2026-06-30'
 ```
+
+The fund profile includes nullable source-provided attributes and the latest stored NAV. Missing values remain `null` and are displayed as unavailable from the source; the UI does not substitute financial values. See the [complete API reference](docs/API.md) for endpoint parameters and response examples.
 
 The holdings response has the shape `{ "data": [...], "status": "available", "reportDate": "YYYY-MM-DD", "reportDates": [...], "count": 0 }`; each field depends on source availability. The API does not fabricate absent values. See [API inventory](reports/FundFlow_API_Inventory_New.md) for the full inspected route list.
 

@@ -28,7 +28,6 @@ const runnableSources = new Set([
   'de_bde_nonmonetary_funds', 'it_bde_nonmonetary_funds',
   'nl_bde_nonmonetary_funds', 'lu_bde_nonmonetary_funds',
   'hk_sfc_authorised_unit_trusts',
-  'au_user_managed_funds',
 ]);
 
 module.exports = { entries, countries, runnableSources, assignmentCountryCodes };

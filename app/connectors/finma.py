@@ -87,8 +87,7 @@ class FinmaConnector(BaseConnector):
         if not records:
             raise ValueError("FINMA PDF parser found no fund rows; preserve the raw file and inspect the table layout")
         self._records = records
-        if self._rejects:
-            (REPORTS / "finma_rejected_records.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in self._rejects))
+        (REPORTS / "finma_rejected_records.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in self._rejects))
 
     def check_availability(self) -> dict[str, Any]:
         self._load()
