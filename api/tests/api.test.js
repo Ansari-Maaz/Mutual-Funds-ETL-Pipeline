@@ -14,6 +14,19 @@ describe('REST API contract', () => {
     expect(res.body).toMatchObject({ status: 'ok', version: '1.0.0' });
   });
 
+  test('hosted API reference serves an interactive page and its OpenAPI contract', async () => {
+    const app = createApp({ pool: fakePool() });
+    const page = await request(app).get('/api/docs').expect(200);
+    expect(page.text).toContain('<title>FundFlow API Reference</title>');
+    expect(page.text).toContain('spec-url="/api/openapi.json"');
+    expect(page.headers['content-security-policy']).toContain('https://cdn.jsdelivr.net');
+
+    const spec = await request(app).get('/api/openapi.json').expect(200);
+    expect(spec.body.openapi).toBe('3.0.3');
+    expect(spec.body.paths['/funds/{fund_id}/holdings'].get.operationId).toBe('getFundHoldings');
+    expect(spec.body.paths['/etl/runs'].post.security).toEqual([{ AdminApiKey: [] }]);
+  });
+
   test('database health reports successful connectivity', async () => {
     const pool = fakePool(vi.fn().mockResolvedValue({ rows: [{ '?column?': 1 }] }));
     await request(createApp({ pool })).get('/api/v1/health/database').expect(200, { status: 'ok', database: 'connected' });
@@ -150,6 +163,17 @@ describe('REST API contract', () => {
   test('a concurrent local ETL start is rejected', async () => {
     active.add('running-test');
     const res = await request(createApp({ pool: fakePool() })).post('/api/v1/etl/runs').set('X-API-Key', 'test-admin-key').send({ all: true }).expect(409);
+    expect(res.body.error.code).toBe('ETL_ALREADY_RUNNING');
+  });
+
+  test('a database-wide active-run conflict returns 409 without queueing a second job', async () => {
+    const conflict = Object.assign(new Error('duplicate active run'), {
+      code: '23505', constraint: 'uq_api_etl_runs_single_active',
+    });
+    const query = vi.fn().mockRejectedValue(conflict);
+    const res = await request(createApp({ pool: fakePool(query) }))
+      .post('/api/v1/etl/runs').set('X-API-Key', 'test-admin-key')
+      .send({ sourceIds: ['cvm_open_fund_data'] }).expect(409);
     expect(res.body.error.code).toBe('ETL_ALREADY_RUNNING');
   });
 

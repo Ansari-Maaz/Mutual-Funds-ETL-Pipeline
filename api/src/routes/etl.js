@@ -31,7 +31,13 @@ router.post('/runs', runLimit, requireAdmin, async (req, res, next) => {
     await req.app.locals.pool.query('INSERT INTO api_etl_runs(id,status,source_ids) VALUES($1,\'queued\',$2::jsonb)', [id, JSON.stringify(selected)]);
     scheduleRun(req.app.locals.pool, id, selected, req.app.locals.etlLauncher);
     res.status(202).json({ data: { id, status: 'queued', sourceIds: selected, requestedAt: new Date().toISOString() } });
-  } catch (error) { active.delete(id); next(error); }
+  } catch (error) {
+    active.delete(id);
+    if (error.code === '23505' && error.constraint === 'uq_api_etl_runs_single_active') {
+      return res.status(409).json({ error: { code: 'ETL_ALREADY_RUNNING', message: 'An ETL run is already active' } });
+    }
+    next(error);
+  }
 });
 
 module.exports = router;

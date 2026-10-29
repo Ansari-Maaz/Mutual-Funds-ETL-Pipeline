@@ -18,6 +18,7 @@ FundFlow collects mutual-fund reference data, NAV observations, and selected por
 - [Features](#features)
 - [Architecture](#architecture)
 - [ETL workflow](#etl-workflow)
+- [FundFlow data flow](docs/FUND_FLOW.md)
 - [Data model](#data-model)
 - [Country and market coverage](#country-and-market-coverage)
 - [Snapshot statistics](#snapshot-statistics)
@@ -330,9 +331,7 @@ Base URL for local development: `http://localhost:3001`. Endpoints return JSON; 
 | `GET` | `/api/v1/etl/runs/:id` | Run detail by API UUID or `python-N` ID |
 | `POST` | `/api/v1/etl/runs` | Start a protected run; requires `X-API-Key` and either `all`, `sourceIds`, or `countryCodes` |
 
-Source connectivity checks also require `X-API-Key`; sources without a registered endpoint return HTTP 422. See the [API reference](docs/API.md) and [raw snapshot instructions](docs/RAW_SNAPSHOTS.md).
-
-Source connectivity checks also require `X-API-Key`; sources without a registered endpoint return HTTP 422. See the [API reference](docs/API.md) and [raw snapshot instructions](docs/RAW_SNAPSHOTS.md).
+Source connectivity checks also require `X-API-Key`; sources without a registered endpoint return HTTP 422. The hosted interactive API reference is available at `/api/docs` (local: `http://localhost:3001/api/docs`), backed by the machine-readable [`api/openapi.json`](api/openapi.json). The [API reference](docs/API.md) documents endpoints with their purpose, parameters, authentication, and examples, following the endpoint-oriented format used by [Twelve Data](https://twelvedata.com/docs/fundamentals/dividends). See also the [end-to-end data flow](docs/FUND_FLOW.md) and [raw snapshot instructions](docs/RAW_SNAPSHOTS.md).
 
 Examples:
 
@@ -435,6 +434,8 @@ Practical next steps:
 - [API inventory](reports/FundFlow_API_Inventory_New.md)
 - [Evidence and verification notes](reports/FundFlow_Report_Evidence_New.md)
 - [Architecture notes](docs/ARCHITECTURE.md)
+- [End-to-end data flow](docs/FUND_FLOW.md)
+- [API reference](docs/API.md)
 - [Database schema notes](docs/DATABASE_SCHEMA.md)
 - [Adding a source](docs/ADDING_A_SOURCE.md)
 - [Testing notes](docs/TESTING.md)

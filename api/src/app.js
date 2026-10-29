@@ -10,6 +10,7 @@ const sourceChecks = require('./routes/sourceChecks');
 const funds = require('./routes/funds');
 const dashboard = require('./routes/dashboard');
 const etl = require('./routes/etl');
+const apiDocs = require('./routes/apiDocs');
 const { notFound, errorHandler } = require('./middleware/errors');
 
 function createApp({ pool, etlLauncher } = {}) {
@@ -22,6 +23,7 @@ function createApp({ pool, etlLauncher } = {}) {
   app.use(cors({ origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173', methods: ['GET','POST'], allowedHeaders: ['Content-Type','X-API-Key'] }));
   app.use(express.json({ limit: '32kb' }));
   app.get('/health', (_req, res) => res.json({ status: 'ok', version: require('../package.json').version }));
+  app.use('/api', apiDocs);
   app.use('/api/v1/health', health);
   app.use('/api/v1', catalog);
   app.use('/api/v1', sourceChecks);
