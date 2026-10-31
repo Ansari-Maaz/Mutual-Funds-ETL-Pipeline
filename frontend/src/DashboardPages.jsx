@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Activity, ArrowDownToLine, ArrowLeft, ArrowRight, Check, CheckCircle2, ChevronDown, CircleHelp, Clock3, Code2, Database, ExternalLink, Filter, Globe2, History, LoaderCircle, Play, RefreshCw, Search, Server, ShieldCheck, Terminal, WalletCards, X, XCircle } from 'lucide-react';
+import { Activity, ArrowDownToLine, ArrowLeft, ArrowRight, Check, CheckCircle2, ChevronDown, CircleHelp, Clock3, Code2, Database, ExternalLink, FileJson2, Filter, Globe2, History, LoaderCircle, Play, RefreshCw, Search, Server, ShieldCheck, Terminal, WalletCards, X, XCircle } from 'lucide-react';
 import { apiBase, request } from './api';
 import { rowsToCsv } from './csv.js';
 import { Empty, Metric, PageTitle, SectionHeading, Status } from './DashboardComponents.jsx';
