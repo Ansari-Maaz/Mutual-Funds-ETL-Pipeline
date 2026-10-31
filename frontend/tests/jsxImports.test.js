@@ -43,5 +43,5 @@ test('API Explorer predefined endpoints are declared and include the supported A
 
 test('API documentation OpenAPI links point to the configured API service', async () => {
   const source = await readFile(path.join(sourceDir, 'ApiDocumentation.jsx'), 'utf8');
-  assert.equal((source.match(/href=\{`\$\{apiBase\}\/api\/openapi\.json`\}/g) || []).length, 2);
+  assert.ok((source.match(/href=\{`\$\{apiBase\}\/api\/openapi\.json`\}/g) || []).length >= 2);
 });

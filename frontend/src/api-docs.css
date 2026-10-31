@@ -40,3 +40,6 @@
 [data-theme="dark"] .try-result{border-color:#3a4b51}
 [data-theme="dark"] .try-result-head{color:#d7e3e1}
 @media(max-width:700px){.docs-sidebar{width:min(230px,68vw)} }
+.try-close{display:none}.try-guide-copy{font-size:11px;line-height:1.7;color:#6c7e7e;margin:8px 0 16px}.try-guide-links{display:grid;gap:12px;margin-top:18px;padding-top:14px;border-top:1px solid var(--docs-line)}.try-guide-links a{display:flex;align-items:center;gap:6px;color:var(--docs-teal);font-size:10px;text-decoration:none}.try-guide-links a:hover{text-decoration:underline}
+[data-theme="dark"] .try-guide-copy{color:#a4b4b2}
+@media(max-width:1150px){.try-close{display:grid;place-items:center;border:0;background:transparent;color:#71807f;padding:3px}.docs-try-panel.visible{transform:translateX(0)}}
