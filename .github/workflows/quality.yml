@@ -14,6 +14,10 @@ jobs:
   python:
     name: Python tests
     runs-on: ubuntu-latest
+    env:
+      # Unit tests replace the database session. This valid placeholder allows
+      # SQLAlchemy engine construction without connecting to a database.
+      DATABASE_URL: postgresql+psycopg://fundflow_test:fundflow_test@127.0.0.1:5432/fundflow_test
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
