@@ -1,4 +1,8 @@
-const base = (import.meta.env.VITE_API_BASE_URL || window.location.origin).replace(/\/$/, '');
+export function resolveApiBase(configuredBase, pageOrigin) {
+  return String(configuredBase || pageOrigin || 'http://localhost').replace(/\/+$/, '');
+}
+
+const base = resolveApiBase(import.meta.env?.VITE_API_BASE_URL, globalThis.window?.location?.origin);
 
 export async function request(path, options = {}) {
   const started = performance.now();

@@ -15,4 +15,4 @@ erDiagram
   SOURCES ||--o{ ETL_RUNS : audited_by
 ```
 
-The Python orchestration, API orchestration, and dashboard are implemented. Provider coverage remains intentionally incomplete: the current snapshot has 17 runnable connectors, while several requested countries remain documented discovery candidates. See `reports/latest_run.md` and `docs/LIMITATIONS.md` for the evidence-backed coverage boundary.
+The Python orchestration, API orchestration, and dashboard are implemented. Provider coverage remains intentionally incomplete: the dated local snapshot records 30 integrated source rows, and six target markets have no fund records in that snapshot. See `reports/latest_run.md` and `docs/LIMITATIONS.md` for the evidence-backed coverage boundary.

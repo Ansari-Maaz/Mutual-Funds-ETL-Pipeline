@@ -48,9 +48,14 @@ def download_fi_sweden(*, refresh: bool = False) -> dict[str, Any]:
         period_files = [n for n in archive.namelist() if period in n and n.lower().endswith(".xml")]
         if not period_files:
             period_files = [n for n in archive.namelist() if n.lower().endswith(".xml")]
-        (RAW / "xml").mkdir(exist_ok=True)
+        xml_dir = RAW / "xml"
+        xml_dir.mkdir(exist_ok=True)
+        # Remove the previous period before extracting this archive so stale
+        # quarter files cannot be merged into the current fund list.
+        for old_xml in xml_dir.glob("*.xml"):
+            old_xml.unlink()
         for name in period_files:
-            target_xml = RAW / "xml" / (Path(name).name.encode("ascii", "ignore").decode() or "fund.xml")
+            target_xml = xml_dir / (Path(name).name.encode("ascii", "ignore").decode() or "fund.xml")
             target_xml.write_bytes(archive.read(name))
     manifest = {"source_id": "fi_sweden_ucits_holdings", "url": source_url or INDEX_URL,
         "index_url": INDEX_URL, "period": period, "path": str(target.relative_to(ROOT)),

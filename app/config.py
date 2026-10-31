@@ -6,7 +6,14 @@ load_dotenv()
 
 
 def database_url() -> str:
-    value = os.getenv("DATABASE_URL", "******localhost:5433/mfetl")
+    value = os.getenv("DATABASE_URL", "").strip()
+    if not value:
+        raise RuntimeError(
+            "DATABASE_URL is required. Copy .env.example to .env for local development "
+            "or configure the intended PostgreSQL URL in the deployment environment."
+        )
+    if not value.startswith(("postgresql://", "postgres://", "postgresql+psycopg://")):
+        raise RuntimeError("DATABASE_URL must be a PostgreSQL connection URL.")
     if value.startswith("postgresql://"):
         return value.replace("postgresql://", "postgresql+psycopg://", 1)
     if value.startswith("postgres://"):

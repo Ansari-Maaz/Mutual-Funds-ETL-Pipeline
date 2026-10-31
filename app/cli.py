@@ -65,8 +65,9 @@ def catalogue() -> list[dict]:
                 source["usable_fund_data_confirmed"]=True
                 source["records_loaded"]=fund_counts[source_id]
                 source["nav_observations_loaded"]=nav_counts.get(source_id,0)
-    except Exception:
-        pass
+    except Exception as exc:
+        import logging
+        logging.getLogger(__name__).warning("Could not read current database coverage: %s", exc)
     researched_codes={r["country_code"] for r in candidates}
     return country_rows(researched_codes)+candidates
 
@@ -112,6 +113,7 @@ def generate_workbook() -> None:
     from openpyxl.worksheet.table import Table, TableStyleInfo
     from openpyxl.chart import BarChart, Reference
     from openpyxl.worksheet.datavalidation import DataValidation
+    from openpyxl.utils import get_column_letter
     rows=catalogue(); REPORTS.mkdir(exist_ok=True); path=REPORTS/"global_mutual_fund_source_inventory.xlsx"
     wb=Workbook(); dash=wb.active; dash.title="Dashboard"
     dash.append(["Global Mutual Fund ETL — Inventory Summary"])
@@ -129,23 +131,27 @@ def generate_workbook() -> None:
     sheets={"Asia-Pacific":"Asia-Pacific","Europe":"Europe","North America":"North America","Other Markets":"Other markets"}
     for title,region in sheets.items():
         ws=wb.create_sheet(title); ws.append(columns)
+        header_columns = {name: index for index, name in enumerate(columns, start=1)}
         for row in rows:
             if row.get("region")==region: ws.append([row.get(mapping[c], "") for c in columns])
         ws.freeze_panes="A2"; ws.auto_filter.ref=ws.dimensions
         for row in ws.iter_rows(min_row=2):
-            for idx in (7,8,9,34):
-                cell=row[idx-1]
+            for name in ("Official website", "API endpoint or download URL", "API documentation URL", "Evidence URL"):
+                cell=row[header_columns[name]-1]
                 if isinstance(cell.value,str) and cell.value.startswith(("https://","http://")):
                     cell.hyperlink=cell.value; cell.style="Hyperlink"
         if ws.max_row>1:
             table=Table(displayName=title.replace(" ","")+"Sources",ref=ws.dimensions); table.tableStyleInfo=TableStyleInfo(name="TableStyleMedium2",showRowStripes=True,showColumnStripes=False); ws.add_table(table)
-            for column, formula in [(23,'"Permitted,Restricted,Permission Required,Unknown"'),(25,'"Undiscovered,Discovered,Reachable,Authentication Required,Blocked,Unavailable,Accessible — No Fund Data,Usable Fund Data Confirmed"'),(27,'"Not Started,In Progress,Implemented,Tested,Integrated,Failed"')]:
+            for column, formula in [("Commercial reuse status",'"Permitted,Restricted,Permission Required,Unknown"'),("Endpoint verification status",'"Undiscovered,Discovered,Reachable,Authentication Required,Blocked,Unavailable,Accessible — No Fund Data,Usable Fund Data Confirmed"'),("ETL implementation status",'"Not Started,In Progress,Implemented,Tested,Integrated,Failed"')]:
+                column = header_columns[column]
                 dv=DataValidation(type="list",formula1=formula,allow_blank=True); ws.add_data_validation(dv); dv.add(f"{ws.cell(2,column).coordinate}:{ws.cell(ws.max_row,column).coordinate}")
             last=ws.max_row
-            ws.conditional_formatting.add(f"Y2:Y{last}",FormulaRule(formula=['OR(Y2="Usable Fund Data Confirmed",Y2="Reachable")'],fill=PatternFill("solid",fgColor="C6EFCE")))
-            ws.conditional_formatting.add(f"Y2:Y{last}",FormulaRule(formula=['OR(Y2="Blocked",Y2="Unavailable")'],fill=PatternFill("solid",fgColor="FFC7CE")))
-            ws.conditional_formatting.add(f"AA2:AA{last}",FormulaRule(formula=['AA2="Integrated"'],fill=PatternFill("solid",fgColor="C6EFCE")))
-            ws.conditional_formatting.add(f"AA2:AA{last}",FormulaRule(formula=['OR(AA2="Failed",AA2="Not Started")'],fill=PatternFill("solid",fgColor="FFEB9C")))
+            verification_col = get_column_letter(header_columns["Endpoint verification status"])
+            integration_col = get_column_letter(header_columns["ETL implementation status"])
+            ws.conditional_formatting.add(f"{verification_col}2:{verification_col}{last}",FormulaRule(formula=[f'OR({verification_col}2="Usable Fund Data Confirmed",{verification_col}2="Reachable")'],fill=PatternFill("solid",fgColor="C6EFCE")))
+            ws.conditional_formatting.add(f"{verification_col}2:{verification_col}{last}",FormulaRule(formula=[f'OR({verification_col}2="Blocked",{verification_col}2="Unavailable")'],fill=PatternFill("solid",fgColor="FFC7CE")))
+            ws.conditional_formatting.add(f"{integration_col}2:{integration_col}{last}",FormulaRule(formula=[f'{integration_col}2="Integrated"'],fill=PatternFill("solid",fgColor="C6EFCE")))
+            ws.conditional_formatting.add(f"{integration_col}2:{integration_col}{last}",FormulaRule(formula=[f'OR({integration_col}2="Failed",{integration_col}2="Not Started")'],fill=PatternFill("solid",fgColor="FFEB9C")))
         for col in ws.columns:
             letter=col[0].column_letter; ws.column_dimensions[letter].width=min(42,max(14,max(len(str(c.value or "")) for c in col)+2))
         for cell in ws[1]: cell.font=Font(bold=True,color="FFFFFF"); cell.fill=PatternFill("solid",fgColor="17365D"); cell.alignment=Alignment(wrap_text=True)
@@ -167,7 +173,8 @@ def generate_workbook() -> None:
         for cell in ws[1]: cell.font=Font(bold=True,color="FFFFFF"); cell.fill=PatternFill("solid",fgColor="17365D"); cell.alignment=Alignment(wrap_text=True)
         ws.auto_filter.ref=ws.dimensions
     chart=BarChart(); chart.type="bar"; chart.style=10; chart.title="Sources by verification status"; chart.y_axis.title="Status"; chart.x_axis.title="Sources"
-    chart.add_data(Reference(dash,min_col=2,min_row=9,max_row=17),titles_from_data=True); chart.set_categories(Reference(dash,min_col=1,min_row=10,max_row=17)); chart.height=7; chart.width=14; dash.add_chart(chart,"D2")
+    status_header_row = next(cell.row for cell in dash["A"] if cell.value == "Verification status")
+    chart.add_data(Reference(dash,min_col=2,min_row=status_header_row,max_row=dash.max_row),titles_from_data=True); chart.set_categories(Reference(dash,min_col=1,min_row=status_header_row+1,max_row=dash.max_row)); chart.height=7; chart.width=14; dash.add_chart(chart,"D2")
     wb.save(path); print(path)
 
 def export_catalogue() -> None:
@@ -247,14 +254,20 @@ def main() -> None:
     parser=argparse.ArgumentParser(prog="mfetl"); sub=parser.add_subparsers(dest="cmd",required=True)
     sub.add_parser("verify-sources"); sub.add_parser("inventory"); sub.add_parser("sync-sources")
     sec_holdings=sub.add_parser("sync-sec-holdings"); sec_holdings.add_argument("--fund-id", type=int, action="append", help="Limit the sync to a local US fund ID; repeat to select multiple funds")
+    snapshot=sub.add_parser("fetch-snapshot", help="Fetch one reproducible file-based source export")
+    snapshot.add_argument("--source", required=True, choices=["it_borsa_navs","fr_lacotebleue_navs","nl_euronext_fund_navs","lu_euronext_fund_navs","lu_allianz_daily_navs"])
+    snapshot.add_argument("--url", required=True, help="Direct CSV export URL published by the source")
     cvm_holdings=sub.add_parser("sync-cvm-holdings"); cvm_holdings.add_argument("--month", required=True, help="CVM CDA reporting month in YYYYMM format")
     download=sub.add_parser("download"); download.add_argument("--source",default="cvm_open_fund_data"); download.add_argument("--start-date"); download.add_argument("--end-date"); download.add_argument("--refresh",action="store_true")
-    run=sub.add_parser("run"); run.add_argument("--all",action="store_true"); run.add_argument("--country"); run.add_argument("--source"); run.add_argument("--start-date"); run.add_argument("--end-date")
+    run=sub.add_parser("run"); run.add_argument("--all",action="store_true"); run.add_argument("--country"); run.add_argument("--source", action="append"); run.add_argument("--start-date"); run.add_argument("--end-date")
     args=parser.parse_args()
     if args.cmd=="verify-sources": verify_sources()
     elif args.cmd=="inventory":
         export_catalogue(); generate_workbook()
     elif args.cmd=="sync-sources": sync_sources()
+    elif args.cmd=="fetch-snapshot":
+        from app.connectors.snapshots import fetch_snapshot
+        print(json.dumps(fetch_snapshot(args.source, args.url), indent=2))
     elif args.cmd=="sync-sec-holdings":
         from app.holdings.sec_nport import sync_sec_holdings
         print(json.dumps(sync_sec_holdings(set(args.fund_id) if args.fund_id else None),indent=2))
@@ -329,20 +342,44 @@ def main() -> None:
         print(json.dumps(results,indent=2))
     else:
         candidates=all_connectors()
+        skipped_results=[]
         if args.source:
-            candidates={k:v for k,v in candidates.items() if k==args.source}
-            if not candidates: raise SystemExit(f"No connector registered for source {args.source!r}; no ingestion was performed.")
+            selected=set(args.source)
+            missing=selected-candidates.keys()
+            if missing: raise SystemExit(f"No connector registered for source(s) {', '.join(sorted(missing))}; no ingestion was performed.")
+            candidates={k:v for k,v in candidates.items() if k in selected}
         elif args.country:
             codes={r[0] for r in __import__("app.catalog",fromlist=["COUNTRIES"]).COUNTRIES if r[0]==args.country.upper()}
             ids={r["source_id"] for r in catalogue() if r.get("country_code") in codes}
             candidates={k:v for k,v in candidates.items() if k in ids}
             if not candidates: raise SystemExit(f"No connector registered for country {args.country.upper()}; no ingestion was performed.")
         elif not args.all:
-            raise SystemExit("Select --all, --country, or --source.")
+            raise SystemExit("Select --all, --country, or one or more --source options.")
+        elif args.all:
+            # Never make a clean checkout's scheduled run fail because a
+            # source-specific local export was not supplied. Report every skip.
+            required_files = {
+                "au_user_managed_funds": [ROOT / "data/raw/australia/australian_managed_funds.csv"],
+                "us_qqqm_etf": [ROOT / "data/raw/united_states/qqqm_nav.csv"],
+                "scotia_canada_daily_nav": [ROOT / "data/raw/canada/scotia_daily_nav.xlsx"],
+                "bmv_mexico_funds": [ROOT / "data/raw/mexico/bmv_mexico_funds.csv", ROOT / "data/raw/mexico/bmv_mexico_navs.csv"],
+                "it_borsa_navs": [ROOT / "data/raw/italy/borsa_italiana_daily_nav.csv"],
+                "fr_lacotebleue_navs": [ROOT / "data/raw/france/lacote_bleue_navs.csv"],
+                "nl_euronext_fund_navs": [ROOT / "data/raw/netherlands/euronext_amsterdam_funds.csv"],
+                "lu_euronext_fund_navs": [ROOT / "data/raw/luxembourg/euronext_luxembourg_funds.csv"],
+                "lu_allianz_daily_navs": [ROOT / "data/raw/luxembourg/allianz_luxembourg_daily_nav.csv"],
+                "uk_fundslibrary_unit_prices": [ROOT / "data/raw/united_kingdom/fundslibrary_unit_prices.csv"],
+                "uk_ft_morningstar_prices": [ROOT / "data/raw/united_kingdom/ft_morningstar_fund_prices.csv"],
+            }
+            for source_id, paths in required_files.items():
+                if source_id in candidates and not all(path.is_file() for path in paths):
+                    candidates.pop(source_id)
+                    skipped_results.append({"source_id": source_id, "status": "Skipped",
+                        "error": "Required local snapshot is absent; see docs/RAW_SNAPSHOTS.md for retrieval steps."})
         if not candidates:
             raise SystemExit("No runnable provider connectors are registered; no ingestion was performed.")
         from app.etl.orchestrator import run_many
-        results=run_many(candidates,start_date=date.fromisoformat(args.start_date) if args.start_date else None,end_date=date.fromisoformat(args.end_date) if args.end_date else None)
+        results=skipped_results+run_many(candidates,start_date=date.fromisoformat(args.start_date) if args.start_date else None,end_date=date.fromisoformat(args.end_date) if args.end_date else None)
         REPORTS.mkdir(exist_ok=True)
         run_report={"generated_at":datetime.now(timezone.utc).isoformat(),"results":results}
         (REPORTS/"latest_run.json").write_text(json.dumps(run_report,indent=2)+"\n")
@@ -350,5 +387,7 @@ def main() -> None:
             counts=export_database_samples()
             write_latest_run_report(run_report,counts)
         print(json.dumps(results,indent=2))
+        if any(row.get("status") == "Failed" for row in results):
+            raise SystemExit(1)
 
 if __name__=="__main__": main()

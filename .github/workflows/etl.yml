@@ -79,4 +79,8 @@ jobs:
           print(f"NAV observations: {navs}")
           print(f"Sources: {sources}")
           print(f"Portfolio holdings: {holdings}")
+          if funds == 0:
+              raise SystemExit("ETL workflow completed without any persisted fund records")
+          if sources == 0:
+              raise SystemExit("Source catalogue initialization did not persist any sources")
           PY

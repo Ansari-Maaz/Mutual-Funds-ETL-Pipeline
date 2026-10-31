@@ -90,8 +90,10 @@ class GsfmConnector(BaseConnector):
         (REPORTS / "gsfm_rejected_records.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in self._rejects))
 
     def check_availability(self) -> dict[str, Any]:
-        self._load()
-        return {"available": True, "fund_records": len(self._records or []), "rejected_records": len(self._rejects)}
+        # Do not populate the unfiltered cache here: run_connector calls this
+        # before extract_funds(start_date, end_date).
+        manifest = download_gsfm_prices()
+        return {"available": True, "snapshot_sha256": manifest["sha256"]}
 
     def extract_funds(self, start_date: date | None = None, end_date: date | None = None) -> Iterable[dict[str, Any]]:
         if self._records is None:

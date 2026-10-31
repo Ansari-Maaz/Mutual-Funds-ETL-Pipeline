@@ -12,5 +12,6 @@ api/node_modules/
 frontend/node_modules/
 frontend/dist/
 global-mutual-fund-etl-submission.zip
+deliverables/*.zip
 api/.env
 frontend/.env

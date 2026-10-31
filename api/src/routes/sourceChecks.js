@@ -1,10 +1,11 @@
 const express = require('express');
 const { URL } = require('node:url');
 const { rateLimit } = require('express-rate-limit');
+const { requireAdmin } = require('../middleware/admin');
 const router = express.Router();
 const checkLimit = rateLimit({ windowMs: 60_000, limit: 12, standardHeaders: true, legacyHeaders: false });
 
-router.post('/sources/:id/check', checkLimit, async (req, res, next) => {
+router.post('/sources/:id/check', checkLimit, requireAdmin, async (req, res, next) => {
   let source;
   try {
     const { rows } = await req.app.locals.pool.query('SELECT * FROM sources WHERE source_id=$1', [req.params.id]);
@@ -12,8 +13,12 @@ router.post('/sources/:id/check', checkLimit, async (req, res, next) => {
     if (!source) return res.status(404).json({ error: { code: 'SOURCE_NOT_FOUND', message: 'Source not found' } });
     const { entries } = require('../services/catalog');
     const catalog = entries.get(source.source_id);
-    const target = new URL(source.endpoint_url || '');
-    const official = new URL(catalog?.official_website || '');
+    if (!source.endpoint_url || !catalog?.official_website) {
+      return res.status(422).json({ error: { code: 'SOURCE_ENDPOINT_MISSING', message: 'This source has no registered HTTP endpoint to check' } });
+    }
+    let target; let official;
+    try { target = new URL(source.endpoint_url); official = new URL(catalog.official_website); }
+    catch { return res.status(422).json({ error: { code: 'SOURCE_ENDPOINT_INVALID', message: 'The registered source endpoint is not a valid URL' } }); }
     if (target.protocol !== 'https:' || (target.port && target.port !== '443') || !official.hostname || target.hostname !== official.hostname) {
       return res.status(422).json({ error: { code: 'SOURCE_URL_NOT_ALLOWLISTED', message: 'Source URL is not an HTTPS endpoint on its registered official host' } });
     }

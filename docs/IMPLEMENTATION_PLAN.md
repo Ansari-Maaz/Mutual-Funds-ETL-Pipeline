@@ -5,8 +5,8 @@
 3. Add PostgreSQL persistence and Alembic migration — implemented.
 4. Add conservative HTTP source verifier and CLI — implemented.
 5. Generate Excel inventory and run reports — implemented.
-6. Integrate source datasets — 17 connectors currently run. In addition to the original sources, official country-level open-ended fund lists have been imported for Germany, Italy, the Netherlands, Denmark and Luxembourg; SFC-authorised public-offer products are imported for Hong Kong with domicile left null. Spain is additional to requested scope.
-7. Add missing country sources — Canada, Mexico, Japan, South Korea, Singapore, Taiwan, Russia and UAE remain unimported.
-8. Expand NAV history and confirm provider reuse terms — remaining. Most new European and Hong Kong records are fund-master snapshots without NAV.
+6. Integrate source datasets — the saved local snapshot dated 2026-10-28 records 51 source rows and 30 sources marked integrated. It includes fund and NAV rows for France, Italy, the Netherlands, Luxembourg and Denmark; actual coverage varies by feed.
+7. Add missing country sources — consult the current [coverage evidence](../reports/FundFlow_Country_Coverage_New.csv) and [limitations](LIMITATIONS.md); the snapshot has fund records in 18 of the 24 target markets. This dated snapshot does not establish current live or production coverage.
+8. Expand NAV history and confirm provider reuse terms — ongoing. Several connected registers remain fund-master-only. Raw file snapshots are reproducible only where an upstream downloadable export is available.
 
 See `reports/dataset_research.md`, `reports/latest_run.md` and `docs/LIMITATIONS.md` for current status.

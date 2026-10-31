@@ -1,5 +1,5 @@
 const { EventEmitter } = require('node:events');
-const { execute, parseResults } = require('../src/services/etlRunner');
+const { execute, parseResults, runSources } = require('../src/services/etlRunner');
 
 function childProcess() {
   const child = new EventEmitter();
@@ -27,5 +27,22 @@ describe('Python ETL process integration', () => {
     expect(child.kill).toHaveBeenCalledWith('SIGTERM');
     expect(result.timedOut).toBe(true);
     expect(result.error).toMatch(/timeout/);
+  });
+
+  test('selected sources run in one CLI process so a failure cannot hide later outcomes', async () => {
+    const run = vi.fn().mockResolvedValue({ exitCode: 1, stdout: '[{"source_id":"cvm_open_fund_data","status":"Failed"},{"source_id":"gsfm_unit_prices","status":"Succeeded"}]', stderr: '' });
+    const result = await runSources(['cvm_open_fund_data', 'gsfm_unit_prices'], run);
+    expect(result.results).toHaveLength(2);
+    expect(run).toHaveBeenCalledTimes(1);
+    expect(run.mock.calls[0][0]).toContain('cvm_open_fund_data');
+    expect(run.mock.calls[0][0]).toContain('gsfm_unit_prices');
+  });
+
+  test('the API full-source selection includes the Australian connector', async () => {
+    const { runnableSources } = require('../src/services/catalog');
+    const run = vi.fn().mockResolvedValue({ exitCode: 0, stdout: '[]', stderr: '' });
+    expect(runnableSources.has('au_user_managed_funds')).toBe(true);
+    await runSources([...runnableSources], run);
+    expect(run).toHaveBeenCalledWith(['-m', 'app.cli', 'run', '--all']);
   });
 });

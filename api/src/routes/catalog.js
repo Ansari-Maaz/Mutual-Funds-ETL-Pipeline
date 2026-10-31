@@ -25,7 +25,9 @@ router.get('/sources', async (req, res, next) => {
         (SELECT count(*)::int FROM nav_observations n JOIN funds f ON f.id=n.fund_id WHERE f.source_id=s.source_id) AS nav_count
       FROM sources s ORDER BY s.country_code,s.source_id`);
     const { entries, countries, assignmentCountryCodes } = require('../services/catalog');
-    res.json({ data: rows.map((row) => ({ ...entries.get(row.source_id), ...row, assignmentScope: assignmentCountryCodes.has(row.country_code), country: countries.get(row.country_code) })) });
+    res.json({ data: rows.map((row) => ({ ...entries.get(row.source_id), ...row,
+      runnable: require('../services/catalog').runnableSources.has(row.source_id),
+      assignmentScope: assignmentCountryCodes.has(row.country_code), country: countries.get(row.country_code) })) });
   } catch (error) { next(error); }
 });
 
