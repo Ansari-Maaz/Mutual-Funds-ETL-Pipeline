@@ -17,12 +17,35 @@ OUT = ROOT / 'data/raw/united_states/yahoo_mutual_fund_navs.csv'
 URL = 'https://query1.finance.yahoo.com/v8/finance/spark'
 LOGGER = logging.getLogger(__name__)
 
+def load_existing_rows(path):
+    if not path.exists():
+        return {}
+    with path.open(newline='', encoding='utf-8-sig') as stream:
+        return {
+            row['ticker']: row
+            for row in csv.DictReader(stream)
+            if row.get('ticker')
+        }
+
+
+def write_rows(path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + '.tmp')
+    with temporary.open('w', newline='', encoding='utf-8') as stream:
+        writer = csv.DictWriter(stream, fieldnames=['ticker', 'valuation_date', 'nav', 'source_url'])
+        writer.writeheader()
+        writer.writerows(sorted(rows.values(), key=lambda row: row['ticker']))
+        stream.flush()
+    temporary.replace(path)
+
+
 def main():
     db_url = database_url().replace('postgresql+psycopg://', 'postgresql://', 1)
     with psycopg.connect(db_url) as c:
         tickers=[r[0] for r in c.execute("select distinct ticker from funds where source_id='sec_open_end_fund_classes' and ticker is not null and ticker<>'' order by ticker")]
-    found={}
+    found=load_existing_rows(OUT)
     failed_batches=0
+    updated=0
     for i in range(0,len(tickers),20):
         batch=tickers[i:i+20]
         query='symbols='+','.join(batch)+'&range=1mo&interval=1d'
@@ -39,12 +62,11 @@ def main():
             if not pairs: continue
             stamp, nav=pairs[-1]
             found[ticker]={'ticker':ticker,'valuation_date':datetime.fromtimestamp(stamp,tz=timezone.utc).date().isoformat(),'nav':str(nav),'source_url':URL+'?symbols='+ticker+'&range=1mo&interval=1d'}
-        if (i//20+1)%25==0 or i+20>=len(tickers): print(f'processed={min(i+20,len(tickers))}/{len(tickers)} successful={len(found)}',flush=True)
-    OUT.parent.mkdir(parents=True,exist_ok=True)
-    with OUT.open('w',newline='',encoding='utf-8') as f:
-        w=csv.DictWriter(f,fieldnames=['ticker','valuation_date','nav','source_url']); w.writeheader(); w.writerows(sorted(found.values(),key=lambda x:x['ticker']))
-    print(f'wrote={len(found)} path={OUT}')
-    if tickers and not found:
+            updated += 1
+        if (i//20+1)%25==0 or i+20>=len(tickers): print(f'processed={min(i+20,len(tickers))}/{len(tickers)} updated={updated} retained={len(found) - updated}',flush=True)
+    write_rows(OUT, found)
+    print(f'updated={updated} retained={len(found) - updated} total={len(found)} path={OUT}')
+    if tickers and not updated:
         raise SystemExit(f'No Yahoo NAV rows were retrieved; {failed_batches} batches failed or returned no data')
 
 if __name__=='__main__': main()

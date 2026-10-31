@@ -351,7 +351,7 @@ The holdings response has the shape `{ "data": [...], "status": "available", "re
 
 `.github/workflows/etl.yml` supports manual dispatch and a weekly schedule (Sunday 02:00 UTC). It applies Alembic migrations, syncs the source registry, runs configured ETL connectors, syncs SEC holdings, then prints database counts. It requires GitHub secrets named `DATABASE_URL` and `USER_AGENT`; the SEC user agent must include a monitored contact email. The workflow is configured in the repository, but this README does not claim that the most recent run succeeded.
 
-The repository includes a Docker Compose PostgreSQL service and a Python Dockerfile. No currently verified hosted frontend/API/database deployment is documented here. For safe production setup, point `DATABASE_URL` at the intended persistent PostgreSQL database, apply forward migrations, initialize sources, then run ingestion. Keep admin keys and database URLs in the hosting provider’s secret settings.
+The repository includes a Docker Compose PostgreSQL service and a Python CLI Docker image. No currently verified hosted frontend/API/database deployment is documented here. `DATABASE_URL` is required by both the Python ETL and API; the application exits with a configuration error when it is missing instead of silently trying an assumed local database. For safe production setup, point it at the intended persistent PostgreSQL database, apply forward migrations, initialize sources, then run ingestion. The scheduled workflow verifies that source initialization and persisted fund records are non-empty. Keep admin keys and database URLs in the hosting provider’s secret settings.
 
 ## Testing
 

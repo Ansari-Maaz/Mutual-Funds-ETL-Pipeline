@@ -23,7 +23,7 @@ for (const row of raw) {
 const runnableSources = new Set([
   'cvm_open_fund_data', 'csrc_public_fund_index', 'gsfm_unit_prices', 'asisa_cis_fund_list',
   'finma_swiss_fund_list', 'fca_authorised_funds', 'sec_open_end_fund_classes',
-  'cnmv_spanish_fund_register', 'fi_sweden_ucits_holdings', 'cbi_authorised_ucits', 'amf_geco', 'us_qqqm_etf', 'scotia_canada_daily_nav', 'bmv_mexico_funds', 'uk_fundslibrary_unit_prices', 'uk_ft_morningstar_prices',
+  'cnmv_spanish_fund_register', 'fi_sweden_ucits_holdings', 'cbi_authorised_ucits', 'amf_geco', 'au_user_managed_funds', 'us_qqqm_etf', 'scotia_canada_daily_nav', 'bmv_mexico_funds', 'uk_fundslibrary_unit_prices', 'uk_ft_morningstar_prices',
   'dk_bde_nonmonetary_funds', 'de_bundesanzeiger_navs', 'it_borsa_navs', 'ch_six_fund_explorer_navs', 'fr_lacotebleue_navs', 'nl_euronext_fund_navs', 'lu_euronext_fund_navs', 'lu_allianz_daily_navs',
   'de_bde_nonmonetary_funds', 'it_bde_nonmonetary_funds',
   'nl_bde_nonmonetary_funds', 'lu_bde_nonmonetary_funds',

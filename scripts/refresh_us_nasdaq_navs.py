@@ -25,6 +25,17 @@ from app.config import database_url
 OUT = ROOT / "data" / "raw" / "united_states" / "nasdaq_mutual_fund_navs.csv"
 
 
+def write_rows(rows: dict[str, dict[str, str]]) -> None:
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    temporary = OUT.with_suffix(OUT.suffix + ".tmp")
+    with temporary.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=["ticker", "valuation_date", "nav", "source_url"])
+        writer.writeheader()
+        writer.writerows(sorted(rows.values(), key=lambda row: row["ticker"]))
+        stream.flush()
+    temporary.replace(OUT)
+
+
 def fetch(ticker: str, start: date, end: date) -> tuple[str, str] | None:
     query = urllib.parse.urlencode({"assetclass": "mutualfunds", "fromdate": start.isoformat(), "todate": end.isoformat(), "limit": 20})
     url = f"https://api.nasdaq.com/api/quote/{urllib.parse.quote(ticker)}/historical?{query}"
@@ -77,11 +88,7 @@ def main() -> None:
         else:
             failures += 1
         if index % 100 == 0 or index == len(tickers):
-            OUT.parent.mkdir(parents=True, exist_ok=True)
-            with OUT.open("w", newline="", encoding="utf-8") as stream:
-                writer = csv.DictWriter(stream, fieldnames=["ticker", "valuation_date", "nav", "source_url"])
-                writer.writeheader()
-                writer.writerows(sorted(existing.values(), key=lambda row: row["ticker"]))
+            write_rows(existing)
             print(f"processed={index}/{len(tickers)} successful={len(existing)}", flush=True)
         if index < len(tickers):
             time.sleep(max(0.0, args.delay))

@@ -18,7 +18,7 @@ After retrieval, confirm the export columns match the source connector's expecte
 
 ## Other local-only inputs
 
-The Australian managed-fund catalogue is user-supplied and has no public download URL. Scotia Canada, BMV Mexico, QQQM, and Nasdaq refresh files also require their respective download workflows. `python -m app.cli run --all` records these sources as `Skipped` when required inputs are absent in a clean checkout; it continues with the other connectors and exits non-zero only when an attempted connector fails. Explicit `--source` runs still report a missing input as a source failure.
+The Australian managed-fund catalogue is user-supplied and has no public download URL. Scotia Canada, BMV Mexico, QQQM, the UK FundsLibrary export, and the FT/Morningstar UK export require their respective input workflows. The Nasdaq and Yahoo US NAV refresh files are optional enrichment for the SEC fund connector. `python -m app.cli run --all` records required local-input connectors as `Skipped` when an input is absent in a clean checkout; it continues with the other connectors and exits non-zero only when an attempted connector fails. Explicit `--source` runs still report a missing input as a source failure. Yahoo refreshes merge successful ticker updates into the existing Yahoo snapshot so an incomplete batch does not erase previously retrieved rows.
 
 ## Source references
 

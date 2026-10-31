@@ -8,6 +8,10 @@ Run the focused automated checks from the project root:
 (cd frontend && npm run build)
 ```
 
+## Verification on 2026-10-31
+
+The current working tree passed 21 Python tests, 22 API tests, 1 frontend test, and a Vite production build. Python bytecode compilation and `git diff --check` also passed. The API test suite binds a local ephemeral HTTP server and uses mocked database adapters; no production connection was made. The local PostgreSQL endpoint was unavailable during this verification, so database integration and a live ETL run were not re-verified.
+
 On 2026-10-29, local checks completed with 18 Python tests, 21 API tests, 1 frontend CSV test, and a successful Vite production build. The Python suite includes canonical-schema fixture coverage for the Italy, France, Netherlands, Luxembourg Euronext, Allianz Luxembourg, and SIX connectors, regression coverage for snapshot refresh and batch deduplication, GSFM date filtering, and persistence of failed ETL attempts for unregistered sources. The read-only PostgreSQL/API integration check also passed against the local CVM-loaded records. Most API contract tests use a mocked database adapter; they do not replace broader connector/database coverage. Python 3.10+ is supported; this local check used Python 3.14.
 
 For live database verification, install Docker Compose, start PostgreSQL with `docker compose up -d db`, apply migrations with `./.venv/bin/alembic upgrade head`, and start the API before running:

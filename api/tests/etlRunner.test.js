@@ -37,4 +37,12 @@ describe('Python ETL process integration', () => {
     expect(run.mock.calls[0][0]).toContain('cvm_open_fund_data');
     expect(run.mock.calls[0][0]).toContain('gsfm_unit_prices');
   });
+
+  test('the API full-source selection includes the Australian connector', async () => {
+    const { runnableSources } = require('../src/services/catalog');
+    const run = vi.fn().mockResolvedValue({ exitCode: 0, stdout: '[]', stderr: '' });
+    expect(runnableSources.has('au_user_managed_funds')).toBe(true);
+    await runSources([...runnableSources], run);
+    expect(run).toHaveBeenCalledWith(['-m', 'app.cli', 'run', '--all']);
+  });
 });

@@ -2,8 +2,8 @@ const path = require('node:path');
 
 const projectRoot = path.resolve(__dirname, '../..');
 function postgresUrl(value) {
-  return (value || 'postgresql://mfetl:mfetl@localhost:5433/mfetl')
-    .replace(/^postgresql\+psycopg:\/\//, 'postgresql://');
+  if (!value || !value.trim()) return null;
+  return value.trim().replace(/^postgresql\+psycopg:\/\//, 'postgresql://');
 }
 
 module.exports = {

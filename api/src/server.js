@@ -1,12 +1,13 @@
 require('dotenv').config({ path: require('node:path').resolve(__dirname, '../.env') });
 require('dotenv').config({ path: require('node:path').resolve(__dirname, '../../.env') });
 const { createApp } = require('./app');
-const { pool } = require('./db/pool');
+const { createPool } = require('./db/pool');
 const { port } = require('./config');
 const { terminateChildren } = require('./services/etlRunner');
 const { waitForRuns, recoverStaleRuns } = require('./services/runStore');
 
 async function main() {
+  const pool = createPool();
   await pool.query('SELECT 1');
   await recoverStaleRuns(pool);
   const app = createApp({ pool });
