@@ -35,6 +35,24 @@ function Overview({ stats, sources, countries, runs, funds, onNavigate, refresh 
 
 function RunsTable({ runs, compact=false, onSelect }) { return <div className={`table-wrap runs-table-wrap ${compact?'compact':''}`}><table><thead><tr><th>RUN ID</th><th>STATUS</th><th>SOURCES</th><th>REQUESTED</th><th>FINISHED</th></tr></thead><tbody>{runs.map((r)=><tr key={r.id} className={onSelect?'click-row':''} onClick={()=>onSelect?.(r)}><td className="mono">{displayRunId(r.id)}</td><td><Status value={r.status}/></td><td>{(r.source_ids||[]).length}</td><td>{dt(r.requested_at)}</td><td>{dt(r.finished_at)}</td></tr>)}</tbody></table><div className="runs-mobile-cards">{runs.map((r)=><button key={r.id} className="run-mobile-card" onClick={()=>onSelect?.(r)} disabled={!onSelect}><span className="run-mobile-top"><b>{displayRunId(r.id)}</b><Status value={r.status}/></span><span className="run-mobile-meta"><span><small>Sources</small><b>{(r.source_ids||[]).length}</b></span><span><small>Requested</small><b>{dt(r.requested_at)}</b></span><span><small>Finished</small><b>{dt(r.finished_at)}</b></span></span></button>)}</div>{!runs.length&&<Empty>No ETL runs to show.</Empty>}</div>; }
 
+const endpoints = [
+  { label: 'API · Health', method: 'GET', path: '/health' },
+  { label: 'Database · Health', method: 'GET', path: '/api/v1/health/database' },
+  { label: 'ETL · Health', method: 'GET', path: '/api/v1/health/etl' },
+  { label: 'Database · Statistics', method: 'GET', path: '/api/v1/stats' },
+  { label: 'Countries · Coverage', method: 'GET', path: '/api/v1/countries' },
+  { label: 'Sources · Registry', method: 'GET', path: '/api/v1/sources' },
+  { label: 'Sources · Detail', method: 'GET', path: '/api/v1/sources/{sourceId}' },
+  { label: 'Sources · Check endpoint', method: 'POST', path: '/api/v1/sources/{sourceId}/check' },
+  { label: 'Funds · Search', method: 'GET', path: '/api/v1/funds?limit=25' },
+  { label: 'Funds · Profile', method: 'GET', path: '/api/v1/funds/{id}' },
+  { label: 'Funds · NAV history', method: 'GET', path: '/api/v1/funds/{id}/nav?limit=100' },
+  { label: 'Funds · Portfolio holdings', method: 'GET', path: '/api/v1/funds/{id}/holdings' },
+  { label: 'ETL · Run history', method: 'GET', path: '/api/v1/etl/runs?limit=20' },
+  { label: 'ETL · Run details', method: 'GET', path: '/api/v1/etl/runs/{id}' },
+  { label: 'ETL · Start all sources', method: 'POST', path: '/api/v1/etl/runs', body: '{\n  "all": true\n}' },
+];
+
 function ApiExplorer({ notify }) {
   const [index, setIndex] = useState(0); const [method, setMethod] = useState(endpoints[0].method); const [pathValue, setPathValue] = useState(endpoints[0].path); const [params, setParams] = useState(''); const [body, setBody] = useState(''); const [apiKey, setApiKey] = useState(''); const [result, setResult] = useState(null); const [busy, setBusy] = useState(false);
   const select = (i) => { setIndex(i); setMethod(endpoints[i].method); setPathValue(endpoints[i].path); setBody(endpoints[i].body || ''); setResult(null); };

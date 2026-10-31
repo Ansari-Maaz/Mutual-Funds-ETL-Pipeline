@@ -32,3 +32,16 @@ test('dashboard JSX component names are imported or declared in their module', a
     assert.deepEqual(unresolved, [], `${filename} has unresolved JSX names: ${unresolved.join(', ')}`);
   }
 });
+
+test('API Explorer predefined endpoints are declared and include the supported API groups', async () => {
+  const source = await readFile(path.join(sourceDir, 'DashboardPages.jsx'), 'utf8');
+  assert.match(source, /const endpoints = \[/);
+  for (const path of ['/health', '/api/v1/stats', '/api/v1/funds/{id}', '/api/v1/etl/runs']) {
+    assert.ok(source.includes(path), `API Explorer is missing ${path}`);
+  }
+});
+
+test('API documentation OpenAPI links point to the configured API service', async () => {
+  const source = await readFile(path.join(sourceDir, 'ApiDocumentation.jsx'), 'utf8');
+  assert.equal((source.match(/href=\{`\$\{apiBase\}\/api\/openapi\.json`\}/g) || []).length, 2);
+});
