@@ -11,7 +11,7 @@ import zipfile
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
-from urllib.parse import quote
+from urllib.parse import urljoin
 
 from app.config import timeout_seconds, user_agent
 from app.connectors.base import BaseConnector
@@ -35,11 +35,16 @@ def download_fi_sweden(*, refresh: bool = False) -> dict[str, Any]:
         match = re.search(r'href="([^"]*FondInnehavLista/download\?filnamn=Fondinnehav_[^"]+\.zip)"[^>]*>\s*Fondinnehav\s+(\d{4}Q\d)', page, re.I)
         if not match:
             raise ValueError("FI Sweden page did not expose a quarterly holdings archive")
-        source_url, period = match.groups()
-        source_url = quote("https://www.fi.se" + source_url.replace("&amp;", "&"), safe=":/?=&%")
+        href, period = match.groups()
+        # Keep the query value intact: the FI endpoint expects the original
+        # filename in `filnamn`; quote() on the complete URL can alter it.
+        source_url = urljoin(INDEX_URL, href.replace("&amp;", "&"))
         req = urllib.request.Request(source_url, headers={"User-Agent": user_agent(), "Accept": "application/zip,*/*"})
-        with urllib.request.urlopen(req, timeout=timeout_seconds()) as response:
-            payload = response.read()
+        try:
+            with urllib.request.urlopen(req, timeout=timeout_seconds()) as response:
+                payload = response.read()
+        except Exception as exc:
+            raise RuntimeError(f"Failed to download FI Sweden archive {source_url}: {exc}") from exc
         if not payload.startswith(b"PK\x03\x04"):
             raise ValueError("FI Sweden response was not a ZIP archive")
         target.write_bytes(payload)

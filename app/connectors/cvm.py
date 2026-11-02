@@ -6,6 +6,7 @@ import hashlib
 import io
 import json
 import urllib.request
+from urllib.error import HTTPError
 import zipfile
 from copy import deepcopy
 from collections import defaultdict
@@ -53,6 +54,24 @@ def download_cvm_data(months: Iterable[str] | None=None, *, refresh: bool=False)
     """Download official CVM snapshots and write a checksummed provenance manifest."""
     RAW.mkdir(parents=True,exist_ok=True)
     months=list(months or [datetime.now(timezone.utc).strftime("%Y%m")])
+    # CVM publishes the current month incrementally, and the archive may not
+    # exist on the first days of a month. For the default/current month only,
+    # use the latest previously published month when the new archive is 404.
+    if len(months) == 1 and months[0] == datetime.now(timezone.utc).strftime("%Y%m"):
+        month = datetime.strptime(months[0], "%Y%m").date()
+        for _ in range(12):
+            current = month.strftime("%Y%m")
+            previous = date(month.year - (month.month == 1), 12 if month.month == 1 else month.month - 1, 1)
+            try:
+                _download(_monthly_url(current), RAW / f"inf_diario_fi_{current}.zip")
+                months[0] = current
+                break
+            except HTTPError as exc:
+                if exc.code != 404:
+                    raise
+                month = previous
+        else:
+            raise FileNotFoundError("CVM has no published daily NAV archive in the last 12 months")
     targets=[(_monthly_url(m),RAW/f"inf_diario_fi_{m}.zip") for m in months]
     targets += [(REGISTRY_URL,RAW/"registro_fundo_classe.zip"),
                 (CURRENT_CAD_URL,RAW/"cad_fi.csv")]
@@ -64,6 +83,7 @@ def download_cvm_data(months: Iterable[str] | None=None, *, refresh: bool=False)
         completed.append({"url":url,"path":str(path.relative_to(ROOT)),"bytes":path.stat().st_size,
           "sha256":_sha256(path),"downloaded":did_download,"checked_at":datetime.now(timezone.utc).isoformat()})
     manifest_path=REPORTS/"cvm_dataset_manifest.json"
+    REPORTS.mkdir(parents=True, exist_ok=True)
     old=[]
     if manifest_path.exists():
         try: old=json.loads(manifest_path.read_text())

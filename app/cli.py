@@ -370,6 +370,7 @@ def main() -> None:
                 "lu_allianz_daily_navs": [ROOT / "data/raw/luxembourg/allianz_luxembourg_daily_nav.csv"],
                 "uk_fundslibrary_unit_prices": [ROOT / "data/raw/united_kingdom/fundslibrary_unit_prices.csv"],
                 "uk_ft_morningstar_prices": [ROOT / "data/raw/united_kingdom/ft_morningstar_fund_prices.csv"],
+                "de_bundesanzeiger_navs": [ROOT / "data/raw/germany/bundesanzeiger_fund_prices.csv"],
             }
             for source_id, paths in required_files.items():
                 if source_id in candidates and not all(path.is_file() for path in paths):

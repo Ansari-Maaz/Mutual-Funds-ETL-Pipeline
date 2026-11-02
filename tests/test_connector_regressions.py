@@ -1,8 +1,10 @@
 import io
 import zipfile
 from datetime import date
+import datetime as datetime_module
+from urllib.error import HTTPError
 
-from app.connectors import fi_sweden, gsfm
+from app.connectors import cvm, fi_sweden, gsfm
 
 
 def test_gsfm_availability_does_not_cache_unfiltered_rows(tmp_path, monkeypatch):
@@ -62,4 +64,37 @@ def test_sweden_refresh_removes_xml_from_old_quarters(tmp_path, monkeypatch):
 
     manifest = fi_sweden.download_fi_sweden(refresh=True)
     assert manifest["period"] == "2026Q3"
+    assert manifest["url"].endswith("filnamn=FondInnehav_2026Q3.zip")
     assert sorted(path.name for path in xml_dir.glob("*.xml")) == ["FondInnehav_2026Q3.xml"]
+
+
+def test_cvm_current_month_404_falls_back_to_latest_published_month(tmp_path, monkeypatch):
+    raw = tmp_path / "cvm"
+    reports = tmp_path / "reports"
+    monkeypatch.setattr(cvm, "RAW", raw)
+    monkeypatch.setattr(cvm, "ROOT", tmp_path)
+    monkeypatch.setattr(cvm, "REPORTS", reports)
+    class FrozenDateTime(datetime_module.datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return cls(2026, 11, 2, tzinfo=tz or datetime_module.timezone.utc)
+
+    monkeypatch.setattr(cvm, "datetime", FrozenDateTime)
+    downloaded = []
+
+    def fake_download(url, destination):
+        downloaded.append(url)
+        if "202611" in url:
+            raise HTTPError(url, 404, "Not Found", {}, None)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(b"archive")
+
+    monkeypatch.setattr(cvm, "_download", fake_download)
+    monkeypatch.setattr(cvm, "_sha256", lambda _path: "hash")
+    monkeypatch.setattr(cvm, "REGISTRY_URL", "https://example.test/registry")
+    monkeypatch.setattr(cvm, "CURRENT_CAD_URL", "https://example.test/current")
+
+    rows = cvm.download_cvm_data()
+    assert "202611" in downloaded[0]
+    assert "202610" in downloaded[1]
+    assert rows[0]["path"].endswith("inf_diario_fi_202610.zip")
