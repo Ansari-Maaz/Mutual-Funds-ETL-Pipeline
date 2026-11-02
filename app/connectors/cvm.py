@@ -27,6 +27,13 @@ CURRENT_CAD_URL="https://dados.cvm.gov.br/dados/FI/CAD/DADOS/cad_fi.csv"
 def _monthly_url(month: str) -> str:
     return f"https://dados.cvm.gov.br/dados/FI/DOC/INF_DIARIO/DADOS/inf_diario_fi_{month}.zip"
 
+def _downloaded_months(manifest: Iterable[dict[str, Any]]) -> list[str]:
+    return [
+        Path(row["path"]).stem.removeprefix("inf_diario_fi_")
+        for row in manifest
+        if Path(row.get("path", "")).name.startswith("inf_diario_fi_")
+    ]
+
 def _sha256(path: Path) -> str:
     h=hashlib.sha256()
     with path.open("rb") as f:
@@ -129,7 +136,16 @@ class CvmConnector(BaseConnector):
             if month==13: year,month=year+1,1
         if len(month_list)>12:
             raise ValueError("CVM connector currently supports up to 12 monthly archives per run")
-        download_cvm_data(month_list)
+        requested_month_list = list(month_list)
+        download_manifest = download_cvm_data(month_list)
+        # The downloader may replace an unpublished current-month archive
+        # with the latest published one. Read exactly the archives it returned.
+        month_list = _downloaded_months(download_manifest)
+        if (start_date is None and end_date is None and month_list
+                and month_list[0] < requested_month_list[0]):
+            # When the current month has not been published yet, ingest the
+            # available previous month instead of silently filtering it out.
+            start = date(int(month_list[0][:4]), int(month_list[0][4:]), 1)
 
         registry_zip=zipfile.ZipFile(RAW/"registro_fundo_classe.zip")
         self._rejects=[]

@@ -40,7 +40,7 @@ def test_sweden_refresh_removes_xml_from_old_quarters(tmp_path, monkeypatch):
     with zipfile.ZipFile(archive_buffer, "w") as archive:
         archive.writestr("FondInnehav_2026Q3.xml", "<Fondinformation />")
     archive_bytes = archive_buffer.getvalue()
-    html = (b'<a href="/FondInnehavLista/download?filnamn=FondInnehav_2026Q3.zip">'
+    html = (b'<a href="/FondInnehavLista/download?filnamn=FondInnehav_2026Q3_2026-10-14 08.12.zip">'
             b"Fondinnehav 2026Q3</a>")
 
     class Response:
@@ -64,7 +64,7 @@ def test_sweden_refresh_removes_xml_from_old_quarters(tmp_path, monkeypatch):
 
     manifest = fi_sweden.download_fi_sweden(refresh=True)
     assert manifest["period"] == "2026Q3"
-    assert manifest["url"].endswith("filnamn=FondInnehav_2026Q3.zip")
+    assert manifest["url"].endswith("filnamn=FondInnehav_2026Q3_2026-10-14%2008.12.zip")
     assert sorted(path.name for path in xml_dir.glob("*.xml")) == ["FondInnehav_2026Q3.xml"]
 
 
@@ -98,3 +98,4 @@ def test_cvm_current_month_404_falls_back_to_latest_published_month(tmp_path, mo
     assert "202611" in downloaded[0]
     assert "202610" in downloaded[1]
     assert rows[0]["path"].endswith("inf_diario_fi_202610.zip")
+    assert cvm._downloaded_months(rows) == ["202610"]

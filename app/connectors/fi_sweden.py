@@ -11,7 +11,7 @@ import zipfile
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
-from urllib.parse import urljoin
+from urllib.parse import parse_qsl, quote, urlencode, urljoin, urlsplit, urlunsplit
 
 from app.config import timeout_seconds, user_agent
 from app.connectors.base import BaseConnector
@@ -36,9 +36,12 @@ def download_fi_sweden(*, refresh: bool = False) -> dict[str, Any]:
         if not match:
             raise ValueError("FI Sweden page did not expose a quarterly holdings archive")
         href, period = match.groups()
-        # Keep the query value intact: the FI endpoint expects the original
-        # filename in `filnamn`; quote() on the complete URL can alter it.
         source_url = urljoin(INDEX_URL, href.replace("&amp;", "&"))
+        # The filename includes a timestamp with a space. Encode query values
+        # separately so urllib accepts the URL and FI receives the same name.
+        parts = urlsplit(source_url)
+        encoded_query = urlencode(parse_qsl(parts.query, keep_blank_values=True), quote_via=quote)
+        source_url = urlunsplit((parts.scheme, parts.netloc, parts.path, encoded_query, parts.fragment))
         req = urllib.request.Request(source_url, headers={"User-Agent": user_agent(), "Accept": "application/zip,*/*"})
         try:
             with urllib.request.urlopen(req, timeout=timeout_seconds()) as response:
