@@ -54,6 +54,18 @@ jobs:
           USER_AGENT: ${{ secrets.USER_AGENT }}
         run: python -m app.cli run --all
 
+      - name: Refresh current US mutual-fund NAVs
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python scripts/refresh_us_yahoo_batch_navs.py
+
+      - name: Ingest refreshed US mutual-fund NAVs
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "60"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: python -m app.cli run --source sec_open_end_fund_classes
+
       - name: Synchronize SEC portfolio holdings
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
