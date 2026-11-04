@@ -126,8 +126,10 @@ describe('REST API contract', () => {
 
   test('fund holdings return filed positions and sourced optional metrics by reporting date', async () => {
     const query = vi.fn()
-      .mockResolvedValueOnce({ rows: [{ holdings_status: 'available', holdings_report_date: '2026-06-30' }] })
-      .mockResolvedValueOnce({ rows: [{ reporting_date: '2026-06-30' }, { reporting_date: '2026-03-31' }] })
+      .mockResolvedValueOnce({ rows: [{
+        holdings_status: 'available', holdings_report_date: '2026-06-30',
+        report_dates: ['2026-06-30', '2026-03-31'],
+      }] })
       .mockResolvedValueOnce({ rows: [{
         id: 42, fund_id: 7, reporting_date: '2026-06-30', security_name: 'Example issuer',
         ticker: 'EXM', isin: 'US0000000001', quantity: '10', market_value: '250', currency: 'USD',
@@ -145,9 +147,10 @@ describe('REST API contract', () => {
         source_url: 'https://www.sec.gov/Archives/example.xml',
         data_scope: 'SEC series-level; shared across share classes', sec_series_id: 'S000000001' }],
     });
-    expect(query.mock.calls[2][0]).toContain('FROM portfolio_holdings h');
-    expect(query.mock.calls[2][0]).toContain('FROM holding_metrics');
-    expect(query.mock.calls[2][1]).toEqual([7, '2026-06-30', 1000]);
+    expect(query.mock.calls[0][0]).toContain('array_agg(DISTINCT h.reporting_date');
+    expect(query.mock.calls[1][0]).toContain('FROM portfolio_holdings h');
+    expect(query.mock.calls[1][0]).toContain('FROM holding_metrics');
+    expect(query.mock.calls[1][1]).toEqual([7, '2026-06-30', 1000]);
   });
 
   test('fund completeness keeps missing data unverified and marks US AMFI as not applicable', async () => {
