@@ -1,6 +1,7 @@
 from datetime import date, datetime
 from decimal import Decimal
 from sqlalchemy import Date, DateTime, ForeignKey, Numeric, String, Text, UniqueConstraint, func
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 class Base(DeclarativeBase):
@@ -26,6 +27,7 @@ class Fund(Base):
     name: Mapped[str] = mapped_column(String(500))
     domicile_country: Mapped[str | None] = mapped_column(String(2), index=True)
     currency: Mapped[str | None] = mapped_column(String(3))
+    currency_basis: Mapped[str | None] = mapped_column(String(30))
     isin: Mapped[str | None] = mapped_column(String(12), index=True)
     legal_name: Mapped[str | None] = mapped_column(String(500))
     provider: Mapped[str | None] = mapped_column(String(300), index=True)
@@ -45,6 +47,22 @@ class Fund(Base):
     sec_cik: Mapped[str | None] = mapped_column(String(10))
     holdings_status: Mapped[str] = mapped_column(String(20), default="not_checked", server_default="not_checked")
     holdings_report_date: Mapped[date | None] = mapped_column(Date)
+
+class FundProfileSnapshot(Base):
+    """Source-backed, versioned enrichment grouped by profile dataset."""
+    __tablename__ = "fund_profile_snapshots"
+    __table_args__ = (
+        UniqueConstraint("fund_id", "source_id", "snapshot_key", name="uq_fund_profile_source_snapshot"),
+    )
+    id: Mapped[int] = mapped_column(primary_key=True)
+    fund_id: Mapped[int] = mapped_column(ForeignKey("funds.id", ondelete="CASCADE"), index=True)
+    source_id: Mapped[str] = mapped_column(ForeignKey("sources.source_id"), index=True)
+    dataset: Mapped[str] = mapped_column(String(40), index=True)
+    source_report_date: Mapped[date | None] = mapped_column(Date, index=True)
+    snapshot_key: Mapped[str] = mapped_column(String(64))
+    payload: Mapped[dict] = mapped_column(JSONB)
+    source_url: Mapped[str | None] = mapped_column(Text)
+    retrieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 class PortfolioHolding(Base):
     __tablename__ = "portfolio_holdings"
@@ -89,8 +107,15 @@ class NavObservation(Base):
     __table_args__ = (UniqueConstraint("fund_id", "valuation_date", "currency", name="uq_nav_fund_date_currency"),)
     id: Mapped[int] = mapped_column(primary_key=True)
     fund_id: Mapped[int] = mapped_column(ForeignKey("funds.id", ondelete="CASCADE"), index=True)
+    source_id: Mapped[str | None] = mapped_column(ForeignKey("sources.source_id"), index=True)
+    source_url: Mapped[str | None] = mapped_column(Text)
     valuation_date: Mapped[date] = mapped_column(Date, index=True)
     nav: Mapped[Decimal] = mapped_column(Numeric(24, 10))
+    open: Mapped[Decimal | None] = mapped_column(Numeric(24, 10))
+    high: Mapped[Decimal | None] = mapped_column(Numeric(24, 10))
+    low: Mapped[Decimal | None] = mapped_column(Numeric(24, 10))
+    close: Mapped[Decimal | None] = mapped_column(Numeric(24, 10))
+    ohlc_basis: Mapped[str | None] = mapped_column(String(40))
     currency: Mapped[str] = mapped_column(String(3))
     retrieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 

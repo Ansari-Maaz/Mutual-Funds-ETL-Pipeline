@@ -53,12 +53,26 @@ def catalogue() -> list[dict]:
     try:
         from sqlalchemy import func, select
         from app.db.session import SessionLocal
-        from app.models.schema import Fund, NavObservation
+        from app.models.schema import Fund, FundProfileSnapshot, NavObservation
         with SessionLocal() as session:
             fund_counts=dict(session.execute(select(Fund.source_id,func.count()).group_by(Fund.source_id)).all())
             nav_counts=dict(session.execute(select(Fund.source_id,func.count()).select_from(NavObservation).join(Fund,NavObservation.fund_id==Fund.id).group_by(Fund.source_id)).all())
+            nav_source_counts=dict(session.execute(select(NavObservation.source_id,func.count()).where(NavObservation.source_id.is_not(None)).group_by(NavObservation.source_id)).all())
+            profile_counts=dict(session.execute(select(FundProfileSnapshot.source_id,func.count()).group_by(FundProfileSnapshot.source_id)).all())
         for source in candidates:
             source_id=source.get("source_id")
+            if profile_counts.get(source_id,0):
+                source["integration_status"]="Integrated"
+                source["verification_status"]="Usable Fund Data Confirmed"
+                source["usable_fund_data_confirmed"]=True
+                source["fund_profile_snapshots_loaded"]=profile_counts[source_id]
+                source["records_loaded"]=max(source.get("records_loaded",0),profile_counts[source_id])
+            if nav_source_counts.get(source_id,0):
+                source["integration_status"]="Integrated"
+                source["verification_status"]="Usable Fund Data Confirmed"
+                source["usable_fund_data_confirmed"]=True
+                source["nav_observations_loaded"]=nav_source_counts[source_id]
+                source["records_loaded"]=max(source.get("records_loaded",0),nav_source_counts[source_id])
             if fund_counts.get(source_id,0):
                 source["integration_status"]="Integrated"
                 source["verification_status"]="Usable Fund Data Confirmed"
@@ -194,12 +208,13 @@ def export_database_samples() -> dict[str,int]:
         for source_id in source_ids:
             funds=session.scalars(select(Fund).where(Fund.source_id==source_id).order_by(Fund.source_fund_id).limit(100)).all()
             nav_rows=session.execute(select(Fund.source_fund_id,Fund.name,NavObservation.valuation_date,
-              NavObservation.nav,NavObservation.currency).join(NavObservation,NavObservation.fund_id==Fund.id)
+              NavObservation.nav,NavObservation.currency,NavObservation.source_id,NavObservation.source_url).join(NavObservation,NavObservation.fund_id==Fund.id)
               .where(Fund.source_id==source_id).order_by(NavObservation.valuation_date.desc(),Fund.source_fund_id).limit(1000)).all()
             funds_json.extend({"source_id":f.source_id,"source_fund_id":f.source_fund_id,"name":f.name,
               "domicile_country":f.domicile_country,"currency":f.currency,"isin":f.isin} for f in funds)
             nav_json.extend({"source_id":source_id,"source_fund_id":row[0],"fund_name":row[1],
-              "valuation_date":row[2].isoformat(),"nav":str(row[3]),"currency":row[4]} for row in nav_rows)
+              "valuation_date":row[2].isoformat(),"nav":str(row[3]),"currency":row[4],
+              "observation_source_id":row[5],"source_url":row[6]} for row in nav_rows)
             fund_count=session.scalar(select(func.count()).select_from(Fund).where(Fund.source_id==source_id)) or 0
             nav_count=session.scalar(select(func.count()).select_from(NavObservation).join(Fund,NavObservation.fund_id==Fund.id).where(Fund.source_id==source_id)) or 0
             counts["by_source"][source_id]={"funds":fund_count,"nav_observations":nav_count}
@@ -254,6 +269,17 @@ def main() -> None:
     parser=argparse.ArgumentParser(prog="mfetl"); sub=parser.add_subparsers(dest="cmd",required=True)
     sub.add_parser("verify-sources"); sub.add_parser("inventory"); sub.add_parser("sync-sources")
     sec_holdings=sub.add_parser("sync-sec-holdings"); sec_holdings.add_argument("--fund-id", type=int, action="append", help="Limit the sync to a local US fund ID; repeat to select multiple funds")
+    sec_holdings.add_argument("--history-days", type=int, default=450, help="Import all N-PORT report periods filed within this rolling window (default: 450)")
+    sec_holdings.add_argument("--latest-only", action="store_true", help="Import only the newest available N-PORT report per series")
+    sec_holdings.add_argument("--cache-downloads", action="store_true", help="Save SEC filing bodies under data/raw/united_states/nport_filings")
+    sec_nmfp=sub.add_parser("sync-sec-nmfp", help="Import official SEC money-market class NAV history (currency remains unassigned)")
+    sec_nmfp.add_argument("--fund-id", type=int, action="append", help="Limit to local US fund IDs; repeat to select multiple funds")
+    sec_nmfp.add_argument("--lookback-days", type=int, default=450, help="Look back this many days in SEC filing history")
+    sec_profiles=sub.add_parser("sync-sec-class-profiles", help="Import cached SEC fund class metadata into profile snapshots")
+    sec_profiles.add_argument("--fund-id", type=int, action="append", help="Limit to local US fund IDs; repeat to select multiple funds")
+    sec_profiles.add_argument("--dry-run", action="store_true", help="Report exact matches without writing to the database")
+    sec_cache=sub.add_parser("sync-cached-sec-history", help="Import already cached SEC N-PORT history for selected US funds; makes no network requests")
+    sec_cache.add_argument("--fund-id", type=int, action="append", required=True, help="Local US fund ID; repeat to select multiple funds")
     snapshot=sub.add_parser("fetch-snapshot", help="Fetch one reproducible file-based source export")
     snapshot.add_argument("--source", required=True, choices=["it_borsa_navs","fr_lacotebleue_navs","nl_euronext_fund_navs","lu_euronext_fund_navs","lu_allianz_daily_navs"])
     snapshot.add_argument("--url", required=True, help="Direct CSV export URL published by the source")
@@ -270,7 +296,20 @@ def main() -> None:
         print(json.dumps(fetch_snapshot(args.source, args.url), indent=2))
     elif args.cmd=="sync-sec-holdings":
         from app.holdings.sec_nport import sync_sec_holdings
-        print(json.dumps(sync_sec_holdings(set(args.fund_id) if args.fund_id else None),indent=2))
+        print(json.dumps(sync_sec_holdings(set(args.fund_id) if args.fund_id else None,
+            history_days=args.history_days,cache_downloads=args.cache_downloads,
+            latest_only=args.latest_only),indent=2))
+    elif args.cmd=="sync-sec-nmfp":
+        from app.holdings.sec_nmfp import sync_sec_nmfp
+        print(json.dumps(sync_sec_nmfp(set(args.fund_id) if args.fund_id else None,
+            lookback_days=args.lookback_days),indent=2))
+    elif args.cmd=="sync-sec-class-profiles":
+        from app.holdings.sec_class_profiles import sync_sec_class_profiles
+        print(json.dumps(sync_sec_class_profiles(set(args.fund_id) if args.fund_id else None,
+            dry_run=args.dry_run),indent=2))
+    elif args.cmd=="sync-cached-sec-history":
+        from app.holdings.sec_nport import sync_cached_sec_history
+        print(json.dumps(sync_cached_sec_history(set(args.fund_id)),indent=2))
     elif args.cmd=="sync-cvm-holdings":
         from app.holdings.cvm_cda import sync_cvm_holdings
         print(json.dumps(sync_cvm_holdings(args.month),indent=2))

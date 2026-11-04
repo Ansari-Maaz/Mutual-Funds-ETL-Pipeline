@@ -77,7 +77,14 @@ class DenmarkBdeFundsConnector(BaseConnector):
                 if capital.casefold() != "open-ended":
                     continue
                 rows.append({"source_fund_id": code, "name": name,
-                    "domicile_country": "DK", "currency": None, "isin": None, "_navs": []})
+                    "domicile_country": "DK", "currency": None, "isin": None,
+                    "manager": manager or None, "_navs": [], "_profile_source_url": URL,
+                    "_profile_data": {"summary": {
+                        "legal_entity_identifier": lei or None,
+                        "management_address": address or None,
+                        "investment_policy": policy or None,
+                        "open_ended_status": capital or None,
+                    }}})
         if not rows:
             raise ValueError("No open-ended Danish fund rows were found in the official CSV")
         self._records, self._rejects = rows, rejects

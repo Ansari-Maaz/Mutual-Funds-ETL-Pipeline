@@ -3,7 +3,7 @@
   "info": {
     "title": "FundFlow API",
     "version": "1.0.0",
-    "description": "REST endpoints for database-backed mutual-fund records, NAV history, portfolio holdings, source coverage, and ETL runs. Null values mean that the source did not provide the field."
+    "description": "REST endpoints for source-backed mutual-fund profiles and snapshots, NAV history, portfolio holdings, source coverage, and ETL runs. Fund currency may use a country-level ISO 4217 domicile default when a share-class currency is not published; currencyBasis identifies this fallback."
   },
   "servers": [{ "url": "/api/v1", "description": "Current FundFlow API host" }],
   "tags": [
@@ -103,7 +103,7 @@
           { "name": "page", "in": "query", "schema": { "type": "integer", "minimum": 1, "default": 1 } },
           { "name": "limit", "in": "query", "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 25 } },
           { "name": "q", "in": "query", "description": "Name or identifier search", "schema": { "type": "string" } },
-          { "name": "country", "in": "query", "schema": { "type": "string", "minLength": 2, "maxLength": 2 } },
+          { "name": "country", "in": "query", "description": "ISO 3166-1 alpha-2 or alpha-3 code (for example US or USA)", "schema": { "type": "string", "minLength": 2, "maxLength": 3 } },
           { "name": "currency", "in": "query", "schema": { "type": "string", "minLength": 3, "maxLength": 3 } },
           { "name": "isin", "in": "query", "schema": { "type": "string" } },
           { "name": "category", "in": "query", "schema": { "type": "string" } },
@@ -123,13 +123,14 @@
         "summary": "Get fund profile",
         "operationId": "getFund",
         "parameters": [{ "$ref": "#/components/parameters/FundId" }],
-        "responses": { "200": { "description": "Fund and latest stored NAV returned" }, "404": { "$ref": "#/components/responses/ApiError" } }
+        "responses": { "200": { "description": "Fund and latest stored NAV returned, including sourceId and sourceUrl when known" }, "404": { "$ref": "#/components/responses/ApiError" } }
       }
     },
     "/funds/{fund_id}/nav": {
       "get": {
         "tags": ["Funds"],
         "summary": "Get NAV history",
+        "description": "Returns source-attributed NAV or price observations. Each record includes nullable open/high/low/close and ohlc_basis. single_daily_nav means a once-daily mutual-fund NAV is repeated into OHLC fields; it is not an intraday trading range. Existing records may have null source_id/source_url where historical attribution cannot be proved; a source URL alone does not confirm official NAV equivalence.",
         "operationId": "getFundNav",
         "parameters": [
           { "$ref": "#/components/parameters/FundId" },
@@ -144,7 +145,7 @@
       "get": {
         "tags": ["Funds"],
         "summary": "Get portfolio holdings",
-        "description": "Returns holdings for the latest reporting period or the requested report_date. Financial metrics are separately sourced and may be null.",
+        "description": "Returns holdings for the latest reporting period or the requested report_date. Each row includes data_scope; SEC N-PORT rows are series-level and shared across share classes. Financial metrics are separately sourced and may be null.",
         "operationId": "getFundHoldings",
         "parameters": [
           { "$ref": "#/components/parameters/FundId" },
@@ -152,6 +153,36 @@
           { "name": "limit", "in": "query", "schema": { "type": "integer", "minimum": 1, "maximum": 5000, "default": 1000 } }
         ],
         "responses": { "200": { "description": "Holdings and available report dates returned" }, "400": { "$ref": "#/components/responses/ApiError" }, "404": { "$ref": "#/components/responses/ApiError" } }
+      }
+    },
+    "/funds/{fund_id}/profile-data": {
+      "get": {
+        "tags": ["Funds"],
+        "summary": "Get source-backed profile data",
+        "description": "Returns optional source-backed profile datasets (summary, performance, risk, yields, ratings, composition, purchase_info, sustainability, dividends) with source and retrieval metadata. Availability varies by fund and country; no values are inferred.",
+        "operationId": "getFundProfileData",
+        "parameters": [
+          { "$ref": "#/components/parameters/FundId" },
+          { "name": "dataset", "in": "query", "schema": { "type": "string", "maxLength": 40 } },
+          { "name": "source_id", "in": "query", "schema": { "type": "string", "maxLength": 100 } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "minimum": 1, "maximum": 500, "default": 100 } }
+        ],
+        "responses": {
+          "200": { "description": "Profile datasets and provenance returned; data may be empty when the source has no profile metrics." },
+          "400": { "$ref": "#/components/responses/ApiError" },
+          "404": { "$ref": "#/components/responses/ApiError" },
+          "500": { "$ref": "#/components/responses/ApiError" }
+        }
+      }
+    },
+    "/funds/{fund_id}/completeness": {
+      "get": {
+        "tags": ["Funds"],
+        "summary": "Get fund field and dataset completeness",
+        "description": "Returns scheme-master field checks (including legal name, sponsor/family, share class, plan, distribution option, identifiers, benchmark, manager, domicile, exchange metadata and official documents) plus dataset availability. Missing data remains requires_verification unless an official source check confirms it is unavailable; distribution frequency is not treated as a distribution option; presence does not imply complete history.",
+        "operationId": "getFundCompleteness",
+        "parameters": [{ "$ref": "#/components/parameters/FundId" }],
+        "responses": { "200": { "description": "Fund completeness status returned" }, "400": { "$ref": "#/components/responses/ApiError" }, "404": { "$ref": "#/components/responses/ApiError" } }
       }
     },
     "/etl/runs": {
@@ -205,7 +236,7 @@
         "properties": {
           "all": { "type": "boolean", "description": "Run all registered runnable sources" },
           "sourceIds": { "type": "array", "items": { "type": "string" } },
-          "countryCodes": { "type": "array", "items": { "type": "string", "minLength": 2, "maxLength": 2 } }
+          "countryCodes": { "type": "array", "description": "ISO alpha-2 or alpha-3 country codes", "items": { "type": "string", "minLength": 2, "maxLength": 3 } }
         },
         "description": "Provide all=true, one or more sourceIds, or one or more countryCodes."
       },

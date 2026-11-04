@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { projectRoot } = require('../config');
+const { toAlpha3 } = require('./countryCodes');
 
 const raw = JSON.parse(fs.readFileSync(path.join(projectRoot, 'reports/source_catalogue.json'), 'utf8'));
 const entries = new Map(raw.map((row) => [row.source_id, row]));
@@ -14,7 +15,8 @@ const assignmentCountryCodes = new Set([
 const countries = new Map();
 for (const row of raw) {
   if (!countries.has(row.country_code)) countries.set(row.country_code, {
-    code: row.country_code,
+    code: toAlpha3(row.country_code),
+    iso2Code: row.country_code,
     name: row.country_name,
     region: row.region,
     assignmentScope: assignmentCountryCodes.has(row.country_code),

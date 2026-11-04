@@ -5,9 +5,10 @@ const { rateLimit } = require('express-rate-limit');
 const { requireAdmin } = require('../middleware/admin');
 const { active, scheduleRun } = require('../services/runStore');
 const { runnableSources } = require('../services/catalog');
+const { toAlpha2 } = require('../services/countryCodes');
 const router = express.Router();
 const runLimit = rateLimit({ windowMs: 60_000, limit: 5, standardHeaders: true, legacyHeaders: false });
-const requestSchema = z.object({ all: z.boolean().optional(), sourceIds: z.array(z.string().min(1).max(100)).max(100).optional(), countryCodes: z.array(z.string().length(2)).max(250).optional() }).strict();
+const requestSchema = z.object({ all: z.boolean().optional(), sourceIds: z.array(z.string().min(1).max(100)).max(100).optional(), countryCodes: z.array(z.string().regex(/^[A-Z]{2,3}$/i)).max(250).optional() }).strict();
 
 router.post('/runs', runLimit, requireAdmin, async (req, res, next) => {
   const parsed = requestSchema.safeParse(req.body || {});
@@ -16,7 +17,7 @@ router.post('/runs', runLimit, requireAdmin, async (req, res, next) => {
   const { entries } = require('../services/catalog');
   let selected = all ? [...runnableSources] : [...sourceIds];
   if (countryCodes.length) {
-    const codes = new Set(countryCodes.map((v) => v.toUpperCase()));
+    const codes = new Set(countryCodes.map(toAlpha2));
     selected = [...new Set([...selected, ...[...entries.values()].filter((r) => codes.has(r.country_code) && runnableSources.has(r.source_id)).map((r) => r.source_id)])];
   }
   selected = [...new Set(selected)];

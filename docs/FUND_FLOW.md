@@ -39,7 +39,9 @@ flowchart LR
 | Optional holding metrics | `holding_metrics` | Metrics separate from official positions; source, source URL, as-of date, and calculation basis retained |
 | Run history | `etl_runs` and `api_etl_runs` | Per-source CLI outcomes and API-orchestrated run state, respectively |
 
-SEC N-PORT and Brazil CVM CDA holdings ingestion are separate from the standard NAV connector run. Position records and external/calculated metrics are stored separately. A fund with no public filing is represented as unavailable or not checked; no placeholder holdings are generated.
+SEC N-PORT and Brazil CVM CDA holdings ingestion are separate from the standard NAV connector run. The US sync imports filings from a rolling 450-day window, retaining distinct reporting dates and choosing the latest amendment for each period; filing downloads are not added to the raw cache unless explicitly requested. Position records and external/calculated metrics are stored separately. No matching filing in the lookback window is `not_checked`, not a confirmation that holdings are unavailable; no placeholder holdings are generated.
+
+SEC Form N-MFP is another separate, opt-in US feed limited to money market funds. `python -m app.cli sync-sec-nmfp --fund-id <local-fund-id>` imports class-level daily NAV observations as `nav_history` profile snapshots. The SEC disclosure contains class IDs, dates and per-share values; its daily NAV table does not supply currency. Currency remains null, and those observations are not promoted into the canonical NAV API until an official source verifies currency. N-MFP data are monthly reporting disclosures rather than a complete feed for all US mutual funds or ETFs. The [SEC dataset page](https://www.sec.gov/data-research/sec-markets-data/dera-form-n-mfp-data-sets) and [field definitions](https://www.sec.gov/file/nmfp_readme) describe scope and tables.
 
 ## Serving and display path
 

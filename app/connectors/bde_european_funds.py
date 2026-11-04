@@ -88,7 +88,14 @@ class BdeEuropeanFundsConnector(BaseConnector):
                     continue
                 records.append({"source_fund_id": code, "name": name,
                     "domicile_country": self.country_code, "currency": None,
-                    "isin": None, "_navs": []})
+                    "isin": None, "manager": manager or None, "_navs": [],
+                    "_profile_source_url": BASE_URL.format(country=self.country_code.lower()),
+                    "_profile_data": {"summary": {
+                        "legal_entity_identifier": lei or None,
+                        "management_address": address or None,
+                        "investment_policy": policy or None,
+                        "open_ended_status": capital or None,
+                    }}})
         if not records:
             raise ValueError(f"No open-ended funds parsed for {self.country_code}")
         self._records, self._rejects = records, rejects

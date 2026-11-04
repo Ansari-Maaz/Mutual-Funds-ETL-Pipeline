@@ -18,9 +18,11 @@ def test_fund_batch_dedupes_native_id_with_last_record_winning():
 def test_nav_batch_dedupes_conflict_key_with_last_observation_winning():
     valuation_date = date(2026, 10, 1)
     rows = [
-        (9, CanonicalNav(source_id="source", source_fund_id="same", valuation_date=valuation_date, nav=1.0, currency="USD")),
-        (9, CanonicalNav(source_id="source", source_fund_id="same", valuation_date=valuation_date, nav=2.0, currency="USD")),
+        (9, CanonicalNav(source_id="earlier", source_fund_id="same", valuation_date=valuation_date, nav=1.0, currency="USD", source_url="https://example.test/old")),
+        (9, CanonicalNav(source_id="latest", source_fund_id="same", valuation_date=valuation_date, nav=2.0, currency="USD", source_url="https://example.test/latest")),
     ]
     result = dedupe_navs_last_wins(rows)
     assert len(result) == 1
     assert result[0]["nav"] == 2.0
+    assert result[0]["source_id"] == "latest"
+    assert result[0]["source_url"] == "https://example.test/latest"

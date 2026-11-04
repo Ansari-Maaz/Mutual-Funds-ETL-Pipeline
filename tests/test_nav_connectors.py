@@ -12,6 +12,7 @@ from app.connectors import (
     lu_allianz_daily_nav,
     lu_euronext_funds,
     nl_euronext_funds,
+    sec,
 )
 from app.schemas.canonical import CanonicalFund, CanonicalNav
 
@@ -108,3 +109,26 @@ def test_six_connector_filters_non_swiss_rows_and_maps_published_nav(monkeypatch
     navs = list(connector.extract_nav_history(fund.source_fund_id))
     nav = CanonicalNav.model_validate({"source_id": connector.source_id, **navs[0]})
     assert (fund.domicile_country, fund.isin, nav.valuation_date.isoformat(), nav.nav) == ("CH", "CH0000000001", "2026-10-23", Decimal("102.5"))
+
+
+def test_sec_nav_rows_keep_the_actual_price_publisher(tmp_path, monkeypatch):
+    raw = tmp_path / "us"
+    raw.mkdir()
+    with (raw / "sec_series_classes.csv").open("w", encoding="utf-8", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=["Entity Org Type", "Series ID", "Series Name", "Class ID", "Class Name", "Entity Name", "Class Ticker"])
+        writer.writeheader()
+        writer.writerow({"Entity Org Type": "30", "Series ID": "S000000001", "Series Name": "Example Fund", "Class ID": "C000000001", "Class Name": "Example Admiral", "Entity Name": "Example Trust", "Class Ticker": "EXM"})
+    write_snapshot(tmp_path / "yahoo.csv", {"ticker": "EXM", "valuation_date": "2026-10-22", "nav": "10.0", "source_url": "https://finance.yahoo.com/chart"})
+    write_snapshot(tmp_path / "nasdaq.csv", {"ticker": "EXM", "valuation_date": "2026-10-23", "nav": "10.2", "source_url": "https://api.nasdaq.com/quote/EXM"})
+    monkeypatch.setattr(sec, "RAW", raw)
+    monkeypatch.setattr(sec, "NAV_RAW", tmp_path / "nasdaq.csv")
+    monkeypatch.setattr(sec, "YAHOO_NAV_RAW", tmp_path / "yahoo.csv")
+    monkeypatch.setattr(sec, "download_sec_series_classes", lambda: None)
+    connector = sec.SecFundsConnector()
+    fund = list(connector.extract_funds())[0]
+    rows = list(connector.extract_nav_history(fund["source_fund_id"]))
+    parsed = [CanonicalNav.model_validate({"source_id": connector.source_id, **row}) for row in rows]
+    assert [(row.source_id, row.source_url) for row in parsed] == [
+        ("us_yahoo_mutual_fund_navs", "https://finance.yahoo.com/chart"),
+        ("us_nasdaq_mutual_fund_navs", "https://api.nasdaq.com/quote/EXM"),
+    ]

@@ -11,7 +11,7 @@ router.get('/countries', async (req, res, next) => {
       FROM sources s LEFT JOIN funds f ON f.source_id=s.source_id
       LEFT JOIN nav_observations n ON n.fund_id=f.id GROUP BY s.country_code ORDER BY s.country_code`);
     const { countries } = require('../services/catalog');
-    res.json({ data: rows.map((row) => ({ ...countries.get(row.code), ...row, ingestionStatus: Number(row.fund_count) ? 'integrated' : 'not_integrated' })) });
+    res.json({ data: rows.map((row) => ({ ...countries.get(row.code), ...row, code: countries.get(row.code)?.code || row.code, iso2Code: row.code, ingestionStatus: Number(row.fund_count) ? 'integrated' : 'not_integrated' })) });
   } catch (error) { next(error); }
 });
 
@@ -25,7 +25,9 @@ router.get('/sources', async (req, res, next) => {
         (SELECT count(*)::int FROM nav_observations n JOIN funds f ON f.id=n.fund_id WHERE f.source_id=s.source_id) AS nav_count
       FROM sources s ORDER BY s.country_code,s.source_id`);
     const { entries, countries, assignmentCountryCodes } = require('../services/catalog');
+    const { toAlpha3 } = require('../services/countryCodes');
     res.json({ data: rows.map((row) => ({ ...entries.get(row.source_id), ...row,
+      country_iso2: row.country_code, country_code: toAlpha3(row.country_code),
       runnable: require('../services/catalog').runnableSources.has(row.source_id),
       assignmentScope: assignmentCountryCodes.has(row.country_code), country: countries.get(row.country_code) })) });
   } catch (error) { next(error); }
@@ -36,8 +38,10 @@ router.get('/sources/:id', async (req, res, next) => {
     const { rows } = await req.app.locals.pool.query('SELECT * FROM sources WHERE source_id=$1', [req.params.id]);
     if (!rows.length) return res.status(404).json({ error: { code: 'SOURCE_NOT_FOUND', message: 'Source not found' } });
     const { entries } = require('../services/catalog');
+    const { toAlpha3 } = require('../services/countryCodes');
     const source = rows[0];
-    res.json({ data: { ...entries.get(source.source_id), ...source } });
+    res.json({ data: { ...entries.get(source.source_id), ...source,
+      country_iso2: source.country_code, country_code: toAlpha3(source.country_code) } });
   } catch (error) { next(error); }
 });
 

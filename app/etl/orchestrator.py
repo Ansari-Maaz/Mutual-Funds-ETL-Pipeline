@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import insert
 from pydantic import ValidationError
 from app.db.session import SessionLocal
 from app.etl.transform import fund_from_source, nav_from_source
-from app.etl.load import upsert_funds_batch, upsert_navs_batch
+from app.etl.load import upsert_funds_batch, upsert_navs_batch, upsert_fund_profile_snapshots
 from app.models.schema import Source, EtlRun
 
 def run_connector(source_id: str, connector_type, *, start_date: date | None=None, end_date: date | None=None) -> dict:
@@ -15,6 +15,17 @@ def run_connector(source_id: str, connector_type, *, start_date: date | None=Non
         source_stmt=insert(Source).values(source_id=source_id,country_code=meta["country_code"],organization=meta["organization"],source_name=meta["source_name"],endpoint_url=meta.get("endpoint_url"),verification_status="Discovered",integration_status="In Progress",license_status=meta.get("license_status","Unknown"))
         source_stmt=source_stmt.on_conflict_do_update(index_elements=[Source.source_id],set_={"organization":source_stmt.excluded.organization,"source_name":source_stmt.excluded.source_name,"endpoint_url":source_stmt.excluded.endpoint_url})
         session.execute(source_stmt)
+        for nav_source in meta.get("nav_sources", []):
+            nav_source_stmt=insert(Source).values(
+                source_id=nav_source["source_id"],country_code=nav_source["country_code"],
+                organization=nav_source["organization"],source_name=nav_source["source_name"],
+                endpoint_url=nav_source.get("endpoint_url"),verification_status="Discovered",
+                integration_status="In Progress",license_status=nav_source.get("license_status","Unknown"))
+            session.execute(nav_source_stmt.on_conflict_do_update(index_elements=[Source.source_id],set_={
+                "organization":nav_source_stmt.excluded.organization,
+                "source_name":nav_source_stmt.excluded.source_name,
+                "endpoint_url":nav_source_stmt.excluded.endpoint_url,
+            }))
         run=EtlRun(source_id=source_id,status="In Progress"); session.add(run); session.commit()
         extracted=loaded=navs_loaded=0
         try:
@@ -34,6 +45,10 @@ def run_connector(source_id: str, connector_type, *, start_date: date | None=Non
                 fund_ids=upsert_funds_batch(session,source_id,[fund for fund,_ in prepared])
                 nav_batch=[]
                 for fund,nav_rows in prepared:
+                    if fund.profile_data:
+                        upsert_fund_profile_snapshots(session, fund_ids[fund.source_fund_id], source_id,
+                            fund.profile_data, as_of_date=fund.profile_as_of_date,
+                            source_url=fund.profile_source_url or fund.official_url)
                     source_navs=nav_rows if nav_rows is not None else connector.extract_nav_history(fund.source_fund_id,start_date,end_date)
                     for nav_raw in source_navs:
                         try:
