@@ -1,6 +1,6 @@
 # FundFlow — Comprehensive US Mutual Fund Data Audit
 
-**Audit Timestamp:** 2026-11-13T17:47:07.196744+00:00  
+**Audit Timestamp:** 2026-11-13T18:48:08.671674+00:00  
 **Universe:** All US Domiciled Funds in PostgreSQL (`domicile_country = 'US'`)  
 **Total US Funds:** **39,139**
 
@@ -16,9 +16,9 @@
 | ISIN | 669 | 1.71% | High Gaps |
 | SEC Series ID | 39,138 | 100.0% | Complete |
 | SEC CIK | 39,138 | 100.0% | Complete |
-| Category | 1 | 0.0% | High Gaps |
+| Category | 2 | 0.01% | High Gaps |
 | Fund Type | 39,139 | 100.0% | Complete |
-| Inception Date | 390 | 1.0% | High Gaps |
+| Inception Date | 3,284 | 8.39% | High Gaps |
 | Status | 39,139 | 100.0% | Complete |
 | Provider / Registrant | 39,139 | 100.0% | Complete |
 | Manager | 1 | 0.0% | High Gaps |
@@ -26,9 +26,9 @@
 | Net Assets | 30,740 | 78.54% | Substantial |
 | Currency | 39,139 | 100.0% | Complete |
 | Official URL | 39,139 | 100.0% | Complete |
-| NAV Coverage | 25,263 | 64.55% | Substantial |
+| NAV Coverage | 25,500 | 65.15% | Substantial |
 | Portfolio Holdings Coverage | 32,273 | 82.46% | Substantial |
-| Both NAV and Holdings | 24,164 | 61.74% | Substantial |
+| Both NAV and Holdings | 24,238 | 61.93% | Substantial |
 
 ---
 
@@ -36,12 +36,12 @@
 
 | Dimension | Funds | Observations / Rows | Date Span | Sources |
 | :--- | ---: | ---: | :--- | :--- |
-| **NAV Observations** | 25,263 (64.5%) | 101,855 rows | 2025-11-10 to 2026-11-09 | us_nasdaq_mutual_fund_navs, us_yahoo_mutual_fund_navs, unattributed, us_nasdaq_etf_market_prices |
+| **NAV Observations** | 25,500 (65.2%) | 102,131 rows | 2025-11-10 to 2026-11-13 | us_nasdaq_mutual_fund_navs, us_yahoo_mutual_fund_navs, unattributed, us_nasdaq_etf_market_prices |
 | **Portfolio Holdings** | 32,273 (82.5%) | 12,128,486 positions | 2024-12-31 to 2026-08-31 | sec_edgar_nport, sec_edgar_nport_bulk |
-| **Both NAV & Holdings** | 24,164 (61.7%) | — | — | Full depth profile |
-| **Holdings Only** | 8,109 (20.7%) | — | — | Missing daily NAV observations |
-| **NAV Only** | 1,099 (2.8%) | — | — | Missing SEC N-PORT portfolio filings |
-| **Missing Both** | 5,767 (14.7%) | — | — | Requires targeted research & filing recovery |
+| **Both NAV & Holdings** | 24,238 (61.9%) | — | — | Full depth profile |
+| **Holdings Only** | 8,035 (20.5%) | — | — | Missing daily NAV observations |
+| **NAV Only** | 1,262 (3.2%) | — | — | Missing SEC N-PORT portfolio filings |
+| **Missing Both** | 5,604 (14.3%) | — | — | Requires targeted research & filing recovery |
 
 ---
 
@@ -49,8 +49,8 @@
 
 | NAV Source | Covered Funds | Total Observations |
 | :--- | ---: | ---: |
-| `us_nasdaq_mutual_fund_navs` | 25,259 | 27,719 |
-| `us_yahoo_mutual_fund_navs` | 24,753 | 74,108 |
+| `us_nasdaq_mutual_fund_navs` | 25,302 | 27,762 |
+| `us_yahoo_mutual_fund_navs` | 24,986 | 74,341 |
 | `unattributed` | 3 | 22 |
 | `us_nasdaq_etf_market_prices` | 1 | 6 |
 

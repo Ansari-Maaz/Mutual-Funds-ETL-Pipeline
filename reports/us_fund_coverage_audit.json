@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T17:47:07.196744+00:00",
+  "generated_at": "2026-11-13T18:48:08.671674+00:00",
   "total_us_funds": 39139,
   "basic_stats": {
     "total_funds": 39139,
@@ -9,9 +9,9 @@
     "has_isin": 669,
     "has_series_id": 39138,
     "has_cik": 39138,
-    "has_category": 1,
+    "has_category": 2,
     "has_fund_type": 39139,
-    "has_inception_date": 390,
+    "has_inception_date": 3284,
     "has_status": 39139,
     "has_provider": 39139,
     "has_manager": 1,
@@ -25,22 +25,22 @@
     "holdings_not_checked": 2022
   },
   "nav_stats": {
-    "funds_with_nav": 25263,
-    "total_nav_observations": 101855,
-    "distinct_nav_dates": 255,
+    "funds_with_nav": 25500,
+    "total_nav_observations": 102131,
+    "distinct_nav_dates": 257,
     "earliest_nav_date": "2025-11-10",
-    "latest_nav_date": "2026-11-09"
+    "latest_nav_date": "2026-11-13"
   },
   "nav_by_source": [
     {
       "source_id": "us_nasdaq_mutual_fund_navs",
-      "funds": 25259,
-      "observations": 27719
+      "funds": 25302,
+      "observations": 27762
     },
     {
       "source_id": "us_yahoo_mutual_fund_navs",
-      "funds": 24753,
-      "observations": 74108
+      "funds": 24986,
+      "observations": 74341
     },
     {
       "source_id": "unattributed",
@@ -90,9 +90,14 @@
       "snapshots": 17171
     },
     {
+      "dataset": "sec_edgar_inception",
+      "funds": 2961,
+      "snapshots": 2961
+    },
+    {
       "dataset": "identifiers",
       "funds": 669,
-      "snapshots": 1325
+      "snapshots": 1334
     },
     {
       "dataset": "yields",
@@ -121,10 +126,10 @@
     }
   ],
   "overlap_stats": {
-    "both_nav_and_holdings": 24164,
-    "nav_only": 1099,
-    "holdings_only": 8109,
-    "missing_both": 5767
+    "both_nav_and_holdings": 24238,
+    "nav_only": 1262,
+    "holdings_only": 8035,
+    "missing_both": 5604
   },
   "field_completeness": {
     "Fund Name": {
@@ -152,16 +157,16 @@
       "pct": 100.0
     },
     "Category": {
-      "count": 1,
-      "pct": 0.0
+      "count": 2,
+      "pct": 0.01
     },
     "Fund Type": {
       "count": 39139,
       "pct": 100.0
     },
     "Inception Date": {
-      "count": 390,
-      "pct": 1.0
+      "count": 3284,
+      "pct": 8.39
     },
     "Status": {
       "count": 39139,
@@ -192,16 +197,16 @@
       "pct": 100.0
     },
     "NAV Coverage": {
-      "count": 25263,
-      "pct": 64.55
+      "count": 25500,
+      "pct": 65.15
     },
     "Portfolio Holdings Coverage": {
       "count": 32273,
       "pct": 82.46
     },
     "Both NAV and Holdings": {
-      "count": 24164,
-      "pct": 61.74
+      "count": 24238,
+      "pct": 61.93
     }
   }
 }
