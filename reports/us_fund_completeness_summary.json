@@ -1,0 +1,138 @@
+{
+  "generated_at": "2026-11-04T10:43:01.794844+00:00",
+  "country": "US",
+  "funds_examined": 39139,
+  "funds_with_ticker": 29505,
+  "funds_with_provider_name": 39139,
+  "funds_with_official_url_field": 39139,
+  "funds_with_sec_cik": 39138,
+  "funds_with_sec_series_id": 39138,
+  "registered_us_sources": 7,
+  "scheme_master_field_coverage": {
+    "name": 39139,
+    "legal_name": 39139,
+    "ticker": 29505,
+    "provider": 39139,
+    "fund_family": 0,
+    "category": 2,
+    "fund_type": 39139,
+    "share_class": 0,
+    "plan": 0,
+    "distribution_option": 0,
+    "currency": 39139,
+    "isin": 1,
+    "cusip": 0,
+    "sec_cik": 39138,
+    "sec_series_id": 39138,
+    "inception_date": 390,
+    "benchmark": 0,
+    "manager": 1,
+    "co_managers": 0,
+    "administrator": 0,
+    "domicile": 39139,
+    "exchange": 0,
+    "mic_code": 0,
+    "exchange_timezone": 0,
+    "investment_objective": 0,
+    "investment_strategy": 0,
+    "status": 39139,
+    "official_url": 39139,
+    "factsheet_url": 0,
+    "prospectus_url": 0
+  },
+  "funds_with_recorded_extraction_failure": 0,
+  "failed_us_etl_runs_in_history": 2,
+  "funds_with_nav_history": 25262,
+  "nav_observations": 50022,
+  "nav_observations_with_source_id": 49529,
+  "nav_observations_with_source_url": 49529,
+  "nav_observations_by_source": {
+    "unattributed": 493,
+    "us_nasdaq_mutual_fund_navs": 25022,
+    "us_yahoo_mutual_fund_navs": 24507
+  },
+  "funds_with_holdings": 17488,
+  "holding_observations": 5434031,
+  "funds_with_aum_history": 1,
+  "aum_snapshots": 2,
+  "funds_with_expense_ratio_history": 390,
+  "expense_ratio_snapshots": 391,
+  "funds_with_performance_data": 390,
+  "funds_with_risk_metrics": 1,
+  "funds_with_yield_data": 390,
+  "yield_snapshots": 390,
+  "funds_with_official_documents": 0,
+  "official_document_records": 0,
+  "funds_with_official_profile_source": 390,
+  "twelve_data_comparisons": 0,
+  "twelve_data_matches": 0,
+  "twelve_data_mismatches": 0,
+  "status_definitions": {
+    "available": "At least one source-backed record or field is stored; does not by itself guarantee complete history.",
+    "partially_available": "Some data exists, but key fields, provenance, or historical coverage remain incomplete.",
+    "unavailable": "An existing connector status explicitly records that the source returned no data.",
+    "not_applicable": "The field is specific to another country's system.",
+    "requires_verification": "No verified data is stored; do not treat this as a confirmed absence.",
+    "extraction_failed": "Reserved for a recorded dataset-level extraction failure; not inferred from a generic ETL failure."
+  },
+  "datasets": {
+    "scheme_master": {
+      "partially_available": 39139
+    },
+    "nav_history": {
+      "partially_available": 25262,
+      "requires_verification": 13877
+    },
+    "aum_history": {
+      "requires_verification": 39138,
+      "partially_available": 1
+    },
+    "expense_ratio_history": {
+      "requires_verification": 38749,
+      "partially_available": 390
+    },
+    "holdings": {
+      "available": 17488,
+      "requires_verification": 16330,
+      "unavailable": 5321
+    },
+    "performance": {
+      "requires_verification": 38749,
+      "partially_available": 390
+    },
+    "risk_metrics": {
+      "requires_verification": 39138,
+      "partially_available": 1
+    },
+    "yields": {
+      "requires_verification": 38749,
+      "partially_available": 390
+    },
+    "fees": {
+      "requires_verification": 39139
+    },
+    "distributions": {
+      "requires_verification": 39139
+    },
+    "official_documents": {
+      "requires_verification": 39139
+    },
+    "official_sources": {
+      "requires_verification": 38749,
+      "partially_available": 390
+    },
+    "twelve_data_parity": {
+      "requires_verification": 39139
+    },
+    "amfi_code": {
+      "not_applicable": 39139
+    }
+  },
+  "limitations": [
+    "NAV history remains partial even when attributed: a price-source URL does not establish official NAV equivalence or complete history.",
+    "One profile snapshot does not establish historical completeness.",
+    "Twelve Data coverage is not checked without an authorized API key and comparison run.",
+    "The report does not claim all provider or SEC filing archives have been searched.",
+    "Per-fund extraction failures are not persisted by dataset in the current schema; zero recorded failures must not be read as zero real failures."
+  ]
+}

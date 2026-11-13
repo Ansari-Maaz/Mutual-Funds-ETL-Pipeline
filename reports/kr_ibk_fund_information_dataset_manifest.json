@@ -1,0 +1,15 @@
+{
+  "source_id": "kr_ibk_fund_information",
+  "organization": "Industrial Bank of Korea (IBK)",
+  "dataset_id": "15020770",
+  "dataset_name": "중소기업은행_펀드 정보_20251231",
+  "url": "https://www.data.go.kr/data/15020770/fileData.do",
+  "path": "data/raw/south_korea/ibk_fund_information_20251231.csv",
+  "bytes": 107760,
+  "sha256": "3b93973907899cb18934e1c618483c680d7b80e62763eac03605dffd2b637d9e",
+  "source_report_date": "2025-12-31",
+  "downloaded": true,
+  "checked_at": "2026-11-05T19:15:38.038755+00:00",
+  "scope": "Funds handled by IBK Bank; not an exhaustive list of South Korean-domiciled funds. The source does not provide domicile, currency, or NAV values.",
+  "license_status": "Permitted per data.go.kr (unrestricted-use designation)"
+}

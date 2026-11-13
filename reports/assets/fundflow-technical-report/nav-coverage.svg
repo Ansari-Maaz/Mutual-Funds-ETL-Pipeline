@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="570" viewBox="0 0 1100 570">
+<rect width="100%" height="100%" rx="18" fill="#f5f8fa"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#18323c}.title{font-size:26px;font-weight:700}.label{font-size:18px;font-weight:600}.small{font-size:14px;fill:#506975}.tiny{font-size:12px;fill:#506975}.box{fill:white;stroke:#b8cbd2;stroke-width:2}.teal{fill:#dff3ee;stroke:#3b9c87;stroke-width:2}.navy{fill:#e5eff9;stroke:#5182ae;stroke-width:2}.line{stroke:#62818c;stroke-width:3;fill:none;marker-end:url(#arrow)}</style>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#62818c"/></marker></defs>
+<text x="32" y="42" class="title">NAV observations by source registry country</text>
+<text x="38" y="105" class="small">BR</text>
+<rect x="105" y="88" width="720.0" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="105" class="small">252,065</text>
+<text x="38" y="141" class="small">US</text>
+<rect x="105" y="124" width="71.0" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="141" class="small">24,847</text>
+<text x="38" y="177" class="small">MX</text>
+<rect x="105" y="160" width="10.0" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="177" class="small">3,486</text>
+<text x="38" y="213" class="small">LU</text>
+<rect x="105" y="196" width="5.6" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="213" class="small">1,944</text>
+<text x="38" y="249" class="small">CA</text>
+<rect x="105" y="232" width="1.1" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="249" class="small">373</text>
+<text x="38" y="285" class="small">GB</text>
+<rect x="105" y="268" width="0.8" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="285" class="small">286</text>
+<text x="38" y="321" class="small">DE</text>
+<rect x="105" y="304" width="0.7" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="321" class="small">248</text>
+<text x="38" y="357" class="small">CH</text>
+<rect x="105" y="340" width="0.3" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="357" class="small">94</text>
+<text x="38" y="393" class="small">FR</text>
+<rect x="105" y="376" width="0.3" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="393" class="small">90</text>
+<text x="38" y="429" class="small">NL</text>
+<rect x="105" y="412" width="0.2" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="429" class="small">84</text>
+<text x="38" y="465" class="small">IT</text>
+<rect x="105" y="448" width="0.2" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="465" class="small">68</text>
+<text x="38" y="501" class="small">AU</text>
+<rect x="105" y="484" width="0.0" height="22" rx="5" fill="#4e86b3"/>
+<text x="845" y="501" class="small">5</text>
+<text x="38" y="550" class="tiny">Brazil contributes 88.9% of all 283,590 stored observations.</text>
+</svg>

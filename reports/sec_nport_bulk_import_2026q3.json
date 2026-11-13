@@ -1,0 +1,14 @@
+{
+  "dataset": "2026q3",
+  "url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2026q3_nport.zip",
+  "filings_in_dataset": 14066,
+  "series_in_dataset": 13329,
+  "local_series_matched": 4952,
+  "filings_selected": 4983,
+  "holding_rows_read": 1944259,
+  "identifier_rows_read": 4930977,
+  "replaced_rows": 520,
+  "holding_rows_inserted": 6068519,
+  "aum_snapshots": 13016,
+  "funds_marked_available": 12906
+}

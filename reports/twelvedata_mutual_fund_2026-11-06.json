@@ -1,0 +1,5749 @@
+{
+  "generated_at": "2026-11-09T15:53:59.702561+00:00",
+  "valuation_date": "2026-11-06",
+  "kind": "mutual_fund",
+  "requested_symbols": [
+    "DODGX",
+    "FBALX",
+    "FCNTX",
+    "FXAIX",
+    "SWPPX",
+    "VBTLX",
+    "VFIAX",
+    "VTIAX",
+    "VTSAX",
+    "VWELX",
+    "AABXX",
+    "AAA",
+    "AAAA",
+    "AAAAX",
+    "AAAC",
+    "AAAD",
+    "AAAGX",
+    "AAAIX",
+    "AAAMX",
+    "AAANX",
+    "AAAOX",
+    "AAAP",
+    "AAAPX",
+    "AAAQX",
+    "AAARX",
+    "AAASX",
+    "AAATX",
+    "AAAUX",
+    "AAAVX",
+    "AAAZX",
+    "AABCX",
+    "AABEX",
+    "AABFX",
+    "AABGX",
+    "AABHX",
+    "AABJX",
+    "AABKX",
+    "AABOX",
+    "AABPX",
+    "AABQX",
+    "AABRX",
+    "AABTX",
+    "AABVX",
+    "AABWX",
+    "AABZX",
+    "AACCX",
+    "AACDX",
+    "AACGX",
+    "AACHX",
+    "AACJX",
+    "AACKX",
+    "AACLX",
+    "AACMX",
+    "AACPX",
+    "AACQX",
+    "AACRX",
+    "AACSX",
+    "AACTX",
+    "AACUX",
+    "AACVX",
+    "AACWX",
+    "AACZX",
+    "AADAX",
+    "AADBX",
+    "AADCX",
+    "AADEX",
+    "AADHX",
+    "AADIX",
+    "AADJX",
+    "AADKX",
+    "AADLX",
+    "AADMX",
+    "AADNX",
+    "AADOX",
+    "AADPX",
+    "AADQX",
+    "AADR",
+    "AADRX",
+    "AADSX",
+    "AADTX",
+    "AADUX",
+    "AADVX",
+    "AADWX",
+    "AADYX",
+    "AADZX",
+    "AAEDX",
+    "AAEEX",
+    "AAEFX",
+    "AAEGX",
+    "AAEHX",
+    "AAEIX",
+    "AAEJX",
+    "AAEKX",
+    "AAELX",
+    "AAEMX",
+    "AAENX",
+    "AAEOX",
+    "AAEQ",
+    "AAERX",
+    "AAETX"
+  ],
+  "estimated_credits": 200,
+  "credit_note": "Fund/ETF directory and time_series are standard calls; composition is 200 credits per symbol and opt-in.",
+  "scope_note": "Only explicitly requested symbols are in scope. An unrequested FundFlow symbol is not counted as missing.",
+  "funds": [
+    {
+      "ticker": "DODGX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "DODGX",
+          "fundflow": "DODGX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Dodge & Cox Stock Fund Class I",
+          "fundflow": "Dodge & Cox Stock Fund — Class I"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "17.82000",
+          "fundflow": "17.8200000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "DODGX",
+          "fundflow": "DODGX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 246814
+    },
+    {
+      "ticker": "FBALX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "FBALX",
+          "fundflow": "FBALX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Fidelity Balanced Fund",
+          "fundflow": "Fidelity Balanced Fund"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "31.72000",
+          "fundflow": "31.7200000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "FBALX",
+          "fundflow": "FBALX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 247312
+    },
+    {
+      "ticker": "FCNTX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "FCNTX",
+          "fundflow": "FCNTX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Fidelity Contrafund",
+          "fundflow": "Fidelity Contrafund"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "26.15000",
+          "fundflow": "26.1500000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "FCNTX",
+          "fundflow": "FCNTX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 247801
+    },
+    {
+      "ticker": "FXAIX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "FXAIX",
+          "fundflow": "FXAIX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Fidelity 500 Index Fund",
+          "fundflow": "Fidelity 500 Index Fund"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "mismatch",
+          "twelve_data": "256.48001",
+          "fundflow": "256.4800000000",
+          "difference_td_minus_fundflow": "0.0000100000",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "FXAIX",
+          "fundflow": "FXAIX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 257121
+    },
+    {
+      "ticker": "SWPPX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "SWPPX",
+          "fundflow": "SWPPX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Schwab S&P 500 Index Fund",
+          "fundflow": "Schwab S&P 500 Index Fund"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "19.070000",
+          "fundflow": "19.0700000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "SWPPX",
+          "fundflow": "SWPPX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 263736
+    },
+    {
+      "ticker": "VBTLX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "VBTLX",
+          "fundflow": "VBTLX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Vanguard Total Bond Market Index Fund Admiral Shares",
+          "fundflow": "Vanguard Total Bond Market Index Fund — Admiral Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "9.43000",
+          "fundflow": "9.4300000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "VBTLX",
+          "fundflow": "VBTLX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 255259
+    },
+    {
+      "ticker": "VFIAX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "VFIAX",
+          "fundflow": "VFIAX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Vanguard 500 Index Fund Admiral Shares",
+          "fundflow": "Vanguard 500 Index Fund — Admiral Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "mismatch",
+          "twelve_data": "681.20001",
+          "fundflow": "681.2000000000",
+          "difference_td_minus_fundflow": "0.0000100000",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "VFIAX",
+          "fundflow": "VFIAX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 249237
+    },
+    {
+      "ticker": "VTIAX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "VTIAX",
+          "fundflow": "VTIAX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Vanguard Total International Stock Index Fund Admiral Shares",
+          "fundflow": "Vanguard Total International Stock Index Fund — Admiral Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "43.45000",
+          "fundflow": "43.4500000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "VTIAX",
+          "fundflow": "VTIAX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 252316
+    },
+    {
+      "ticker": "VTSAX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "VTSAX",
+          "fundflow": "VTSAX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Vanguard Total Stock Market Index Fund Admiral Shares",
+          "fundflow": "Vanguard Total Stock Market Index Fund — Admiral Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "176.16000",
+          "fundflow": "176.1600000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "VTSAX",
+          "fundflow": "VTSAX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 249277
+    },
+    {
+      "ticker": "VWELX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "VWELX",
+          "fundflow": "VWELX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Vanguard Wellington Fund Investor Shares",
+          "fundflow": "VANGUARD WELLINGTON FUND — Investor Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "46.090000",
+          "fundflow": "46.0900000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "VWELX",
+          "fundflow": "VWELX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 246792
+    },
+    {
+      "ticker": "AABXX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 404 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "successful response with no exact symbol"
+      },
+      "fundflow_id": 251174,
+      "record_status": "missing_in_twelvedata"
+    },
+    {
+      "ticker": "AAA",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAA",
+          "fundflow": "AAA"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "BetaShares Australian High Interest Cash ETF",
+          "fundflow": "Alternative Access First Priority CLO Bond ETF"
+        },
+        {
+          "field": "directory.country",
+          "status": "mismatch",
+          "twelve_data": "Australia",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "mismatch",
+          "twelve_data": "AUD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "24.83000",
+          "fundflow": "24.8300000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AAA",
+          "fundflow": "AAA"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 278373
+    },
+    {
+      "ticker": "AAAA",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAA",
+          "fundflow": "AAAA"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Amplius Aggressive Asset Allocation ETF",
+          "fundflow": "Amplius Aggressive Asset Allocation ETF"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 279094
+    },
+    {
+      "ticker": "AAAAX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAAX",
+          "fundflow": "AAAAX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "DWS RREEF Real Assets Fund Class A",
+          "fundflow": "DWS RREEF Real Assets Fund — Class A"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 247680
+    },
+    {
+      "ticker": "AAAC",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAC",
+          "fundflow": "AAAC"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Columbia AAA CLO ETF",
+          "fundflow": "Columbia AAA CLO ETF"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 278001
+    },
+    {
+      "ticker": "AAAD",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAD",
+          "fundflow": "AAAD"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "PGIM AAA CLO Aggregate Duration ETF",
+          "fundflow": "PGIM AAA CLO Aggregate Duration ETF"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 281207
+    },
+    {
+      "ticker": "AAAGX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAGX",
+          "fundflow": "AAAGX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Thrivent Large Cap Growth Fund Class A",
+          "fundflow": "Thrivent Large Cap Growth Fund — Class A"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 256659
+    },
+    {
+      "ticker": "AAAIX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAIX",
+          "fundflow": "AAAIX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century Strategic Allocation: Aggressive Fund I",
+          "fundflow": "STRATEGIC ALLOCATION: AGGRESSIVE FUND — I CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 267206
+    },
+    {
+      "ticker": "AAAMX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAMX",
+          "fundflow": "AAAMX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2020 Portfolio Investor Class Mutual Fund",
+          "fundflow": "ONE CHOICE BLEND+ IN RETIREMENT PORTFOLIO — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272281
+    },
+    {
+      "ticker": "AAANX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAANX",
+          "fundflow": "AAANX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Horizon Active Asset Allocation Fund Investor Class",
+          "fundflow": "Horizon Active Asset Allocation Fund — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 279484
+    },
+    {
+      "ticker": "AAAOX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAOX",
+          "fundflow": "AAAOX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2020 Portfolio I Class",
+          "fundflow": "ONE CHOICE BLEND+ IN RETIREMENT PORTFOLIO — I CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272277
+    },
+    {
+      "ticker": "AAAP",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAP",
+          "fundflow": "AAAP"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "Pacer Barings CLO Market Flex ETF",
+          "fundflow": "Pacer CLO Market ETF"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 279403
+    },
+    {
+      "ticker": "AAAPX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAPX",
+          "fundflow": "AAAPX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "DWS RREEF Real Assets Fund - Class C",
+          "fundflow": "DWS RREEF Real Assets Fund — Class C"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 247681
+    },
+    {
+      "ticker": "AAAQX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAQX",
+          "fundflow": "AAAQX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "DWS RREEF Real Assets Fund – Class R",
+          "fundflow": "DWS RREEF Real Assets Fund — Class R"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 247684
+    },
+    {
+      "ticker": "AAARX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAARX",
+          "fundflow": "AAARX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century Strategic Allocation: Aggressive Fund R Class",
+          "fundflow": "STRATEGIC ALLOCATION: AGGRESSIVE FUND — R CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 267203
+    },
+    {
+      "ticker": "AAASX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAASX",
+          "fundflow": "AAASX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "DWS RREEF Real Assets Fund – Class S",
+          "fundflow": "DWS RREEF Real Assets Fund — CLASS S"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 247682
+    },
+    {
+      "ticker": "AAATX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "successful response with no exact symbol"
+      },
+      "fundflow_id": 274189,
+      "record_status": "missing_in_twelvedata"
+    },
+    {
+      "ticker": "AAAUX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAUX",
+          "fundflow": "AAAUX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century Strategic Allocation: Aggressive Fund R6 Class",
+          "fundflow": "STRATEGIC ALLOCATION: AGGRESSIVE FUND — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 267208
+    },
+    {
+      "ticker": "AAAVX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAVX",
+          "fundflow": "AAAVX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "DWS RREEF Real Assets Fund - Class R6",
+          "fundflow": "DWS RREEF Real Assets Fund — Class R6"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 247685
+    },
+    {
+      "ticker": "AAAZX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAAZX",
+          "fundflow": "AAAZX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "DWS RREEF Real Assets Fund - Class Institutional",
+          "fundflow": "DWS RREEF Real Assets Fund — Institutional Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 247683
+    },
+    {
+      "ticker": "AABCX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABCX",
+          "fundflow": "AABCX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "Putnam Dynamic Asset Allocation Balanced Fund Class C",
+          "fundflow": "Putnam Dynamic Asset Allocation Balanced Fund — Class C Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 261479
+    },
+    {
+      "ticker": "AABEX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABEX",
+          "fundflow": "AABEX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ In Retirement Portfolio A",
+          "fundflow": "ONE CHOICE BLEND+ IN RETIREMENT PORTFOLIO — A Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272278
+    },
+    {
+      "ticker": "AABFX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABFX",
+          "fundflow": "AABFX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Thrivent Dynamic Allocation Fund Class A",
+          "fundflow": "Thrivent Dynamic Allocation Fund — Class A"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 256635
+    },
+    {
+      "ticker": "AABGX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABGX",
+          "fundflow": "AABGX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus In Retirement Portfolio R Class",
+          "fundflow": "ONE CHOICE BLEND+ IN RETIREMENT PORTFOLIO — R CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272279
+    },
+    {
+      "ticker": "AABHX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABHX",
+          "fundflow": "AABHX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2020 Portfolio R6",
+          "fundflow": "ONE CHOICE BLEND+ IN RETIREMENT PORTFOLIO — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272280
+    },
+    {
+      "ticker": "AABJX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABJX",
+          "fundflow": "AABJX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2025 Portfolio Investor Class",
+          "fundflow": "ONE CHOICE BLEND+ 2025 PORTFOLIO — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272283
+    },
+    {
+      "ticker": "AABKX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABKX",
+          "fundflow": "AABKX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2025 Portfolio I",
+          "fundflow": "ONE CHOICE BLEND+ 2025 PORTFOLIO — I CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "11.060000",
+          "fundflow": "11.0600000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AABKX",
+          "fundflow": "AABKX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272282
+    },
+    {
+      "ticker": "AABOX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABOX",
+          "fundflow": "AABOX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "Cavanal Hill Bond Fund Class A",
+          "fundflow": "Bond Fund — Class A"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "8.27000",
+          "fundflow": "8.2700000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AABOX",
+          "fundflow": "AABOX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 259759
+    },
+    {
+      "ticker": "AABPX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABPX",
+          "fundflow": "AABPX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "American Beacon Balanced Fund Investor Class",
+          "fundflow": "American Beacon Balanced Fund — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "12.23000",
+          "fundflow": "12.2300000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AABPX",
+          "fundflow": "AABPX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 255895
+    },
+    {
+      "ticker": "AABQX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABQX",
+          "fundflow": "AABQX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2025 Portfolio A Class",
+          "fundflow": "ONE CHOICE BLEND+ 2025 PORTFOLIO — A Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "11.020000",
+          "fundflow": "11.0200000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AABQX",
+          "fundflow": "AABQX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272284
+    },
+    {
+      "ticker": "AABRX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABRX",
+          "fundflow": "AABRX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2025 Portfolio R",
+          "fundflow": "ONE CHOICE BLEND+ 2025 PORTFOLIO — R CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "10.99000",
+          "fundflow": "10.9900000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AABRX",
+          "fundflow": "AABRX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272285
+    },
+    {
+      "ticker": "AABTX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 404 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "successful response with no exact symbol"
+      },
+      "fundflow_id": 274206,
+      "record_status": "missing_in_twelvedata"
+    },
+    {
+      "ticker": "AABVX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABVX",
+          "fundflow": "AABVX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2025 Portfolio R6",
+          "fundflow": "ONE CHOICE BLEND+ 2025 PORTFOLIO — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "11.070000",
+          "fundflow": "11.0700000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AABVX",
+          "fundflow": "AABVX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272286
+    },
+    {
+      "ticker": "AABWX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABWX",
+          "fundflow": "AABWX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2030 Portfolio Investor Class",
+          "fundflow": "ONE CHOICE BLEND+ 2030 PORTFOLIO — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "11.47000",
+          "fundflow": "11.4700000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AABWX",
+          "fundflow": "AABWX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272291
+    },
+    {
+      "ticker": "AABZX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AABZX",
+          "fundflow": "AABZX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2030 Portfolio A Class",
+          "fundflow": "ONE CHOICE BLEND+ 2030 PORTFOLIO — A Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272288
+    },
+    {
+      "ticker": "AACCX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "successful response with no exact symbol"
+      },
+      "fundflow_id": 267221,
+      "record_status": "missing_in_twelvedata"
+    },
+    {
+      "ticker": "AACDX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACDX",
+          "fundflow": "AACDX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century Strategic Allocation: Conservative Fund, Class R6",
+          "fundflow": "STRATEGIC ALLOCATION: CONSERVATIVE FUND — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 267222
+    },
+    {
+      "ticker": "AACGX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACGX",
+          "fundflow": "AACGX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century Strategic Allocation: Conservative Fund R5 Class",
+          "fundflow": "STRATEGIC ALLOCATION: CONSERVATIVE FUND — R5 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 267223
+    },
+    {
+      "ticker": "AACHX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACHX",
+          "fundflow": "AACHX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2030 Portfolio R",
+          "fundflow": "ONE CHOICE BLEND+ 2030 PORTFOLIO — R CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272289
+    },
+    {
+      "ticker": "AACJX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACJX",
+          "fundflow": "AACJX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2030 Portfolio R6 Class",
+          "fundflow": "ONE CHOICE BLEND+ 2030 PORTFOLIO — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272290
+    },
+    {
+      "ticker": "AACKX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACKX",
+          "fundflow": "AACKX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2035 Portfolio Investor Class",
+          "fundflow": "ONE CHOICE BLEND+ 2035 PORTFOLIO — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272296
+    },
+    {
+      "ticker": "AACLX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACLX",
+          "fundflow": "AACLX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2035 Portfolio I Class",
+          "fundflow": "ONE CHOICE BLEND+ 2035 PORTFOLIO — I CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272295
+    },
+    {
+      "ticker": "AACMX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "successful response with no exact symbol"
+      },
+      "fundflow_id": 272294,
+      "record_status": "missing_in_twelvedata"
+    },
+    {
+      "ticker": "AACPX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACPX",
+          "fundflow": "AACPX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2035 Portfolio R",
+          "fundflow": "ONE CHOICE BLEND+ 2035 PORTFOLIO — R CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272293
+    },
+    {
+      "ticker": "AACQX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACQX",
+          "fundflow": "AACQX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2035 Portfolio R6",
+          "fundflow": "ONE CHOICE BLEND+ 2035 PORTFOLIO — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272292
+    },
+    {
+      "ticker": "AACRX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "successful response with no exact symbol"
+      },
+      "fundflow_id": 267217,
+      "record_status": "missing_in_twelvedata"
+    },
+    {
+      "ticker": "AACSX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACSX",
+          "fundflow": "AACSX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2040 Portfolio Investor Class",
+          "fundflow": "ONE CHOICE BLEND+ 2040 PORTFOLIO — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272297
+    },
+    {
+      "ticker": "AACTX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "successful response with no exact symbol"
+      },
+      "fundflow_id": 274217,
+      "record_status": "missing_in_twelvedata"
+    },
+    {
+      "ticker": "AACUX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACUX",
+          "fundflow": "AACUX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2040 Portfolio I",
+          "fundflow": "ONE CHOICE BLEND+ 2040 PORTFOLIO — I CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272298
+    },
+    {
+      "ticker": "AACVX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACVX",
+          "fundflow": "AACVX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2040 Portfolio A Class",
+          "fundflow": "ONE CHOICE BLEND+ 2040 PORTFOLIO — A Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272299
+    },
+    {
+      "ticker": "AACWX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACWX",
+          "fundflow": "AACWX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2040 Portfolio R Class",
+          "fundflow": "ONE CHOICE BLEND+ 2040 PORTFOLIO — R CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272301
+    },
+    {
+      "ticker": "AACZX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AACZX",
+          "fundflow": "AACZX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2040 Portfolio R6",
+          "fundflow": "ONE CHOICE BLEND+ 2040 PORTFOLIO — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272300
+    },
+    {
+      "ticker": "AADAX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADAX",
+          "fundflow": "AADAX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Invesco Select Risk: Growth Investor Fund Class A",
+          "fundflow": "Invesco Select Risk: Growth Investor Fund — Class A"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 249397
+    },
+    {
+      "ticker": "AADBX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADBX",
+          "fundflow": "AADBX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Beacon Balanced Fund",
+          "fundflow": "American Beacon Balanced Fund — R5 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 255894
+    },
+    {
+      "ticker": "AADCX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADCX",
+          "fundflow": "AADCX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Invesco Select Risk: Growth Investor Fund Class C",
+          "fundflow": "Invesco Select Risk: Growth Investor Fund — Class C"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 249398
+    },
+    {
+      "ticker": "AADEX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADEX",
+          "fundflow": "AADEX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "American Beacon Large Cap Value Fund R5 Class",
+          "fundflow": "American Beacon Large Cap Value Fund — R5 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 255900
+    },
+    {
+      "ticker": "AADHX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADHX",
+          "fundflow": "AADHX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2045 Portfolio Investor Class",
+          "fundflow": "ONE CHOICE BLEND+ 2045 PORTFOLIO — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272302
+    },
+    {
+      "ticker": "AADIX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADIX",
+          "fundflow": "AADIX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Invesco Select Risk: Growth Investor Fund Class R5",
+          "fundflow": "Invesco Select Risk: Growth Investor Fund — CLASS R5"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 249400
+    },
+    {
+      "ticker": "AADJX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADJX",
+          "fundflow": "AADJX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2045 Portfolio I Class",
+          "fundflow": "ONE CHOICE BLEND+ 2045 PORTFOLIO — I CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "12.61000",
+          "fundflow": "12.6100000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AADJX",
+          "fundflow": "AADJX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272303
+    },
+    {
+      "ticker": "AADKX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADKX",
+          "fundflow": "AADKX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2045 Portfolio Class A",
+          "fundflow": "ONE CHOICE BLEND+ 2045 PORTFOLIO — A Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "12.57000",
+          "fundflow": "12.5700000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AADKX",
+          "fundflow": "AADKX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272304
+    },
+    {
+      "ticker": "AADLX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADLX",
+          "fundflow": "AADLX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2045 Portfolio R",
+          "fundflow": "ONE CHOICE BLEND+ 2045 PORTFOLIO — R CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "12.54000",
+          "fundflow": "12.5400000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AADLX",
+          "fundflow": "AADLX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272305
+    },
+    {
+      "ticker": "AADMX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADMX",
+          "fundflow": "AADMX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2045 Portfolio R6",
+          "fundflow": "ONE CHOICE BLEND+ 2045 PORTFOLIO — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "12.63000",
+          "fundflow": "12.6300000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AADMX",
+          "fundflow": "AADMX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272306
+    },
+    {
+      "ticker": "AADNX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADNX",
+          "fundflow": "AADNX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2050 Portfolio Investor Class",
+          "fundflow": "ONE CHOICE BLEND+ 2050 PORTFOLIO — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "13.12000",
+          "fundflow": "13.1200000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AADNX",
+          "fundflow": "AADNX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272307
+    },
+    {
+      "ticker": "AADOX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADOX",
+          "fundflow": "AADOX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2050 Portfolio I",
+          "fundflow": "ONE CHOICE BLEND+ 2050 PORTFOLIO — I CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "13.14000",
+          "fundflow": "13.1400000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AADOX",
+          "fundflow": "AADOX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272308
+    },
+    {
+      "ticker": "AADPX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADPX",
+          "fundflow": "AADPX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2050 Portfolio A Class",
+          "fundflow": "ONE CHOICE BLEND+ 2050 PORTFOLIO — A Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "13.10000",
+          "fundflow": "13.1000000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AADPX",
+          "fundflow": "AADPX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272309
+    },
+    {
+      "ticker": "AADQX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADQX",
+          "fundflow": "AADQX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2050 Portfolio R",
+          "fundflow": "ONE CHOICE BLEND+ 2050 PORTFOLIO — R CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data": "2026-11-06",
+          "fundflow": "2026-11-06"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data": "13.070000",
+          "fundflow": "13.0700000000",
+          "difference_td_minus_fundflow": "0E-10",
+          "nearest_cent_match": true
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data": "AADQX",
+          "fundflow": "AADQX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [],
+      "coverage": {
+        "directory": "exact symbol returned",
+        "time_series": 1
+      },
+      "fundflow_id": 272311
+    },
+    {
+      "ticker": "AADR",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADR",
+          "fundflow": "AADR"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "AdvisorShares Dorsey Wright ADR ETF",
+          "fundflow": "AdvisorShares Dorsey Wright ADR ETF"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 274577
+    },
+    {
+      "ticker": "AADRX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADRX",
+          "fundflow": "AADRX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Invesco Select Risk: Growth Investor Fund Class R",
+          "fundflow": "Invesco Select Risk: Growth Investor Fund — Class R"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 249399
+    },
+    {
+      "ticker": "AADSX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADSX",
+          "fundflow": "AADSX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Invesco Select Risk: Growth Investor Fund Class S",
+          "fundflow": "Invesco Select Risk: Growth Investor Fund — CLASS S"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 249402
+    },
+    {
+      "ticker": "AADTX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "successful response with no exact symbol"
+      },
+      "fundflow_id": 274231,
+      "record_status": "missing_in_twelvedata"
+    },
+    {
+      "ticker": "AADUX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADUX",
+          "fundflow": "AADUX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2050 Portfolio R6",
+          "fundflow": "ONE CHOICE BLEND+ 2050 PORTFOLIO — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272310
+    },
+    {
+      "ticker": "AADVX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADVX",
+          "fundflow": "AADVX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2055 Portfolio Investor Class",
+          "fundflow": "ONE CHOICE BLEND+ 2055 PORTFOLIO — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272316
+    },
+    {
+      "ticker": "AADWX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADWX",
+          "fundflow": "AADWX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2055 Portfolio I",
+          "fundflow": "ONE CHOICE BLEND+ 2055 PORTFOLIO — I CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272312
+    },
+    {
+      "ticker": "AADYX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADYX",
+          "fundflow": "AADYX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Invesco Select Risk: Growth Investor Fund Class Y",
+          "fundflow": "Invesco Select Risk: Growth Investor Fund — Class Y"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 249401
+    },
+    {
+      "ticker": "AADZX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AADZX",
+          "fundflow": "AADZX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2055 Portfolio A",
+          "fundflow": "ONE CHOICE BLEND+ 2055 PORTFOLIO — A Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272313
+    },
+    {
+      "ticker": "AAEDX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEDX",
+          "fundflow": "AAEDX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2055 Portfolio R",
+          "fundflow": "ONE CHOICE BLEND+ 2055 PORTFOLIO — R CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272314
+    },
+    {
+      "ticker": "AAEEX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEEX",
+          "fundflow": "AAEEX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2055 Portfolio R6",
+          "fundflow": "ONE CHOICE BLEND+ 2055 PORTFOLIO — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272315
+    },
+    {
+      "ticker": "AAEFX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEFX",
+          "fundflow": "AAEFX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2060 Portfolio Investor Class",
+          "fundflow": "ONE CHOICE BLEND+ 2060 PORTFOLIO — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272270
+    },
+    {
+      "ticker": "AAEGX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEGX",
+          "fundflow": "AAEGX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2060 Portfolio I",
+          "fundflow": "ONE CHOICE BLEND+ 2060 PORTFOLIO — I CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272267
+    },
+    {
+      "ticker": "AAEHX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEHX",
+          "fundflow": "AAEHX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2060 Portfolio A",
+          "fundflow": "ONE CHOICE BLEND+ 2060 PORTFOLIO — A Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272268
+    },
+    {
+      "ticker": "AAEIX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEIX",
+          "fundflow": "AAEIX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2060 Portfolio R Class",
+          "fundflow": "ONE CHOICE BLEND+ 2060 PORTFOLIO — R CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272269
+    },
+    {
+      "ticker": "AAEJX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEJX",
+          "fundflow": "AAEJX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2060 Portfolio R6",
+          "fundflow": "ONE CHOICE BLEND+ 2060 PORTFOLIO — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272271
+    },
+    {
+      "ticker": "AAEKX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEKX",
+          "fundflow": "AAEKX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend Plus 2065 Portfolio Investor Class",
+          "fundflow": "ONE CHOICE BLEND+ 2065 PORTFOLIO — Investor Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272273
+    },
+    {
+      "ticker": "AAELX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAELX",
+          "fundflow": "AAELX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2065 Portfolio I Class",
+          "fundflow": "ONE CHOICE BLEND+ 2065 PORTFOLIO — I CLASS"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272274
+    },
+    {
+      "ticker": "AAEMX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEMX",
+          "fundflow": "AAEMX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "Alger Emerging Markets Fund Class A",
+          "fundflow": "Alger Emerging Markets Fund — Alger Emerging Markets Fund Class A"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 248102
+    },
+    {
+      "ticker": "AAENX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAENX",
+          "fundflow": "AAENX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "Cavanal Hill Strategic Enhanced Yield Fund Class A",
+          "fundflow": "Strategic Enhanced Yield Fund — Class A"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 259768
+    },
+    {
+      "ticker": "AAEOX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEOX",
+          "fundflow": "AAEOX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Century One Choice Blend+ 2065 Portfolio Investor Class",
+          "fundflow": "ONE CHOICE BLEND+ 2065 PORTFOLIO — A Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 272276
+    },
+    {
+      "ticker": "AAEQ",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAEQ",
+          "fundflow": "AAEQ"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "Alpha Architect US Equity 2 ETF",
+          "fundflow": "Alpha Architect US Equity 2 ETF"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 279121
+    },
+    {
+      "ticker": "AAERX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAERX",
+          "fundflow": "AAERX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data": "American Beacon International Equity Fund Class R6",
+          "fundflow": "American Beacon International Equity Fund — R6 Class"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 255920
+    },
+    {
+      "ticker": "AAETX",
+      "kind": "mutual_fund",
+      "valuation_date": "2026-11-06",
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data": "AAETX",
+          "fundflow": "AAETX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data": "American Funds 2030 Target Date Retirement Fund Class A",
+          "fundflow": "American Funds 2030 Target Date Retirement Fund — Class A"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data": "United States",
+          "fundflow": "US"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null,
+          "note": "Provider returned an access sentinel, not a value."
+        }
+      ],
+      "historical_nav": [],
+      "holdings_comparison": {
+        "status": "not_requested",
+        "credit_cost_if_requested": 200
+      },
+      "endpoint_errors": [
+        {
+          "endpoint": "time_series",
+          "error": "RuntimeError: HTTP 429 from Twelve Data endpoint time_series"
+        }
+      ],
+      "coverage": {
+        "directory": "exact symbol returned"
+      },
+      "fundflow_id": 274245
+    }
+  ],
+  "totals": {
+    "requested": 100,
+    "field_comparisons": 564,
+    "matches": 408,
+    "mismatches": 64,
+    "missing_in_fundflow": 0,
+    "missing_in_twelvedata": 0,
+    "unavailable_to_subscription": 92,
+    "unavailable_from_endpoint": 0,
+    "historical_nav_dates": 0,
+    "holdings_not_comparable_due_to_period": 0,
+    "endpoint_errors": 74
+  }
+}

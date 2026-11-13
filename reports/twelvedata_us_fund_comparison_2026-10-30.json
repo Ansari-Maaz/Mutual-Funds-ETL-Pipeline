@@ -1,0 +1,1781 @@
+{
+  "generated_at": "2026-11-06T13:51:43.691508+00:00",
+  "valuation_date": "2026-10-30",
+  "scope": "10 US mutual-fund share classes; Twelve Data directory metadata and one daily-series observation; no premium full-data endpoint",
+  "tickers_requested": [
+    "VFIAX",
+    "VTSAX",
+    "FXAIX",
+    "SWPPX",
+    "FCNTX",
+    "DODGX",
+    "FBALX",
+    "VWELX",
+    "VBTLX",
+    "VTIAX"
+  ],
+  "endpoint_cost_note": "Two standard requests per fund (directory and time series); premium /mutual_funds/world was not called.",
+  "funds": [
+    {
+      "generated_at": "2026-11-06T13:49:19.634995+00:00",
+      "ticker": "VFIAX",
+      "valuation_date": "2026-10-30",
+      "fundflow_id": 249237,
+      "twelve_data_full_endpoint_requested": false,
+      "full_endpoint_credit_note": null,
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "VFIAX",
+          "fundflow": "VFIAX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Vanguard 500 Index Fund Admiral Shares",
+          "fundflow": "Vanguard 500 Index Fund — Admiral Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "United States",
+          "fundflow": "United States"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "directory.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "directory.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": "US9229087104"
+        },
+        {
+          "field": "directory.cusip",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "VFIAX",
+          "fundflow": "VFIAX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "time_series.meta.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.exchange_timezone",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "America/New_York",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "2026-10-30",
+          "fundflow": "2026-10-30"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "699.87000",
+          "fundflow": "699.8700000000",
+          "numeric_value_match": true,
+          "absolute_difference": "0E-10",
+          "difference_rounded_to_cents": "0.00",
+          "rounded_to_cent_match": true
+        },
+        {
+          "field": "time_series.values.open",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "699.87000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.high",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "699.87000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.low",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "699.87000",
+          "fundflow": null
+        }
+      ],
+      "endpoint_errors": []
+    },
+    {
+      "generated_at": "2026-11-06T13:49:35.696387+00:00",
+      "ticker": "VTSAX",
+      "valuation_date": "2026-10-30",
+      "fundflow_id": 249277,
+      "twelve_data_full_endpoint_requested": false,
+      "full_endpoint_credit_note": null,
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "VTSAX",
+          "fundflow": "VTSAX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Vanguard Total Stock Market Index Fund Admiral Shares",
+          "fundflow": "Vanguard Total Stock Market Index Fund — Admiral Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "United States",
+          "fundflow": "United States"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "directory.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "directory.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNMS",
+          "fundflow": null
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "directory.cusip",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "VTSAX",
+          "fundflow": "VTSAX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "time_series.meta.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNMS",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.exchange_timezone",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "America/New_York",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "2026-10-30",
+          "fundflow": "2026-10-30"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "180.85001",
+          "fundflow": "180.8500000000",
+          "numeric_value_match": false,
+          "absolute_difference": "0.0000100000",
+          "difference_rounded_to_cents": "0.00",
+          "rounded_to_cent_match": true
+        },
+        {
+          "field": "time_series.values.open",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "180.85001",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.high",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "180.85001",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.low",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "180.85001",
+          "fundflow": null
+        }
+      ],
+      "endpoint_errors": []
+    },
+    {
+      "generated_at": "2026-11-06T13:49:51.515488+00:00",
+      "ticker": "FXAIX",
+      "valuation_date": "2026-10-30",
+      "fundflow_id": 257121,
+      "twelve_data_full_endpoint_requested": false,
+      "full_endpoint_credit_note": null,
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "FXAIX",
+          "fundflow": "FXAIX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Fidelity 500 Index Fund",
+          "fundflow": "Fidelity 500 Index Fund"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "United States",
+          "fundflow": "United States"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "directory.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "directory.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "directory.cusip",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "FXAIX",
+          "fundflow": "FXAIX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "time_series.meta.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.exchange_timezone",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "America/New_York",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "2026-10-30",
+          "fundflow": "2026-10-30"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "263.5",
+          "fundflow": "263.5000000000",
+          "numeric_value_match": true,
+          "absolute_difference": "0E-10",
+          "difference_rounded_to_cents": "0.00",
+          "rounded_to_cent_match": true
+        },
+        {
+          "field": "time_series.values.open",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "263.5",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.high",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "263.5",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.low",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "263.5",
+          "fundflow": null
+        }
+      ],
+      "endpoint_errors": []
+    },
+    {
+      "generated_at": "2026-11-06T13:50:07.382961+00:00",
+      "ticker": "SWPPX",
+      "valuation_date": "2026-10-30",
+      "fundflow_id": 263736,
+      "twelve_data_full_endpoint_requested": false,
+      "full_endpoint_credit_note": null,
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "SWPPX",
+          "fundflow": "SWPPX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Schwab S&P 500 Index Fund",
+          "fundflow": "Schwab S&P 500 Index Fund"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "United States",
+          "fundflow": "United States"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "directory.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "directory.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "directory.cusip",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "SWPPX",
+          "fundflow": "SWPPX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "time_series.meta.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.exchange_timezone",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "America/New_York",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "2026-10-30",
+          "fundflow": "2026-10-30"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "19.59000",
+          "fundflow": "19.5900000000",
+          "numeric_value_match": true,
+          "absolute_difference": "0E-10",
+          "difference_rounded_to_cents": "0.00",
+          "rounded_to_cent_match": true
+        },
+        {
+          "field": "time_series.values.open",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "19.59000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.high",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "19.59000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.low",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "19.59000",
+          "fundflow": null
+        }
+      ],
+      "endpoint_errors": []
+    },
+    {
+      "generated_at": "2026-11-06T13:50:23.210351+00:00",
+      "ticker": "FCNTX",
+      "valuation_date": "2026-10-30",
+      "fundflow_id": 247801,
+      "twelve_data_full_endpoint_requested": false,
+      "full_endpoint_credit_note": null,
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "FCNTX",
+          "fundflow": "FCNTX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Fidelity Contrafund",
+          "fundflow": "Fidelity Contrafund"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "United States",
+          "fundflow": "United States"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "directory.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "directory.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "directory.cusip",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "FCNTX",
+          "fundflow": "FCNTX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "time_series.meta.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.exchange_timezone",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "America/New_York",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "2026-10-30",
+          "fundflow": "2026-10-30"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "26.71000",
+          "fundflow": "26.7100000000",
+          "numeric_value_match": true,
+          "absolute_difference": "0E-10",
+          "difference_rounded_to_cents": "0.00",
+          "rounded_to_cent_match": true
+        },
+        {
+          "field": "time_series.values.open",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "26.71000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.high",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "26.71000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.low",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "26.71000",
+          "fundflow": null
+        }
+      ],
+      "endpoint_errors": []
+    },
+    {
+      "generated_at": "2026-11-06T13:50:39.086444+00:00",
+      "ticker": "DODGX",
+      "valuation_date": "2026-10-30",
+      "fundflow_id": 246814,
+      "twelve_data_full_endpoint_requested": false,
+      "full_endpoint_credit_note": null,
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "DODGX",
+          "fundflow": "DODGX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Dodge & Cox Stock Fund Class I",
+          "fundflow": "Dodge & Cox Stock Fund — Class I"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "United States",
+          "fundflow": "United States"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "directory.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "directory.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNMS",
+          "fundflow": null
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "directory.cusip",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "DODGX",
+          "fundflow": "DODGX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "time_series.meta.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNMS",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.exchange_timezone",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "America/New_York",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "2026-10-30",
+          "fundflow": "2026-10-30"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "17.89000",
+          "fundflow": "17.8900000000",
+          "numeric_value_match": true,
+          "absolute_difference": "0E-10",
+          "difference_rounded_to_cents": "0.00",
+          "rounded_to_cent_match": true
+        },
+        {
+          "field": "time_series.values.open",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "17.89000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.high",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "17.89000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.low",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "17.89000",
+          "fundflow": null
+        }
+      ],
+      "endpoint_errors": []
+    },
+    {
+      "generated_at": "2026-11-06T13:50:54.981344+00:00",
+      "ticker": "FBALX",
+      "valuation_date": "2026-10-30",
+      "fundflow_id": 247312,
+      "twelve_data_full_endpoint_requested": false,
+      "full_endpoint_credit_note": null,
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "FBALX",
+          "fundflow": "FBALX"
+        },
+        {
+          "field": "directory.name",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Fidelity Balanced Fund",
+          "fundflow": "Fidelity Balanced Fund"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "United States",
+          "fundflow": "United States"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "directory.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "directory.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "directory.cusip",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "FBALX",
+          "fundflow": "FBALX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "time_series.meta.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.exchange_timezone",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "America/New_York",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "2026-10-30",
+          "fundflow": "2026-10-30"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "32.090000",
+          "fundflow": "32.0900000000",
+          "numeric_value_match": true,
+          "absolute_difference": "0E-10",
+          "difference_rounded_to_cents": "0.00",
+          "rounded_to_cent_match": true
+        },
+        {
+          "field": "time_series.values.open",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "32.090000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.high",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "32.090000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.low",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "32.090000",
+          "fundflow": null
+        }
+      ],
+      "endpoint_errors": []
+    },
+    {
+      "generated_at": "2026-11-06T13:51:10.991602+00:00",
+      "ticker": "VWELX",
+      "valuation_date": "2026-10-30",
+      "fundflow_id": 246792,
+      "twelve_data_full_endpoint_requested": false,
+      "full_endpoint_credit_note": null,
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "VWELX",
+          "fundflow": "VWELX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Vanguard Wellington Fund Investor Shares",
+          "fundflow": "VANGUARD WELLINGTON FUND — Investor Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "United States",
+          "fundflow": "United States"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "directory.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "directory.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "directory.cusip",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "VWELX",
+          "fundflow": "VWELX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "time_series.meta.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.exchange_timezone",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "America/New_York",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "2026-10-30",
+          "fundflow": "2026-10-30"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "46.64000",
+          "fundflow": "46.6400000000",
+          "numeric_value_match": true,
+          "absolute_difference": "0E-10",
+          "difference_rounded_to_cents": "0.00",
+          "rounded_to_cent_match": true
+        },
+        {
+          "field": "time_series.values.open",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "46.64000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.high",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "46.64000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.low",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "46.64000",
+          "fundflow": null
+        }
+      ],
+      "endpoint_errors": []
+    },
+    {
+      "generated_at": "2026-11-06T13:51:26.876022+00:00",
+      "ticker": "VBTLX",
+      "valuation_date": "2026-10-30",
+      "fundflow_id": 255259,
+      "twelve_data_full_endpoint_requested": false,
+      "full_endpoint_credit_note": null,
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "VBTLX",
+          "fundflow": "VBTLX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Vanguard Total Bond Market Index Fund Admiral Shares",
+          "fundflow": "Vanguard Total Bond Market Index Fund — Admiral Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "United States",
+          "fundflow": "United States"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "directory.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "directory.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "directory.cusip",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "VBTLX",
+          "fundflow": "VBTLX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "time_series.meta.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.exchange_timezone",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "America/New_York",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "2026-10-30",
+          "fundflow": "2026-10-30"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "9.40000",
+          "fundflow": "9.3800000000",
+          "numeric_value_match": false,
+          "absolute_difference": "0.0200000000",
+          "difference_rounded_to_cents": "0.02",
+          "rounded_to_cent_match": false
+        },
+        {
+          "field": "time_series.values.open",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "9.40000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.high",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "9.40000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.low",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "9.40000",
+          "fundflow": null
+        }
+      ],
+      "endpoint_errors": []
+    },
+    {
+      "generated_at": "2026-11-06T13:51:42.775677+00:00",
+      "ticker": "VTIAX",
+      "valuation_date": "2026-10-30",
+      "fundflow_id": 252316,
+      "twelve_data_full_endpoint_requested": false,
+      "full_endpoint_credit_note": null,
+      "comparisons": [
+        {
+          "field": "directory.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "VTIAX",
+          "fundflow": "VTIAX"
+        },
+        {
+          "field": "directory.name",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Vanguard Total International Stock Index Fund Admiral Shares",
+          "fundflow": "Vanguard Total International Stock Index Fund — Admiral Shares"
+        },
+        {
+          "field": "directory.country",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "United States",
+          "fundflow": "United States"
+        },
+        {
+          "field": "directory.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "directory.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "directory.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "directory.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "directory.isin",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "directory.cusip",
+          "status": "unavailable_to_subscription",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "request_access_via_add_ons",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.symbol",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "VTIAX",
+          "fundflow": "VTIAX"
+        },
+        {
+          "field": "time_series.meta.currency",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "USD",
+          "fundflow": "USD"
+        },
+        {
+          "field": "time_series.meta.exchange",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "NASDAQ",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.mic_code",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "XNAS",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.exchange_timezone",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "America/New_York",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.meta.type",
+          "status": "mismatch",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "Mutual Fund",
+          "fundflow": "Open-end mutual fund"
+        },
+        {
+          "field": "time_series.values.datetime",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "2026-10-30",
+          "fundflow": "2026-10-30"
+        },
+        {
+          "field": "time_series.values.close_vs_nav",
+          "status": "match",
+          "twelve_data_type": "str",
+          "fundflow_type": "str",
+          "twelve_data": "44.19000",
+          "fundflow": "44.1900000000",
+          "numeric_value_match": true,
+          "absolute_difference": "0E-10",
+          "difference_rounded_to_cents": "0.00",
+          "rounded_to_cent_match": true
+        },
+        {
+          "field": "time_series.values.open",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "44.19000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.high",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "44.19000",
+          "fundflow": null
+        },
+        {
+          "field": "time_series.values.low",
+          "status": "missing_in_fundflow",
+          "twelve_data_type": "str",
+          "fundflow_type": "null",
+          "twelve_data": "44.19000",
+          "fundflow": null
+        }
+      ],
+      "endpoint_errors": []
+    }
+  ],
+  "totals": {
+    "funds_requested": 10,
+    "funds_with_any_comparisons": 10,
+    "field_comparisons": 200,
+    "matches": 72,
+    "mismatches": 28,
+    "missing_in_fundflow": 80,
+    "missing_in_twelvedata": 0,
+    "endpoint_errors": 0,
+    "unavailable_to_subscription": 20
+  }
+}

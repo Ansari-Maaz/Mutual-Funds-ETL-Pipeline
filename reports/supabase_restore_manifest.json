@@ -1,0 +1,21 @@
+{
+  "dump_file": "FundFlow_supabase_compatible.dump",
+  "generated_at_utc": "2026-11-09T08:55:32.931264+00:00",
+  "format": "PostgreSQL custom archive",
+  "dumped_from_postgresql": "16.15",
+  "created_by_pg_dump": "16 (official postgres:16-alpine client)",
+  "archive_bytes": 249555819,
+  "archive_sha256": "a324d8057ce78fc7ecdd4979b7aec05acc00eef130d2473fdf37919677ff80fd",
+  "source_database_size_bytes": 2911271959,
+  "source_database_size_mb": 2911,
+  "expected_row_counts": {
+    "funds": 187100,
+    "nav_observations": 358246,
+    "portfolio_holdings": 5521888
+  },
+  "restore_options": [
+    "--no-owner",
+    "--no-privileges"
+  ],
+  "note": "Fresh dump of the local database after US NAV refresh. PostgreSQL 16 pg_restore --list verified the archive. This file is intended for private Supabase Storage; it is not restored into Supabase Postgres."
+}

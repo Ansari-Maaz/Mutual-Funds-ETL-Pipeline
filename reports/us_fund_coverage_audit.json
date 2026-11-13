@@ -1,0 +1,207 @@
+{
+  "generated_at": "2026-11-13T17:47:07.196744+00:00",
+  "total_us_funds": 39139,
+  "basic_stats": {
+    "total_funds": 39139,
+    "has_name": 39139,
+    "has_legal_name": 39139,
+    "has_ticker": 29539,
+    "has_isin": 669,
+    "has_series_id": 39138,
+    "has_cik": 39138,
+    "has_category": 1,
+    "has_fund_type": 39139,
+    "has_inception_date": 390,
+    "has_status": 39139,
+    "has_provider": 39139,
+    "has_manager": 1,
+    "has_administrator": 0,
+    "has_net_assets": 30740,
+    "has_currency": 39139,
+    "has_official_url": 39139,
+    "has_holdings_report_date": 32281,
+    "holdings_available": 32281,
+    "holdings_unavailable": 4836,
+    "holdings_not_checked": 2022
+  },
+  "nav_stats": {
+    "funds_with_nav": 25263,
+    "total_nav_observations": 101855,
+    "distinct_nav_dates": 255,
+    "earliest_nav_date": "2025-11-10",
+    "latest_nav_date": "2026-11-09"
+  },
+  "nav_by_source": [
+    {
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "funds": 25259,
+      "observations": 27719
+    },
+    {
+      "source_id": "us_yahoo_mutual_fund_navs",
+      "funds": 24753,
+      "observations": 74108
+    },
+    {
+      "source_id": "unattributed",
+      "funds": 3,
+      "observations": 22
+    },
+    {
+      "source_id": "us_nasdaq_etf_market_prices",
+      "funds": 1,
+      "observations": 6
+    }
+  ],
+  "holdings_stats": {
+    "funds_with_holdings": 32273,
+    "total_holdings_rows": 12128486,
+    "distinct_report_dates": 25,
+    "earliest_report_date": "2024-12-31",
+    "latest_report_date": "2026-08-31",
+    "holdings_with_cusip": 12128486,
+    "holdings_with_isin": 10549250,
+    "holdings_with_ticker": 1515231,
+    "holdings_with_market_value": 12127555,
+    "holdings_with_weight": 12127275,
+    "holdings_with_quantity": 12127594
+  },
+  "holdings_by_source": [
+    {
+      "data_source": "sec_edgar_nport",
+      "funds": 18724,
+      "positions": 5916818
+    },
+    {
+      "data_source": "sec_edgar_nport_bulk",
+      "funds": 13549,
+      "positions": 6211668
+    }
+  ],
+  "snapshots_by_dataset": [
+    {
+      "dataset": "summary",
+      "funds": 39138,
+      "snapshots": 40406
+    },
+    {
+      "dataset": "aum_history",
+      "funds": 16655,
+      "snapshots": 17171
+    },
+    {
+      "dataset": "identifiers",
+      "funds": 669,
+      "snapshots": 1325
+    },
+    {
+      "dataset": "yields",
+      "funds": 390,
+      "snapshots": 778
+    },
+    {
+      "dataset": "expense_ratio_history",
+      "funds": 390,
+      "snapshots": 768
+    },
+    {
+      "dataset": "performance",
+      "funds": 390,
+      "snapshots": 769
+    },
+    {
+      "dataset": "risk",
+      "funds": 1,
+      "snapshots": 1
+    },
+    {
+      "dataset": "market_data_metadata",
+      "funds": 1,
+      "snapshots": 1
+    }
+  ],
+  "overlap_stats": {
+    "both_nav_and_holdings": 24164,
+    "nav_only": 1099,
+    "holdings_only": 8109,
+    "missing_both": 5767
+  },
+  "field_completeness": {
+    "Fund Name": {
+      "count": 39139,
+      "pct": 100.0
+    },
+    "Legal Name": {
+      "count": 39139,
+      "pct": 100.0
+    },
+    "Ticker / Symbol": {
+      "count": 29539,
+      "pct": 75.47
+    },
+    "ISIN": {
+      "count": 669,
+      "pct": 1.71
+    },
+    "SEC Series ID": {
+      "count": 39138,
+      "pct": 100.0
+    },
+    "SEC CIK": {
+      "count": 39138,
+      "pct": 100.0
+    },
+    "Category": {
+      "count": 1,
+      "pct": 0.0
+    },
+    "Fund Type": {
+      "count": 39139,
+      "pct": 100.0
+    },
+    "Inception Date": {
+      "count": 390,
+      "pct": 1.0
+    },
+    "Status": {
+      "count": 39139,
+      "pct": 100.0
+    },
+    "Provider / Registrant": {
+      "count": 39139,
+      "pct": 100.0
+    },
+    "Manager": {
+      "count": 1,
+      "pct": 0.0
+    },
+    "Administrator": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "Net Assets": {
+      "count": 30740,
+      "pct": 78.54
+    },
+    "Currency": {
+      "count": 39139,
+      "pct": 100.0
+    },
+    "Official URL": {
+      "count": 39139,
+      "pct": 100.0
+    },
+    "NAV Coverage": {
+      "count": 25263,
+      "pct": 64.55
+    },
+    "Portfolio Holdings Coverage": {
+      "count": 32273,
+      "pct": 82.46
+    },
+    "Both NAV and Holdings": {
+      "count": 24164,
+      "pct": 61.74
+    }
+  }
+}

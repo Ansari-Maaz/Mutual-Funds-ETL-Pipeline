@@ -1,0 +1,125 @@
+{
+  "generated_at": "2026-11-09T14:21:45.551579+00:00",
+  "source_id": "us_nasdaq_mutual_fund_navs",
+  "source_scope": "Nasdaq Fund Network daily mutual-fund close/NAV values; reported values only",
+  "requested_start_date": "2025-11-09",
+  "requested_end_date": "2026-11-09",
+  "history_days": 365,
+  "tickers": [
+    {
+      "ticker": "VFIAX",
+      "fetched_rows": 250,
+      "inserted_rows": 223,
+      "existing_equal_rows": 27,
+      "existing_conflict_rows": 0,
+      "error": null,
+      "source_url": "https://api.nasdaq.com/api/quote/VFIAX/historical?assetclass=mutualfunds&fromdate=2025-11-09&todate=2026-11-09&limit=500",
+      "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+    },
+    {
+      "ticker": "VTSAX",
+      "fetched_rows": 250,
+      "inserted_rows": 243,
+      "existing_equal_rows": 7,
+      "existing_conflict_rows": 0,
+      "error": null,
+      "source_url": "https://api.nasdaq.com/api/quote/VTSAX/historical?assetclass=mutualfunds&fromdate=2025-11-09&todate=2026-11-09&limit=500",
+      "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+    },
+    {
+      "ticker": "FXAIX",
+      "fetched_rows": 250,
+      "inserted_rows": 243,
+      "existing_equal_rows": 7,
+      "existing_conflict_rows": 0,
+      "error": null,
+      "source_url": "https://api.nasdaq.com/api/quote/FXAIX/historical?assetclass=mutualfunds&fromdate=2025-11-09&todate=2026-11-09&limit=500",
+      "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+    },
+    {
+      "ticker": "SWPPX",
+      "fetched_rows": 250,
+      "inserted_rows": 243,
+      "existing_equal_rows": 7,
+      "existing_conflict_rows": 0,
+      "error": null,
+      "source_url": "https://api.nasdaq.com/api/quote/SWPPX/historical?assetclass=mutualfunds&fromdate=2025-11-09&todate=2026-11-09&limit=500",
+      "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+    },
+    {
+      "ticker": "FCNTX",
+      "fetched_rows": 250,
+      "inserted_rows": 243,
+      "existing_equal_rows": 7,
+      "existing_conflict_rows": 0,
+      "error": null,
+      "source_url": "https://api.nasdaq.com/api/quote/FCNTX/historical?assetclass=mutualfunds&fromdate=2025-11-09&todate=2026-11-09&limit=500",
+      "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+    },
+    {
+      "ticker": "DODGX",
+      "fetched_rows": 250,
+      "inserted_rows": 243,
+      "existing_equal_rows": 7,
+      "existing_conflict_rows": 0,
+      "error": null,
+      "source_url": "https://api.nasdaq.com/api/quote/DODGX/historical?assetclass=mutualfunds&fromdate=2025-11-09&todate=2026-11-09&limit=500",
+      "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+    },
+    {
+      "ticker": "FBALX",
+      "fetched_rows": 250,
+      "inserted_rows": 243,
+      "existing_equal_rows": 7,
+      "existing_conflict_rows": 0,
+      "error": null,
+      "source_url": "https://api.nasdaq.com/api/quote/FBALX/historical?assetclass=mutualfunds&fromdate=2025-11-09&todate=2026-11-09&limit=500",
+      "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+    },
+    {
+      "ticker": "VWELX",
+      "fetched_rows": 250,
+      "inserted_rows": 243,
+      "existing_equal_rows": 7,
+      "existing_conflict_rows": 0,
+      "error": null,
+      "source_url": "https://api.nasdaq.com/api/quote/VWELX/historical?assetclass=mutualfunds&fromdate=2025-11-09&todate=2026-11-09&limit=500",
+      "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+    },
+    {
+      "ticker": "VBTLX",
+      "fetched_rows": 250,
+      "inserted_rows": 243,
+      "existing_equal_rows": 7,
+      "existing_conflict_rows": 0,
+      "error": null,
+      "source_url": "https://api.nasdaq.com/api/quote/VBTLX/historical?assetclass=mutualfunds&fromdate=2025-11-09&todate=2026-11-09&limit=500",
+      "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+    },
+    {
+      "ticker": "VTIAX",
+      "fetched_rows": 250,
+      "inserted_rows": 243,
+      "existing_equal_rows": 7,
+      "existing_conflict_rows": 0,
+      "error": null,
+      "source_url": "https://api.nasdaq.com/api/quote/VTIAX/historical?assetclass=mutualfunds&fromdate=2025-11-09&todate=2026-11-09&limit=500",
+      "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+    }
+  ],
+  "totals": {
+    "requested": 10,
+    "fetched": 2500,
+    "inserted": 2410,
+    "existing_equal": 90,
+    "existing_conflict": 0,
+    "errors": 0,
+    "insert_count_verified_by": "FundFlow database retrieved_at timestamp after the import started"
+  },
+  "limitations": [
+    "Nasdaq's public quote endpoint is not a formally versioned API.",
+    "Only the response close is used as the mutual-fund daily NAV; adjusted close and OHLC fields are not substituted.",
+    "Existing FundFlow values are retained. Same-date differences are reported, not overwritten."
+  ],
+  "report_path": "/media/asim/4_TB_1/MF ETL PIPELINE/reports/us_nasdaq_nav_history_20261109T142219Z.json"
+}

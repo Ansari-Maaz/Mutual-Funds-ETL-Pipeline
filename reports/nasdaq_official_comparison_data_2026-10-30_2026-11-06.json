@@ -1,0 +1,560 @@
+{
+  "generated_at": "2026-11-09T10:42:16.434351+00:00",
+  "source": "Nasdaq official historical API",
+  "source_url": "https://api.nasdaq.com/api/quote/{symbol}/historical",
+  "start_date": "2026-10-30",
+  "end_date": "2026-11-06",
+  "note": "Mutual-fund rows are daily NAV observations. QQQM rows are ETF market-price bars, not NAV.",
+  "funds": [
+    {
+      "ticker": "VFIAX",
+      "kind": "mutual_fund",
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "source_url": "https://api.nasdaq.com/api/quote/VFIAX/historical?assetclass=mutualfunds&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "681.2",
+          "high": "681.2",
+          "low": "681.2",
+          "close": "681.2"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "679.02",
+          "high": "679.02",
+          "low": "679.02",
+          "close": "679.02"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "709.94",
+          "high": "709.94",
+          "low": "709.94",
+          "close": "709.94"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "698.88",
+          "high": "698.88",
+          "low": "698.88",
+          "close": "698.88"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "696.34",
+          "high": "696.34",
+          "low": "696.34",
+          "close": "696.34"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "699.87",
+          "high": "699.87",
+          "low": "699.87",
+          "close": "699.87"
+        }
+      ]
+    },
+    {
+      "ticker": "VTSAX",
+      "kind": "mutual_fund",
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "source_url": "https://api.nasdaq.com/api/quote/VTSAX/historical?assetclass=mutualfunds&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "176.16",
+          "high": "176.16",
+          "low": "176.16",
+          "close": "176.16"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "175.48",
+          "high": "175.48",
+          "low": "175.48",
+          "close": "175.48"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "183.45",
+          "high": "183.45",
+          "low": "183.45",
+          "close": "183.45"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "180.69",
+          "high": "180.69",
+          "low": "180.69",
+          "close": "180.69"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "180.03",
+          "high": "180.03",
+          "low": "180.03",
+          "close": "180.03"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "180.85",
+          "high": "180.85",
+          "low": "180.85",
+          "close": "180.85"
+        }
+      ]
+    },
+    {
+      "ticker": "FXAIX",
+      "kind": "mutual_fund",
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "source_url": "https://api.nasdaq.com/api/quote/FXAIX/historical?assetclass=mutualfunds&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "256.48",
+          "high": "256.48",
+          "low": "256.48",
+          "close": "256.48"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "255.65",
+          "high": "255.65",
+          "low": "255.65",
+          "close": "255.65"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "267.29",
+          "high": "267.29",
+          "low": "267.29",
+          "close": "267.29"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "263.13",
+          "high": "263.13",
+          "low": "263.13",
+          "close": "263.13"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "262.17",
+          "high": "262.17",
+          "low": "262.17",
+          "close": "262.17"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "263.5",
+          "high": "263.5",
+          "low": "263.5",
+          "close": "263.5"
+        }
+      ]
+    },
+    {
+      "ticker": "SWPPX",
+      "kind": "mutual_fund",
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "source_url": "https://api.nasdaq.com/api/quote/SWPPX/historical?assetclass=mutualfunds&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "19.07",
+          "high": "19.07",
+          "low": "19.07",
+          "close": "19.07"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "19.01",
+          "high": "19.01",
+          "low": "19.01",
+          "close": "19.01"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "19.88",
+          "high": "19.88",
+          "low": "19.88",
+          "close": "19.88"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "19.57",
+          "high": "19.57",
+          "low": "19.57",
+          "close": "19.57"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "19.49",
+          "high": "19.49",
+          "low": "19.49",
+          "close": "19.49"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "19.59",
+          "high": "19.59",
+          "low": "19.59",
+          "close": "19.59"
+        }
+      ]
+    },
+    {
+      "ticker": "FCNTX",
+      "kind": "mutual_fund",
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "source_url": "https://api.nasdaq.com/api/quote/FCNTX/historical?assetclass=mutualfunds&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "26.15",
+          "high": "26.15",
+          "low": "26.15",
+          "close": "26.15"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "25.9",
+          "high": "25.9",
+          "low": "25.9",
+          "close": "25.9"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "27.19",
+          "high": "27.19",
+          "low": "27.19",
+          "close": "27.19"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "26.78",
+          "high": "26.78",
+          "low": "26.78",
+          "close": "26.78"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "26.58",
+          "high": "26.58",
+          "low": "26.58",
+          "close": "26.58"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "26.71",
+          "high": "26.71",
+          "low": "26.71",
+          "close": "26.71"
+        }
+      ]
+    },
+    {
+      "ticker": "DODGX",
+      "kind": "mutual_fund",
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "source_url": "https://api.nasdaq.com/api/quote/DODGX/historical?assetclass=mutualfunds&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "17.82",
+          "high": "17.82",
+          "low": "17.82",
+          "close": "17.82"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "17.89",
+          "high": "17.89",
+          "low": "17.89",
+          "close": "17.89"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "18.36",
+          "high": "18.36",
+          "low": "18.36",
+          "close": "18.36"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "18.1",
+          "high": "18.1",
+          "low": "18.1",
+          "close": "18.1"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "18.02",
+          "high": "18.02",
+          "low": "18.02",
+          "close": "18.02"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "17.89",
+          "high": "17.89",
+          "low": "17.89",
+          "close": "17.89"
+        }
+      ]
+    },
+    {
+      "ticker": "FBALX",
+      "kind": "mutual_fund",
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "source_url": "https://api.nasdaq.com/api/quote/FBALX/historical?assetclass=mutualfunds&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "31.72",
+          "high": "31.72",
+          "low": "31.72",
+          "close": "31.72"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "31.65",
+          "high": "31.65",
+          "low": "31.65",
+          "close": "31.65"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "32.45",
+          "high": "32.45",
+          "low": "32.45",
+          "close": "32.45"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "32.06",
+          "high": "32.06",
+          "low": "32.06",
+          "close": "32.06"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "32.01",
+          "high": "32.01",
+          "low": "32.01",
+          "close": "32.01"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "32.09",
+          "high": "32.09",
+          "low": "32.09",
+          "close": "32.09"
+        }
+      ]
+    },
+    {
+      "ticker": "VWELX",
+      "kind": "mutual_fund",
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "source_url": "https://api.nasdaq.com/api/quote/VWELX/historical?assetclass=mutualfunds&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "46.09",
+          "high": "46.09",
+          "low": "46.09",
+          "close": "46.09"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "46.01",
+          "high": "46.01",
+          "low": "46.01",
+          "close": "46.01"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "47.28",
+          "high": "47.28",
+          "low": "47.28",
+          "close": "47.28"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "46.64",
+          "high": "46.64",
+          "low": "46.64",
+          "close": "46.64"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "46.52",
+          "high": "46.52",
+          "low": "46.52",
+          "close": "46.52"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "46.64",
+          "high": "46.64",
+          "low": "46.64",
+          "close": "46.64"
+        }
+      ]
+    },
+    {
+      "ticker": "VBTLX",
+      "kind": "mutual_fund",
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "source_url": "https://api.nasdaq.com/api/quote/VBTLX/historical?assetclass=mutualfunds&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "9.43",
+          "high": "9.43",
+          "low": "9.43",
+          "close": "9.43"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "9.44",
+          "high": "9.44",
+          "low": "9.44",
+          "close": "9.44"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "9.42",
+          "high": "9.42",
+          "low": "9.42",
+          "close": "9.42"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "9.38",
+          "high": "9.38",
+          "low": "9.38",
+          "close": "9.38"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "9.4",
+          "high": "9.4",
+          "low": "9.4",
+          "close": "9.4"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "9.4",
+          "high": "9.4",
+          "low": "9.4",
+          "close": "9.4"
+        }
+      ]
+    },
+    {
+      "ticker": "VTIAX",
+      "kind": "mutual_fund",
+      "source_id": "us_nasdaq_mutual_fund_navs",
+      "source_url": "https://api.nasdaq.com/api/quote/VTIAX/historical?assetclass=mutualfunds&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "43.45",
+          "high": "43.45",
+          "low": "43.45",
+          "close": "43.45"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "43.45",
+          "high": "43.45",
+          "low": "43.45",
+          "close": "43.45"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "44.95",
+          "high": "44.95",
+          "low": "44.95",
+          "close": "44.95"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "44.11",
+          "high": "44.11",
+          "low": "44.11",
+          "close": "44.11"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "44.29",
+          "high": "44.29",
+          "low": "44.29",
+          "close": "44.29"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "44.19",
+          "high": "44.19",
+          "low": "44.19",
+          "close": "44.19"
+        }
+      ]
+    },
+    {
+      "ticker": "QQQM",
+      "kind": "etf_market_price",
+      "source_id": "us_nasdaq_etf_market_prices",
+      "source_url": "https://api.nasdaq.com/api/quote/QQQM/historical?assetclass=etf&fromdate=2026-10-30&todate=2026-11-06&limit=100",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "open": "271.14",
+          "high": "273.6299",
+          "low": "269.30",
+          "close": "270.22"
+        },
+        {
+          "date": "2026-11-05",
+          "open": "281.29",
+          "high": "281.50",
+          "low": "266.52",
+          "close": "266.85"
+        },
+        {
+          "date": "2026-11-04",
+          "open": "283.55",
+          "high": "288.82",
+          "low": "283.24",
+          "close": "284.92"
+        },
+        {
+          "date": "2026-11-03",
+          "open": "281.73",
+          "high": "283.55",
+          "low": "281.31",
+          "close": "282.23"
+        },
+        {
+          "date": "2026-11-02",
+          "open": "286.30",
+          "high": "287.98",
+          "low": "280.15",
+          "close": "280.49"
+        },
+        {
+          "date": "2026-10-30",
+          "open": "287.06",
+          "high": "287.65",
+          "low": "281.42",
+          "close": "284.34"
+        }
+      ]
+    }
+  ]
+}

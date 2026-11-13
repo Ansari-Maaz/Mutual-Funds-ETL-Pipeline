@@ -1,0 +1,12 @@
+{
+  "url": "https://www.fsa.go.jp/policy/nisa2/products/20261023/23.xlsx",
+  "path": "data/raw/japan/fsa_tsumitate_funds_20261023.xlsx",
+  "bytes": 29683,
+  "sha256": "07fdc3af8d01364d01c8322fc95b95442a10a573ad5ff451af19f7d21585183c",
+  "downloaded": false,
+  "checked_at": "2026-11-06T14:05:35.911289+00:00",
+  "source_id": "jp_fsa_tsumitate_funds",
+  "organization": "Financial Services Agency of Japan",
+  "source_report_date": "2026-10-23",
+  "scope": "Funds reported for the NISA tsumitate investment quota; excludes ETFs from ingestion and is not the full Japanese fund universe."
+}

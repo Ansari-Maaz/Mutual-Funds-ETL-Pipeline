@@ -1,0 +1,11 @@
+{
+  "source_id": "sec_nport_bulk",
+  "dataset": "2026q3",
+  "url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2026q3_nport.zip",
+  "archive": "data/raw/united_states/nport_bulk/2026q3_nport.zip",
+  "directory": "data/raw/united_states/nport_bulk/2026q3",
+  "bytes": 462371568,
+  "sha256": "2f5ee059234d2e28f16d0451d9fcb405aab3dad5d92cded74c8ea9ffc4b66c38",
+  "downloaded": false,
+  "checked_at": "2026-11-13T13:55:17.065888+00:00"
+}

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="510" viewBox="0 0 1320 510">
+<rect width="100%" height="100%" rx="18" fill="#f5f8fa"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#18323c}.title{font-size:26px;font-weight:700}.label{font-size:18px;font-weight:600}.small{font-size:14px;fill:#506975}.tiny{font-size:12px;fill:#506975}.box{fill:white;stroke:#b8cbd2;stroke-width:2}.teal{fill:#dff3ee;stroke:#3b9c87;stroke-width:2}.navy{fill:#e5eff9;stroke:#5182ae;stroke-width:2}.line{stroke:#62818c;stroke-width:3;fill:none;marker-end:url(#arrow)}</style>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#62818c"/></marker></defs>
+<text x="32" y="42" class="title">ETL execution and holdings ingestion</text>
+<rect x="35" y="120" width="190" height="100" rx="14" class="box"/>
+<text x="130.0" y="152" text-anchor="middle" class="label">Select</text>
+<text x="130.0" y="177" text-anchor="middle" class="small">source / country / all</text>
+<rect x="245" y="120" width="190" height="100" rx="14" class="box"/>
+<text x="340.0" y="152" text-anchor="middle" class="label">Acquire</text>
+<text x="340.0" y="177" text-anchor="middle" class="small">bounded HTTPS + cache</text>
+<rect x="455" y="120" width="190" height="100" rx="14" class="box"/>
+<text x="550.0" y="152" text-anchor="middle" class="label">Parse</text>
+<text x="550.0" y="177" text-anchor="middle" class="small">CSV / XML / JSON / XLSX</text>
+<rect x="665" y="120" width="190" height="100" rx="14" class="teal"/>
+<text x="760.0" y="152" text-anchor="middle" class="label">Validate</text>
+<text x="760.0" y="177" text-anchor="middle" class="small">canonical models + rejects</text>
+<rect x="875" y="120" width="190" height="100" rx="14" class="teal"/>
+<text x="970.0" y="152" text-anchor="middle" class="label">Upsert</text>
+<text x="970.0" y="177" text-anchor="middle" class="small">unique keys preserve idempotency</text>
+<rect x="1085" y="120" width="190" height="100" rx="14" class="box"/>
+<text x="1180.0" y="152" text-anchor="middle" class="label">Audit &amp; serve</text>
+<text x="1180.0" y="177" text-anchor="middle" class="small">run history → API → UI</text>
+<path d="M225 170 H245" class="line"/>
+<path d="M435 170 H455" class="line"/>
+<path d="M645 170 H665" class="line"/>
+<path d="M855 170 H875" class="line"/>
+<path d="M1065 170 H1085" class="line"/>
+<rect x="205" y="310" width="400" height="95" rx="14" class="navy"/>
+<text x="405.0" y="342" text-anchor="middle" class="label">SEC holdings path</text>
+<text x="405.0" y="367" text-anchor="middle" class="small">EDGAR N-PORT → position rows → report-date history</text>
+<rect x="705" y="310" width="400" height="95" rx="14" class="navy"/>
+<text x="905.0" y="342" text-anchor="middle" class="label">Brazil holdings path</text>
+<text x="905.0" y="367" text-anchor="middle" class="small">CVM CDA monthly ZIP → matched positions → conditional weights</text>
+<path d="M555 220 C555 270 405 260 405 310" class="line"/>
+<path d="M555 220 C555 270 905 260 905 310" class="line"/>
+<text x="210" y="455" class="small">Holdings sync is a separate command from the standard run --all connector workflow.</text>
+</svg>

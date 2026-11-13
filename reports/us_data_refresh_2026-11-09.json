@@ -1,0 +1,56 @@
+{
+  "generated_on": "2026-11-09",
+  "database": "Active FundFlow PostgreSQL on the external-drive project",
+  "nav_history": {
+    "source_id": "us_nasdaq_mutual_fund_navs",
+    "tickers": ["VFIAX", "VTSAX", "FXAIX", "SWPPX", "FCNTX", "DODGX", "FBALX", "VWELX", "VBTLX", "VTIAX"],
+    "history_requested_days": 365,
+    "observations_before": 99445,
+    "observations_after": 101855,
+    "observations_added": 2410,
+    "latest_loaded_date": "2026-11-05",
+    "behavior": "Only missing fund/date/currency rows were inserted. Existing values and conflicts were preserved."
+  },
+  "portfolio_holdings": {
+    "source_id": "sec_edgar_nport",
+    "lookback_days": 450,
+    "latest_only": true,
+    "rows_before": 5521888,
+    "rows_after": 5917338,
+    "rows_added": 395450,
+    "funds_with_holdings_before": 17560,
+    "funds_with_holdings_after": 18725,
+    "additional_funds_with_holdings": 1165,
+    "latest_report_date": "2026-08-31",
+    "refresh_status": "partial_stopped_after_incremental_batches",
+    "note": "Committed registrar batches were retained. The full registrant sweep was stopped after an extended run; rerunning the idempotent command can continue the refresh."
+  },
+  "official_identifiers": {
+    "source_id": "sec_nport_security_identifiers",
+    "unambiguous_isins_added": 656,
+    "ambiguous_or_shared_candidates_skipped": 14,
+    "matching_rule": "Exact ticker, compatible security name, one consistent CUSIP/ISIN pair, and valid ISIN check digit"
+  },
+  "twelve_data_comparison": {
+    "input_report": "twelvedata_us_fund_comparison_2026-11-05.json",
+    "valuation_date": "2026-11-05",
+    "funds_compared": 10,
+    "exact_numeric_matches": 7,
+    "cent_level_matches_with_subcent_precision_differences": 3,
+    "mismatches": 0,
+    "fresh_api_requests_made": false,
+    "note": "Compared saved Twelve Data values against FundFlow's current same-date USD NAV values; a new Twelve Data API key is not configured."
+  },
+  "api_health": "ok",
+  "limitations": [
+    "Exact equality across all fields and all U.S. funds is not established by this ten-fund price sample.",
+    "Twelve Data and official-source values can differ in source precision, valuation basis, and timing; no vendor value was copied into FundFlow.",
+    "The public Nasdaq quote history endpoint is not formally versioned.",
+    "SEC N-PORT reports are filed/disseminated after their reporting period and do not cover all U.S. fund types."
+  ],
+  "repeatable_commands": {
+    "nav_sample": "./.venv/bin/python scripts/refresh_us_nasdaq_nav_history.py --ticker VFIAX --ticker VTSAX --ticker FXAIX --ticker SWPPX --ticker FCNTX --ticker DODGX --ticker FBALX --ticker VWELX --ticker VBTLX --ticker VTIAX --history-days 365",
+    "sec_holdings": "./.venv/bin/python -m app.cli sync-sec-holdings --history-days 450 --latest-only",
+    "twelvedata_compare": "./.venv/bin/python scripts/compare_twelvedata_universe.py --kind mutual_fund --tickers VFIAX VTSAX FXAIX SWPPX FCNTX DODGX FBALX VWELX VBTLX VTIAX --date YYYY-MM-DD"
+  }
+}
