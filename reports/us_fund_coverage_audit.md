@@ -1,6 +1,6 @@
 # FundFlow — Comprehensive US Mutual Fund Data Audit
 
-**Audit Timestamp:** 2026-11-13T18:48:08.671674+00:00  
+**Audit Timestamp:** 2026-11-13T19:12:18.793428+00:00  
 **Universe:** All US Domiciled Funds in PostgreSQL (`domicile_country = 'US'`)  
 **Total US Funds:** **39,139**
 
@@ -18,7 +18,7 @@
 | SEC CIK | 39,138 | 100.0% | Complete |
 | Category | 2 | 0.01% | High Gaps |
 | Fund Type | 39,139 | 100.0% | Complete |
-| Inception Date | 3,284 | 8.39% | High Gaps |
+| Inception Date | 7,383 | 18.86% | High Gaps |
 | Status | 39,139 | 100.0% | Complete |
 | Provider / Registrant | 39,139 | 100.0% | Complete |
 | Manager | 1 | 0.0% | High Gaps |

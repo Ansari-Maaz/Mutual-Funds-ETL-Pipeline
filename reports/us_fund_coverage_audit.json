@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T18:48:08.671674+00:00",
+  "generated_at": "2026-11-13T19:12:18.793428+00:00",
   "total_us_funds": 39139,
   "basic_stats": {
     "total_funds": 39139,
@@ -11,7 +11,7 @@
     "has_cik": 39138,
     "has_category": 2,
     "has_fund_type": 39139,
-    "has_inception_date": 3284,
+    "has_inception_date": 7383,
     "has_status": 39139,
     "has_provider": 39139,
     "has_manager": 1,
@@ -91,8 +91,8 @@
     },
     {
       "dataset": "sec_edgar_inception",
-      "funds": 2961,
-      "snapshots": 2961
+      "funds": 6992,
+      "snapshots": 6992
     },
     {
       "dataset": "identifiers",
@@ -165,8 +165,8 @@
       "pct": 100.0
     },
     "Inception Date": {
-      "count": 3284,
-      "pct": 8.39
+      "count": 7383,
+      "pct": 18.86
     },
     "Status": {
       "count": 39139,
