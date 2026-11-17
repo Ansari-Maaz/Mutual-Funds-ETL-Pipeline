@@ -305,3 +305,37 @@ def test_cvm_cda_download_finds_renamed_archives_and_reports_403(tmp_path, monke
     monkeypatch.setattr(cvm_cda.urllib.request, "urlopen", forbidden)
     with pytest.raises(cvm_cda.CvmAccessBlocked, match="--archive"):
         cvm_cda._download("202610")
+
+
+def test_fi_sweden_parser_reads_holdings_fees_and_profile(tmp_path):
+    from app.holdings.fi_sweden import parse_fi_file
+
+    xml = """<?xml version="1.0" encoding="utf-8"?>
+<VärdepappersfondInnehav xmlns="http://schemas.fi.se/publika/vardepappersfonder/20200331">
+  <Rapportinformation><Kvartalsslut>2026-06-30</Kvartalsslut></Rapportinformation>
+  <Bolagsinformation><Fondbolag_namn>Bolag AB</Fondbolag_namn><Fondbolag_institutnummer>1</Fondbolag_institutnummer><Fondbolag_LEI-kod>LEI123</Fondbolag_LEI-kod></Bolagsinformation>
+  <Fondinformation>
+    <Fond_institutnummer>86205</Fond_institutnummer><Fond_ISIN-kod>SE0028776997</Fond_ISIN-kod><Fond_namn>AIX Dynamic</Fond_namn>
+    <Förvaltningsavgift><MedAndelsklasser><Förvaltningsavgift><Andelsklass_namn>A</Andelsklass_namn>
+      <Förvaltningsavgift_Typ><Förvaltningsavgift_fast>0.5</Förvaltningsavgift_fast></Förvaltningsavgift_Typ></Förvaltningsavgift></MedAndelsklasser></Förvaltningsavgift>
+    <Fondförmögenhet>254009</Fondförmögenhet>
+    <Jämförelseindex><Jämförelseindex>Jämförelseindex saknas</Jämförelseindex></Jämförelseindex>
+    <FinansiellaInstrument><FinansielltInstrument>
+      <Instrumentnamn>META PLATFORMS INC</Instrumentnamn><ISIN-kod_instrument>US30303M1027</ISIN-kod_instrument>
+      <Landkod_Emittent>US</Landkod_Emittent><Valuta>USD</Valuta><Antal>2</Antal>
+      <Marknadsvärde_instrument>10922.53</Marknadsvärde_instrument><Andel_av_fondförmögenhet_instrument>4.3</Andel_av_fondförmögenhet_instrument>
+    </FinansielltInstrument></FinansiellaInstrument>
+  </Fondinformation>
+  <Fondinformation />
+</VärdepappersfondInnehav>"""
+    path = tmp_path / "fund.xml"
+    path.write_text(xml, encoding="utf-8")
+    report = parse_fi_file(path)
+    assert report["fund_id"] == "86205" and str(report["quarter_end"]) == "2026-06-30"
+    assert report["profile"]["net_assets_sek"] == "254009"
+    assert report["profile"]["benchmarks"] == []  # "benchmark missing" marker is dropped
+    assert report["profile"]["management_fees"][0]["fixed_fee_percent"] == "0.5"
+    assert report["profile"]["management_company_lei"] == "LEI123"
+    position = report["positions"][0]
+    assert position["isin"] == "US30303M1027" and str(position["market_value"]) == "10922.53"
+    assert str(position["portfolio_weight"]) == "4.3"

@@ -349,6 +349,7 @@ def main() -> None:
     snapshot=sub.add_parser("fetch-snapshot", help="Fetch one reproducible file-based source export")
     snapshot.add_argument("--source", required=True, choices=["it_borsa_navs","fr_lacotebleue_navs","nl_euronext_fund_navs","lu_euronext_fund_navs","lu_allianz_daily_navs"])
     snapshot.add_argument("--url", required=True, help="Direct CSV export URL published by the source")
+    fi_se_holdings=sub.add_parser("sync-fi-sweden-holdings", help="Import FI quarterly UCITS holdings, fees, benchmark and risk for Swedish funds from the downloaded XML")
     cvm_holdings=sub.add_parser("sync-cvm-holdings"); cvm_holdings.add_argument("--month", required=True, help="CVM CDA reporting month in YYYYMM format"); cvm_holdings.add_argument("--archive", action="append", default=None, help="Manually downloaded CDA zip (repeatable); use when CVM blocks automated downloads")
     enrich_us=sub.add_parser("enrich-us-funds", help="Enrich US mutual fund net assets, tickers, ISINs, Vanguard profiles, and official issuer NAVs")
     enrich_us.add_argument("--all", action="store_true", help="Run all enrichment adapters sequentially")
@@ -414,6 +415,11 @@ def main() -> None:
     elif args.cmd=="sync-cached-sec-history":
         from app.holdings.sec_nport import sync_cached_sec_history
         print(json.dumps(sync_cached_sec_history(set(args.fund_id)),indent=2))
+    elif args.cmd=="sync-fi-sweden-holdings":
+        from app.holdings.fi_sweden import sync_fi_sweden_holdings
+        from app.connectors.fi_sweden import download_fi_sweden
+        download_fi_sweden()
+        print(json.dumps(tracked_run("fi-sweden-holdings", sync_fi_sweden_holdings),indent=2))
     elif args.cmd=="sync-cvm-holdings":
         from app.holdings.cvm_cda import sync_cvm_holdings
         print(json.dumps(tracked_run("cvm-cda-holdings", lambda: sync_cvm_holdings(args.month, [Path(a) for a in args.archive] if args.archive else None)),indent=2))
