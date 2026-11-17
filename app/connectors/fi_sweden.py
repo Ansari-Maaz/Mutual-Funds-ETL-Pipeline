@@ -62,8 +62,21 @@ def download_fi_sweden(*, refresh: bool = False) -> dict[str, Any]:
         # quarter files cannot be merged into the current fund list.
         for old_xml in xml_dir.glob("*.xml"):
             old_xml.unlink()
+        used: set[str] = set()
         for name in period_files:
-            target_xml = xml_dir / (Path(name).name.encode("ascii", "ignore").decode() or "fund.xml")
+            # Some archives contain Windows-style separators inside entry names.
+            # Flatten to a safe basename and make duplicates unique so files in
+            # different virtual directories cannot overwrite each other.
+            base = Path(name.replace("\\", "/")).name
+            base = base.encode("ascii", "ignore").decode()
+            base = re.sub(r"[^A-Za-z0-9._ -]", "_", base).strip() or "fund.xml"
+            candidate = base
+            suffix = 0
+            while candidate in used:
+                suffix += 1
+                candidate = f"{suffix:05d}_{base}"
+            used.add(candidate)
+            target_xml = xml_dir / candidate
             target_xml.write_bytes(archive.read(name))
     manifest = {"source_id": "fi_sweden_ucits_holdings", "url": source_url or INDEX_URL,
         "index_url": INDEX_URL, "period": period, "path": str(target.relative_to(ROOT)),

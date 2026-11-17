@@ -69,6 +69,44 @@ def test_sweden_refresh_removes_xml_from_old_quarters(tmp_path, monkeypatch):
     assert sorted(path.name for path in xml_dir.glob("*.xml")) == ["FondInnehav_2026Q3.xml"]
 
 
+def test_sweden_flattens_windows_style_zip_entry_names(tmp_path, monkeypatch):
+    raw = tmp_path / "sweden"
+    reports = tmp_path / "reports"
+    xml_dir = raw / "xml"
+    xml_dir.mkdir(parents=True)
+    reports.mkdir()
+
+    archive_buffer = io.BytesIO()
+    with zipfile.ZipFile(archive_buffer, "w") as archive:
+        archive.writestr("Cicero Fonder AB\\Aktiespararna Smabolag_2026Q3.xml", "<Fondinformation />")
+    archive_bytes = archive_buffer.getvalue()
+    html = (b'<a href="/FondInnehavLista/download?filnamn=FondInnehav_2026Q3_2026-10-14 08.12.zip">'
+            b"Fondinnehav 2026Q3</a>")
+
+    class Response:
+        def __init__(self, payload):
+            self.payload = payload
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_):
+            return None
+
+        def read(self):
+            return self.payload
+
+    responses = iter([Response(html), Response(archive_bytes)])
+    monkeypatch.setattr(fi_sweden, "RAW", raw)
+    monkeypatch.setattr(fi_sweden, "ROOT", tmp_path)
+    monkeypatch.setattr(fi_sweden, "REPORTS", reports)
+    monkeypatch.setattr(fi_sweden.urllib.request, "urlopen", lambda *_args, **_kwargs: next(responses))
+
+    fi_sweden.download_fi_sweden(refresh=True)
+    assert sorted(path.name for path in xml_dir.glob("*.xml")) == [
+        "Aktiespararna Smabolag_2026Q3.xml"]
+
+
 def test_cvm_current_month_404_falls_back_to_latest_published_month(tmp_path, monkeypatch):
     raw = tmp_path / "cvm"
     reports = tmp_path / "reports"
