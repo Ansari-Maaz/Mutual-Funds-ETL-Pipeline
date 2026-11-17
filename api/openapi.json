@@ -53,6 +53,15 @@
         "responses": { "200": { "description": "Current database counts returned" }, "500": { "$ref": "#/components/responses/ApiError" } }
       }
     },
+    "/coverage/us": {
+      "get": {
+        "tags": ["Catalog"],
+        "summary": "Get US NAV and holdings coverage",
+        "description": "Returns U.S. fund coverage counts, field completeness, largest NAV and holdings gaps by provider, and the official U.S. source registry.",
+        "operationId": "getUsCoverage",
+        "responses": { "200": { "description": "US coverage view returned" }, "500": { "$ref": "#/components/responses/ApiError" } }
+      }
+    },
     "/countries": {
       "get": {
         "tags": ["Catalog"],

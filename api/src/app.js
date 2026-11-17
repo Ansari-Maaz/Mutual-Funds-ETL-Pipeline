@@ -8,6 +8,7 @@ const health = require('./routes/health');
 const catalog = require('./routes/catalog');
 const sourceChecks = require('./routes/sourceChecks');
 const funds = require('./routes/funds');
+const mutualFunds = require('./routes/mutualFunds');
 const dashboard = require('./routes/dashboard');
 const etl = require('./routes/etl');
 const apiDocs = require('./routes/apiDocs');
@@ -28,6 +29,7 @@ function createApp({ pool, etlLauncher } = {}) {
   app.use('/api/v1', catalog);
   app.use('/api/v1', sourceChecks);
   app.use('/api/v1/funds', funds.router);
+  app.use('/api/v1/mutual_funds', mutualFunds);
   app.use('/api/v1', dashboard);
   app.use('/api/v1/etl', etl);
   app.use(notFound);

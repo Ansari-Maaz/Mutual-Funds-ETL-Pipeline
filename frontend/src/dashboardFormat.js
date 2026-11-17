@@ -1,6 +1,21 @@
 export const fmt = (value) => new Intl.NumberFormat('en-US').format(Number(value || 0));
 export const fmtNumber = (value) => new Intl.NumberFormat('en-US', { maximumFractionDigits: 4 }).format(Number(value));
-export const money = (value, currency = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency, maximumFractionDigits: 2 }).format(Number(value));
+const ISO_CURRENCY_CODE = /^[A-Z]{3}$/;
+export const money = (value, currency = 'USD') => {
+  const amount = Number(value);
+  if (!Number.isFinite(amount)) return '—';
+
+  // Data sources sometimes use placeholders such as "N/A" in currency fields.
+  // Intl.NumberFormat throws on those, which previously prevented the whole
+  // dashboard from rendering. Keep the amount visible and show the raw code.
+  const code = typeof currency === 'string' ? currency.trim().toUpperCase() : '';
+  if (!ISO_CURRENCY_CODE.test(code)) return `${new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(amount)} ${code || '—'}`;
+  try {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: code, maximumFractionDigits: 2 }).format(amount);
+  } catch {
+    return `${new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(amount)} ${code}`;
+  }
+};
 export const dt = (value) => value ? new Date(value).toLocaleString() : '—';
 export const displayRunId = (id) => String(id || '').startsWith('python-') ? String(id) : String(id || '').slice(0, 8);
 

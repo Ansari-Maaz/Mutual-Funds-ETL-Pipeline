@@ -29,7 +29,7 @@ const runnableSources = new Set([
   'dk_bde_nonmonetary_funds', 'de_bundesanzeiger_navs', 'it_borsa_navs', 'ch_six_fund_explorer_navs', 'fr_lacotebleue_navs', 'nl_euronext_fund_navs', 'lu_euronext_fund_navs', 'lu_allianz_daily_navs',
   'de_bde_nonmonetary_funds', 'it_bde_nonmonetary_funds',
   'nl_bde_nonmonetary_funds', 'lu_bde_nonmonetary_funds',
-  'hk_sfc_authorised_unit_trusts',
+  'hk_sfc_authorised_unit_trusts', 'kr_ibk_fund_information',
 ]);
 
 module.exports = { entries, countries, runnableSources, assignmentCountryCodes };

@@ -3,9 +3,9 @@ const router = express.Router();
 
 router.get('/stats', async (req, res, next) => {
   try {
-    const [funds, navs, assignmentCountries, sources, latest, successful] = await Promise.all([
+    const [funds, navs, assignmentCountries, sources, latest, successful, usCoverage] = await Promise.all([
       req.app.locals.pool.query('SELECT count(*)::int AS total FROM funds'),
-      req.app.locals.pool.query('SELECT count(*)::int AS total FROM nav_observations'),
+      req.app.locals.pool.query('SELECT count(*)::int AS total FROM nav_observations WHERE nav > 0'),
       req.app.locals.pool.query("SELECT count(DISTINCT country_code)::int AS total FROM sources WHERE country_code <> 'ES'"),
       req.app.locals.pool.query('SELECT count(*)::int AS total, count(*) FILTER (WHERE integration_status=\'Integrated\')::int AS integrated FROM sources'),
       req.app.locals.pool.query(`SELECT id::text,status,requested_at,started_at,finished_at FROM api_etl_runs
@@ -15,8 +15,96 @@ router.get('/stats', async (req, res, next) => {
         SELECT finished_at FROM api_etl_runs WHERE status='succeeded'
         UNION ALL SELECT finished_at FROM etl_runs WHERE lower(status)='succeeded'
       ) successful_runs`),
+      req.app.locals.pool.query(`
+        WITH us AS (
+          SELECT f.id,
+                 EXISTS (SELECT 1 FROM nav_observations n WHERE n.fund_id = f.id AND n.nav > 0) AS has_nav,
+                 EXISTS (SELECT 1 FROM portfolio_holdings h WHERE h.fund_id = f.id) AS has_holdings
+          FROM funds f WHERE f.domicile_country = 'US'
+        )
+        SELECT count(*)::int AS total,
+               count(*) FILTER (WHERE has_nav)::int AS with_nav,
+               count(*) FILTER (WHERE has_holdings)::int AS with_holdings
+        FROM us`),
     ]);
-    res.json({ data: { totalFunds: funds.rows[0].total, navObservations: navs.rows[0].total, configuredCountries: assignmentCountries.rows[0].total, registeredSources: sources.rows[0].total, integratedSources: sources.rows[0].integrated, latestRun: latest.rows[0] || null, lastSuccessfulRunAt: successful.rows[0].last_successful_at || null } });
+    const fundRecords = funds.rows[0].total;
+    const us = usCoverage.rows[0] || { total: 0, with_nav: 0, with_holdings: 0 };
+    res.json({ data: { fundRecords, totalFunds: fundRecords, navObservations: navs.rows[0].total, configuredCountries: assignmentCountries.rows[0].total, registeredSources: sources.rows[0].total, integratedSources: sources.rows[0].integrated, latestRun: latest.rows[0] || null, lastSuccessfulRunAt: successful.rows[0].last_successful_at || null, usFunds: us.total, usFundsWithNav: us.with_nav, usFundsWithHoldings: us.with_holdings } });
+  } catch (error) { next(error); }
+});
+
+router.get('/coverage/us', async (req, res, next) => {
+  try {
+    const pool = req.app.locals.pool;
+    const [coverage, fields, profiles, navGaps, holdingGaps, officialSources] = await Promise.all([
+      pool.query(`
+        WITH us AS (
+          SELECT f.id, f.ticker,
+                 EXISTS (SELECT 1 FROM nav_observations n WHERE n.fund_id = f.id AND n.nav > 0) AS has_nav,
+                 EXISTS (SELECT 1 FROM portfolio_holdings h WHERE h.fund_id = f.id) AS has_holdings
+          FROM funds f WHERE f.domicile_country = 'US'
+        )
+        SELECT count(*)::int AS total,
+               count(*) FILTER (WHERE has_nav)::int AS with_nav,
+               count(*) FILTER (WHERE has_holdings)::int AS with_holdings,
+               count(*) FILTER (WHERE has_nav AND has_holdings)::int AS with_both,
+               count(*) FILTER (WHERE NOT has_nav AND NOT has_holdings)::int AS with_neither,
+               count(*) FILTER (WHERE NOT has_nav)::int AS missing_nav,
+               count(*) FILTER (WHERE NOT has_holdings)::int AS missing_holdings,
+               count(*) FILTER (WHERE NOT has_nav AND ticker IS NULL)::int AS missing_nav_no_ticker
+        FROM us`),
+      pool.query(`
+        SELECT count(*)::int AS total,
+               count(ticker)::int AS ticker,
+               count(isin)::int AS isin,
+               count(inception_date)::int AS inception_date,
+               count(category) FILTER (WHERE btrim(category) <> '')::int AS category,
+               count(manager) FILTER (WHERE btrim(manager) <> '')::int AS manager,
+               count(net_assets)::int AS net_assets
+        FROM funds WHERE domicile_country = 'US'`),
+      pool.query(`
+        SELECT count(*)::int AS total,
+               count(*) FILTER (WHERE dataset = 'expense_ratio_history')::int AS expense_ratio,
+               count(*) FILTER (WHERE dataset = 'performance')::int AS performance,
+               count(*) FILTER (WHERE dataset = 'n1a_prospectus')::int AS objective_strategy,
+               count(*) FILTER (WHERE dataset = 'sector_allocation')::int AS sector_allocation,
+               count(*) FILTER (WHERE dataset = 'asset_allocation')::int AS asset_allocation,
+               count(*) FILTER (WHERE dataset = 'classification')::int AS classification,
+               count(*) FILTER (WHERE dataset = 'service_providers')::int AS service_providers,
+               count(*) FILTER (WHERE dataset = 'aum_history')::int AS aum_history
+        FROM (SELECT DISTINCT fund_id, dataset FROM fund_profile_snapshots
+              WHERE fund_id IN (SELECT id FROM funds WHERE domicile_country = 'US')) d`),
+      pool.query(`
+        SELECT provider,
+               count(*)::int AS missing,
+               count(ticker)::int AS with_ticker,
+               min(ticker) AS sample_ticker
+        FROM funds f
+        WHERE domicile_country = 'US'
+          AND NOT EXISTS (SELECT 1 FROM nav_observations n WHERE n.fund_id = f.id AND n.nav > 0)
+        GROUP BY provider ORDER BY missing DESC LIMIT 12`),
+      pool.query(`
+        SELECT provider,
+               count(*)::int AS missing,
+               min(ticker) AS sample_ticker
+        FROM funds f
+        WHERE domicile_country = 'US'
+          AND NOT EXISTS (SELECT 1 FROM portfolio_holdings h WHERE h.fund_id = f.id)
+        GROUP BY provider ORDER BY missing DESC LIMIT 12`),
+      pool.query(`
+        SELECT source_id, organization, source_name, endpoint_url, integration_status, verification_status
+        FROM sources WHERE country_code = 'US'
+        ORDER BY organization, source_id`),
+    ]);
+    res.json({ data: {
+      generatedAt: new Date().toISOString(),
+      coverage: coverage.rows[0],
+      fields: fields.rows[0],
+      profiles: profiles.rows[0],
+      navGaps: navGaps.rows,
+      holdingGaps: holdingGaps.rows,
+      officialSources: officialSources.rows,
+    } });
   } catch (error) { next(error); }
 });
 

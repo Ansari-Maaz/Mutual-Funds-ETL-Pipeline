@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Activity, ArrowRight, BarChart3, CheckCircle2, ChevronDown, Database, FileJson2, LayoutDashboard, Menu, Moon, PanelLeftClose, PanelLeftOpen, RefreshCw, Sun, Terminal, WalletCards, X, XCircle } from 'lucide-react';
+import { Activity, ArrowRight, BarChart3, CheckCircle2, ChevronDown, Database, FileJson2, Globe2, LayoutDashboard, Menu, Moon, PanelLeftClose, PanelLeftOpen, RefreshCw, Sun, Terminal, WalletCards, X, XCircle } from 'lucide-react';
 import { request } from './api';
 import ApiDocumentation from './ApiDocumentation.jsx';
-import { ApiExplorer, EtlControl, FundExplorer, Overview, Sources } from './DashboardPages.jsx';
+import { ApiExplorer, EtlControl, FundExplorer, Overview, Sources, UsCoverage } from './DashboardPages.jsx';
 
 const nav = [
   { id: 'overview', label: 'Overview', icon: LayoutDashboard },
   { id: 'explorer', label: 'API explorer', icon: Terminal },
   { id: 'etl', label: 'ETL control', icon: Activity },
   { id: 'funds', label: 'Fund explorer', icon: WalletCards },
+  { id: 'us-coverage', label: 'US coverage', icon: Globe2 },
   { id: 'sources', label: 'Data sources', icon: Database },
 ];
 function App() {
@@ -59,7 +60,7 @@ function App() {
     </aside>
     <main className="main">
       <header className="topbar"><button className="desktop-sidebar-toggle icon-btn" aria-label={sidebarCollapsed ? 'Expand navigation' : 'Collapse navigation'} aria-expanded={!sidebarCollapsed} onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>{sidebarCollapsed ? <PanelLeftOpen size={19}/> : <PanelLeftClose size={19}/>}</button><button className="menu-toggle icon-btn" aria-label="Open navigation" aria-expanded={sidebarOpen} onClick={() => setSidebarOpen(true)}><Menu size={19}/></button><a href="/" className="mobile-brand" aria-label="FundFlow home"><span className="mobile-brandmark"><BarChart3 size={16}/></span><b>FUNDFLOW</b></a><div className="crumb"><span>Workspace</span><span className="slash">/</span><b>{nav.find((n) => n.id === page)?.label}</b></div><div className="top-actions"><span className={`live-pill ${health}`}><i/> {health === 'online' ? 'DATABASE ONLINE' : health === 'checking' ? 'CHECKING DATABASE' : 'DATABASE OFFLINE'}</span><button className="theme-toggle icon-btn" title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme === 'light' ? <Moon size={16}/> : <Sun size={16}/>}</button><button className="avatar" title="Administrator">A</button></div></header>
-      <div className="content">{loadError && <div className="error-box" role="alert">Dashboard data could not be loaded: {loadError}</div>}{page === 'overview' && <Overview stats={stats} sources={sources} countries={countries} runs={runs} funds={funds} onNavigate={setPage} refresh={load}/>} {page === 'explorer' && <ApiExplorer notify={setToast}/>} {page === 'etl' && <EtlControl countries={countries} sources={sources} runs={runs} notify={setToast} refresh={load}/>} {page === 'funds' && <FundExplorer notify={setToast}/>} {page === 'sources' && <Sources sources={sources} refresh={load} notify={setToast}/>}</div>
+      <div className="content">{loadError && <div className="error-box" role="alert">Dashboard data could not be loaded: {loadError}</div>}{page === 'overview' && <Overview stats={stats} sources={sources} countries={countries} runs={runs} funds={funds} onNavigate={setPage} refresh={load}/>} {page === 'explorer' && <ApiExplorer notify={setToast}/>} {page === 'etl' && <EtlControl countries={countries} sources={sources} runs={runs} notify={setToast} refresh={load}/>} {page === 'funds' && <FundExplorer notify={setToast}/>} {page === 'sources' && <Sources sources={sources} refresh={load} notify={setToast}/>} {page === 'us-coverage' && <UsCoverage notify={setToast}/>}</div>
       <footer className="footer"><span>FundFlow <b>ETL Console</b></span><span>Source registry & data coverage reflect your configured PostgreSQL database.</span><a href="/docs" aria-label="Open FundFlow API documentation">API documentation <ArrowRight size={11}/></a></footer>
     </main>
     {toast && <div className="toast"><CheckCircle2 size={17}/>{toast}<button onClick={() => setToast('')}><XCircle size={15}/></button></div>}

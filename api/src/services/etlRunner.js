@@ -10,7 +10,7 @@ function sanitize(text) {
 
 function execute(pythonArgs, { timeoutMs = etlTimeoutMs, spawnProcess = spawn } = {}) {
   return new Promise((resolve) => {
-    const child = spawnProcess(pythonExecutable, pythonArgs, { cwd: projectRoot, shell: false, env: { ...process.env, PYTHONUNBUFFERED: '1' } });
+    const child = spawnProcess(pythonExecutable, pythonArgs, { cwd: projectRoot, shell: false, env: { ...process.env, PYTHONUNBUFFERED: '1', ETL_LOCK_HELD_BY_PARENT: '1' } });
     children.add(child);
     let stdout = '';
     let stderr = '';

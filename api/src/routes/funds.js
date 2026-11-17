@@ -14,9 +14,32 @@ const jsonFund = (r) => ({
   sourceFundId: r.source_fund_id,
   name: r.name,
   legalName: r.legal_name,
-  country: toAlpha3(r.domicile_country),
+  // `country` is the best-known market attribution for browsing. A source's
+  // country is only a fallback when the fund's actual domicile is unknown.
+  country: toAlpha3(r.domicile_country || r.source_country),
+  domicileCountry: toAlpha3(r.domicile_country),
+  sourceCountry: toAlpha3(r.source_country),
+  countryBasis: r.domicile_country ? 'fund_domicile' : (r.source_country ? 'source_market' : null),
   currency: r.currency,
   currencyBasis: r.currency_basis || null,
+  // Twelve Data-compatible market-data keys. Values are sourced from
+  // FundFlow's records/snapshots; unavailable source fields remain null.
+  symbol: r.ticker || null,
+  instrument_type: r.market_instrument_type || (r.fund_type && /mutual fund/i.test(r.fund_type) ? 'Mutual Fund' : r.fund_type) || null,
+  exchange: r.market_exchange || null,
+  mic_code: r.market_mic_code || null,
+  exchange_timezone: r.market_exchange_timezone || null,
+  interval: '1day',
+  market_data: r.latest_nav == null ? [] : [{
+    date: dateOnly(r.latest_nav_date),
+    // A mutual-fund NAV is one valuation point, not an intraday OHLC bar.
+    // Populate OHLC only where the source explicitly supplied each value.
+    open: r.latest_nav_open == null ? null : Number(r.latest_nav_open),
+    high: r.latest_nav_high == null ? null : Number(r.latest_nav_high),
+    low: r.latest_nav_low == null ? null : Number(r.latest_nav_low),
+    close: Number(r.latest_nav_close ?? r.latest_nav),
+  }],
+  market_data_sources: r.market_data_sources || null,
   isin: r.isin,
   provider: r.provider,
   category: r.category,
@@ -36,6 +59,23 @@ const jsonFund = (r) => ({
   source: r.source_organization ? { organization: r.source_organization, name: r.source_name, url: r.source_endpoint_url } : null,
   latestNav: r.latest_nav == null ? null : { value: r.latest_nav, date: dateOnly(r.latest_nav_date), currency: r.latest_nav_currency, open: r.latest_nav_open ?? null, high: r.latest_nav_high ?? null, low: r.latest_nav_low ?? null, close: r.latest_nav_close ?? null, ohlcBasis: r.latest_nav_ohlc_basis || null, sourceId: r.latest_nav_source_id || null, sourceUrl: r.latest_nav_source_url || null },
 });
+const applyMarketMetadata = (row) => {
+  const marketPayload = row.market_meta_payload || {};
+  row.market_instrument_type = marketPayload.instrument_type || null;
+  row.market_exchange = marketPayload.exchange || null;
+  row.market_mic_code = marketPayload.mic_code || null;
+  row.market_exchange_timezone = marketPayload.exchange_timezone || null;
+  row.market_data_sources = {
+    symbol: marketPayload.field_sources?.symbol || { source_id: row.source_id, source_url: row.official_url || row.source_endpoint_url || null },
+    instrument_type: marketPayload.field_sources?.instrument_type || { source_id: row.source_id, source_url: row.official_url || row.source_endpoint_url || null },
+    exchange: marketPayload.field_sources?.exchange || null,
+    mic_code: marketPayload.field_sources?.mic_code || null,
+    exchange_timezone: marketPayload.field_sources?.exchange_timezone || null,
+    currency: marketPayload.field_sources?.currency || { source_id: row.source_id, source_url: row.official_url || row.source_endpoint_url || null },
+    market_data: { source_id: row.latest_nav_source_id || null, source_url: row.latest_nav_source_url || null, basis: row.latest_nav_ohlc_basis || null },
+  };
+  return row;
+};
 
 router.get('/', async (req, res, next) => {
   try {
@@ -44,26 +84,49 @@ router.get('/', async (req, res, next) => {
     const { page, limit, country: requestedCountry, currency, q, category, fund_type, status, holdings_status, isin, has_nav, sort, order } = parsed.data;
     const country = requestedCountry ? toAlpha2(requestedCountry) : undefined;
     const values = []; const where = [];
-    for (const [field, value] of [['f.domicile_country', country], ['f.currency', currency], ['f.category', category], ['f.fund_type', fund_type], ['f.status', status], ['f.holdings_status', holdings_status]]) if (value) { values.push(value); where.push(`${field}=$${values.length}`); }
-    if (q) { values.push(`%${q.replace(/[\\%_]/g, '\\$&')}%`); where.push(`f.name ILIKE $${values.length} ESCAPE '\\'`); }
+    if (country) {
+      values.push(country);
+      where.push(`(f.domicile_country=$${values.length} OR (f.domicile_country IS NULL AND s.country_code=$${values.length}))`);
+    }
+    for (const [field, value] of [['f.currency', currency], ['f.category', category], ['f.fund_type', fund_type], ['f.status', status], ['f.holdings_status', holdings_status]]) if (value) { values.push(value); where.push(`${field}=$${values.length}`); }
+    if (q) { values.push(`%${q.replace(/[\\%_]/g, '\\$&')}%`); where.push(`(f.name ILIKE $${values.length} ESCAPE '\\' OR f.ticker ILIKE $${values.length} ESCAPE '\\')`); }
     if (isin) { values.push(`%${isin.replace(/[\\%_]/g, '\\$&')}%`); where.push(`f.isin ILIKE $${values.length} ESCAPE '\\'`); }
-    if (has_nav === 'true') where.push('EXISTS (SELECT 1 FROM nav_observations nav_filter WHERE nav_filter.fund_id=f.id)');
-    if (has_nav === 'false') where.push('NOT EXISTS (SELECT 1 FROM nav_observations nav_filter WHERE nav_filter.fund_id=f.id)');
+    if (has_nav === 'true') where.push('EXISTS (SELECT 1 FROM nav_observations nav_filter WHERE nav_filter.fund_id=f.id AND nav_filter.nav > 0)');
+    if (has_nav === 'false') where.push('NOT EXISTS (SELECT 1 FROM nav_observations nav_filter WHERE nav_filter.fund_id=f.id AND nav_filter.nav > 0)');
     const filter = where.length ? `WHERE ${where.join(' AND ')}` : '';
-    const count = await req.app.locals.pool.query(`SELECT count(*)::int AS total FROM funds f ${filter}`, values);
-    const sortColumn = { name: 'f.name', country: 'f.domicile_country', currency: 'f.currency', retrieved_at: 'f.retrieved_at' }[sort];
+    const from = 'FROM funds f LEFT JOIN sources s ON s.source_id=f.source_id';
+    const count = await req.app.locals.pool.query(`SELECT count(*)::int AS total ${from} ${filter}`, values);
+    const sortColumn = { name: 'f.name', country: 'COALESCE(f.domicile_country,s.country_code)', currency: 'f.currency', retrieved_at: 'f.retrieved_at' }[sort];
     const paginationValues = [...values, limit, (page - 1) * limit];
     const result = await req.app.locals.pool.query(`
-      SELECT f.id,f.source_id,f.source_fund_id,f.name,f.legal_name,f.domicile_country,
+      SELECT f.id,f.source_id,f.source_fund_id,f.name,f.legal_name,f.domicile_country,s.country_code AS source_country,
+             s.organization AS source_organization,s.source_name,s.endpoint_url AS source_endpoint_url,
              f.currency,f.currency_basis,f.isin,f.provider,f.category,f.fund_type,
              f.inception_date,f.status,f.official_url,f.ticker,f.manager,f.administrator,
              f.net_assets,f.net_assets_date,f.target_audience,f.holdings_status,
-             f.holdings_report_date,f.retrieved_at
-      FROM funds f ${filter}
+             f.holdings_report_date,f.retrieved_at,
+             latest.nav AS latest_nav,latest.valuation_date AS latest_nav_date,
+             latest.currency AS latest_nav_currency,latest.open AS latest_nav_open,
+             latest.high AS latest_nav_high,latest.low AS latest_nav_low,
+             latest.close AS latest_nav_close,latest.ohlc_basis AS latest_nav_ohlc_basis,
+             latest.source_id AS latest_nav_source_id,latest.source_url AS latest_nav_source_url,
+             market_meta.payload AS market_meta_payload
+      ${from}
+      LEFT JOIN LATERAL (
+        SELECT nav,valuation_date,currency,open,high,low,close,ohlc_basis,source_id,source_url
+        FROM nav_observations WHERE fund_id=f.id AND nav > 0
+        ORDER BY valuation_date DESC,retrieved_at DESC,id DESC LIMIT 1
+      ) latest ON true
+      LEFT JOIN LATERAL (
+        SELECT payload FROM fund_profile_snapshots
+        WHERE fund_id=f.id AND dataset='market_data_metadata'
+        ORDER BY source_report_date DESC NULLS LAST,retrieved_at DESC,id DESC LIMIT 1
+      ) market_meta ON true
+      ${filter}
       ORDER BY ${sortColumn} ${order.toUpperCase()} NULLS LAST, f.id
       LIMIT $${values.length + 1} OFFSET $${values.length + 2}
     `, paginationValues);
-    res.json({ data: result.rows.map(jsonFund), pagination: { page, limit, total: count.rows[0].total, pages: Math.ceil(count.rows[0].total / limit) } });
+    res.json({ status: 'success', data: result.rows.map((row) => jsonFund(applyMarketMetadata(row))), pagination: { page, limit, total: count.rows[0].total, pages: Math.ceil(count.rows[0].total / limit) } });
   } catch (error) { next(error); }
 });
 
@@ -71,27 +134,36 @@ router.get('/:id', async (req, res, next) => {
   if (!/^\d+$/.test(req.params.id)) return res.status(400).json({ error: { code: 'INVALID_ID', message: 'Fund id must be a positive integer' } });
   try {
     const { rows } = await req.app.locals.pool.query(`
-      SELECT f.*, s.organization AS source_organization, s.source_name,
+      SELECT f.*, s.country_code AS source_country, s.organization AS source_organization, s.source_name,
              s.endpoint_url AS source_endpoint_url,
              latest.nav AS latest_nav, latest.valuation_date AS latest_nav_date,
              latest.currency AS latest_nav_currency,
              latest.open AS latest_nav_open,latest.high AS latest_nav_high,
              latest.low AS latest_nav_low,latest.close AS latest_nav_close,
              latest.ohlc_basis AS latest_nav_ohlc_basis,
-             latest.source_id AS latest_nav_source_id,latest.source_url AS latest_nav_source_url
+             latest.source_id AS latest_nav_source_id,latest.source_url AS latest_nav_source_url,
+             market_meta.payload AS market_meta_payload
       FROM funds f
       LEFT JOIN sources s ON s.source_id = f.source_id
       LEFT JOIN LATERAL (
         SELECT nav, valuation_date, currency, open, high, low, close, ohlc_basis, source_id, source_url
         FROM nav_observations
-        WHERE fund_id = f.id
+        WHERE fund_id = f.id AND nav > 0
         ORDER BY valuation_date DESC
         LIMIT 1
       ) latest ON true
+      LEFT JOIN LATERAL (
+        SELECT payload, source_id, source_url
+        FROM fund_profile_snapshots
+        WHERE fund_id=f.id AND dataset='market_data_metadata'
+        ORDER BY source_report_date DESC NULLS LAST,retrieved_at DESC,id DESC
+        LIMIT 1
+      ) market_meta ON true
       WHERE f.id=$1
     `, [Number(req.params.id)]);
     if (!rows.length) return res.status(404).json({ error: { code: 'FUND_NOT_FOUND', message: 'Fund not found' } });
-    res.json({ data: jsonFund(rows[0]) });
+    const row = rows[0];
+    res.json({ status: 'success', data: jsonFund(applyMarketMetadata(row)) });
   } catch (error) { next(error); }
 });
 
@@ -104,7 +176,7 @@ router.get('/:id/nav', async (req, res, next) => {
     if (from) { values.push(from); filters.push(`valuation_date >= $${values.length}`); }
     if (to) { values.push(to); filters.push(`valuation_date <= $${values.length}`); }
     values.push(limit);
-    const { rows } = await req.app.locals.pool.query(`SELECT id,fund_id,valuation_date,nav,open,high,low,close,ohlc_basis,currency,source_id,source_url,retrieved_at FROM nav_observations WHERE ${filters.join(' AND ')} ORDER BY valuation_date DESC LIMIT $${values.length}`, values);
+    const { rows } = await req.app.locals.pool.query(`SELECT id,fund_id,valuation_date,nav,open,high,low,close,ohlc_basis,currency,source_id,source_url,retrieved_at FROM nav_observations WHERE ${filters.join(' AND ')} AND nav > 0 ORDER BY valuation_date DESC LIMIT $${values.length}`, values);
     res.json({ data: rows, count: rows.length });
   } catch (error) { next(error); }
 });
@@ -145,7 +217,7 @@ router.get('/:id/completeness', async (req, res, next) => {
     if (!funds.length) return res.status(404).json({ error: { code: 'FUND_NOT_FOUND', message: 'Fund not found' } });
     const fund = funds[0];
     const [{ rows: navRows }, { rows: holdingRows }, { rows: snapshotRows }, { rows: summaryRows }] = await Promise.all([
-      req.app.locals.pool.query('SELECT count(*)::int AS count,count(source_id)::int AS sourced_count,count(source_url)::int AS url_count,min(valuation_date)::text AS first_date,max(valuation_date)::text AS latest_date FROM nav_observations WHERE fund_id=$1', [fundId]),
+      req.app.locals.pool.query('SELECT count(*)::int AS count,count(source_id)::int AS sourced_count,count(source_url)::int AS url_count,min(valuation_date)::text AS first_date,max(valuation_date)::text AS latest_date FROM nav_observations WHERE fund_id=$1 AND nav > 0', [fundId]),
       req.app.locals.pool.query('SELECT count(*)::int AS count,min(reporting_date)::text AS first_date,max(reporting_date)::text AS latest_date FROM portfolio_holdings WHERE fund_id=$1', [fundId]),
       req.app.locals.pool.query(`SELECT dataset,count(*)::int AS count,count(DISTINCT source_report_date)::int AS report_dates,count(DISTINCT COALESCE(payload->>'scope','unspecified'))::int AS scopes,min(source_report_date)::text AS first_date,max(source_report_date)::text AS latest_date FROM fund_profile_snapshots WHERE fund_id=$1 GROUP BY dataset`, [fundId]),
       req.app.locals.pool.query(`SELECT payload FROM fund_profile_snapshots WHERE fund_id=$1 AND dataset='summary' ORDER BY retrieved_at DESC,id DESC LIMIT 1`, [fundId]),
@@ -168,7 +240,7 @@ router.get('/:id/completeness', async (req, res, next) => {
       ['mic_code', profileSummary.mic_code], ['exchange_timezone', profileSummary.exchange_timezone],
       ['official_url', fund.official_url || profileSummary.official_url],
       ['factsheet_url', profileSummary.factsheet_url], ['prospectus_url', profileSummary.prospectus_url],
-      ['investment_objective', profileSummary.objective || profileSummary.investment_objective],
+      ['investment_objective', profileSummary.objective || profileSummary.investment_objective || profileSummary.overview],
       ['management_style', profileSummary.management_style],
     ];
     const fields = requiredFields.map(([field, value]) => ({ field, status: value != null && value !== '' ? 'available' : 'requires_verification', ...(value != null ? { value } : {}) }));
