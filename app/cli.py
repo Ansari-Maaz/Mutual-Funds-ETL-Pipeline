@@ -7,6 +7,7 @@ import yaml
 from app.catalog import country_rows, discovered_rows
 from app.connectors.registry import all_connectors
 from app.config import timeout_seconds, user_agent
+from app.etl.runs import tracked_run, etl_lock
 import httpx
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -265,6 +266,39 @@ def sync_sources() -> None:
         session.commit()
     print(f"Synchronized {len(values)} catalog source/country rows.")
 
+# source_id -> (module, function, extra positional args). Imported lazily so the CLI starts fast.
+_DOWNLOADERS={
+    "dk_bde_nonmonetary_funds":("app.connectors.denmark_bde_funds","download_denmark_fund_list",()),
+    "de_bde_nonmonetary_funds":("app.connectors.bde_european_funds","download_bde_fund_list",("DE",)),
+    "it_bde_nonmonetary_funds":("app.connectors.bde_european_funds","download_bde_fund_list",("IT",)),
+    "nl_bde_nonmonetary_funds":("app.connectors.bde_european_funds","download_bde_fund_list",("NL",)),
+    "lu_bde_nonmonetary_funds":("app.connectors.bde_european_funds","download_bde_fund_list",("LU",)),
+    "hk_sfc_authorised_unit_trusts":("app.connectors.hk_sfc_funds","download_hk_sfc_fund_list",()),
+    "amf_geco":("app.connectors.amf_geco","download_amf_geco",()),
+    "cbi_authorised_ucits":("app.connectors.central_bank_ireland","download_ireland_ucits_register",()),
+    "fi_sweden_ucits_holdings":("app.connectors.fi_sweden","download_fi_sweden",()),
+    "cnmv_spanish_fund_register":("app.connectors.cnmv","download_cnmv_fund_register",()),
+    "sec_open_end_fund_classes":("app.connectors.sec","download_sec_series_classes",()),
+    "fca_authorised_funds":("app.connectors.fca","download_fca_fund_register",()),
+    "finma_swiss_fund_list":("app.connectors.finma","download_finma_fund_list",()),
+    "asisa_cis_fund_list":("app.connectors.asisa","download_asisa_fund_list",()),
+    "jp_imaj_nisa_growth_funds":("app.connectors.japan_funds","download_imaj_growth_funds",()),
+    "jp_fsa_tsumitate_funds":("app.connectors.japan_funds","download_fsa_tsumitate_funds",()),
+    "jp_imaj_new_funds":("app.connectors.japan_funds","download_imaj_new_funds",()),
+    "kr_ibk_fund_information":("app.connectors.korea_funds","download_ibk_funds",()),
+    "gsfm_unit_prices":("app.connectors.gsfm","download_gsfm_prices",()),
+    "csrc_public_fund_index":("app.connectors.csrc","download_csrc_index",()),
+}
+
+def _download_handler(source: str):
+    """Return a ``fn(refresh=...)`` downloader for ``source``, or None if it uses the CVM path."""
+    entry=_DOWNLOADERS.get(source)
+    if entry is None: return None
+    import importlib
+    module,name,extra=entry
+    function=getattr(importlib.import_module(module),name)
+    return lambda refresh: function(*extra,refresh=refresh)
+
 def main() -> None:
     parser=argparse.ArgumentParser(prog="mfetl"); sub=parser.add_subparsers(dest="cmd",required=True)
     sub.add_parser("verify-sources"); sub.add_parser("inventory"); sub.add_parser("sync-sources")
@@ -272,9 +306,41 @@ def main() -> None:
     sec_holdings.add_argument("--history-days", type=int, default=450, help="Import all N-PORT report periods filed within this rolling window (default: 450)")
     sec_holdings.add_argument("--latest-only", action="store_true", help="Import only the newest available N-PORT report per series")
     sec_holdings.add_argument("--cache-downloads", action="store_true", help="Save SEC filing bodies under data/raw/united_states/nport_filings")
+    sec_bulk=sub.add_parser("sync-sec-nport-bulk", help="Import the official SEC Form N-PORT quarterly bulk data set for all matched US series")
+    sec_bulk.add_argument("--quarter", help="Data set quarter such as 2026q3 (default: newest safely published quarter)")
+    sec_bulk.add_argument("--only-missing", action="store_true", help="Only import funds that currently have no stored holdings")
+    sec_bulk.add_argument("--refresh", action="store_true", help="Redownload the SEC archive even if it is already cached")
+    sec_bulk.add_argument("--no-identifiers", action="store_true", help="Skip the reported ISIN/ticker identifier join")
     sec_nmfp=sub.add_parser("sync-sec-nmfp", help="Import official SEC money-market class NAV history (currency remains unassigned)")
     sec_nmfp.add_argument("--fund-id", type=int, action="append", help="Limit to local US fund IDs; repeat to select multiple funds")
     sec_nmfp.add_argument("--lookback-days", type=int, default=450, help="Look back this many days in SEC filing history")
+    sec_nmfp_bulk=sub.add_parser("sync-sec-nmfp-bulk", help="Import official SEC N-MFP monthly bulk holdings, adviser/administrator profiles and optional USD class NAV")
+    sec_nmfp_bulk.add_argument("--months", type=int, default=1, help="Number of newest monthly N-MFP bulk archives to download (default: 1)")
+    sec_nmfp_bulk.add_argument("--all", action="store_true", help="Include funds that already have holdings instead of only funds with no stored holdings")
+    sec_nmfp_bulk.add_argument("--assign-usd-nav", action="store_true", help="Store class daily NAV as USD observations for U.S. domiciled money-market funds")
+    sec_nmfp_bulk.add_argument("--no-profiles", action="store_true", help="Skip manager, administrator and category profile updates")
+    sec_nmfp_bulk.add_argument("--refresh", action="store_true", help="Redownload and re-extract cached monthly archives")
+    sec_ncen=sub.add_parser("sync-sec-ncen-bulk", help="Import SEC N-CEN annual bulk data (fees, NAV snapshot, adviser/administrator, classification)")
+    sec_ncen.add_argument("--quarters", type=int, default=8, help="Number of newest quarterly N-CEN archives to scan (default: 8)")
+    sec_ncen.add_argument("--refresh", action="store_true", help="Redownload and re-extract cached quarterly archives")
+    sec_ncen.add_argument("--no-profiles", action="store_true", help="Skip manager, administrator and net-assets fund-field updates")
+    sec_ncen.add_argument("--no-nav", action="store_true", help="Skip canonical NAV rows for single-class series")
+    sec_ncsr=sub.add_parser("sync-sec-ncsr-tsr", help="Import SEC N-CSR/N-CSRS Tailored Shareholder Report XBRL (ticker, inception, fees, returns, sector weights)")
+    sec_ncsr.add_argument("--since-days", type=int, default=420, help="Only read N-CSR/N-CSRS filings from this rolling window (default: 420)")
+    sec_ncsr.add_argument("--max-filings", type=int, default=8, help="Maximum N-CSR/N-CSRS filings per registrant CIK (default: 8)")
+    sec_ncsr.add_argument("--limit", type=int, help="Process only the first N registrant CIKs (for a dry run)")
+    sec_ncsr.add_argument("--cik", action="append", help="Limit to a registrant CIK; repeat to select multiple")
+    sec_ncsr.add_argument("--only-gaps", action="store_true", help="Only select funds missing ticker, inception or net assets")
+    sec_ncsr.add_argument("--refresh", action="store_true", help="Redownload submissions, indexes and XBRL instances")
+    sec_ncsr.add_argument("--no-profiles", action="store_true", help="Write profile snapshots without updating fund fields")
+    sec_ncsr.add_argument("--dry-run", action="store_true", help="Parse and report fills without writing to the database")
+    sec_ncsr.add_argument("--workers", type=int, default=4, help="Parallel registrant fetch/parse workers (default: 4)")
+    sec_ncsr.add_argument("--batch-size", type=int, default=100, help="Commit after this many registrants (default: 100)")
+    sec_rr=sub.add_parser("sync-sec-rr-profiles", help="Fill US class inception dates and tickers from SEC N-1A risk/return XBRL data sets")
+    sec_rr.add_argument("--quarters", type=int, default=8, help="Number of newest quarterly archives to scan (default: 8; use 60 for the full history)")
+    sec_rr.add_argument("--refresh", action="store_true", help="Redownload cached archives")
+    sec_rr.add_argument("--no-tickers", action="store_true", help="Only fill inception dates")
+    sec_rr.add_argument("--dry-run", action="store_true", help="Report what would be filled without writing")
     sec_profiles=sub.add_parser("sync-sec-class-profiles", help="Import cached SEC fund class metadata into profile snapshots")
     sec_profiles.add_argument("--fund-id", type=int, action="append", help="Limit to local US fund IDs; repeat to select multiple funds")
     sec_profiles.add_argument("--dry-run", action="store_true", help="Report exact matches without writing to the database")
@@ -284,6 +350,17 @@ def main() -> None:
     snapshot.add_argument("--source", required=True, choices=["it_borsa_navs","fr_lacotebleue_navs","nl_euronext_fund_navs","lu_euronext_fund_navs","lu_allianz_daily_navs"])
     snapshot.add_argument("--url", required=True, help="Direct CSV export URL published by the source")
     cvm_holdings=sub.add_parser("sync-cvm-holdings"); cvm_holdings.add_argument("--month", required=True, help="CVM CDA reporting month in YYYYMM format")
+    enrich_us=sub.add_parser("enrich-us-funds", help="Enrich US mutual fund net assets, tickers, ISINs, Vanguard profiles, and official issuer NAVs")
+    enrich_us.add_argument("--all", action="store_true", help="Run all enrichment adapters sequentially")
+    enrich_us.add_argument("--net-assets", action="store_true", help="Enrich net assets and net assets dates from SEC N-PORT bulk")
+    enrich_us.add_argument("--tickers", action="store_true", help="Enrich tickers from official live SEC endpoint")
+    enrich_us.add_argument("--isins", action="store_true", help="Enrich CUSIPs and ISINs from verified N-PORT holdings")
+    enrich_us.add_argument("--vanguard", action="store_true", help="Sync Vanguard directory profiles, inception dates, and expense ratios")
+    enrich_us.add_argument("--issuer-navs", action="store_true", help="Sync official issuer NAVs (Vanguard, Capital Group, SSGA/SPDR, GraniteShares)")
+    enrich_us.add_argument("--issuer-navs-missing", action="store_true", help="Sync issuer NAVs only for funds that still have no NAV observation")
+    enrich_us.add_argument("--dry-run", action="store_true", help="Simulate without committing database changes")
+    enrich_us.add_argument("--no-audit", action="store_true", help="Skip running post-enrichment audit")
+    sub.add_parser("audit-us-coverage", help="Run comprehensive US fund data completeness audit")
     download=sub.add_parser("download"); download.add_argument("--source",default="cvm_open_fund_data"); download.add_argument("--start-date"); download.add_argument("--end-date"); download.add_argument("--refresh",action="store_true")
     run=sub.add_parser("run"); run.add_argument("--all",action="store_true"); run.add_argument("--country"); run.add_argument("--source", action="append"); run.add_argument("--start-date"); run.add_argument("--end-date")
     args=parser.parse_args()
@@ -296,13 +373,40 @@ def main() -> None:
         print(json.dumps(fetch_snapshot(args.source, args.url), indent=2))
     elif args.cmd=="sync-sec-holdings":
         from app.holdings.sec_nport import sync_sec_holdings
-        print(json.dumps(sync_sec_holdings(set(args.fund_id) if args.fund_id else None,
+        print(json.dumps(tracked_run("sec-nport-filings", lambda: sync_sec_holdings(set(args.fund_id) if args.fund_id else None,
             history_days=args.history_days,cache_downloads=args.cache_downloads,
-            latest_only=args.latest_only),indent=2))
+            latest_only=args.latest_only)),indent=2))
+    elif args.cmd=="sync-sec-nport-bulk":
+        from app.holdings.sec_nport_bulk import import_nport_bulk
+        print(json.dumps(tracked_run("sec-nport-bulk", lambda: import_nport_bulk(
+            args.quarter, only_missing=args.only_missing, refresh=args.refresh,
+            include_identifiers=not args.no_identifiers)), indent=2))
     elif args.cmd=="sync-sec-nmfp":
         from app.holdings.sec_nmfp import sync_sec_nmfp
-        print(json.dumps(sync_sec_nmfp(set(args.fund_id) if args.fund_id else None,
-            lookback_days=args.lookback_days),indent=2))
+        print(json.dumps(tracked_run("sec-nmfp", lambda: sync_sec_nmfp(set(args.fund_id) if args.fund_id else None,
+            lookback_days=args.lookback_days)),indent=2))
+    elif args.cmd=="sync-sec-nmfp-bulk":
+        from app.holdings.sec_nmfp_bulk import sync_sec_nmfp_bulk
+        print(json.dumps(tracked_run("sec-nmfp-bulk", lambda: sync_sec_nmfp_bulk(months=args.months, only_missing=not args.all,
+            assign_usd_nav=args.assign_usd_nav, update_profiles=not args.no_profiles,
+            refresh=args.refresh)),indent=2))
+    elif args.cmd=="sync-sec-ncen-bulk":
+        from app.enrichment.sec_ncen_bulk import sync_sec_ncen_bulk
+        print(json.dumps(tracked_run("sec-ncen-bulk", lambda: sync_sec_ncen_bulk(quarters=args.quarters, refresh=args.refresh,
+            update_profiles=not args.no_profiles, write_nav=not args.no_nav)), indent=2))
+    elif args.cmd=="sync-sec-rr-profiles":
+        from app.enrichment.sec_rr_profile import sync_sec_rr_profiles
+        job=lambda: sync_sec_rr_profiles(quarters=args.quarters,refresh=args.refresh,dry_run=args.dry_run,fill_tickers=not args.no_tickers)
+        print(json.dumps(job() if args.dry_run else tracked_run("sec-rr-profiles",job),indent=2,default=str))
+    elif args.cmd=="sync-sec-ncsr-tsr":
+        from app.enrichment.sec_ncsr_tsr import sync_sec_ncsr_tsr
+        job=lambda: sync_sec_ncsr_tsr(
+            since_days=args.since_days, max_filings=args.max_filings,
+            limit=args.limit, ciks=set(args.cik) if args.cik else None,
+            refresh=args.refresh, update_profiles=not args.no_profiles,
+            only_gaps=args.only_gaps, dry_run=args.dry_run,
+            batch_size=args.batch_size, workers=args.workers)
+        print(json.dumps(job() if args.dry_run else tracked_run("sec-ncsr-tsr",job),indent=2,default=str))
     elif args.cmd=="sync-sec-class-profiles":
         from app.holdings.sec_class_profiles import sync_sec_class_profiles
         print(json.dumps(sync_sec_class_profiles(set(args.fund_id) if args.fund_id else None,
@@ -312,60 +416,44 @@ def main() -> None:
         print(json.dumps(sync_cached_sec_history(set(args.fund_id)),indent=2))
     elif args.cmd=="sync-cvm-holdings":
         from app.holdings.cvm_cda import sync_cvm_holdings
-        print(json.dumps(sync_cvm_holdings(args.month),indent=2))
+        print(json.dumps(tracked_run("cvm-cda-holdings", lambda: sync_cvm_holdings(args.month)),indent=2))
+    elif args.cmd=="audit-us-coverage":
+        from scripts.audit_complete_us_coverage import run_audit
+        res = run_audit()
+        print(f"Audit completed: {res['total_us_funds']:,} US funds evaluated.")
+    elif args.cmd=="enrich-us-funds":
+        from app.enrichment.us_fund_enricher import (
+            enrich_net_assets_from_nport_bulk,
+            enrich_tickers_from_sec_live,
+            enrich_isins_from_holdings,
+            enrich_from_vanguard_directory,
+            enrich_official_issuer_navs,
+            run_us_fund_enrichment,
+        )
+        if args.all or not (args.net_assets or args.tickers or args.isins or args.vanguard or args.issuer_navs or args.issuer_navs_missing):
+            res = tracked_run("enrich-us-funds", lambda: run_us_fund_enrichment(dry_run=args.dry_run, run_audit_after=not args.no_audit))
+        else:
+            res = {}
+            if args.net_assets:
+                res["net_assets"] = enrich_net_assets_from_nport_bulk(dry_run=args.dry_run)
+            if args.tickers:
+                res["tickers"] = enrich_tickers_from_sec_live(dry_run=args.dry_run)
+            if args.isins:
+                res["isins"] = enrich_isins_from_holdings(dry_run=args.dry_run)
+            if args.vanguard:
+                res["vanguard"] = enrich_from_vanguard_directory(dry_run=args.dry_run)
+            if args.issuer_navs:
+                res["issuer_navs"] = enrich_official_issuer_navs(only_missing=False)
+            if args.issuer_navs_missing:
+                res["issuer_navs_missing"] = enrich_official_issuer_navs(only_missing=True)
+            if not args.no_audit and not args.dry_run:
+                from scripts.audit_complete_us_coverage import run_audit
+                res["post_audit"] = run_audit()
+        print(json.dumps(res, indent=2, default=str))
     elif args.cmd=="download":
-        if args.source=="dk_bde_nonmonetary_funds":
-            from app.connectors.denmark_bde_funds import download_denmark_fund_list
-            print(json.dumps(download_denmark_fund_list(refresh=args.refresh),indent=2))
-            return
-        if args.source in {"de_bde_nonmonetary_funds","it_bde_nonmonetary_funds","nl_bde_nonmonetary_funds","lu_bde_nonmonetary_funds"}:
-            from app.connectors.bde_european_funds import download_bde_fund_list
-            country_code=args.source[:2].upper()
-            print(json.dumps(download_bde_fund_list(country_code,refresh=args.refresh),indent=2))
-            return
-        if args.source=="hk_sfc_authorised_unit_trusts":
-            from app.connectors.hk_sfc_funds import download_hk_sfc_fund_list
-            print(json.dumps(download_hk_sfc_fund_list(refresh=args.refresh),indent=2))
-            return
-        if args.source=="amf_geco":
-            from app.connectors.amf_geco import download_amf_geco
-            print(json.dumps(download_amf_geco(refresh=args.refresh),indent=2))
-            return
-        if args.source=="cbi_authorised_ucits":
-            from app.connectors.central_bank_ireland import download_ireland_ucits_register
-            print(json.dumps(download_ireland_ucits_register(refresh=args.refresh),indent=2))
-            return
-        if args.source=="fi_sweden_ucits_holdings":
-            from app.connectors.fi_sweden import download_fi_sweden
-            print(json.dumps(download_fi_sweden(refresh=args.refresh),indent=2))
-            return
-        if args.source=="cnmv_spanish_fund_register":
-            from app.connectors.cnmv import download_cnmv_fund_register
-            print(json.dumps(download_cnmv_fund_register(refresh=args.refresh),indent=2))
-            return
-        if args.source=="sec_open_end_fund_classes":
-            from app.connectors.sec import download_sec_series_classes
-            print(json.dumps(download_sec_series_classes(refresh=args.refresh),indent=2))
-            return
-        if args.source=="fca_authorised_funds":
-            from app.connectors.fca import download_fca_fund_register
-            print(json.dumps(download_fca_fund_register(refresh=args.refresh),indent=2))
-            return
-        if args.source=="finma_swiss_fund_list":
-            from app.connectors.finma import download_finma_fund_list
-            print(json.dumps(download_finma_fund_list(refresh=args.refresh),indent=2))
-            return
-        if args.source=="asisa_cis_fund_list":
-            from app.connectors.asisa import download_asisa_fund_list
-            print(json.dumps(download_asisa_fund_list(refresh=args.refresh),indent=2))
-            return
-        if args.source=="gsfm_unit_prices":
-            from app.connectors.gsfm import download_gsfm_prices
-            print(json.dumps(download_gsfm_prices(refresh=args.refresh),indent=2))
-            return
-        if args.source=="csrc_public_fund_index":
-            from app.connectors.csrc import download_csrc_index
-            print(json.dumps(download_csrc_index(refresh=args.refresh),indent=2))
+        handler=_download_handler(args.source)
+        if handler is not None:
+            print(json.dumps(handler(refresh=args.refresh),indent=2,ensure_ascii=False))
             return
         if args.source!="cvm_open_fund_data": raise SystemExit(f"No downloader registered for {args.source!r}.")
         from app.connectors.cvm import download_cvm_data
@@ -420,7 +508,9 @@ def main() -> None:
         if not candidates:
             raise SystemExit("No runnable provider connectors are registered; no ingestion was performed.")
         from app.etl.orchestrator import run_many
-        results=skipped_results+run_many(candidates,start_date=date.fromisoformat(args.start_date) if args.start_date else None,end_date=date.fromisoformat(args.end_date) if args.end_date else None)
+        with etl_lock():
+            run_results=run_many(candidates,start_date=date.fromisoformat(args.start_date) if args.start_date else None,end_date=date.fromisoformat(args.end_date) if args.end_date else None)
+        results=skipped_results+run_results
         REPORTS.mkdir(exist_ok=True)
         run_report={"generated_at":datetime.now(timezone.utc).isoformat(),"results":results}
         (REPORTS/"latest_run.json").write_text(json.dumps(run_report,indent=2)+"\n")

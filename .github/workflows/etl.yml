@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: "0 2 * * 0"
+    - cron: "30 2 * * *"
 
 permissions:
   contents: read
@@ -28,7 +28,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
           cache: pip
 
       - name: Install dependencies
@@ -48,6 +48,7 @@ jobs:
         run: python -m app.cli sync-sources
 
       - name: Run all available connectors
+        if: ${{ !cancelled() }}
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           HTTP_TIMEOUT_SECONDS: "60"
@@ -55,11 +56,13 @@ jobs:
         run: python -m app.cli run --all
 
       - name: Refresh current US mutual-fund NAVs
+        if: ${{ !cancelled() }}
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: python scripts/refresh_us_yahoo_batch_navs.py
 
       - name: Ingest refreshed US mutual-fund NAVs
+        if: ${{ !cancelled() }}
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           HTTP_TIMEOUT_SECONDS: "60"
@@ -67,13 +70,107 @@ jobs:
         run: python -m app.cli run --source sec_open_end_fund_classes
 
       - name: Synchronize SEC portfolio holdings
+        if: ${{ !cancelled() }}
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           HTTP_TIMEOUT_SECONDS: "60"
           USER_AGENT: ${{ secrets.USER_AGENT }}
         run: python -m app.cli sync-sec-holdings
 
+      - name: Synchronize SEC N-PORT quarterly bulk holdings
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "60"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: python -m app.cli sync-sec-nport-bulk
+
+      - name: Backfill previous N-PORT quarter for series absent from the newest filing
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "60"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: |
+          QUARTER=$(python - <<'PY'
+          from datetime import date
+          today = date.today()
+          quarter = (today.month - 1) // 3 + 1
+          year = today.year
+          quarter -= 1
+          if quarter == 0:
+              quarter, year = 4, year - 1
+          print(f"{year}q{quarter}")
+          PY
+          )
+          python -m app.cli sync-sec-nport-bulk --quarter "$QUARTER" --only-missing
+
+      - name: Synchronize SEC N-MFP money-market bulk holdings and NAV
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "60"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: python -m app.cli sync-sec-nmfp-bulk --all --assign-usd-nav
+
+      - name: Enrich US funds from SEC N-CEN census filings
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "60"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: python -m app.cli sync-sec-ncen-bulk --quarters 4
+
+      - name: Fill US inception dates and tickers from SEC N-1A risk/return data
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "120"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: python -m app.cli sync-sec-rr-profiles --quarters 4
+
+      - name: Import SEC tailored shareholder reports (fees, returns, sectors)
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "120"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: python -m app.cli sync-sec-ncsr-tsr --since-days 45 --workers 8 --batch-size 100
+
+      - name: Enrich US funds from official sources
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "60"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: python -m app.cli enrich-us-funds --tickers --isins --net-assets --vanguard --issuer-navs-missing --no-audit
+
+      - name: Backfill US ISINs from validated SEC holdings evidence
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python scripts/backfill_us_isins_from_sec_holdings.py --apply
+
+      - name: Audit US reference-field gaps
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python scripts/audit_us_field_gaps.py
+
+      - name: Report per-country data freshness
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python scripts/report_country_freshness.py --markdown reports/country_freshness.md --json reports/country_freshness.json
+
+      - name: Audit US data coverage
+        if: ${{ !cancelled() }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python -m app.cli audit-us-coverage
+
       - name: Verify production database counts
+        if: ${{ !cancelled() }}
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |

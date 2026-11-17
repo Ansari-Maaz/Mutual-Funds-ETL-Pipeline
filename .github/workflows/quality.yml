@@ -25,7 +25,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
           cache: pip
 
       - name: Install Python dependencies
@@ -33,6 +33,39 @@ jobs:
 
       - name: Run Python tests
         run: python -m pytest -q
+
+  integration:
+    name: PostgreSQL integration tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: fundflow_it
+          POSTGRES_USER: fundflow
+          POSTGRES_PASSWORD: fundflow
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U fundflow -d fundflow_it"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      DATABASE_URL: postgresql+psycopg://fundflow:fundflow@127.0.0.1:5432/fundflow_it
+      INTEGRATION_DATABASE_URL: postgresql+psycopg://fundflow:fundflow@127.0.0.1:5432/fundflow_it
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run migrations and integration tests
+        run: python -m pytest -q tests/test_integration_db.py
 
   api:
     name: API tests

@@ -1,0 +1,71 @@
+name: US portfolio holdings quarterly refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    # SEC bulk N-PORT data is published quarterly with a delay.
+    - cron: "0 5 15 2,5,8,11 *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fundflow-us-sec-nport
+  cancel-in-progress: false
+
+jobs:
+  update-quarterly-holdings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Apply database migrations
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python -m alembic upgrade head
+
+      - name: Import latest safely published N-PORT quarter
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "180"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: python -m app.cli sync-sec-nport-bulk
+
+      - name: Backfill uncovered series from the prior quarter
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HTTP_TIMEOUT_SECONDS: "180"
+          USER_AGENT: ${{ secrets.USER_AGENT }}
+        run: |
+          PREV=$(python - <<'PY'
+          from app.holdings.sec_nport_bulk import latest_quarter
+          latest = latest_quarter()
+          year, q = latest.split("q")
+          year, q = int(year), int(q) - 1
+          if q == 0:
+              year, q = year - 1, 4
+          print(f"{year}q{q}")
+          PY
+          )
+          python -m app.cli sync-sec-nport-bulk --quarter "$PREV" --only-missing
+
+      - name: Refresh SEC N-PORT net assets
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python -m app.cli enrich-us-funds --net-assets --no-audit
+
+      - name: Audit US coverage after import
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python -m app.cli audit-us-coverage
