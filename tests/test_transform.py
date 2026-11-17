@@ -19,3 +19,13 @@ def test_nav_uses_decimal_and_date():
 
 def test_nonpositive_nav_rejected():
     with pytest.raises(ValidationError): nav_from_source("p",{"source_fund_id":"x","valuation_date":"2025-01-02","nav":"0","currency":"USD"})
+
+
+def test_invalid_isin_is_dropped_but_fund_is_kept():
+    from app.etl.transform import fund_from_source
+    bad = fund_from_source("s", {"source_fund_id": "1", "name": "F", "isin": "US0378331009X"})
+    assert bad.isin is None
+    wrong_digit = fund_from_source("s", {"source_fund_id": "1", "name": "F", "isin": "US0378331004"})
+    assert wrong_digit.isin is None
+    good = fund_from_source("s", {"source_fund_id": "1", "name": "F", "isin": " us0378331005 "})
+    assert good.isin == "US0378331005"

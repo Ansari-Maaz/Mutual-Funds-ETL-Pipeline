@@ -62,3 +62,30 @@ def test_failure_for_unregistered_source_is_persisted_after_source_and_run_commi
     ]
     assert run_state["run"].status == "Failed"
     assert run_state["run"].finished_at is not None
+
+
+class RejectingConnector:
+    source_id = "rejecting"
+
+    def get_source_metadata(self):
+        return {"country_code": "US", "organization": "O", "source_name": "S"}
+
+    def check_availability(self):
+        return {"available": True}
+
+    def extract_funds(self, start_date=None, end_date=None):
+        return [{"source_fund_id": "1", "name": "Fund", "_navs": [
+            {"valuation_date": "2026-01-01", "nav": "0", "currency": "USD"},
+            {"valuation_date": "2026-01-02", "nav": "-1", "currency": "USD"}]}]
+
+
+def test_run_fails_and_persists_reject_count_above_threshold(monkeypatch):
+    run_state = {}
+    sessions = iter([FakeSession(run_state=run_state), FakeSession(run_state=run_state)])
+    monkeypatch.setattr(orchestrator, "SessionLocal", lambda: next(sessions))
+    monkeypatch.setattr(orchestrator, "upsert_funds_batch", lambda *a, **k: {"1": 7})
+    monkeypatch.setattr(orchestrator, "upsert_navs_batch", lambda *a, **k: None)
+    result = orchestrator.run_connector("rejecting", RejectingConnector)
+    assert result["status"] == "Failed"
+    assert "Reject rate" in result["error"]
+    assert run_state["run"].records_rejected == 2

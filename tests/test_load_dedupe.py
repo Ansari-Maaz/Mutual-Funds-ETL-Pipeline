@@ -1,7 +1,24 @@
 from datetime import date
 
-from app.etl.load import dedupe_funds_last_wins, dedupe_navs_last_wins
+from sqlalchemy.dialects import postgresql
+
+from app.etl.load import dedupe_funds_last_wins, dedupe_navs_last_wins, fund_upsert_statement
 from app.schemas.canonical import CanonicalFund, CanonicalNav
+
+
+def test_fund_upsert_preserves_enrichment_fields_on_null_refresh():
+    statement = fund_upsert_statement([
+        {"source_id": "sec_open_end_fund_classes", "source_fund_id": "C000000001", "name": "Fund"},
+    ])
+    sql = str(statement.compile(dialect=postgresql.dialect()))
+
+    # Identity fields are always refreshed from the source master.
+    assert "name = excluded.name" in sql
+    assert "provider = excluded.provider" in sql
+    # Enrichment-owned fields keep an existing value when the refresh sends null.
+    for column in ("isin", "ticker", "category", "inception_date", "manager",
+                   "administrator", "net_assets", "net_assets_date", "target_audience"):
+        assert f"{column} = coalesce(excluded.{column}, funds.{column})" in sql
 
 
 def test_fund_batch_dedupes_native_id_with_last_record_winning():

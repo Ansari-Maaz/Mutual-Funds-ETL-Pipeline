@@ -128,4 +128,5 @@ class EtlRun(Base):
     source_id: Mapped[str | None] = mapped_column(ForeignKey("sources.source_id"))
     records_extracted: Mapped[int] = mapped_column(default=0)
     records_loaded: Mapped[int] = mapped_column(default=0)
+    records_rejected: Mapped[int] = mapped_column(default=0, server_default="0")
     error: Mapped[str | None] = mapped_column(Text)

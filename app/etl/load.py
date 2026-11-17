@@ -39,6 +39,33 @@ def dedupe_navs_last_wins(observations: Iterable[tuple[int, object]]) -> list[di
         }
     return list(by_key.values())
 
+def fund_upsert_statement(rows: list[dict]):
+    """Build the fund upsert used by every connector refresh.
+
+    Source masters only own identity fields. Enrichment-owned fields keep their
+    existing value when the incoming record is null, so a daily connector
+    refresh cannot erase NAV/profile work from other sources.
+    """
+    stmt = insert(Fund).values(rows)
+    return stmt.on_conflict_do_update(constraint="uq_fund_source_native",set_={
+      "name":stmt.excluded.name,"domicile_country":stmt.excluded.domicile_country,
+      "currency":func.coalesce(stmt.excluded.currency,Fund.currency),
+      "isin":func.coalesce(stmt.excluded.isin,Fund.isin),
+      "currency_basis":func.coalesce(stmt.excluded.currency_basis,Fund.currency_basis),
+      "legal_name":stmt.excluded.legal_name,"provider":stmt.excluded.provider,
+      "category":func.coalesce(stmt.excluded.category,Fund.category),
+      "fund_type":func.coalesce(stmt.excluded.fund_type,Fund.fund_type),
+      "inception_date":func.coalesce(stmt.excluded.inception_date,Fund.inception_date),
+      "status":stmt.excluded.status,
+      "official_url":func.coalesce(stmt.excluded.official_url,Fund.official_url),
+      "ticker":func.coalesce(stmt.excluded.ticker,Fund.ticker),
+      "manager":func.coalesce(stmt.excluded.manager,Fund.manager),
+      "administrator":func.coalesce(stmt.excluded.administrator,Fund.administrator),
+      "net_assets":func.coalesce(stmt.excluded.net_assets,Fund.net_assets),
+      "net_assets_date":func.coalesce(stmt.excluded.net_assets_date,Fund.net_assets_date),
+      "target_audience":func.coalesce(stmt.excluded.target_audience,Fund.target_audience)})
+
+
 def upsert_funds_batch(session: Session, source_id: str, funds: Iterable) -> dict[str, int]:
     """Upsert a bounded batch of funds and return native-id to database-id mapping."""
     # PostgreSQL cannot update the same conflict target twice in one INSERT.
@@ -48,19 +75,7 @@ def upsert_funds_batch(session: Session, source_id: str, funds: Iterable) -> dic
         row["source_id"] = source_id
     if not rows:
         return {}
-    stmt=insert(Fund).values(rows)
-    stmt=stmt.on_conflict_do_update(constraint="uq_fund_source_native",set_={
-      "name":stmt.excluded.name,"domicile_country":stmt.excluded.domicile_country,
-      "currency":stmt.excluded.currency,"isin":stmt.excluded.isin,
-      "currency_basis":stmt.excluded.currency_basis,
-      "legal_name":stmt.excluded.legal_name,"provider":stmt.excluded.provider,
-      "category":stmt.excluded.category,"fund_type":stmt.excluded.fund_type,
-      "inception_date":stmt.excluded.inception_date,"status":stmt.excluded.status,
-      "official_url":stmt.excluded.official_url,"ticker":stmt.excluded.ticker,
-      "manager":stmt.excluded.manager,"administrator":stmt.excluded.administrator,
-      "net_assets":stmt.excluded.net_assets,"net_assets_date":stmt.excluded.net_assets_date,
-      "target_audience":stmt.excluded.target_audience})
-    session.execute(stmt)
+    session.execute(fund_upsert_statement(rows))
     ids=session.execute(select(Fund.source_fund_id,Fund.id).where(
       Fund.source_id==source_id,Fund.source_fund_id.in_([r["source_fund_id"] for r in rows])))
     return {source_fund_id:fund_id for source_fund_id,fund_id in ids}

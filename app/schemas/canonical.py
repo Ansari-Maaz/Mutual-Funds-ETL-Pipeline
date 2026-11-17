@@ -1,7 +1,21 @@
+import re
 from datetime import date
 from decimal import Decimal
 from typing import Any
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+
+def isin_check_digit_ok(isin: str) -> bool:
+    """Validate an ISIN's Luhn check digit (letters expand to two digits)."""
+    digits = "".join(str(int(ch, 36)) for ch in isin)
+    total = 0
+    for index, ch in enumerate(reversed(digits)):
+        n = int(ch)
+        if index % 2 == 1:
+            n *= 2
+            n = n - 9 if n > 9 else n
+        total += n
+    return total % 10 == 0
+
 
 class CanonicalFund(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -28,6 +42,19 @@ class CanonicalFund(BaseModel):
     profile_data: dict[str, dict[str, Any]] | None = None
     profile_as_of_date: date | None = None
     profile_source_url: str | None = None
+
+    @field_validator("isin")
+    @classmethod
+    def _validate_isin(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        value = value.strip().upper()
+        if not value:
+            return None
+        if not re.fullmatch(r"[A-Z]{2}[A-Z0-9]{9}[0-9]", value):
+            raise ValueError(f"Invalid ISIN: {value!r}")
+        return value
+
 
 class CanonicalNav(BaseModel):
     model_config = ConfigDict(extra="forbid")
