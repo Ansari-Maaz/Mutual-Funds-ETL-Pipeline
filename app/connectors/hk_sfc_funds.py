@@ -100,18 +100,23 @@ class HkSfcFundsConnector(BaseConnector):
         parser.feed((RAW / "sfc_unit_trusts_mutual_funds.html").read_text(encoding="utf-8", errors="replace"))
         records: dict[str, dict[str, Any]] = {}
         rejects: list[dict[str, str]] = []
-        # Columns: product (CE number), sub-fund (CE number), issuer, date, docs, derivative status.
-        for row in parser.rows[1:]:
-            if len(row) < 3:
-                continue
+        # Columns: product (CE number), sub-fund (CE number), issuer, authorisation date, docs, derivative flag.
+        # SFC names can contain several bracketed groups, e.g. "Fund (USD) (BYK033)#": the CE number is the
+        # LAST group (three letters + three digits), optionally followed by a footnote marker such as "#".
+        ce_re = re.compile(r"\(([A-Za-z]{3}\d{3})\)\s*[#*^+@~]*\s*$")
+        body = [row for row in parser.rows[1:] if len(row) >= 3]
+        umbrellas = {row[0] for row in body if row[1]}
+        for row in body:
             product, subfund, issuer = row[:3]
+            if not subfund and product in umbrellas:
+                continue  # umbrella structure; its sub-funds are the investable products
             target = subfund or product
-            match = re.search(r"\(([A-Za-z0-9]+)\)", target)
+            match = ce_re.search(target)
             if not match:
                 rejects.append({"product": product, "subfund": subfund, "reason": "no SFC CE number"})
                 continue
             code = match.group(1).upper()
-            name = re.sub(r"\s*\([A-Za-z0-9]+\)\s*$", "", target).strip()
+            name = ce_re.sub("", target).strip()
             if not name:
                 rejects.append({"source_fund_id": code, "reason": "missing product name"})
                 continue
@@ -119,9 +124,13 @@ class HkSfcFundsConnector(BaseConnector):
             if record and record["name"] != name:
                 rejects.append({"source_fund_id": code, "reason": "duplicate CE number with conflicting names"})
                 continue
+            derivative = row[5].strip().lower() if len(row) > 5 else ""
             records.setdefault(code, {"source_fund_id": code, "name": name,
                 # The source lists public-offer authorization, not product domicile.
-                "domicile_country": None, "currency": None, "isin": None, "_navs": []})
+                "domicile_country": None, "currency": None, "isin": None,
+                "provider": issuer or None, "legal_name": (ce_re.sub("", product).strip() or None) if subfund else None,
+                "fund_type": "Derivative fund" if derivative == "yes" else "Authorised unit trust / mutual fund",
+                "official_url": URL, "_navs": []})
         if not records:
             raise ValueError("No SFC fund product rows parsed; inspect the downloaded HTML snapshot")
         self._records, self._rejects = list(records.values()), rejects
