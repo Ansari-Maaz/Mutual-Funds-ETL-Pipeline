@@ -15,3 +15,7 @@ global-mutual-fund-etl-submission.zip
 deliverables/*.zip
 api/.env
 frontend/.env
+
+# Database dumps (large, may contain sensitive data)
+*.dump
+*.sql.gz
