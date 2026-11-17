@@ -1,50 +1,56 @@
 {
-  "generated_at": "2026-11-13T14:14:57.473686+00:00",
+  "generated_at": "2026-11-16T16:31:34.129403+00:00",
   "country": "US",
   "latest_nport_dataset": "2026q3",
   "funds": 39139,
-  "with_nav": 25263,
-  "with_holdings": 31634,
-  "with_nav_and_holdings": 24023,
-  "missing_nav": 13876,
-  "missing_holdings": 7505,
-  "missing_both": 6265,
-  "nav_coverage_percent": 64.55,
-  "holdings_coverage_percent": 80.82,
-  "complete_coverage_percent": 61.38,
+  "with_nav": 25675,
+  "with_holdings": 33372,
+  "with_nav_and_holdings": 25258,
+  "missing_nav": 13464,
+  "missing_holdings": 5767,
+  "missing_both": 5350,
+  "nav_coverage_percent": 65.6,
+  "holdings_coverage_percent": 85.27,
+  "complete_coverage_percent": 64.53,
   "nav_gap_reasons": {
-    "no_public_ticker_in_sec_class_snapshot": 9634,
-    "issuer_not_yet_mapped": 2825,
-    "issuer_site_does_not_expose_machine_readable_nav": 678,
-    "issuer_adapter_not_implemented": 531,
-    "ticker_not_returned_by_integrated_issuer_adapter": 208
+    "no_public_ticker_in_sec_class_snapshot": 9429,
+    "issuer_not_yet_mapped": 2634,
+    "issuer_site_does_not_expose_machine_readable_nav": 677,
+    "issuer_adapter_not_implemented": 527,
+    "ticker_not_returned_by_integrated_issuer_adapter": 197
   },
   "holdings_gap_reasons": {
-    "series_absent_from_latest_n_port_dataset": 7496,
-    "latest_n_port_filing_reports_no_positions": 8,
+    "series_absent_from_latest_n_port_dataset": 5762,
+    "latest_n_port_filing_reports_no_positions": 4,
     "no_sec_series_identifier": 1
   },
   "nav_sources": {
-    "us_yahoo_mutual_fund_navs": 24729,
-    "us_nasdaq_mutual_fund_navs": 533,
+    "us_yahoo_mutual_fund_navs": 23529,
+    "us_capital_group_fund_pages": 869,
+    "us_nasdaq_mutual_fund_navs": 516,
+    "us_vanguard_fund_products": 414,
+    "sec_nmfp_money_market": 169,
+    "us_ssga_spdr_navs": 143,
+    "us_graniteshares_fund_pages": 34,
     "us_nasdaq_etf_market_prices": 1
   },
   "holdings_sources": {
-    "sec_edgar_nport": 18724,
-    "sec_edgar_nport_bulk": 12910
+    "sec_edgar_nport_bulk": 29737,
+    "sec_edgar_nport": 2542,
+    "sec_nmfp_bulk": 1093
   },
   "top_providers_by_gap": [
     {
       "provider": "ETF Opportunities Trust",
       "funds": 569,
-      "missing_nav": 486,
+      "missing_nav": 485,
       "missing_holdings": 471,
-      "missing_both": 461
+      "missing_both": 460
     },
     {
       "provider": "GraniteShares ETF Trust",
       "funds": 527,
-      "missing_nav": 468,
+      "missing_nav": 464,
       "missing_holdings": 442,
       "missing_both": 439
     },
@@ -52,15 +58,15 @@
       "provider": "Themes ETF Trust",
       "funds": 484,
       "missing_nav": 419,
-      "missing_holdings": 345,
-      "missing_both": 344
+      "missing_holdings": 343,
+      "missing_both": 342
     },
     {
       "provider": "Tidal Trust II",
       "funds": 548,
       "missing_nav": 385,
-      "missing_holdings": 347,
-      "missing_both": 339
+      "missing_holdings": 346,
+      "missing_both": 338
     },
     {
       "provider": "Corgi ETF Trust I",
@@ -72,16 +78,16 @@
     {
       "provider": "Direxion Shares ETF Trust",
       "funds": 364,
-      "missing_nav": 219,
-      "missing_holdings": 231,
-      "missing_both": 217
+      "missing_nav": 217,
+      "missing_holdings": 218,
+      "missing_both": 212
     },
     {
       "provider": "Investment Managers Series Trust II",
       "funds": 332,
-      "missing_nav": 219,
-      "missing_holdings": 201,
-      "missing_both": 184
+      "missing_nav": 214,
+      "missing_holdings": 200,
+      "missing_both": 180
     },
     {
       "provider": "MASSMUTUAL SELECT FUNDS",
@@ -93,72 +99,58 @@
     {
       "provider": "NATIONWIDE VARIABLE INSURANCE TRUST",
       "funds": 235,
-      "missing_nav": 235,
-      "missing_holdings": 59,
-      "missing_both": 59
+      "missing_nav": 230,
+      "missing_holdings": 50,
+      "missing_both": 50
     },
     {
       "provider": "LINCOLN VARIABLE INSURANCE PRODUCTS TRUST",
       "funds": 258,
-      "missing_nav": 258,
-      "missing_holdings": 23,
-      "missing_both": 23
+      "missing_nav": 256,
+      "missing_holdings": 21,
+      "missing_both": 21
     },
     {
       "provider": "JNL SERIES TRUST",
       "funds": 260,
-      "missing_nav": 260,
-      "missing_holdings": 4,
-      "missing_both": 4
+      "missing_nav": 258,
+      "missing_holdings": 2,
+      "missing_both": 2
     },
     {
       "provider": "Innovator ETFs Trust",
       "funds": 212,
       "missing_nav": 210,
-      "missing_holdings": 31,
-      "missing_both": 31
-    },
-    {
-      "provider": "PROSHARES TRUST",
-      "funds": 264,
-      "missing_nav": 107,
-      "missing_holdings": 114,
-      "missing_both": 107
+      "missing_holdings": 27,
+      "missing_both": 27
     },
     {
       "provider": "NATIONWIDE MUTUAL FUNDS",
       "funds": 299,
       "missing_nav": 143,
-      "missing_holdings": 77,
+      "missing_holdings": 74,
       "missing_both": 74
+    },
+    {
+      "provider": "PROSHARES TRUST",
+      "funds": 264,
+      "missing_nav": 107,
+      "missing_holdings": 107,
+      "missing_both": 107
     },
     {
       "provider": "ETF Series Solutions",
       "funds": 176,
-      "missing_nav": 106,
+      "missing_nav": 105,
       "missing_holdings": 105,
       "missing_both": 101
     },
     {
       "provider": "EQ ADVISORS TRUST",
       "funds": 206,
-      "missing_nav": 206,
-      "missing_holdings": 3,
-      "missing_both": 3
-    },
-    {
-      "provider": "BLACKROCK LIQUIDITY FUNDS",
-      "funds": 118,
-      "missing_nav": 90,
-      "missing_holdings": 118,
-      "missing_both": 90
-    },
-    {
-      "provider": "John Hancock Funds II",
-      "funds": 387,
-      "missing_nav": 125,
-      "missing_holdings": 74,
-      "missing_both": 74
+      "missing_nav": 204,
+      "missing_holdings": 0,
+      "missing_both": 0
     },
     {
       "provider": "Volatility Shares Trust",
@@ -168,11 +160,11 @@
       "missing_both": 91
     },
     {
-      "provider": "RBB FUND, INC.",
-      "funds": 183,
-      "missing_nav": 108,
-      "missing_holdings": 80,
-      "missing_both": 79
+      "provider": "John Hancock Funds II",
+      "funds": 387,
+      "missing_nav": 125,
+      "missing_holdings": 66,
+      "missing_both": 66
     },
     {
       "provider": "Milliman Variable Insurance Trust",
@@ -180,6 +172,13 @@
       "missing_nav": 95,
       "missing_holdings": 93,
       "missing_both": 93
+    },
+    {
+      "provider": "RBB FUND, INC.",
+      "funds": 183,
+      "missing_nav": 98,
+      "missing_holdings": 75,
+      "missing_both": 69
     },
     {
       "provider": "AMERICAN FUNDS INSURANCE SERIES",
@@ -191,23 +190,30 @@
     {
       "provider": "Tidal Trust III",
       "funds": 117,
-      "missing_nav": 82,
+      "missing_nav": 81,
       "missing_holdings": 72,
-      "missing_both": 67
+      "missing_both": 66
     },
     {
-      "provider": "GOLDMAN SACHS TRUST",
-      "funds": 576,
-      "missing_nav": 18,
-      "missing_holdings": 130,
-      "missing_both": 14
+      "provider": "SUNAMERICA SERIES TRUST",
+      "funds": 143,
+      "missing_nav": 143,
+      "missing_holdings": 0,
+      "missing_both": 0
     },
     {
-      "provider": "BLACKROCK FUNDS",
-      "funds": 146,
-      "missing_nav": 109,
-      "missing_holdings": 38,
-      "missing_both": 34
+      "provider": "Roundhill ETF Trust",
+      "funds": 113,
+      "missing_nav": 72,
+      "missing_holdings": 68,
+      "missing_both": 68
+    },
+    {
+      "provider": "SPDR INDEX SHARES FUNDS",
+      "funds": 99,
+      "missing_nav": 66,
+      "missing_holdings": 74,
+      "missing_both": 66
     }
   ]
 }

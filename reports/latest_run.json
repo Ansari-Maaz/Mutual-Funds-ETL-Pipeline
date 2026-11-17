@@ -1,21 +1,13 @@
 {
-  "generated_at": "2026-11-09T14:06:03.821713+00:00",
+  "generated_at": "2026-11-16T18:38:36.283431+00:00",
   "results": [
     {
-      "source_id": "sec_open_end_fund_classes",
+      "source_id": "jp_imaj_new_funds",
       "status": "Succeeded",
-      "records_extracted": 39138,
-      "records_loaded": 39138,
-      "navs_loaded": 50012,
-      "rejected_records": 0
-    },
-    {
-      "source_id": "us_qqqm_etf",
-      "status": "Failed",
-      "records_extracted": 0,
-      "records_loaded": 0,
+      "records_extracted": 11,
+      "records_loaded": 11,
       "navs_loaded": 0,
-      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/media/asim/4_TB_1/MF ETL PIPELINE/data/raw/united_states/qqqm_nav.csv'"
+      "rejected_records": 0
     }
   ]
 }

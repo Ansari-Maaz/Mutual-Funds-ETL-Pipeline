@@ -1,0 +1,165 @@
+{
+  "generated_at": "2026-11-16T16:32:01.610195+00:00",
+  "countries": [
+    {
+      "country": "US",
+      "funds": 39139,
+      "with_nav": 25694,
+      "latest_nav_date": "2026-11-15",
+      "with_holdings": 33372,
+      "latest_holdings_date": "2026-10-31"
+    },
+    {
+      "country": "BR",
+      "funds": 37875,
+      "with_nav": 25678,
+      "latest_nav_date": "2026-10-16",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "FR",
+      "funds": 28465,
+      "with_nav": 90,
+      "latest_nav_date": "2026-10-22",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "LU",
+      "funds": 25901,
+      "with_nav": 1944,
+      "latest_nav_date": "2026-10-26",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "CN",
+      "funds": 14170,
+      "with_nav": 0,
+      "latest_nav_date": null,
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "IE",
+      "funds": 6725,
+      "with_nav": 0,
+      "latest_nav_date": null,
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "DE",
+      "funds": 6429,
+      "with_nav": 0,
+      "latest_nav_date": null,
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "MX",
+      "funds": 5151,
+      "with_nav": 3486,
+      "latest_nav_date": "2026-10-23",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "GB",
+      "funds": 4261,
+      "with_nav": 286,
+      "latest_nav_date": "2026-10-24",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": null,
+      "funds": 3689,
+      "with_nav": 302,
+      "latest_nav_date": "2026-10-23",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "ES",
+      "funds": 3116,
+      "with_nav": 0,
+      "latest_nav_date": null,
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "JP",
+      "funds": 2741,
+      "with_nav": 0,
+      "latest_nav_date": null,
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "CH",
+      "funds": 2054,
+      "with_nav": 47,
+      "latest_nav_date": "2026-11-16",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "ZA",
+      "funds": 1945,
+      "with_nav": 0,
+      "latest_nav_date": null,
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "DK",
+      "funds": 1486,
+      "with_nav": 0,
+      "latest_nav_date": null,
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "NL",
+      "funds": 1397,
+      "with_nav": 84,
+      "latest_nav_date": "2026-10-26",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "IT",
+      "funds": 1360,
+      "with_nav": 14,
+      "latest_nav_date": "2026-10-23",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "SE",
+      "funds": 726,
+      "with_nav": 0,
+      "latest_nav_date": null,
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "CA",
+      "funds": 373,
+      "with_nav": 373,
+      "latest_nav_date": "2026-10-23",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    },
+    {
+      "country": "AU",
+      "funds": 97,
+      "with_nav": 5,
+      "latest_nav_date": "2026-10-14",
+      "with_holdings": 0,
+      "latest_holdings_date": null
+    }
+  ]
+}

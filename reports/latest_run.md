@@ -1,13 +1,12 @@
 # Latest execution report
 
-Generated at: 2026-11-09T14:06:03.821713+00:00
+Generated at: 2026-11-16T18:38:36.283431+00:00
 
 ## Ingestion results
 
 | Source | Status | Funds extracted | Funds loaded | NAV observations upserted | Rejected rows | Error |
 |---|---|---:|---:|---:|---:|---|
-| sec_open_end_fund_classes | Succeeded | 39138 | 39138 | 50012 | 0 |  |
-| us_qqqm_etf | Failed | 0 | 0 | 0 | 0 | FileNotFoundError: [Errno 2] No such file or directory: '/media/asim/4_TB_1/MF ETL PIPELINE/data/raw/united_states/qqqm_nav.csv' |
+| jp_imaj_new_funds | Succeeded | 11 | 11 | 0 | 0 |  |
 
 ## Database counts
 
@@ -18,7 +17,7 @@ Generated at: 2026-11-09T14:06:03.821713+00:00
 | au_user_managed_funds | 96 | 4 |
 | bmv_mexico_funds | 5151 | 3486 |
 | cbi_authorised_ucits | 6725 | 0 |
-| ch_six_fund_explorer_navs | 47 | 188 |
+| ch_six_fund_explorer_navs | 47 | 282 |
 | cnmv_spanish_fund_register | 3116 | 0 |
 | csrc_public_fund_index | 14170 | 0 |
 | cvm_open_fund_data | 37875 | 252065 |
@@ -43,11 +42,11 @@ Generated at: 2026-11-09T14:06:03.821713+00:00
 | nl_bde_nonmonetary_funds | 1313 | 0 |
 | nl_euronext_fund_navs | 84 | 84 |
 | scotia_canada_daily_nav | 373 | 373 |
-| sec_open_end_fund_classes | 39138 | 99438 |
+| sec_open_end_fund_classes | 39138 | 191689 |
 | uk_ft_morningstar_prices | 253 | 253 |
 | uk_fundslibrary_unit_prices | 33 | 33 |
 | us_qqqm_etf | 1 | 7 |
-| **Total** | **187100** | **358282** |
+| **Total** | **187100** | **450627** |
 - Database used: Configured project PostgreSQL database.
 - Raw snapshots are ignored by Git; source manifests record URLs, checksums, and sizes.
 - Source rejects are recorded in source-specific JSONL files under `reports/`.

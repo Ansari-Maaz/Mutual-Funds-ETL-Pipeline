@@ -1,6 +1,6 @@
 # FundFlow — Comprehensive US Mutual Fund Data Audit
 
-**Audit Timestamp:** 2026-11-13T19:12:18.793428+00:00  
+**Audit Timestamp:** 2026-11-16T16:30:18.855029+00:00  
 **Universe:** All US Domiciled Funds in PostgreSQL (`domicile_country = 'US'`)  
 **Total US Funds:** **39,139**
 
@@ -12,23 +12,23 @@
 | :--- | ---: | ---: | :--- |
 | Fund Name | 39,139 | 100.0% | Complete |
 | Legal Name | 39,139 | 100.0% | Complete |
-| Ticker / Symbol | 29,539 | 75.47% | Substantial |
-| ISIN | 669 | 1.71% | High Gaps |
+| Ticker / Symbol | 29,543 | 75.48% | Substantial |
+| ISIN | 169 | 0.43% | High Gaps |
 | SEC Series ID | 39,138 | 100.0% | Complete |
 | SEC CIK | 39,138 | 100.0% | Complete |
-| Category | 2 | 0.01% | High Gaps |
+| Category | 1,095 | 2.8% | High Gaps |
 | Fund Type | 39,139 | 100.0% | Complete |
-| Inception Date | 7,383 | 18.86% | High Gaps |
+| Inception Date | 392 | 1.0% | High Gaps |
 | Status | 39,139 | 100.0% | Complete |
 | Provider / Registrant | 39,139 | 100.0% | Complete |
-| Manager | 1 | 0.0% | High Gaps |
-| Administrator | 0 | 0.0% | High Gaps |
-| Net Assets | 30,740 | 78.54% | Substantial |
+| Manager | 33,080 | 84.52% | Substantial |
+| Administrator | 32,219 | 82.32% | Substantial |
+| Net Assets | 34,071 | 87.05% | Substantial |
 | Currency | 39,139 | 100.0% | Complete |
 | Official URL | 39,139 | 100.0% | Complete |
-| NAV Coverage | 25,500 | 65.15% | Substantial |
-| Portfolio Holdings Coverage | 32,273 | 82.46% | Substantial |
-| Both NAV and Holdings | 24,238 | 61.93% | Substantial |
+| NAV Coverage | 25,675 | 65.6% | Substantial |
+| Portfolio Holdings Coverage | 33,372 | 85.27% | Substantial |
+| Both NAV and Holdings | 25,258 | 64.53% | Substantial |
 
 ---
 
@@ -36,12 +36,12 @@
 
 | Dimension | Funds | Observations / Rows | Date Span | Sources |
 | :--- | ---: | ---: | :--- | :--- |
-| **NAV Observations** | 25,500 (65.2%) | 102,131 rows | 2025-11-10 to 2026-11-13 | us_nasdaq_mutual_fund_navs, us_yahoo_mutual_fund_navs, unattributed, us_nasdaq_etf_market_prices |
-| **Portfolio Holdings** | 32,273 (82.5%) | 12,128,486 positions | 2024-12-31 to 2026-08-31 | sec_edgar_nport, sec_edgar_nport_bulk |
-| **Both NAV & Holdings** | 24,238 (61.9%) | — | — | Full depth profile |
-| **Holdings Only** | 8,035 (20.5%) | — | — | Missing daily NAV observations |
-| **NAV Only** | 1,262 (3.2%) | — | — | Missing SEC N-PORT portfolio filings |
-| **Missing Both** | 5,604 (14.3%) | — | — | Requires targeted research & filing recovery |
+| **NAV Observations** | 25,675 (65.6%) | 190,994 rows | 2021-02-08 to 2026-11-15 | us_nasdaq_mutual_fund_navs, us_yahoo_mutual_fund_navs, sec_nmfp_money_market, us_capital_group_fund_pages, us_vanguard_fund_products, us_ssga_spdr_navs, us_graniteshares_fund_pages, unattributed, us_nasdaq_etf_market_prices |
+| **Portfolio Holdings** | 33,372 (85.3%) | 15,859,761 positions | 2024-12-31 to 2026-10-31 | sec_edgar_nport_bulk, sec_edgar_nport, sec_nmfp_bulk |
+| **Both NAV & Holdings** | 25,258 (64.5%) | — | — | Full depth profile |
+| **Holdings Only** | 8,114 (20.7%) | — | — | Missing daily NAV observations |
+| **NAV Only** | 417 (1.1%) | — | — | Missing SEC N-PORT portfolio filings |
+| **Missing Both** | 5,350 (13.7%) | — | — | Requires targeted research & filing recovery |
 
 ---
 
@@ -49,9 +49,14 @@
 
 | NAV Source | Covered Funds | Total Observations |
 | :--- | ---: | ---: |
-| `us_nasdaq_mutual_fund_navs` | 25,302 | 27,762 |
-| `us_yahoo_mutual_fund_navs` | 24,986 | 74,341 |
-| `unattributed` | 3 | 22 |
+| `us_nasdaq_mutual_fund_navs` | 24,656 | 27,038 |
+| `us_yahoo_mutual_fund_navs` | 24,407 | 115,797 |
+| `sec_nmfp_money_market` | 987 | 21,343 |
+| `us_capital_group_fund_pages` | 889 | 889 |
+| `us_vanguard_fund_products` | 414 | 9,522 |
+| `us_ssga_spdr_navs` | 143 | 4,423 |
+| `us_graniteshares_fund_pages` | 34 | 11,962 |
+| `unattributed` | 2 | 14 |
 | `us_nasdaq_etf_market_prices` | 1 | 6 |
 
 ---
@@ -60,5 +65,6 @@
 
 | Data Source | Covered Funds | Position Rows |
 | :--- | ---: | ---: |
-| `sec_edgar_nport` | 18,724 | 5,916,818 |
-| `sec_edgar_nport_bulk` | 13,549 | 6,211,668 |
+| `sec_edgar_nport_bulk` | 31,359 | 12,753,908 |
+| `sec_edgar_nport` | 4,387 | 2,939,824 |
+| `sec_nmfp_bulk` | 1,093 | 166,029 |
