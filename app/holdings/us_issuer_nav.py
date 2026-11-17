@@ -49,10 +49,12 @@ VANGUARD_ETF_URL = "https://investor.vanguard.com/investment-products/etfs/profi
 SSGA_NAV_URL = ("https://www.ssga.com/us/en/intermediary/library-content/products/"
                 "fund-data/etfs/us/navhist-us-en-{ticker}.xlsx")
 CAPITAL_GROUP_URL = "https://www.capitalgroup.com/individual/investments/fund/{ticker}"
+GRANITESHARES_URL = "https://graniteshares.com/etfs/{ticker_lower}/"
 
 VANGUARD_SOURCE = "us_vanguard_fund_products"
 SSGA_SOURCE = "us_ssga_spdr_navs"
 CAPITAL_GROUP_SOURCE = "us_capital_group_fund_pages"
+GRANITESHARES_SOURCE = "us_graniteshares_fund_pages"
 
 # Capital Group's American Funds trusts. Patterns are deliberately explicit so
 # the adapter never requests unrelated issuers that merely share a name word.
@@ -92,6 +94,50 @@ def _capital_group_parse(payload: bytes, *, ticker: str) -> dict[str, Any] | Non
         return None
     return {"ticker": ticker.upper(), "nav_rows": [{"valuation_date": parsed, "nav": nav}]}
 
+
+def _graniteshares_history_url(payload: bytes, *, ticker: str) -> str:
+    """Reconstruct the signed NAV-history API URL embedded in a GraniteShares page."""
+    text = payload.decode("utf-8", errors="replace")
+    page_ticker = re.search(r'var\s+TICKER\s*=\s*"([^"]+)"', text)
+    if page_ticker and page_ticker.group(1).strip().upper() != ticker.upper():
+        raise ValueError(
+            f"GraniteShares page ticker mismatch: requested {ticker}, page reported {page_ticker.group(1)}")
+    block = re.search(
+        r'var\s+NAV_HISTORY_URL\s*=\s*"([^"]+)"(\s*\+\s*PRODUCT_ID\s*\+\s*)?"([^"]*)"', text)
+    if not block:
+        raise ValueError("GraniteShares page does not expose a NAV history endpoint")
+    prefix, _, query = block.groups()
+    if block.group(2):
+        product_id = re.search(r'var\s+PRODUCT_ID\s*=\s*(\d+)\s*;', text)
+        if not product_id:
+            raise ValueError("GraniteShares page is missing PRODUCT_ID")
+        return prefix + product_id.group(1) + query
+    return prefix + query
+
+
+def _graniteshares_rows(payload: bytes, *, history_days: int) -> list[dict[str, Any]]:
+    """Parse the official NAV history JSON returned by the GraniteShares endpoint."""
+    data = json.loads(payload.decode("utf-8", errors="replace"))
+    if not isinstance(data, list):
+        raise ValueError("GraniteShares NAV history response is not a list")
+    rows: dict[date, dict[str, Any]] = {}
+    for item in data:
+        if not isinstance(item, dict):
+            continue
+        nav = _decimal(item.get("Price"))
+        raw_date = str(item.get("PriceDate") or "").strip()
+        if nav is None or not raw_date:
+            continue
+        try:
+            valuation_date = datetime.strptime(raw_date[:10], "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        rows[valuation_date] = {
+            "valuation_date": valuation_date, "nav": nav,
+            "net_assets": _decimal(item.get("AUM")),
+        }
+    ordered = [rows[key] for key in sorted(rows)]
+    return ordered[-max(1, history_days):]
 
 
 def _decimal(text: Any) -> Decimal | None:
@@ -135,6 +181,12 @@ def _ensure_sources(session) -> None:
          "organization": "Capital Group / American Funds",
          "source_name": "Capital Group official fund product pages",
          "endpoint_url": CAPITAL_GROUP_URL.format(ticker="agthx"),
+         "verification_status": "Usable Fund Data Confirmed",
+         "integration_status": "Integrated", "license_status": "Unknown"},
+        {"source_id": GRANITESHARES_SOURCE, "country_code": "US",
+         "organization": "GraniteShares",
+         "source_name": "GraniteShares official ETF NAV history API",
+         "endpoint_url": GRANITESHARES_URL.format(ticker_lower="aapb"),
          "verification_status": "Usable Fund Data Confirmed",
          "integration_status": "Integrated", "license_status": "Unknown"},
     ]
@@ -288,10 +340,10 @@ def _read_ssga_workbook(payload: bytes, *, ticker: str, history_days: int) -> li
 def _store_navs(source_id: str, ticker: str, source_url: str,
                 rows: Iterable[dict[str, Any]]) -> int:
     prepared = [{
-        "fund_id": fund_id, "valuation_date": row["valuation_date"], "nav": row["nav"],
+        "fund_id": row["fund_id"], "valuation_date": row["valuation_date"], "nav": row["nav"],
         "currency": "USD", "source_id": source_id, "source_url": source_url,
         "ohlc_basis": "single_daily_nav",
-    } for fund_id, row in rows]
+    } for row in rows]
     if not prepared:
         return 0
     with SessionLocal() as session:
@@ -378,7 +430,7 @@ def sync_vanguard_navs(*, only_missing: bool = True, limit: int | None = None,
 
 
 def sync_ssga_navs(*, only_missing: bool = True, limit: int | None = None,
-                   history_days: int = 30, delay_seconds: float = 0.35) -> dict[str, Any]:
+                   history_days: int = 3650, delay_seconds: float = 0.35) -> dict[str, Any]:
     funds = [fund for fund in _candidate_funds(
         SSGA_SOURCE, only_missing=only_missing,
         providers=("%SPDR%", "%State Street%"))
@@ -440,10 +492,50 @@ def sync_capital_group_navs(*, only_missing: bool = True, limit: int | None = No
     return result
 
 
+def sync_graniteshares_navs(*, only_missing: bool = True, limit: int | None = None,
+                            history_days: int = 3650, delay_seconds: float = 0.35) -> dict[str, Any]:
+    """Read official GraniteShares NAV history from the issuer's signed endpoint.
+
+    The product page embeds a signed NAV-history URL; the endpoint returns the
+    full daily series as JSON, so only the most recent ``history_days`` rows are
+    stored.
+    """
+    funds = [fund for fund in _candidate_funds(
+        GRANITESHARES_SOURCE, only_missing=only_missing,
+        providers=("%GraniteShares%",))
+        if (fund.ticker or "").strip()]
+    if limit is not None:
+        funds = funds[:limit]
+    result = {"source_id": GRANITESHARES_SOURCE, "funds_requested": len(funds),
+              "funds_with_nav": 0, "nav_rows": 0, "errors": []}
+    with SessionLocal() as session:
+        _ensure_sources(session)
+        session.commit()
+    for fund in funds:
+        ticker = (fund.ticker or "").strip().upper()
+        url = GRANITESHARES_URL.format(ticker_lower=ticker.lower())
+        try:
+            page, _ = _request(url)
+            history_url = _graniteshares_history_url(page, ticker=ticker)
+            payload, final_url = _request(history_url)
+            rows = _graniteshares_rows(payload, history_days=history_days)
+            if not rows:
+                raise ValueError("NAV history endpoint returned no dated rows")
+            result["nav_rows"] += _store_navs(
+                GRANITESHARES_SOURCE, ticker, final_url,
+                [{"fund_id": fund.id, **row} for row in rows])
+            result["funds_with_nav"] += 1
+        except (urllib.error.URLError, TimeoutError, OSError, ValueError, KeyError) as error:
+            result["errors"].append({"ticker": ticker, "error": f"{type(error).__name__}: {error}"})
+        _throttle(delay_seconds)
+    return result
+
+
 ADAPTERS = {
     "vanguard": sync_vanguard_navs,
     "ssga": sync_ssga_navs,
     "capital_group": sync_capital_group_navs,
+    "graniteshares": sync_graniteshares_navs,
 }
 
 

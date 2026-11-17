@@ -81,7 +81,7 @@ def run_audit() -> dict[str, Any]:
                     MAX(n.valuation_date)::text AS latest_nav_date
                 FROM funds f
                 JOIN nav_observations n ON n.fund_id = f.id
-                WHERE f.domicile_country = 'US'
+                WHERE f.domicile_country = 'US' AND n.nav > 0
             """)
             nav_stats = dict(zip([d[0] for d in cur.description], cur.fetchone()))
 
@@ -90,7 +90,7 @@ def run_audit() -> dict[str, Any]:
                 SELECT COALESCE(n.source_id, 'unattributed') AS source_id, COUNT(DISTINCT f.id) AS funds, COUNT(n.id) AS observations
                 FROM funds f
                 JOIN nav_observations n ON n.fund_id = f.id
-                WHERE f.domicile_country = 'US'
+                WHERE f.domicile_country = 'US' AND n.nav > 0
                 GROUP BY n.source_id
                 ORDER BY funds DESC
             """)
@@ -141,7 +141,7 @@ def run_audit() -> dict[str, Any]:
             # 5. Overlap stats (both NAV and Holdings, neither, etc.)
             cur.execute("""
                 WITH fund_nav AS (
-                    SELECT DISTINCT fund_id FROM nav_observations
+                    SELECT DISTINCT fund_id FROM nav_observations WHERE nav > 0
                 ),
                 fund_hld AS (
                     SELECT DISTINCT fund_id FROM portfolio_holdings
@@ -184,8 +184,8 @@ def run_audit() -> dict[str, Any]:
                 FROM funds f
                 LEFT JOIN LATERAL (
                     SELECT COUNT(*)::int AS nav_count, MAX(valuation_date) AS latest_nav_date,
-                           (SELECT source_id FROM nav_observations x WHERE x.fund_id = f.id ORDER BY valuation_date DESC, id DESC LIMIT 1) AS nav_source
-                    FROM nav_observations WHERE fund_id = f.id
+                           (SELECT source_id FROM nav_observations x WHERE x.fund_id = f.id AND x.nav > 0 ORDER BY valuation_date DESC, id DESC LIMIT 1) AS nav_source
+                    FROM nav_observations WHERE fund_id = f.id AND nav > 0
                 ) n ON true
                 LEFT JOIN LATERAL (
                     SELECT COUNT(*)::int AS holding_count, MAX(reporting_date) AS latest_holding_date,

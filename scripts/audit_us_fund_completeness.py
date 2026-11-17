@@ -127,7 +127,7 @@ def build_report() -> tuple[list[dict], dict]:
             SELECT count(*) AS nav_rows, count(source_id) AS nav_source_rows,
                    count(source_url) AS nav_url_rows, min(valuation_date) AS first_nav_date,
                    max(valuation_date) AS latest_nav_date
-            FROM nav_observations WHERE fund_id=f.id
+            FROM nav_observations WHERE fund_id=f.id AND nav > 0
         ) nav ON true
         LEFT JOIN LATERAL (
             SELECT count(*) AS holding_rows, min(reporting_date) AS first_holding_date,
@@ -162,7 +162,7 @@ def build_report() -> tuple[list[dict], dict]:
         nav_source_counts = dict(connection.execute(text("""
             SELECT COALESCE(n.source_id,'unattributed') AS source_id,count(*)::int AS observations
             FROM nav_observations n JOIN funds f ON f.id=n.fund_id
-            WHERE f.domicile_country='US'
+            WHERE f.domicile_country='US' AND n.nav > 0
             GROUP BY n.source_id ORDER BY n.source_id NULLS FIRST
         """)).all())
         us_source_count = connection.execute(text(

@@ -75,12 +75,16 @@ def _decimal(value: Any) -> Decimal | None:
 # 1. SEC Form N-PORT Bulk Net Assets & Accounting Metrics
 # ==============================================================================
 
-def enrich_net_assets_from_nport_bulk(*, quarter: str = "2026q3", dry_run: bool = False) -> dict[str, Any]:
+def enrich_net_assets_from_nport_bulk(*, quarter: str | None = None, dry_run: bool = False) -> dict[str, Any]:
     """Enrich funds.net_assets and funds.net_assets_date from SEC N-PORT bulk filing records.
 
     Matches by sec_series_id and selects the newest filing date per series.
     Also creates aum_history snapshots in fund_profile_snapshots for full accounting auditability.
+    Defaults to the newest safely published quarterly data set.
     """
+    if not quarter:
+        from app.holdings.sec_nport_bulk import latest_quarter
+        quarter = latest_quarter()
     quarter_dir = NPORT_BULK_DIR / quarter
     sub_path = quarter_dir / "SUBMISSION.tsv"
     info_path = quarter_dir / "FUND_REPORTED_INFO.tsv"
@@ -408,12 +412,19 @@ def enrich_from_vanguard_directory(*, dry_run: bool = False) -> dict[str, Any]:
 # 5. Official Issuer NAV Observations
 # ==============================================================================
 
-def enrich_official_issuer_navs(*, only_missing: bool = False, limit_per_issuer: int | None = 25) -> dict[str, Any]:
+def enrich_official_issuer_navs(*, only_missing: bool = False, limit_per_issuer: int | None = None) -> dict[str, Any]:
     """Sync dated daily NAV observations directly from fund family issuer pages.
 
-    Supported: Vanguard official product pages, Capital Group American Funds, SSGA SPDR.
+    Supported: Vanguard official product pages, Capital Group American Funds, SSGA SPDR,
+    GraniteShares ETF NAV history API. By default every matched fund is refreshed so a
+    scheduled run always stores the newest NAV available from each issuer.
     """
-    from app.holdings.us_issuer_nav import sync_capital_group_navs, sync_vanguard_navs
+    from app.holdings.us_issuer_nav import (
+        sync_capital_group_navs,
+        sync_graniteshares_navs,
+        sync_ssga_navs,
+        sync_vanguard_navs,
+    )
 
     LOGGER.info("Syncing official Vanguard product NAVs...")
     vanguard_res = sync_vanguard_navs(only_missing=only_missing, limit=limit_per_issuer, delay_seconds=0.25)
@@ -421,10 +432,18 @@ def enrich_official_issuer_navs(*, only_missing: bool = False, limit_per_issuer:
     LOGGER.info("Syncing official Capital Group product NAVs...")
     capital_res = sync_capital_group_navs(only_missing=only_missing, limit=limit_per_issuer, delay_seconds=0.25)
 
+    LOGGER.info("Syncing official SSGA SPDR NAV workbooks...")
+    ssga_res = sync_ssga_navs(only_missing=only_missing, limit=limit_per_issuer, delay_seconds=0.25)
+
+    LOGGER.info("Syncing official GraniteShares NAV history...")
+    granite_res = sync_graniteshares_navs(only_missing=only_missing, limit=limit_per_issuer, delay_seconds=0.25)
+
     return {
         "status": "success",
         "vanguard": vanguard_res,
         "capital_group": capital_res,
+        "ssga": ssga_res,
+        "graniteshares": granite_res,
     }
 
 
@@ -456,7 +475,7 @@ def run_us_fund_enrichment(*, dry_run: bool = False, run_audit_after: bool = Tru
     # 5. Official Issuer NAVs
     if not dry_run:
         LOGGER.info("Step 5/5: Enriching official issuer NAV observations...")
-        results["issuer_navs"] = enrich_official_issuer_navs(only_missing=False, limit_per_issuer=25)
+        results["issuer_navs"] = enrich_official_issuer_navs(only_missing=False)
     else:
         results["issuer_navs"] = {"skipped": "dry_run"}
 

@@ -12,9 +12,14 @@ import argparse
 import hashlib
 import json
 import re
+import sys
 from collections import defaultdict
 from datetime import date
 from typing import Any
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 from sqlalchemy import func, select
 from sqlalchemy.dialects.postgresql import insert
