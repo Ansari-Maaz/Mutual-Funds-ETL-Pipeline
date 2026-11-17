@@ -72,8 +72,19 @@ class AsisaConnector(BaseConnector):
                 self._rejects.append({"row": row_number, "reason": "missing or duplicate fund code/name", "code": code})
                 continue
             seen.add(code)
+            def clean(value: Any) -> str | None:
+                text = str(value).strip() if value is not None else ""
+                return text if text and text.upper() not in {"N/A", "NA", "-"} else None
+
+            is_etf = (clean(row[8]) or "").lower() == "yes"
             records.append({"source_fund_id": code, "name": name,
-                "domicile_country": "ZA", "currency": None, "isin": None, "_navs": []})
+                "domicile_country": "ZA", "currency": None, "isin": None,
+                "category": clean(row[3]),  # ASISA sector, e.g. "South African - Equity - General"
+                "fund_type": "ETF" if is_etf else ("Fund of funds" if (clean(row[5]) or "").lower() == "yes"
+                                                   else "Collective investment scheme portfolio"),
+                "target_audience": clean(row[4]),  # Retail / Institutional
+                "manager": clean(row[7]),  # third-party (white-label) manager when the fund is outsourced
+                "_navs": []})
         workbook.close()
         self._records = records
         (REPORTS / "asisa_rejected_records.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in self._rejects))
