@@ -25,10 +25,24 @@ REPORTS = ROOT / "reports"
 API = "https://api.twelvedata.com"
 
 
+def _safe_error(error: Exception) -> str:
+    message = str(error)
+    for secret_name in ("TWELVE_DATA_API_KEY", "TD_KEY"):
+        secret = os.getenv(secret_name)
+        if secret:
+            message = message.replace(secret, "[REDACTED]")
+    return f"{type(error).__name__}: {message}"
+
+
 def compare_field(path: str, expected: Any, actual: Any) -> dict[str, Any]:
     """Report value and JSON type equality without coercing away mismatches."""
     expected_type = type(expected).__name__ if expected is not None else "null"
     actual_type = type(actual).__name__ if actual is not None else "null"
+    if expected == "request_access_via_add_ons":
+        return {"field": path, "status": "unavailable_to_subscription",
+                "twelve_data_type": expected_type, "fundflow_type": actual_type,
+                "twelve_data": expected, "fundflow": actual,
+                "note": "Twelve Data returned an add-on access sentinel, not an identifier value."}
     matches = expected_type == actual_type and expected == actual
     result = {"field": path, "status": "match" if matches else "mismatch",
               "twelve_data_type": expected_type, "fundflow_type": actual_type,
@@ -54,6 +68,13 @@ def compare_numeric(path: str, expected: Any, actual: Any) -> dict[str, Any]:
     result = compare_field(path, expected, actual)
     left, right = _decimal(expected), _decimal(actual)
     result["numeric_value_match"] = left is not None and right is not None and left == right
+    if left is not None and right is not None:
+        result["difference"] = str(left - right)
+        result["absolute_difference"] = str(abs(left - right))
+        result["difference_rounded_to_cents"] = str((left - right).quantize(Decimal("0.01")))
+        result["rounded_to_cent_match"] = left.quantize(Decimal("0.01")) == right.quantize(Decimal("0.01"))
+        if left == right:
+            result["status"] = "match"
     return result
 
 
@@ -84,7 +105,8 @@ def _single_fund(ticker: str) -> tuple[dict, list[dict]]:
 
 def _call(client: httpx.Client, endpoint: str, params: dict[str, str]) -> dict:
     response = client.get(f"{API}/{endpoint}", params=params)
-    response.raise_for_status()
+    if response.is_error:
+        raise RuntimeError(f"Twelve Data returned HTTP {response.status_code} for {endpoint}")
     payload = response.json()
     if payload.get("status") == "error" or payload.get("code"):
         raise RuntimeError(f"Twelve Data {endpoint} error: {payload.get('message') or payload.get('code')}")
@@ -132,7 +154,7 @@ def run_comparison(ticker: str, valuation_date: date, *, include_full_data: bool
                     report["comparisons"].append(compare_field(
                         f"directory.{field}", match.get(field), local.get(ff_field) if ff_field else None))
         except Exception as error:
-            report["endpoint_errors"].append({"endpoint": "funds", "error": f"{type(error).__name__}: {error}"})
+            report["endpoint_errors"].append({"endpoint": "funds", "error": _safe_error(error)})
         try:
             series = _call(client, "time_series", {**params, "interval": "1day",
                 "date": valuation_date.isoformat(), "outputsize": "1"})
@@ -157,7 +179,7 @@ def run_comparison(ticker: str, valuation_date: date, *, include_full_data: bool
                     # OHLC bars. Do not manufacture three prices from one NAV.
                     report["comparisons"].append(compare_field(f"time_series.values.{field}", observed.get(field), None))
         except Exception as error:
-            report["endpoint_errors"].append({"endpoint": "time_series", "error": f"{type(error).__name__}: {error}"})
+            report["endpoint_errors"].append({"endpoint": "time_series", "error": _safe_error(error)})
         if include_full_data:
             try:
                 full = _call(client, "mutual_funds/world", params)
@@ -165,7 +187,7 @@ def run_comparison(ticker: str, valuation_date: date, *, include_full_data: bool
                 report["fundflow_profile_datasets"] = sorted(local["profile_data"])
                 report["full_data_note"] = "Full Twelve Data payload was not copied into FundFlow. Compare only authorized fields against official-source snapshots; vendor data remain separate."
             except Exception as error:
-                report["endpoint_errors"].append({"endpoint": "mutual_funds/world", "error": f"{type(error).__name__}: {error}"})
+                report["endpoint_errors"].append({"endpoint": "mutual_funds/world", "error": _safe_error(error)})
     return report
 
 
