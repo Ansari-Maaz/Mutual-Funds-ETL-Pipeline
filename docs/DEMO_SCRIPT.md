@@ -8,4 +8,4 @@
 6. `python -m app.cli run --all` runs available connectors, reports missing local source files as `Skipped`, and writes `reports/latest_run.json` plus the Markdown report when a connector succeeds. Coverage depends on the data snapshot; see the README coverage table.
 7. Review `reports/sample_funds.json`, `reports/sample_nav.json`, source-specific manifests and rejected-row logs under `reports/`.
 
-The source inventory now includes official open-ended fund lists for Germany, Italy, the Netherlands, Denmark and Luxembourg, and the Hong Kong SFC public-offer list. Seven core countries still lack an imported dataset: Canada, Mexico, Japan, South Korea, Singapore, Taiwan and Russia.
+The source inventory includes the official Japan NISA growth and tsumitate fund lists, IMAJ monthly new-fund records, and the South Korean IBK public fund-information CSV, alongside the European fund lists and Hong Kong SFC public-offer list. Japan's lists are tax-quota subsets. IBK records describe funds it handles and do not assert Korean domicile. Canada, Mexico, Singapore, Taiwan and Russia still lack imported country-level datasets.

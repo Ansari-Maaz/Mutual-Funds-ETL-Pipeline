@@ -38,9 +38,13 @@ Checks database connectivity. A successful connection does not imply that tables
 
 ### `GET /api/v1/stats`
 
-Returns current database counts for funds, NAV observations, configured countries, registered/integrated sources, and latest ETL run.
+Returns current database counts for funds, NAV observations, configured countries, registered/integrated sources, and latest ETL run. Includes `usFunds`, `usFundsWithNav` and `usFundsWithHoldings` for the U.S. universe.
 
 ## Catalog
+
+### `GET /api/v1/coverage/us`
+
+Returns U.S. coverage counts (`total`, `with_nav`, `with_holdings`, `with_both`, `with_neither`), field completeness (`fields`), the largest NAV and holdings gaps grouped by provider (`navGaps`, `holdingGaps`), and the official U.S. source registry (`officialSources`).
 
 ### `GET /api/v1/countries`
 
@@ -64,6 +68,20 @@ curl -X POST http://localhost:3001/api/v1/sources/sec_open_end_fund_classes/chec
 ```
 
 ## Funds and observations
+
+### Twelve Data-style mutual-fund endpoints
+
+FundFlow exposes a mutual-fund-specific compatibility surface at `/api/v1/mutual_funds`. It uses the route and query naming of Twelve Data's mutual-funds API but returns FundFlow's independently sourced records. It does not proxy Twelve Data or claim parity with its proprietary datasets. See [the full gap assessment](TWELVE_DATA_MUTUAL_FUNDS_GAP_ASSESSMENT.md).
+
+| FundFlow endpoint | Purpose |
+| --- | --- |
+| `GET /api/v1/mutual_funds/list` | Search the local fund directory with `symbol`, `isin`, `cusip`, `cik`, `country`, `fund_family`, `fund_type`, rating filters, `page`, `outputsize`, and JSON/CSV format. |
+| `GET /api/v1/mutual_funds/family` | Return source-reported providers grouped by country. |
+| `GET /api/v1/mutual_funds/type` | Return source-reported fund types grouped by country. |
+| `GET /api/v1/mutual_funds/world?symbol=...` | Return stored summary, performance, risk, ratings, composition, purchase-info, and sustainability snapshots, with a `partial` status and missing section list when incomplete. |
+| `GET /api/v1/mutual_funds/world/{summary,performance,risk,ratings,composition,purchase_info,sustainability}?symbol=...` | Return one stored section with FundFlow source ID, source URL, report date, and retrieval time. Use `isin` or `cusip` to resolve an ambiguous share-class ticker. |
+
+The list and family/type routes report FundFlow's own universe and taxonomy. Profile endpoints return HTTP 404 with `data_unavailable` when the selected official-source dataset is not stored. This is intentional: an unavailable field is not returned as a fabricated value. The existing `/api/v1/funds/{id}/nav` and `/holdings` routes remain the canonical source-attributed history endpoints.
 
 ### `GET /api/v1/funds`
 
@@ -96,9 +114,31 @@ Fund result fields include `id`, `sourceId`, `sourceFundId`, `name`, `legalName`
 
 ### `GET /api/v1/funds/{fund_id}`
 
-Returns one fund profile and its latest stored NAV. Metadata comes from the linked source; `currency` may use a country-level ISO 4217 domicile default when the source does not publish share-class currency, and `currencyBasis` identifies that fallback.
+Returns one fund profile, latest stored observation, and a Twelve Data-compatible market-data object with keys `symbol`, `instrument_type`, `exchange`, `mic_code`, `currency`, `exchange_timezone`, `interval`, and `market_data` (`date`, `open`, `high`, `low`, `close`). The `market_data` array is daily and reflects FundFlow's latest stored observation. `market_data_sources` provides field provenance; unavailable official metadata stays `null`. OHLC values are the source's reported daily bars when available. For open-end funds with a single daily NAV, the basis is explicitly `single_daily_nav` in `latestNav`.
 
-Success shape: `{ "data": { ...fundFields, "latestNav": null } }`. A nonexistent ID returns HTTP 404 with `FUND_NOT_FOUND`; a non-integer ID returns HTTP 400 with `INVALID_ID`.
+Success shape (SWPPX):
+
+```json
+{
+  "status": "success",
+  "data": {
+    "symbol": "SWPPX",
+    "instrument_type": "Mutual Fund",
+    "exchange": "Nasdaq Fund Network",
+    "mic_code": null,
+    "currency": "USD",
+    "exchange_timezone": null,
+    "interval": "1day",
+    "market_data": [{ "date": "2026-11-05", "open": 19.01, "high": 19.01, "low": 19.01, "close": 19.01 }],
+    "market_data_sources": {
+      "exchange": { "source_id": "us_nasdaq_mutual_fund_navs", "source_url": "https://api.nasdaq.com/api/quote/SWPPX/info?assetclass=mutualfunds" },
+      "market_data": { "source_id": "us_nasdaq_mutual_fund_navs", "basis": "source_reported_ohlc" }
+    }
+  }
+}
+```
+
+Metadata comes from linked sources; `currency` may use a country-level ISO 4217 domicile default when the source does not publish share-class currency, and `currencyBasis` identifies that fallback. A nonexistent ID returns HTTP 404 with `FUND_NOT_FOUND`; a non-integer ID returns HTTP 400 with `INVALID_ID`.
 
 ### `GET /api/v1/funds/{fund_id}/nav`
 
