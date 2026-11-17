@@ -130,3 +130,19 @@ class EtlRun(Base):
     records_loaded: Mapped[int] = mapped_column(default=0)
     records_rejected: Mapped[int] = mapped_column(default=0, server_default="0")
     error: Mapped[str | None] = mapped_column(Text)
+
+
+class FundIdentifier(Base):
+    """External identifiers for a fund: share-class ISINs, LEIs, CUSIPs and national codes."""
+    __tablename__ = "fund_identifiers"
+    __table_args__ = (UniqueConstraint("fund_id", "id_type", "value", "source_id", name="uq_fund_identifier"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    fund_id: Mapped[int] = mapped_column(ForeignKey("funds.id", ondelete="CASCADE"), index=True)
+    id_type: Mapped[str] = mapped_column(String(20))
+    value: Mapped[str] = mapped_column(String(64))
+    source_id: Mapped[str] = mapped_column(String(100))
+    share_class: Mapped[str | None] = mapped_column(String(300))
+    currency: Mapped[str | None] = mapped_column(String(3))
+    attributes: Mapped[dict | None] = mapped_column(JSONB)
+    source_url: Mapped[str | None] = mapped_column(Text)
+    retrieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
