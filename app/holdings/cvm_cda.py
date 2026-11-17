@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import io
 import re
+import urllib.error
 import urllib.request
 import zipfile
 from datetime import date, datetime, timezone
@@ -49,13 +50,38 @@ def _number(value: str | None) -> Decimal | None:
         return None
 
 
-def _download(month: str) -> tuple[Path, str]:
+# CVM renamed the CDA archives in Nov 2025 (cda_fie_* for the new fund/class structure, cda_fiim_* for
+# index funds/FIDC/FIAGRO); the legacy cda_fi_* name is kept for older months.
+ARCHIVE_PREFIXES = ("cda_fi", "cda_fie", "cda_fiim")
+
+
+class CvmAccessBlocked(RuntimeError):
+    """CVM refused the automated request (HTTP 403); a manual download is required."""
+
+
+def _download(month: str, archives: list[Path] | None = None) -> list[tuple[Path, str]]:
+    """Return the CDA archives for a month as (local path, source url).
+
+    Explicit ``archives`` (manually downloaded files) win; otherwise any archive already in data/raw/brazil is
+    reused; otherwise each known file name is requested. A 404 simply means that name does not exist for the
+    month; a 403 is reported as CvmAccessBlocked with manual-download instructions (never bypassed).
+    """
     if not re.fullmatch(r"\d{6}", month):
         raise ValueError("CVM CDA month must use YYYYMM format")
-    destination = RAW / f"cda_fi_{month}.zip"
-    url = f"{BASE_URL}/cda_fi_{month}.zip"
-    if not destination.exists():
-        RAW.mkdir(parents=True, exist_ok=True)
+    if archives:
+        missing = [str(path) for path in archives if not Path(path).is_file()]
+        if missing:
+            raise FileNotFoundError(f"CDA archive not found: {', '.join(missing)}")
+        return [(Path(path), f"{BASE_URL}/{Path(path).name}") for path in archives]
+    found: list[tuple[Path, str]] = []
+    blocked: list[str] = []
+    RAW.mkdir(parents=True, exist_ok=True)
+    for prefix in ARCHIVE_PREFIXES:
+        name = f"{prefix}_{month}.zip"
+        destination, url = RAW / name, f"{BASE_URL}/{name}"
+        if destination.exists():
+            found.append((destination, url))
+            continue
         request = urllib.request.Request(url, headers={"User-Agent": user_agent(), "Accept": "*/*"})
         partial = destination.with_suffix(".zip.part")
         try:
@@ -65,14 +91,29 @@ def _download(month: str) -> tuple[Path, str]:
             if not zipfile.is_zipfile(partial):
                 raise ValueError(f"CVM response is not a ZIP archive: {url}")
             partial.replace(destination)
+            found.append((destination, url))
+        except urllib.error.HTTPError as error:
+            if error.code == 404:
+                continue
+            if error.code == 403:
+                blocked.append(url)
+                continue
+            raise
         finally:
             partial.unlink(missing_ok=True)
-    return destination, url
+    if not found:
+        if blocked:
+            raise CvmAccessBlocked(
+                f"CVM refused automated access (HTTP 403) for {blocked[0]}. Download the month's CDA zip file(s) "
+                f"in a browser from {DATASET_URL}, save them under {RAW}/ (or pass --archive PATH) and rerun.")
+        raise FileNotFoundError(f"No CVM CDA archive exists for {month} under any known name {ARCHIVE_PREFIXES}")
+    return found
 
 
-def sync_cvm_holdings(month: str) -> dict[str, int | str]:
+def sync_cvm_holdings(month: str, archives: list[Path] | None = None) -> dict[str, int | str]:
     """Import public CDA rows for one month; reruns update each report-date row."""
-    archive_path, source_url = _download(month)
+    sources = _download(month, archives)
+    source_url = sources[0][1]
     with SessionLocal() as session:
         funds = session.execute(select(Fund.id, Fund.source_fund_id).where(
             Fund.source_id == "cvm_open_fund_data", Fund.domicile_country == "BR")).all()
@@ -92,63 +133,64 @@ def sync_cvm_holdings(month: str) -> dict[str, int | str]:
     snapshots: dict[tuple[int, date], list[dict[str, Any]]] = {}
     pl_by_fund: dict[tuple[int, date], Decimal] = {}
     compatible_files = 0
-    with zipfile.ZipFile(archive_path) as archive:
-        csv_names = [name for name in archive.namelist()
-                     if name.lower().endswith(".csv") and "confid" not in name.lower()]
-        if not csv_names:
-            raise ValueError(f"CVM CDA archive has no public block CSV files: {archive_path}")
-        for csv_name in csv_names:
-            with archive.open(csv_name) as binary, io.TextIOWrapper(binary, encoding="latin-1", newline="") as stream:
-                reader = csv.DictReader(stream, delimiter=";")
-                fields = set(reader.fieldnames or [])
-                id_col = next((key for key in ("CNPJ_FUNDO_CLASSE", "CNPJ_FUNDO", "CNPJ_FDO") if key in fields), None)
-                date_col = next((key for key in ("DT_COMPTC", "DT_COMPT") if key in fields), None)
-                if not id_col or not date_col:
-                    continue
-                compatible_files += 1
-                for row in reader:
-                    cnpj = _digits(row.get(id_col))
-                    if cnpj not in fund_ids:
+    for archive_path, source_url in sources:
+        with zipfile.ZipFile(archive_path) as archive:
+            csv_names = [name for name in archive.namelist()
+                         if name.lower().endswith(".csv") and "confid" not in name.lower()]
+            if not csv_names:
+                raise ValueError(f"CVM CDA archive has no public block CSV files: {archive_path}")
+            for csv_name in csv_names:
+                with archive.open(csv_name) as binary, io.TextIOWrapper(binary, encoding="latin-1", newline="") as stream:
+                    reader = csv.DictReader(stream, delimiter=";")
+                    fields = set(reader.fieldnames or [])
+                    id_col = next((key for key in ("CNPJ_FUNDO_CLASSE", "CNPJ_FUNDO", "CNPJ_FDO") if key in fields), None)
+                    date_col = next((key for key in ("DT_COMPTC", "DT_COMPT") if key in fields), None)
+                    if not id_col or not date_col:
                         continue
-                    subclass_id = (row.get("ID_SUBCLASSE") or "").strip()
-                    if subclass_id:
-                        target_fund_ids = funds_by_subclass.get((cnpj, subclass_id), []) or base_funds.get(cnpj, [])
-                    else:
-                        # Class-level positions apply to a sole class record or explicitly registered base fund;
-                        # shared positions are fanned out across subclasses only when the source has no subclass key.
-                        target_fund_ids = base_funds.get(cnpj, []) or fund_ids[cnpj]
-                    raw_date = row.get(date_col, "")
-                    try:
-                        report_date = date.fromisoformat(raw_date[:10]) if "-" in raw_date else date(int(raw_date[6:10]), int(raw_date[3:5]), int(raw_date[:2]))
-                    except (ValueError, TypeError):
-                        continue
-                    value = _number(_first(row, "VL_MERC_POS_FINAL", "VL_MERC_POS", "VL_MERCADO", "VL_MERCADO_FINAL"))
-                    quantity = _number(_first(row, "QT_POS_FINAL", "QT_POSICAO_FINAL", "QT_ATIVO"))
-                    pl = _number(_first(row, "VL_PATRIM_LIQ", "VL_PL", "VL_PATRIMONIO_LIQUIDO"))
-                    if pl is not None and pl > 0:
+                    compatible_files += 1
+                    for row in reader:
+                        cnpj = _digits(row.get(id_col))
+                        if cnpj not in fund_ids:
+                            continue
+                        subclass_id = (row.get("ID_SUBCLASSE") or "").strip()
+                        if subclass_id:
+                            target_fund_ids = funds_by_subclass.get((cnpj, subclass_id), []) or base_funds.get(cnpj, [])
+                        else:
+                            # Class-level positions apply to a sole class record or explicitly registered base fund;
+                            # shared positions are fanned out across subclasses only when the source has no subclass key.
+                            target_fund_ids = base_funds.get(cnpj, []) or fund_ids[cnpj]
+                        raw_date = row.get(date_col, "")
+                        try:
+                            report_date = date.fromisoformat(raw_date[:10]) if "-" in raw_date else date(int(raw_date[6:10]), int(raw_date[3:5]), int(raw_date[:2]))
+                        except (ValueError, TypeError):
+                            continue
+                        value = _number(_first(row, "VL_MERC_POS_FINAL", "VL_MERC_POS", "VL_MERCADO", "VL_MERCADO_FINAL"))
+                        quantity = _number(_first(row, "QT_POS_FINAL", "QT_POSICAO_FINAL", "QT_ATIVO"))
+                        pl = _number(_first(row, "VL_PATRIM_LIQ", "VL_PL", "VL_PATRIMONIO_LIQUIDO"))
+                        if pl is not None and pl > 0:
+                            for target_fund_id in target_fund_ids:
+                                pl_by_fund[(target_fund_id, report_date)] = pl
+                        security_name = _first(row, "DS_ATIVO", "DS_TITULO", "NM_ATIVO", "NM_EMISSOR", "DENOM_SOCIAL", "DS_FUNDO")
+                        ticker = _first(row, "CD_TICKER", "TICKER", "CD_NEGOCIACAO")
+                        isin = _first(row, "CD_ISIN", "ISIN")
+                        if not security_name and not ticker and not isin:
+                            # Keep identifiable positions with no name; never invent one.
+                            security_name = None
+                        position = {
+                            "security_name": security_name[:500] if security_name else None,
+                            "ticker": ticker[:50] if ticker else None,
+                            "isin": isin[:12] if isin else None,
+                            "cusip": None,
+                            "quantity": quantity,
+                            "market_value": value,
+                            "market_value_currency": "BRL" if value is not None else None,
+                            "portfolio_weight": None,
+                            "source_url": source_url,
+                            "data_source": "cvm_open_data_cda",
+                            "accession_number": None,
+                        }
                         for target_fund_id in target_fund_ids:
-                            pl_by_fund[(target_fund_id, report_date)] = pl
-                    security_name = _first(row, "DS_ATIVO", "DS_TITULO", "NM_ATIVO", "NM_EMISSOR", "DENOM_SOCIAL", "DS_FUNDO")
-                    ticker = _first(row, "CD_TICKER", "TICKER", "CD_NEGOCIACAO")
-                    isin = _first(row, "CD_ISIN", "ISIN")
-                    if not security_name and not ticker and not isin:
-                        # Keep identifiable positions with no name; never invent one.
-                        security_name = None
-                    position = {
-                        "security_name": security_name[:500] if security_name else None,
-                        "ticker": ticker[:50] if ticker else None,
-                        "isin": isin[:12] if isin else None,
-                        "cusip": None,
-                        "quantity": quantity,
-                        "market_value": value,
-                        "market_value_currency": "BRL" if value is not None else None,
-                        "portfolio_weight": None,
-                        "source_url": source_url,
-                        "data_source": "cvm_open_data_cda",
-                        "accession_number": None,
-                    }
-                    for target_fund_id in target_fund_ids:
-                        snapshots.setdefault((target_fund_id, report_date), []).append(position)
+                            snapshots.setdefault((target_fund_id, report_date), []).append(position)
 
     if compatible_files == 0:
         raise ValueError("CVM CDA archive contains CSV files, but none have recognized CNPJ and reporting-date columns; no fund status was changed")
@@ -157,8 +199,11 @@ def sync_cvm_holdings(month: str) -> dict[str, int | str]:
     rows_loaded = 0
     now = datetime.now(timezone.utc)
     with SessionLocal() as session:
+        # Do not wipe funds that already have holdings from another month/archive: only funds that have never
+        # been marked available are flagged unavailable when this import finds nothing for them.
         session.execute(update(Fund).where(
-            Fund.source_id == "cvm_open_fund_data", Fund.domicile_country == "BR").values(
+            Fund.source_id == "cvm_open_fund_data", Fund.domicile_country == "BR",
+            Fund.holdings_status != "available").values(
                 holdings_status="unavailable", holdings_report_date=None))
         for (fund_id, report_date), positions in snapshots.items():
             # Stable order within a source-file/report snapshot prevents duplicate rows on rerun.

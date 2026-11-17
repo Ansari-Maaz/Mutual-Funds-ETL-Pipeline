@@ -349,7 +349,7 @@ def main() -> None:
     snapshot=sub.add_parser("fetch-snapshot", help="Fetch one reproducible file-based source export")
     snapshot.add_argument("--source", required=True, choices=["it_borsa_navs","fr_lacotebleue_navs","nl_euronext_fund_navs","lu_euronext_fund_navs","lu_allianz_daily_navs"])
     snapshot.add_argument("--url", required=True, help="Direct CSV export URL published by the source")
-    cvm_holdings=sub.add_parser("sync-cvm-holdings"); cvm_holdings.add_argument("--month", required=True, help="CVM CDA reporting month in YYYYMM format")
+    cvm_holdings=sub.add_parser("sync-cvm-holdings"); cvm_holdings.add_argument("--month", required=True, help="CVM CDA reporting month in YYYYMM format"); cvm_holdings.add_argument("--archive", action="append", default=None, help="Manually downloaded CDA zip (repeatable); use when CVM blocks automated downloads")
     enrich_us=sub.add_parser("enrich-us-funds", help="Enrich US mutual fund net assets, tickers, ISINs, Vanguard profiles, and official issuer NAVs")
     enrich_us.add_argument("--all", action="store_true", help="Run all enrichment adapters sequentially")
     enrich_us.add_argument("--net-assets", action="store_true", help="Enrich net assets and net assets dates from SEC N-PORT bulk")
@@ -416,7 +416,7 @@ def main() -> None:
         print(json.dumps(sync_cached_sec_history(set(args.fund_id)),indent=2))
     elif args.cmd=="sync-cvm-holdings":
         from app.holdings.cvm_cda import sync_cvm_holdings
-        print(json.dumps(tracked_run("cvm-cda-holdings", lambda: sync_cvm_holdings(args.month)),indent=2))
+        print(json.dumps(tracked_run("cvm-cda-holdings", lambda: sync_cvm_holdings(args.month, [Path(a) for a in args.archive] if args.archive else None)),indent=2))
     elif args.cmd=="audit-us-coverage":
         from scripts.audit_complete_us_coverage import run_audit
         res = run_audit()

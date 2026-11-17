@@ -241,3 +241,67 @@ def test_vanguard_profile_parser_reads_dated_published_performance_and_risk():
     assert result["risk"]["three_year_standard_deviation"]["value"] == "12.4"
     assert result["dividend_yield"]["value"] == "1.05"
     assert result["provider_instrument_flags"] == {"isETF": False, "isMutualFund": True}
+
+
+def test_hong_kong_sfc_uses_last_bracket_as_ce_number_and_skips_umbrellas(tmp_path, monkeypatch):
+    from app.connectors import hk_sfc_funds
+
+    html = (
+        "<table><tr><td>nav</td></tr></table><table>"
+        "<tr><th>Product (CE No.)</th><th>Sub-fund (CE No.)</th><th>Issuer</th><th>Authorisation date</th><th>Documents</th><th>Derivative funds</th></tr>"
+        "<tr><td>AB FCP I (ADX424)</td><td></td><td>AB Lux</td><td>10/9/1997</td><td>Docs</td><td></td></tr>"
+        "<tr><td>AB FCP I (ADX424)</td><td>Income Portfolio (USD) (ADX434)</td><td>AB Lux</td><td>10/9/1997</td><td>Docs</td><td>No</td></tr>"
+        "<tr><td>AB FCP I (ADX424)</td><td>Growth Portfolio (Lux) (AUI725)</td><td>AB Lux</td><td>25/1/2010</td><td>Docs</td><td>Yes</td></tr>"
+        "<tr><td>Bosera HKD Money Market ETF (BTE097)#</td><td></td><td>Bosera</td><td>1/1/2020</td><td>Docs</td><td>No</td></tr>"
+        "</table>"
+    )
+    raw = tmp_path / "raw"
+    raw.mkdir()
+    (raw / "sfc_unit_trusts_mutual_funds.html").write_text(html, encoding="utf-8")
+    monkeypatch.setattr(hk_sfc_funds, "RAW", raw)
+    monkeypatch.setattr(hk_sfc_funds, "REPORTS", tmp_path)
+    monkeypatch.setattr(hk_sfc_funds, "download_hk_sfc_fund_list", lambda: {})
+
+    connector = hk_sfc_funds.HkSfcFundsConnector()
+    rows = {r["source_fund_id"]: r for r in connector.extract_funds()}
+
+    assert set(rows) == {"ADX434", "AUI725", "BTE097"}  # umbrella ADX424 skipped, '#' marker tolerated
+    assert rows["ADX434"]["name"] == "Income Portfolio (USD)"
+    assert rows["ADX434"]["legal_name"] == "AB FCP I"
+    assert rows["AUI725"]["fund_type"] == "Derivative fund"
+    assert rows["BTE097"]["name"] == "Bosera HKD Money Market ETF"
+    assert connector._rejects == []
+
+
+def test_cvm_cda_download_finds_renamed_archives_and_reports_403(tmp_path, monkeypatch):
+    import urllib.error
+    import pytest
+    from app.holdings import cvm_cda
+
+    monkeypatch.setattr(cvm_cda, "RAW", tmp_path)
+    # A manually downloaded archive under the new CVM name is picked up without any network call.
+    with zipfile.ZipFile(tmp_path / "cda_fie_202610.zip", "w") as archive:
+        archive.writestr("cda_fie_BLC_4_202610.csv", "CNPJ_FUNDO_CLASSE;DT_COMPTC\n")
+
+    def no_network(*args, **kwargs):
+        raise urllib.error.HTTPError("https://x", 404, "not found", {}, None)
+
+    monkeypatch.setattr(cvm_cda.urllib.request, "urlopen", no_network)
+    found = cvm_cda._download("202610")
+    assert [path.name for path, _ in found] == ["cda_fie_202610.zip"]
+
+    # Explicit archive paths win and must exist.
+    explicit = cvm_cda._download("202610", [tmp_path / "cda_fie_202610.zip"])
+    assert explicit[0][0].name == "cda_fie_202610.zip"
+    with pytest.raises(FileNotFoundError):
+        cvm_cda._download("202610", [tmp_path / "missing.zip"])
+
+    # A month with no local file and HTTP 403 from CVM raises an actionable error and never retries around it.
+    (tmp_path / "cda_fie_202610.zip").unlink()
+
+    def forbidden(*args, **kwargs):
+        raise urllib.error.HTTPError("https://x", 403, "forbidden", {}, None)
+
+    monkeypatch.setattr(cvm_cda.urllib.request, "urlopen", forbidden)
+    with pytest.raises(cvm_cda.CvmAccessBlocked, match="--archive"):
+        cvm_cda._download("202610")
