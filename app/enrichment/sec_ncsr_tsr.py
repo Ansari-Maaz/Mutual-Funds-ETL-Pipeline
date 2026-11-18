@@ -299,9 +299,12 @@ def parse_tsr_instance(payload: bytes, *, accession: str, filing_date: date | No
             sector = next((value for dimension, value in dimensions
                            if "IndustrySectorAxis" in dimension), None)
             if sector:
+                label = _sector_name(sector)
+                if not _sector_is_valid(label):
+                    continue
                 weight = _decimal(value)
                 record["sector_allocation"].append({
-                    "sector": _sector_name(sector),
+                    "sector": label,
                     "raw_sector": sector.split(":")[-1],
                     "pct_of_nav": value,
                     "weight_pct": str(weight * 100) if weight is not None else None,
@@ -381,13 +384,34 @@ def _dedupe_returns(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def _sector_name(value: str) -> str:
     name = value.split(":")[-1].replace("Member", "")
-    # XBRL industry members usually end in "Sector" ("InsuranceSector",
-    # "InformationTechnologySector"); the suffix is taxonomy noise, not part of
-    # the published sector label.
-    if name.endswith("Sector") and name != "Sector":
-        name = name[: -len("Sector")]
-    # Split CamelCase into words for a readable label.
-    return re.sub(r"(?<!^)(?=[A-Z])", " ", name).strip() or value
+    # XBRL industry members are packaged as "Sector<Name>Sector" or
+    # "<Name>Sector"; the wrapper words are taxonomy noise, not labels.
+    changed = True
+    while changed and name:
+        changed = False
+        for prefix in ("Sector", "Industry"):
+            if name.startswith(prefix) and len(name) > len(prefix):
+                name = name[len(prefix):]
+                changed = True
+        if name.endswith("Sector") and len(name) > len("Sector"):
+            name = name[: -len("Sector")]
+            changed = True
+    # Split CamelCase into words but keep acronyms ("REITs" stays "REITs").
+    name = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", name)
+    name = re.sub(r"^([A-Z]{2,})(?=[A-Z][a-z]{2})", r"\1 ", name)
+    return name.strip() or value
+
+
+def _sector_is_valid(name: str) -> bool:
+    """Reject benchmark rows and axis members that are not industry sectors."""
+    lowered = name.casefold()
+    if not name or len(name) > 60 or re.search(r"\d", name):
+        return False
+    if lowered in {"total", "other"} or lowered.startswith("bench"):
+        return False
+    if lowered.endswith("allocation") or "minus" in lowered:
+        return False
+    return True
 
 
 def _local_classes(ciks: set[str] | None, *, only_gaps: bool) -> dict[str, list[tuple[int, str]]]:

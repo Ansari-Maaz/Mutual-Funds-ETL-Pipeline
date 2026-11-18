@@ -46,6 +46,10 @@ python -m app.cli sync-sec-nport-bulk --refresh             # re-download the ar
   `asset_allocation` snapshot (`alloc` values as percentages of net assets). This is
   the official basis for the composition endpoint's asset allocation; derivatives
   are reported at notional and can exceed 100%.
+- Identifier columns are normalised: filed `N/A`/`NA`/`NONE` placeholders become
+  NULL, and an ISIN is stored only when it matches the 12-character pattern and
+  passes the Luhn check digit. A fund ISIN is still only copied to `funds.isin`
+  when a filing pairs it with the same CUSIP.
 - The import is idempotent per fund and report date: re-running a quarter replaces
   that fund's rows with the official filing values.
 - `--only-missing` restricts work to funds with no stored holdings. Replaying older

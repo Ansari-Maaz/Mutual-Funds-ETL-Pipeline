@@ -65,6 +65,7 @@ def build_instance() -> bytes:
         '<oef:AvgAnnlRtrPct contextRef="c5">0.1426</oef:AvgAnnlRtrPct>',
         '<oef:AvgAnnlRtrPct contextRef="idx">0.1800</oef:AvgAnnlRtrPct>',
         '<oef:PctOfNav contextRef="sec">0.106</oef:PctOfNav>',
+        '<oef:PctOfNav contextRef="idx">0.5000</oef:PctOfNav>',
         '<oef:ExpensesPaidAmt contextRef="c1">15</oef:ExpensesPaidAmt>',
     ]
     return (f'<xbrli:xbrl {NS}>' + "".join(contexts) + "".join(facts) + "</xbrli:xbrl>").encode()
@@ -110,6 +111,23 @@ def test_sector_weight_is_readable_and_absolute():
     assert len(sectors) == 1
     assert sectors[0]["sector"] == "Information Technology"
     assert sectors[0]["weight_pct"] == "10.600"
+
+
+def test_sector_labels_drop_taxonomy_wrappers_and_keep_acronyms():
+    from app.enrichment.sec_ncsr_tsr import _sector_name
+    assert _sector_name("oef:SectorInformationTechnologySectorMember") == "Information Technology"
+    assert _sector_name("oef:InsuranceSectorMember") == "Insurance"
+    assert _sector_name("oef:REITsHealthCareSectorMember") == "REITs Health Care"
+    assert _sector_name("oef:USEquitySectorMember") == "US Equity"
+    assert _sector_name("oef:BanksMember") == "Banks"
+
+
+def test_benchmark_and_filer_codes_are_not_accepted_as_sectors():
+    from app.enrichment.sec_ncsr_tsr import _sector_is_valid
+    assert _sector_is_valid("Health Care")
+    assert not _sector_is_valid("bench2024121689781_7949")
+    assert not _sector_is_valid("Total")
+    assert not _sector_is_valid("Information Technology FR81762 P102")
 
 
 def test_expense_examples_carry_period():

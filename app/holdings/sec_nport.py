@@ -28,6 +28,8 @@ from app.models.schema import Fund, FundProfileSnapshot, PortfolioHolding
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw" / "united_states"
 MASTER = RAW / "sec_series_classes.csv"
+# Filers write literal placeholders when a position has no identifier.
+_PLACEHOLDERS = {"N/A", "NA", "N.A.", "NONE", "-", "--"}
 FILINGS_CACHE = RAW / "nport_filings"
 SUBMISSIONS_URL = "https://data.sec.gov/submissions/CIK{cik}.json"
 MAX_FILING_AGE_DAYS = 450
@@ -90,10 +92,11 @@ def parse_nport_xml(payload: bytes, *, accession_number: str, source_url: str) -
         market_value = _decimal(fields.get("valUSD"))
         holdings.append({
             "holding_index": index,
-            "security_name": name[:500],
-            "ticker": ticker[:50] if ticker else None,
-            "isin": isin[:12] if isin else None,
-            "cusip": fields.get("cusip", "")[:12] or None,
+            "security_name": name[:500] if name.strip().upper() not in _PLACEHOLDERS else None,
+            "ticker": ticker[:50] if ticker and ticker.strip().upper() not in _PLACEHOLDERS else None,
+            "isin": isin[:12] if isin and isin.strip().upper() not in _PLACEHOLDERS else None,
+            "cusip": fields.get("cusip", "")[:12]
+            if fields.get("cusip", "").strip().upper() not in _PLACEHOLDERS else None,
             "quantity": _decimal(fields.get("balance")),
             "market_value": market_value,
             "market_value_currency": "USD" if market_value is not None else None,

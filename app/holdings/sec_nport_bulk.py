@@ -29,6 +29,7 @@ import csv
 import hashlib
 import json
 import os
+import re
 import shutil
 import urllib.request
 import zipfile
@@ -39,6 +40,8 @@ from pathlib import Path
 from typing import Any, Iterator
 
 import psycopg
+
+from app.schemas.canonical import isin_check_digit_ok
 
 from app.config import database_url, timeout_seconds, user_agent
 from app.db.session import SessionLocal
@@ -113,6 +116,30 @@ def _int(value: str | None) -> int | None:
         return int(value) if value is not None and value.strip() else None
     except ValueError:
         return None
+
+
+# Filers write literal "N/A" into identifier columns when a position has no
+# CUSIP/ISIN/ticker. Storing that string would look like an identifier to every
+# downstream consumer, so the placeholders are normalised to NULL.
+_PLACEHOLDER_IDENTIFIERS = {"N/A", "NA", "N.A.", "NONE", "-", "--"}
+ISIN_PATTERN = re.compile(r"^[A-Z]{2}[A-Z0-9]{9}[0-9]$")
+
+
+def _clean_text(value: str | None, *, limit: int | None = None) -> str | None:
+    """Return a trimmed value, mapping filed placeholders to NULL."""
+    text = (value or "").strip()
+    if not text or text.upper() in _PLACEHOLDER_IDENTIFIERS:
+        return None
+    return text[:limit] if limit else text
+
+
+def _clean_isin(value: str | None) -> str | None:
+    """Keep only a well-formed ISIN whose Luhn check digit validates."""
+    text = _clean_text(value)
+    if not text:
+        return None
+    text = text.upper()
+    return text if ISIN_PATTERN.match(text) and isin_check_digit_ok(text) else None
 
 
 def _parse_sec_date(value: str | None) -> date | None:
@@ -311,10 +338,11 @@ def _copy_holdings(
             copy.write_row((
                 accession,
                 _int(row.get("HOLDING_ID")),
-                (row.get("ISSUER_NAME") or row.get("ISSUER_TITLE") or "").strip() or None,
-                (row.get("ISSUER_CUSIP") or "").strip()[:12] or None,
+                _clean_text(row.get("ISSUER_NAME"), limit=500)
+                or _clean_text(row.get("ISSUER_TITLE"), limit=500),
+                _clean_text(row.get("ISSUER_CUSIP"), limit=12),
                 _decimal(row.get("BALANCE")),
-                (row.get("CURRENCY_CODE") or "").strip() or None,
+                _clean_text(row.get("CURRENCY_CODE"), limit=3),
                 _decimal(row.get("CURRENCY_VALUE")),
                 _decimal(row.get("PERCENTAGE")),
                 (row.get("ASSET_CAT") or "").strip().upper() or None,
@@ -330,15 +358,14 @@ def _copy_identifiers(cursor: psycopg.Cursor, quarter_dir: Path) -> int:
         "COPY stg_bulk_identifiers (holding_id, isin, ticker) FROM STDIN"
     ) as copy:
         for row in _rows(quarter_dir / "IDENTIFIERS.tsv"):
-            isin = (row.get("IDENTIFIER_ISIN") or "").strip() or None
-            ticker = (row.get("IDENTIFIER_TICKER") or "").strip() or None
+            isin = _clean_isin(row.get("IDENTIFIER_ISIN"))
+            ticker = _clean_text(row.get("IDENTIFIER_TICKER"), limit=50)
             if not isin and not ticker:
                 continue
             holding_id = _int(row.get("HOLDING_ID"))
             if holding_id is None:
                 continue
-            copy.write_row((holding_id, isin[:12] if isin else None,
-                            ticker[:50] if ticker else None))
+            copy.write_row((holding_id, isin, ticker.upper() if ticker else None))
             count += 1
     return count
 
