@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-16T18:38:36.283431+00:00",
+  "generated_at": "2026-11-17T19:11:35.425259+00:00",
   "results": [
     {
-      "source_id": "jp_imaj_new_funds",
+      "source_id": "amf_geco",
       "status": "Succeeded",
-      "records_extracted": 11,
-      "records_loaded": 11,
+      "records_extracted": 28375,
+      "records_loaded": 28375,
       "navs_loaded": 0,
       "rejected_records": 0
     }

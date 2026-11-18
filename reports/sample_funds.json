@@ -3197,7 +3197,7 @@
     "name": "Invesco Real Estate S&P US Select Sector UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE00BYM8JD58"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3237,7 +3237,7 @@
     "name": "WisdomTree Emerging Markets High Dividend UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE00BDF12W49"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3245,7 +3245,7 @@
     "name": "iShares S&P 500 Materials Sector UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE00B4MKCJ84"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3277,7 +3277,7 @@
     "name": "Julius Baer Global Income Opportunities",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE000EGBCRK4"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3317,7 +3317,7 @@
     "name": "Global X CleanTech UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE00BMH5YL08"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3365,7 +3365,7 @@
     "name": "Invesco Global Enhanced Equity UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE000TZ4SIN6"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3445,7 +3445,7 @@
     "name": "Cautious Fund",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE000MAOG9H4"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3525,7 +3525,7 @@
     "name": "iShares Smart City Infrastructure UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE00BKTLJC87"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3597,7 +3597,7 @@
     "name": "Invesco NASDAQ-100 Equal Weight UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE000L2SA8K5"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3613,7 +3613,7 @@
     "name": "iShares Core MSCI Japan IMI UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE00B4L5YX21"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3653,7 +3653,7 @@
     "name": "Franklin FTSE Emerging Markets UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE0004I037N4"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3701,7 +3701,7 @@
     "name": "BlackRock ICS US Dollar Liquidity Fund",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE00B2B3JL54"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3717,7 +3717,7 @@
     "name": "Global X Lithium & Battery Tech UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE00BLCHJN13"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3725,7 +3725,7 @@
     "name": "World Allocation 60/40 Fund",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE0007YKVHX5"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3733,7 +3733,7 @@
     "name": "Diversified Income Fund",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE00B1D7YK27"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -3941,7 +3941,7 @@
     "name": "Franklin MSCI China Paris Aligned Climate UCITS ETF",
     "domicile_country": "IE",
     "currency": "EUR",
-    "isin": null
+    "isin": "IE000EBPC0Z7"
   },
   {
     "source_id": "cbi_authorised_ucits",
@@ -12273,30 +12273,6 @@
   },
   {
     "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "AAN337",
-    "name": "abrdn SICAV I",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "AAQ512",
-    "name": "INVESCO Select Retirement Fund",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "AAQ612",
-    "name": "Ninety One Global Strategy Fund",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
     "source_fund_id": "AAQ903",
     "name": "JPMorgan ASEAN Fund",
     "domicile_country": null,
@@ -12321,8 +12297,8 @@
   },
   {
     "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "AAQ961",
-    "name": "JPMorgan Money Fund",
+    "source_fund_id": "AAQ959",
+    "name": "JPMorgan Japan (Yen) Fund",
     "domicile_country": null,
     "currency": null,
     "isin": null
@@ -12339,14 +12315,6 @@
     "source_id": "hk_sfc_authorised_unit_trusts",
     "source_fund_id": "AAR053",
     "name": "JPMorgan Thailand Fund",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "AAR239",
-    "name": "BlackRock Global Funds",
     "domicile_country": null,
     "currency": null,
     "isin": null
@@ -12393,48 +12361,8 @@
   },
   {
     "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "AAU032",
-    "name": "HSBC Global Investment Funds",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
     "source_fund_id": "AAU047",
     "name": "HSBC Managed Balanced Fund",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "AAV264",
-    "name": "Fidelity Funds",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "AAV714",
-    "name": "Invesco Funds",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "AAV969",
-    "name": "Barings International Umbrella Fund",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "AAW227",
-    "name": "HSBC Global Money Funds",
     "domicile_country": null,
     "currency": null,
     "isin": null
@@ -12483,14 +12411,6 @@
     "source_id": "hk_sfc_authorised_unit_trusts",
     "source_fund_id": "ABB169",
     "name": "JPMorgan Korea Fund",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "ABB794",
-    "name": "Barings Emerging Markets Umbrella Fund",
     "domicile_country": null,
     "currency": null,
     "isin": null
@@ -12953,14 +12873,6 @@
   },
   {
     "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "ABG535",
-    "name": "Manulife Global Fund",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
     "source_fund_id": "ABG536",
     "name": "Manulife Global Fund - Global Equity Fund",
     "domicile_country": null,
@@ -12995,14 +12907,6 @@
     "source_id": "hk_sfc_authorised_unit_trusts",
     "source_fund_id": "ABH244",
     "name": "Barings Korea Feeder Fund",
-    "domicile_country": null,
-    "currency": null,
-    "isin": null
-  },
-  {
-    "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "ABH670",
-    "name": "Principal Global Investors Funds",
     "domicile_country": null,
     "currency": null,
     "isin": null
@@ -13057,16 +12961,112 @@
   },
   {
     "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "ABQ461",
-    "name": "Barings Global Umbrella Fund",
+    "source_fund_id": "ABT232",
+    "name": "MFS Meridian Funds - Global High Yield Fund",
     "domicile_country": null,
     "currency": null,
     "isin": null
   },
   {
     "source_id": "hk_sfc_authorised_unit_trusts",
-    "source_fund_id": "ABT229",
-    "name": "MFS Meridian Funds",
+    "source_fund_id": "ABT569",
+    "name": "Emerging Markets Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ABV649",
+    "name": "Fidelity Funds - Emerging Markets Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ABY190",
+    "name": "Fidelity Funds - Pacific Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ACA511",
+    "name": "Euro Bond Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ACB310",
+    "name": "Global Strategic Equity Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ACB462",
+    "name": "Fidelity Funds - Latin America Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ACB940",
+    "name": "Value Partners Classic Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ACC022",
+    "name": "BNP Paribas Greater China Multi-Factor Advantage Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ACC028",
+    "name": "BNP Paribas Growth Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ACC546",
+    "name": "BNP Paribas Balanced Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ACG320",
+    "name": "Templeton Global Focus Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ACG321",
+    "name": "Templeton Global Climate Change Fund",
+    "domicile_country": null,
+    "currency": null,
+    "isin": null
+  },
+  {
+    "source_id": "hk_sfc_authorised_unit_trusts",
+    "source_fund_id": "ACG322",
+    "name": "Templeton Global Smaller Companies Fund",
     "domicile_country": null,
     "currency": null,
     "isin": null
@@ -17781,7 +17781,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EUROPEAN FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0011846440"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17789,7 +17789,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- UNITED KINGDOM FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0011847091"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17797,7 +17797,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- JAPAN SMALL & MIDCAP OPPORTUNITIES FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0171289068"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17805,7 +17805,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- US MID-CAP VALUE FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0006061336"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17813,7 +17813,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- GLOBAL GOVERNMENT BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0006061385"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17821,7 +17821,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- GLOBAL LONG-HORIZON EQUITY FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0011850046"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17829,7 +17829,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EMERGING EUROPE FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0011850392"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17837,7 +17837,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EMERGING MARKETS FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0047713382"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17845,7 +17845,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EURO BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0050372472"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17853,7 +17853,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- WORLD GOLD FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0171305526"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17861,7 +17861,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- WORLD MINING FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0172157280"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17869,7 +17869,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EURO-MARKETS FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0093502762"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17877,7 +17877,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- ESG MULTI-ASSET FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0093503497"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17885,7 +17885,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EURO SHORT DURATION BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0093503810"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17893,7 +17893,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- GLOBAL HIGH YIELD BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0093504206"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17901,7 +17901,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- WORLD ENERGY FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0122376428"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17909,7 +17909,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- WORLD HEALTHSCIENCE FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0122379950"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17917,7 +17917,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- SUSTAINABLE ENERGY FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0124384867"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17925,7 +17925,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- ASIAN TIGER BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0063728728"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17933,7 +17933,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- ASIAN DRAGON FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0072462343"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17941,7 +17941,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EUROPEAN VALUE FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0072462186"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17949,7 +17949,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- WORLD FINANCIALS FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0106831901"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17957,7 +17957,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- GLOBAL ALLOCATION FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0072462426"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17965,7 +17965,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- SYSTEMATIC GLOBAL SMALLCAP FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0054578231"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17973,7 +17973,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- LATIN AMERICAN FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0072463663"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17981,7 +17981,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- WORLD TECHNOLOGY FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0056508442"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17989,7 +17989,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- US BASIC VALUE FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0072461881"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -17997,7 +17997,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- US DOLLAR BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0096258362"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18005,7 +18005,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- US GROWTH FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0097036916"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18013,7 +18013,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- US DOLLAR HIGH YIELD BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0046676465"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18021,7 +18021,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EUROPEAN BLEND EQUITY FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0154234636"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18029,7 +18029,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- US FLEXIBLE EQUITY FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0154236417"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18037,7 +18037,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- US DOLLAR SHORT DURATION BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0154237225"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18045,7 +18045,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EURO CORPORATE BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0162658883"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18053,7 +18053,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- WORLD BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0184696937"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18061,7 +18061,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EMERGING MARKETS BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0200683885"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18069,7 +18069,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- CONTINENTAL EUROPEAN FLEXIBLE FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0224105477"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18077,7 +18077,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- JAPAN FLEXIBLE EQUITY FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0249410860"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18085,7 +18085,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- GLOBAL DYNAMIC EQUITY FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0238689110"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18093,7 +18093,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EUROPEAN EQUITY TRANSITION FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0252970834"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18133,7 +18133,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- INDIA FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0248272758"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18149,7 +18149,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EMERGING MARKETS LOCAL CURRENCY BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0278470058"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18165,7 +18165,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- FIXED INCOME GLOBAL OPPORTUNITIES FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0278466700"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18173,7 +18173,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- SYSTEMATIC GLOBAL EQUITY HIGH INCOME FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0265550359"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18229,7 +18229,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- GLOBAL CORPORATE BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0297942194"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18261,7 +18261,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- CHINA FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0359201455"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18277,7 +18277,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- SWISS SMALL & MIDCAP OPPORTUNITIES FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0376446257"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18293,7 +18293,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- GLOBAL EQUITY INCOME FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0545039389"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18301,7 +18301,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- GLOBAL INFLATION LINKED BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0425308086"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18317,7 +18317,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EUROPEAN EQUITY INCOME FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0562822386"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18325,7 +18325,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EMERGING MARKETS EQUITY INCOME FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0651946864"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18333,7 +18333,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- CHINA BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0679940949"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18341,7 +18341,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- NATURAL RESOURCES FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0612318385"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18357,7 +18357,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- GLOBAL MULTI-ASSET INCOME FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0784383712"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18365,7 +18365,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EMERGING MARKETS CORPORATE BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0843229542"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18381,7 +18381,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- WORLD REAL ESTATE SECURITIES FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU0842063009"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18389,7 +18389,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EUROPEAN HIGH YIELD BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1191877379"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18397,7 +18397,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- ASIAN MULTI-ASSET INCOME FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1323998911"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18405,7 +18405,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- ASIAN HIGH YIELD BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1564328067"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18413,7 +18413,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- SYSTEMATIC CHINA A-SHARE OPPORTUNITIES FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1580142542"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18421,7 +18421,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- DYNAMIC HIGH INCOME FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1564329032"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18429,7 +18429,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- GLOBAL BOND INCOME FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1842103399"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18437,7 +18437,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- ESG GLOBAL CONSERVATIVE INCOME FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1845136925"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18445,7 +18445,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- ESG EMERGING MARKETS BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1860487849"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18453,7 +18453,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- EMERGING MARKETS CORPORATE BOND ADVANCED FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1860487922"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18461,7 +18461,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- ESG EMERGING MARKETS LOCAL CURRENCY BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1860487765"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18469,7 +18469,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- ESG EMERGING MARKETS BLENDED BOND FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1860488060"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18477,7 +18477,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- FINTECH FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1861217088"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18485,7 +18485,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- FUTURE OF TRANSPORT FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1861214812"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18493,7 +18493,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- NEXT GENERATION TECHNOLOGY FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU1861215975"
   },
   {
     "source_id": "lu_bde_nonmonetary_funds",
@@ -18501,7 +18501,7 @@
     "name": "BLACKROCK GLOBAL FUNDS -- CIRCULAR ECONOMY FUND",
     "domicile_country": "LU",
     "currency": "EUR",
-    "isin": null
+    "isin": "LU2041044095"
   },
   {
     "source_id": "lu_euronext_fund_navs",

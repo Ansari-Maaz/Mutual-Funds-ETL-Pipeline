@@ -1,12 +1,12 @@
 # Latest execution report
 
-Generated at: 2026-11-16T18:38:36.283431+00:00
+Generated at: 2026-11-17T19:11:35.425259+00:00
 
 ## Ingestion results
 
 | Source | Status | Funds extracted | Funds loaded | NAV observations upserted | Rejected rows | Error |
 |---|---|---:|---:|---:|---:|---|
-| jp_imaj_new_funds | Succeeded | 11 | 11 | 0 | 0 |  |
+| amf_geco | Succeeded | 28375 | 28375 | 0 | 0 |  |
 
 ## Database counts
 
@@ -29,7 +29,7 @@ Generated at: 2026-11-16T18:38:36.283431+00:00
 | finma_swiss_fund_list | 2007 | 0 |
 | fr_lacotebleue_navs | 90 | 90 |
 | gsfm_unit_prices | 1 | 1 |
-| hk_sfc_authorised_unit_trusts | 2255 | 0 |
+| hk_sfc_authorised_unit_trusts | 2179 | 0 |
 | it_bde_nonmonetary_funds | 1346 | 0 |
 | it_borsa_navs | 68 | 68 |
 | jp_fsa_tsumitate_funds | 366 | 0 |
@@ -42,11 +42,11 @@ Generated at: 2026-11-16T18:38:36.283431+00:00
 | nl_bde_nonmonetary_funds | 1313 | 0 |
 | nl_euronext_fund_navs | 84 | 84 |
 | scotia_canada_daily_nav | 373 | 373 |
-| sec_open_end_fund_classes | 39138 | 191689 |
+| sec_open_end_fund_classes | 39138 | 598795 |
 | uk_ft_morningstar_prices | 253 | 253 |
 | uk_fundslibrary_unit_prices | 33 | 33 |
 | us_qqqm_etf | 1 | 7 |
-| **Total** | **187100** | **450627** |
+| **Total** | **187024** | **857733** |
 - Database used: Configured project PostgreSQL database.
 - Raw snapshots are ignored by Git; source manifests record URLs, checksums, and sizes.
 - Source rejects are recorded in source-specific JSONL files under `reports/`.

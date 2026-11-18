@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-11-16T16:30:18.855029+00:00",
+  "generated_at": "2026-11-18T12:21:11.403623+00:00",
   "total_us_funds": 39139,
   "basic_stats": {
     "total_funds": 39139,
     "has_name": 39139,
     "has_legal_name": 39139,
-    "has_ticker": 29543,
-    "has_isin": 169,
+    "has_ticker": 31688,
+    "has_isin": 770,
     "has_series_id": 39138,
     "has_cik": 39138,
     "has_category": 1095,
     "has_fund_type": 39139,
-    "has_inception_date": 392,
+    "has_inception_date": 16838,
     "has_status": 39139,
     "has_provider": 39139,
     "has_manager": 33080,
     "has_administrator": 32219,
-    "has_net_assets": 34071,
+    "has_net_assets": 34130,
     "has_currency": 39139,
     "has_official_url": 39139,
     "has_holdings_report_date": 33380,
@@ -26,9 +26,9 @@
   },
   "nav_stats": {
     "funds_with_nav": 25675,
-    "total_nav_observations": 190994,
-    "distinct_nav_dates": 402,
-    "earliest_nav_date": "2021-02-08",
+    "total_nav_observations": 598100,
+    "distinct_nav_dates": 3692,
+    "earliest_nav_date": "2012-05-15",
     "latest_nav_date": "2026-11-15"
   },
   "nav_by_source": [
@@ -44,8 +44,8 @@
     },
     {
       "source_id": "sec_nmfp_money_market",
-      "funds": 987,
-      "observations": 21343
+      "funds": 986,
+      "observations": 21341
     },
     {
       "source_id": "us_capital_group_fund_pages",
@@ -60,12 +60,12 @@
     {
       "source_id": "us_ssga_spdr_navs",
       "funds": 143,
-      "observations": 4423
+      "observations": 403703
     },
     {
       "source_id": "us_graniteshares_fund_pages",
       "funds": 34,
-      "observations": 11962
+      "observations": 19790
     },
     {
       "source_id": "unattributed",
@@ -80,22 +80,22 @@
   ],
   "holdings_stats": {
     "funds_with_holdings": 33372,
-    "total_holdings_rows": 15859761,
+    "total_holdings_rows": 14544797,
     "distinct_report_dates": 28,
     "earliest_report_date": "2024-12-31",
     "latest_report_date": "2026-10-31",
-    "holdings_with_cusip": 15848816,
-    "holdings_with_isin": 13258577,
-    "holdings_with_ticker": 1982061,
-    "holdings_with_market_value": 15690760,
-    "holdings_with_weight": 15856562,
-    "holdings_with_quantity": 15692436
+    "holdings_with_cusip": 12894897,
+    "holdings_with_isin": 13234445,
+    "holdings_with_ticker": 1951949,
+    "holdings_with_market_value": 14375813,
+    "holdings_with_weight": 14541615,
+    "holdings_with_quantity": 14377489
   },
   "holdings_by_source": [
     {
       "data_source": "sec_edgar_nport_bulk",
       "funds": 31359,
-      "positions": 12753908
+      "positions": 11438944
     },
     {
       "data_source": "sec_edgar_nport",
@@ -112,7 +112,17 @@
     {
       "dataset": "summary",
       "funds": 39138,
-      "snapshots": 40817
+      "snapshots": 89754
+    },
+    {
+      "dataset": "expense_ratio_history",
+      "funds": 37298,
+      "snapshots": 182638
+    },
+    {
+      "dataset": "n1a_prospectus",
+      "funds": 37235,
+      "snapshots": 37235
     },
     {
       "dataset": "aum_history",
@@ -130,14 +140,34 @@
       "snapshots": 33078
     },
     {
-      "dataset": "sec_edgar_inception",
-      "funds": 6992,
-      "snapshots": 6992
+      "dataset": "asset_allocation",
+      "funds": 30733,
+      "snapshots": 30979
     },
     {
       "dataset": "performance",
-      "funds": 3694,
-      "snapshots": 4674
+      "funds": 30059,
+      "snapshots": 124151
+    },
+    {
+      "dataset": "ncsr_tsr_class",
+      "funds": 17446,
+      "snapshots": 17446
+    },
+    {
+      "dataset": "inception_date",
+      "funds": 14381,
+      "snapshots": 14381
+    },
+    {
+      "dataset": "sector_allocation",
+      "funds": 7173,
+      "snapshots": 7173
+    },
+    {
+      "dataset": "sec_edgar_inception",
+      "funds": 6992,
+      "snapshots": 6992
     },
     {
       "dataset": "risk",
@@ -146,13 +176,8 @@
     },
     {
       "dataset": "identifiers",
-      "funds": 673,
-      "snapshots": 1342
-    },
-    {
-      "dataset": "expense_ratio_history",
-      "funds": 390,
-      "snapshots": 1145
+      "funds": 770,
+      "snapshots": 1439
     },
     {
       "dataset": "yields",
@@ -181,12 +206,12 @@
       "pct": 100.0
     },
     "Ticker / Symbol": {
-      "count": 29543,
-      "pct": 75.48
+      "count": 31688,
+      "pct": 80.96
     },
     "ISIN": {
-      "count": 169,
-      "pct": 0.43
+      "count": 770,
+      "pct": 1.97
     },
     "SEC Series ID": {
       "count": 39138,
@@ -205,8 +230,8 @@
       "pct": 100.0
     },
     "Inception Date": {
-      "count": 392,
-      "pct": 1.0
+      "count": 16838,
+      "pct": 43.02
     },
     "Status": {
       "count": 39139,
@@ -225,8 +250,8 @@
       "pct": 82.32
     },
     "Net Assets": {
-      "count": 34071,
-      "pct": 87.05
+      "count": 34130,
+      "pct": 87.2
     },
     "Currency": {
       "count": 39139,
