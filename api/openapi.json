@@ -10,6 +10,7 @@
     { "name": "Health" },
     { "name": "Catalog" },
     { "name": "Funds" },
+    { "name": "Mutual funds", "description": "Twelve Data-compatible directory and world endpoints backed only by official-source snapshots." },
     { "name": "ETL" }
   ],
   "paths": {
@@ -57,7 +58,7 @@
       "get": {
         "tags": ["Catalog"],
         "summary": "Get US NAV and holdings coverage",
-        "description": "Returns U.S. fund coverage counts, field completeness, largest NAV and holdings gaps by provider, and the official U.S. source registry.",
+        "description": "Returns U.S. fund coverage counts, field completeness, largest NAV and holdings gaps by provider, dataset coverage for source-backed profile snapshots, and the official U.S. source registry.",
         "operationId": "getUsCoverage",
         "responses": { "200": { "description": "US coverage view returned" }, "500": { "$ref": "#/components/responses/ApiError" } }
       }
@@ -192,6 +193,97 @@
         "operationId": "getFundCompleteness",
         "parameters": [{ "$ref": "#/components/parameters/FundId" }],
         "responses": { "200": { "description": "Fund completeness status returned" }, "400": { "$ref": "#/components/responses/ApiError" }, "404": { "$ref": "#/components/responses/ApiError" } }
+      }
+    },
+    "/mutual_funds/list": {
+      "get": {
+        "tags": ["Mutual funds"],
+        "summary": "List mutual funds",
+        "description": "Twelve Data-compatible directory listing. Filters and pagination match the reference surface; FIGI lookup answers 422 because FundFlow holds no verified FIGI mapping. Values come from stored FundFlow records only.",
+        "operationId": "listMutualFunds",
+        "parameters": [
+          { "name": "symbol", "in": "query", "schema": { "type": "string" } },
+          { "name": "isin", "in": "query", "schema": { "type": "string" } },
+          { "name": "cusip", "in": "query", "schema": { "type": "string" } },
+          { "name": "cik", "in": "query", "schema": { "type": "string" } },
+          { "name": "country", "in": "query", "schema": { "type": "string" } },
+          { "name": "fund_family", "in": "query", "schema": { "type": "string" } },
+          { "name": "fund_type", "in": "query", "schema": { "type": "string" } },
+          { "name": "page", "in": "query", "schema": { "type": "integer", "minimum": 1, "default": 1 } },
+          { "name": "outputsize", "in": "query", "schema": { "type": "integer", "minimum": 1, "maximum": 1000, "default": 100 } },
+          { "name": "format", "in": "query", "schema": { "type": "string", "enum": ["JSON", "CSV"], "default": "JSON" } },
+          { "name": "delimiter", "in": "query", "schema": { "type": "string", "maxLength": 4, "default": ";" } }
+        ],
+        "responses": {
+          "200": { "description": "Matching funds returned as JSON or CSV" },
+          "400": { "$ref": "#/components/responses/ApiError" },
+          "422": { "$ref": "#/components/responses/ApiError" }
+        }
+      }
+    },
+    "/mutual_funds/family": {
+      "get": {
+        "tags": ["Mutual funds"],
+        "summary": "List fund families",
+        "operationId": "listMutualFundFamilies",
+        "parameters": [
+          { "name": "country", "in": "query", "schema": { "type": "string" } },
+          { "name": "fund_family", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Fund families with fund counts returned" }, "400": { "$ref": "#/components/responses/ApiError" } }
+      }
+    },
+    "/mutual_funds/type": {
+      "get": {
+        "tags": ["Mutual funds"],
+        "summary": "List fund types",
+        "operationId": "listMutualFundTypes",
+        "parameters": [
+          { "name": "country", "in": "query", "schema": { "type": "string" } },
+          { "name": "fund_type", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Fund types with fund counts returned" }, "400": { "$ref": "#/components/responses/ApiError" } }
+      }
+    },
+    "/mutual_funds/world": {
+      "get": {
+        "tags": ["Mutual funds"],
+        "summary": "Get all available world sections for one fund",
+        "description": "Combines every section that has a source-backed snapshot. status is partial, provenance records the source/report date per section, and missing_sections lists the sections FundFlow cannot populate from official sources. A ticker shared by more than one share class answers 409; query by ISIN or CUSIP to disambiguate.",
+        "operationId": "getMutualFundWorld",
+        "parameters": [
+          { "name": "symbol", "in": "query", "schema": { "type": "string" } },
+          { "name": "isin", "in": "query", "schema": { "type": "string" } },
+          { "name": "cusip", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Available sections with provenance returned" },
+          "400": { "$ref": "#/components/responses/ApiError" },
+          "404": { "$ref": "#/components/responses/ApiError" },
+          "409": { "description": "Ticker is ambiguous across share classes" },
+          "422": { "$ref": "#/components/responses/ApiError" }
+        }
+      }
+    },
+    "/mutual_funds/world/{section}": {
+      "get": {
+        "tags": ["Mutual funds"],
+        "summary": "Get one world section",
+        "description": "Returns a single section with its source id, source URL, report date and retrieval time. Requests for a section with no official-source record answer 404 with status data_unavailable rather than an inferred value.",
+        "operationId": "getMutualFundWorldSection",
+        "parameters": [
+          { "name": "section", "in": "path", "required": true, "schema": { "type": "string", "enum": ["summary", "performance", "risk", "ratings", "composition", "purchase_info", "sustainability"] } },
+          { "name": "symbol", "in": "query", "schema": { "type": "string" } },
+          { "name": "isin", "in": "query", "schema": { "type": "string" } },
+          { "name": "cusip", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Section payload and provenance returned" },
+          "400": { "$ref": "#/components/responses/ApiError" },
+          "404": { "description": "Fund not found, or no source-backed record for the section" },
+          "409": { "description": "Ticker is ambiguous across share classes" },
+          "422": { "$ref": "#/components/responses/ApiError" }
+        }
       }
     },
     "/etl/runs": {
