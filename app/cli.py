@@ -350,6 +350,8 @@ def main() -> None:
     snapshot.add_argument("--source", required=True, choices=["it_borsa_navs","fr_lacotebleue_navs","nl_euronext_fund_navs","lu_euronext_fund_navs","lu_allianz_daily_navs"])
     snapshot.add_argument("--url", required=True, help="Direct CSV export URL published by the source")
     eu_ids=sub.add_parser("sync-eu-fund-ids", help="Attach share-class ISINs, LEIs and register data to IE/LU funds from ESMA FIRDS, the ESMA cross-border register and the HMRC reporting-funds list"); eu_ids.add_argument("--refresh", action="store_true", help="Re-download source files"); eu_ids.add_argument("--dry-run", action="store_true")
+    geco_nav=sub.add_parser("sync-geco-nav", help="Crawl AMF GECO per-share NAV history, net assets and distributions for French funds (resumable, throttled)"); geco_nav.add_argument("--limit", type=int, help="Max compartments to crawl"); geco_nav.add_argument("--max-minutes", type=float, help="Stop after this many minutes"); geco_nav.add_argument("--delay", type=float, default=0.5, help="Seconds between requests"); geco_nav.add_argument("--refresh", action="store_true", help="Also refresh funds that already have NAV (incremental)")
+    bafin_merge=sub.add_parser("merge-bafin-de", help="Enrich German funds already loaded from the BdE list with BaFin ISIN, launch date and fund type (unique name matches)")
     fi_se_holdings=sub.add_parser("sync-fi-sweden-holdings", help="Import FI quarterly UCITS holdings, fees, benchmark and risk for Swedish funds from the downloaded XML")
     cvm_holdings=sub.add_parser("sync-cvm-holdings"); cvm_holdings.add_argument("--month", required=True, help="CVM CDA reporting month in YYYYMM format"); cvm_holdings.add_argument("--archive", action="append", default=None, help="Manually downloaded CDA zip (repeatable); use when CVM blocks automated downloads")
     enrich_us=sub.add_parser("enrich-us-funds", help="Enrich US mutual fund net assets, tickers, ISINs, Vanguard profiles, and official issuer NAVs")
@@ -419,6 +421,14 @@ def main() -> None:
     elif args.cmd=="sync-eu-fund-ids":
         from app.enrichment.eu_fund_ids import sync_eu_fund_ids
         print(json.dumps(sync_eu_fund_ids(refresh=args.refresh, dry_run=args.dry_run) if args.dry_run else tracked_run("eu-fund-ids", lambda: sync_eu_fund_ids(refresh=args.refresh)),indent=2,default=str))
+    elif args.cmd=="sync-geco-nav":
+        from app.enrichment.geco_nav import crawl_geco_nav
+        print(json.dumps(tracked_run("geco-nav", lambda: crawl_geco_nav(limit=args.limit, max_minutes=args.max_minutes, delay=args.delay, only_missing=not args.refresh)),indent=2,default=str))
+    elif args.cmd=="merge-bafin-de":
+        from app.enrichment.bafin_merge import merge_bafin_into_existing
+        from app.connectors.de_bafin_funds import download_bafin
+        download_bafin()
+        print(json.dumps(tracked_run("bafin-merge-de", merge_bafin_into_existing),indent=2))
     elif args.cmd=="sync-fi-sweden-holdings":
         from app.holdings.fi_sweden import sync_fi_sweden_holdings
         from app.connectors.fi_sweden import download_fi_sweden

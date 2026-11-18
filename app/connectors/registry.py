@@ -37,6 +37,7 @@ from app.connectors.bmv_mexico import BmvMexicoConnector  # noqa: E402
 from app.connectors.uk_fundslibrary import UkFundsLibraryConnector  # noqa: E402
 from app.connectors.uk_ft_morningstar import UkFtMorningstarConnector  # noqa: E402
 from app.connectors.de_bundesanzeiger import DeBundesanzeigerConnector  # noqa: E402
+from app.connectors.de_bafin_funds import DeBafinFundsConnector  # noqa: E402
 from app.connectors.it_borsa_nav import ItBorsaNavConnector  # noqa: E402
 from app.connectors.ch_six_fund_explorer import ChSixFundExplorerConnector  # noqa: E402
 from app.connectors.fr_lacotebleue import FrLaCoteBleueConnector  # noqa: E402
@@ -70,6 +71,7 @@ register(BmvMexicoConnector.source_id,BmvMexicoConnector)
 register(UkFundsLibraryConnector.source_id,UkFundsLibraryConnector)
 register(UkFtMorningstarConnector.source_id,UkFtMorningstarConnector)
 register(DeBundesanzeigerConnector.source_id,DeBundesanzeigerConnector)
+register(DeBafinFundsConnector.source_id,DeBafinFundsConnector)
 register(ItBorsaNavConnector.source_id,ItBorsaNavConnector)
 register(ChSixFundExplorerConnector.source_id,ChSixFundExplorerConnector)
 register(FrLaCoteBleueConnector.source_id,FrLaCoteBleueConnector)

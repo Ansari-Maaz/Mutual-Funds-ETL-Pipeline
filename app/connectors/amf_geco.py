@@ -80,8 +80,24 @@ class AmfGecoConnector(BaseConnector):
                     continue
                 source_fund_id = f"{class_id}:{isin}" if isin else class_id
                 name = " — ".join(x for x in (product_name, class_label) if x)
+                manager = (row.get("gestionnaire") or fund.get("gestionnaireNom") or "").strip() or None
+                created = (row.get("cmpDateCreation") or fund.get("prdDateCreation") or "")[:10] or None
                 output.setdefault(source_fund_id, {"source_fund_id": source_fund_id, "name": name,
-                    "domicile_country": "FR", "currency": None, "isin": isin})
+                    "domicile_country": "FR", "currency": None, "isin": isin,
+                    "manager": manager, "provider": manager,
+                    "category": (row.get("cmpClssFndAmfLib") or "").strip() or None,  # AMF classification
+                    "fund_type": (row.get("prdSsNatureLib") or row.get("prdNatureLib") or "").strip() or None,
+                    "inception_date": created,  # compartment creation date registered with the AMF
+                    "official_url": INDEX_URL,
+                    "_profile_source_url": EXPORT_URL,
+                    "_profile_data": {"summary": {
+                        "amf_code": row.get("cmpAmfId"), "amf_product_family": row.get("prdFaml"),
+                        "depositary": (row.get("nomDepositaire") or "").strip() or None,
+                        "manager_lei": fund.get("gestionnaireLei"),
+                        "authorisation_type": row.get("typeDernAutoLib"), "authorisation_date": row.get("dateDernAuto"),
+                        "dedicated_fund_type": row.get("cmpSouscrDedLib"),
+                        "labels": {"eltif": bool(row.get("cmpLblEltif")), "euveca": bool(row.get("cmpLblEuveca")),
+                                   "eusef": bool(row.get("cmpLblEusef"))}}}})
         self._records = list(output.values())
 
     def check_availability(self) -> dict[str, Any]:

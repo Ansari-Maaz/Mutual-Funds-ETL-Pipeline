@@ -1,0 +1,10 @@
+{
+  "source_id": "de_bafin_investmentfonds",
+  "url": "https://portal.mvp.bafin.de/database/FondsInfo/",
+  "path": "data/raw/germany/bafin_investmentfonds.csv",
+  "bytes": 3595766,
+  "sha256": "edb8e4a84c914656df7c83b6cba3be627ad4acd1194ecd169c4dc0f774224dbc",
+  "downloaded": false,
+  "attribution": "(c) Bundesanstalt f\u00fcr Finanzdienstleistungsaufsicht / www.bafin.de",
+  "checked_at": "2026-11-17T19:15:58.896994+00:00"
+}
