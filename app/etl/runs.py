@@ -79,6 +79,37 @@ def _count(result: Any, *keys: str) -> int:
     return 0
 
 
+def close_stale_runs(max_age_hours: float | None = None) -> int:
+    """Mark abandoned ``In Progress`` rows as Failed and return how many closed.
+
+    A process killed mid-run (reboot, CI timeout, container restart) leaves its
+    row open, so the dashboard reports a run that can never finish. Only call
+    this while holding ``etl_lock``: then no live job can be closed by mistake.
+    """
+    try:
+        hours = float(os.getenv("ETL_STALE_RUN_HOURS", "12"))
+    except ValueError:
+        hours = 12.0
+    if max_age_hours is not None:
+        hours = max_age_hours
+    with SessionLocal() as session:
+        rows = session.execute(
+            text("""
+                UPDATE etl_runs
+                   SET status = 'Failed',
+                       finished_at = now(),
+                       error = COALESCE(error, :message)
+                 WHERE status = 'In Progress'
+                   AND COALESCE(started_at, now()) < now() - make_interval(secs => :age)
+             RETURNING id
+            """),
+            {"message": f"Interrupted: no finish recorded within {hours:g} hours; closed by a later run",
+             "age": hours * 3600},
+        ).all()
+        session.commit()
+        return len(rows)
+
+
 def tracked_run(job_name: str, job: Callable[[], Any]) -> Any:
     """Run ``job`` under the ETL lock and persist an ``etl_runs`` row for it.
 
@@ -87,6 +118,7 @@ def tracked_run(job_name: str, job: Callable[[], Any]) -> Any:
     as Failed and the exception is re-raised.
     """
     with etl_lock():
+        close_stale_runs()
         with SessionLocal() as session:
             run = EtlRun(source_id=None, status="In Progress")
             session.add(run)

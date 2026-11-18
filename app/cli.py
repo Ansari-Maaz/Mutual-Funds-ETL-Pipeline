@@ -365,6 +365,8 @@ def main() -> None:
     enrich_us.add_argument("--dry-run", action="store_true", help="Simulate without committing database changes")
     enrich_us.add_argument("--no-audit", action="store_true", help="Skip running post-enrichment audit")
     sub.add_parser("audit-us-coverage", help="Run comprehensive US fund data completeness audit")
+    close_stale=sub.add_parser("close-stale-runs", help="Mark abandoned In Progress ETL runs as Failed so the dashboard stops reporting them")
+    close_stale.add_argument("--hours", type=float, default=None, help="Only close runs started more than this many hours ago (default: ETL_STALE_RUN_HOURS or 12)")
     download=sub.add_parser("download"); download.add_argument("--source",default="cvm_open_fund_data"); download.add_argument("--start-date"); download.add_argument("--end-date"); download.add_argument("--refresh",action="store_true")
     run=sub.add_parser("run"); run.add_argument("--all",action="store_true"); run.add_argument("--country"); run.add_argument("--source", action="append"); run.add_argument("--start-date"); run.add_argument("--end-date")
     args=parser.parse_args()
@@ -441,6 +443,11 @@ def main() -> None:
         from scripts.audit_complete_us_coverage import run_audit
         res = run_audit()
         print(f"Audit completed: {res['total_us_funds']:,} US funds evaluated.")
+    elif args.cmd=="close-stale-runs":
+        from app.etl.runs import close_stale_runs, etl_lock
+        with etl_lock(wait_seconds=0):
+            closed = close_stale_runs(args.hours)
+        print(json.dumps({"stale_runs_closed": closed}))
     elif args.cmd=="enrich-us-funds":
         from app.enrichment.us_fund_enricher import (
             enrich_net_assets_from_nport_bulk,

@@ -17,6 +17,16 @@ SELECT f.name, n.valuation_date, n.nav, n.currency FROM funds f JOIN nav_observa
 SELECT status, count(*) FROM etl_runs GROUP BY status;
 ```
 
+A run whose process is killed (reboot, CI timeout, container restart) keeps its
+`In Progress` row forever. Every new tracked run closes rows older than
+`ETL_STALE_RUN_HOURS` (default 12) as `Failed` while it holds the ETL lock; the
+same cleanup is available directly:
+
+```bash
+python -m app.cli close-stale-runs            # default 12 hours
+python -m app.cli close-stale-runs --hours 1
+```
+
 ```mermaid
 erDiagram
   sources ||--o{ funds : provides
