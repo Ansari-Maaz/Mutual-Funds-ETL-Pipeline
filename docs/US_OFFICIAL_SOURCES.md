@@ -184,6 +184,12 @@ python -m app.cli sync-sec-ncsr-tsr --only-gaps --workers 8 --batch-size 100
   For a period filed twice, the explicit `WithoutSalesLoad` value is kept.
 - `ExpenseRatioPct` is a fraction of net assets and `PctOfNav` a fraction; both are
   stored with the fraction and the derived percent, never silently rescaled.
+- Sector members are reduced to a readable label: the taxonomy wrappers
+  (`Sector…Sector`, `Industry…Sector`) are stripped, acronyms such as `REITs` are
+  kept, and filer allocation buckets (`Other Sectors`,
+  `Cash and Cash Equivalents Sector Weighting`, `Bond Equity Sector …`),
+  benchmark ids, totals, `…Minus…` members and CUSIP-coded members are dropped.
+  A snapshot is deleted when nothing but such buckets was filed.
 - `AssetsNet` is series-level net assets repeated on every class context. It is
   written to `funds.net_assets` only when that field is empty, and the payload
   records `net_assets_scope` so the series scope is never lost.

@@ -125,9 +125,17 @@ def test_sector_labels_drop_taxonomy_wrappers_and_keep_acronyms():
 def test_benchmark_and_filer_codes_are_not_accepted_as_sectors():
     from app.enrichment.sec_ncsr_tsr import _sector_is_valid
     assert _sector_is_valid("Health Care")
+    assert _sector_is_valid("REITs Health Care")
     assert not _sector_is_valid("bench2024121689781_7949")
     assert not _sector_is_valid("Total")
     assert not _sector_is_valid("Information Technology FR81762 P102")
+    # Filer allocation buckets are members of the same axis, not sectors.
+    assert not _sector_is_valid("Other Sectors")
+    assert not _sector_is_valid("Other Industrysectors")
+    assert not _sector_is_valid("Cash and Cashequivalents Sector Weighting")
+    assert not _sector_is_valid("Bond Equity Sector Municipals")
+    assert not _sector_is_valid("US Sector Weightings")
+    assert not _sector_is_valid("Short Term Investments Security Allocation")
 
 
 def test_expense_examples_carry_period():

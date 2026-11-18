@@ -409,6 +409,11 @@ def _sector_is_valid(name: str) -> bool:
         return False
     if lowered in {"total", "other"} or lowered.startswith("bench"):
         return False
+    # Filers add their own allocation buckets to the axis ("Other Sectors",
+    # "Cash and Cash Equivalents Sector Weighting", "Bond Equity Sector
+    # Municipals"). No published sector name contains these words.
+    if "sector" in lowered or "weighting" in lowered:
+        return False
     if lowered.endswith("allocation") or "minus" in lowered:
         return False
     return True
