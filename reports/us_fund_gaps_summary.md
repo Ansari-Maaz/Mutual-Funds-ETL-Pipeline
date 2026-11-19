@@ -1,6 +1,6 @@
 # U.S. fund coverage audit
 
-Generated: 2026-11-18T12:25:04.225954+00:00
+Generated: 2026-11-19T21:37:10.946656+00:00
 SEC N-PORT data set inspected: 2026q3
 
 ## Coverage
@@ -19,10 +19,10 @@ SEC N-PORT data set inspected: 2026q3
 
 | Reason | Funds |
 | --- | ---: |
-| `no_public_ticker_in_sec_class_snapshot` | 7,371 |
-| `issuer_not_yet_mapped` | 3,908 |
-| `issuer_adapter_not_implemented` | 1,031 |
-| `issuer_site_does_not_expose_machine_readable_nav` | 957 |
+| `no_public_ticker_in_sec_class_snapshot` | 7,059 |
+| `issuer_not_yet_mapped` | 4,081 |
+| `issuer_adapter_not_implemented` | 1,107 |
+| `issuer_site_does_not_expose_machine_readable_nav` | 1,020 |
 | `ticker_not_returned_by_integrated_issuer_adapter` | 197 |
 
 ## Why holdings are missing

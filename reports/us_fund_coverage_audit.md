@@ -1,6 +1,6 @@
 # FundFlow — Comprehensive US Mutual Fund Data Audit
 
-**Audit Timestamp:** 2026-11-18T12:21:11.403623+00:00  
+**Audit Timestamp:** 2026-11-19T21:38:46.927788+00:00  
 **Universe:** All US Domiciled Funds in PostgreSQL (`domicile_country = 'US'`)  
 **Total US Funds:** **39,139**
 
@@ -12,13 +12,13 @@
 | :--- | ---: | ---: | :--- |
 | Fund Name | 39,139 | 100.0% | Complete |
 | Legal Name | 39,139 | 100.0% | Complete |
-| Ticker / Symbol | 31,688 | 80.96% | Substantial |
+| Ticker / Symbol | 32,008 | 81.78% | Substantial |
 | ISIN | 770 | 1.97% | High Gaps |
 | SEC Series ID | 39,138 | 100.0% | Complete |
 | SEC CIK | 39,138 | 100.0% | Complete |
 | Category | 1,095 | 2.8% | High Gaps |
 | Fund Type | 39,139 | 100.0% | Complete |
-| Inception Date | 16,838 | 43.02% | High Gaps |
+| Inception Date | 17,257 | 44.09% | High Gaps |
 | Status | 39,139 | 100.0% | Complete |
 | Provider / Registrant | 39,139 | 100.0% | Complete |
 | Manager | 33,080 | 84.52% | Substantial |

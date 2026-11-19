@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-18T12:21:11.403623+00:00",
+  "generated_at": "2026-11-19T21:38:46.927788+00:00",
   "total_us_funds": 39139,
   "basic_stats": {
     "total_funds": 39139,
     "has_name": 39139,
     "has_legal_name": 39139,
-    "has_ticker": 31688,
+    "has_ticker": 32008,
     "has_isin": 770,
     "has_series_id": 39138,
     "has_cik": 39138,
     "has_category": 1095,
     "has_fund_type": 39139,
-    "has_inception_date": 16838,
+    "has_inception_date": 17257,
     "has_status": 39139,
     "has_provider": 39139,
     "has_manager": 33080,
@@ -110,6 +110,11 @@
   ],
   "snapshots_by_dataset": [
     {
+      "dataset": "filing_status",
+      "funds": 39139,
+      "snapshots": 39139
+    },
+    {
       "dataset": "summary",
       "funds": 39138,
       "snapshots": 89754
@@ -160,14 +165,14 @@
       "snapshots": 14381
     },
     {
-      "dataset": "sector_allocation",
-      "funds": 7173,
-      "snapshots": 7173
-    },
-    {
       "dataset": "sec_edgar_inception",
       "funds": 6992,
       "snapshots": 6992
+    },
+    {
+      "dataset": "sector_allocation",
+      "funds": 6438,
+      "snapshots": 6438
     },
     {
       "dataset": "risk",
@@ -178,6 +183,11 @@
       "dataset": "identifiers",
       "funds": 770,
       "snapshots": 1439
+    },
+    {
+      "dataset": "n1a_inception",
+      "funds": 419,
+      "snapshots": 419
     },
     {
       "dataset": "yields",
@@ -206,8 +216,8 @@
       "pct": 100.0
     },
     "Ticker / Symbol": {
-      "count": 31688,
-      "pct": 80.96
+      "count": 32008,
+      "pct": 81.78
     },
     "ISIN": {
       "count": 770,
@@ -230,8 +240,8 @@
       "pct": 100.0
     },
     "Inception Date": {
-      "count": 16838,
-      "pct": 43.02
+      "count": 17257,
+      "pct": 44.09
     },
     "Status": {
       "count": 39139,
