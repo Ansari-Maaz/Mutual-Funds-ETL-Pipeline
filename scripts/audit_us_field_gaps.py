@@ -74,8 +74,17 @@ SELECT f.id, f.ticker, f.isin, f.category, f.inception_date,
        f.inception_date IS NOT NULL AS has_inception_date,
        COALESCE(trim(f.manager),'') <> '' AS has_manager,
        COALESCE(trim(f.administrator),'') <> '' AS has_administrator,
-       f.net_assets IS NOT NULL AS has_net_assets
+       f.net_assets IS NOT NULL AS has_net_assets,
+       COALESCE(st.reporting, false) AS reporting,
+       COALESCE(st.latest_report_date, NULL) AS latest_report_date
 FROM funds f
+LEFT JOIN LATERAL (
+    SELECT (s.payload->>'reported_in_window')::boolean AS reporting,
+           (s.payload->>'latest_report_date') AS latest_report_date
+    FROM fund_profile_snapshots s
+    WHERE s.fund_id = f.id AND s.dataset = 'filing_status'
+    ORDER BY s.source_report_date DESC NULLS LAST, s.id DESC
+    LIMIT 1) st ON true
 WHERE f.domicile_country = 'US'
 ORDER BY f.id
 """)
@@ -99,6 +108,8 @@ def describe(row: dict[str, Any]) -> dict[str, Any]:
         "provider": row.get("provider") or "",
         "sec_series_id": row.get("sec_series_id") or "",
         "sec_cik": row.get("sec_cik") or "",
+        "reporting": bool(row.get("reporting")),
+        "latest_report_date": row.get("latest_report_date") or "",
         "missing_count": len(missing),
         "missing_fields": ";".join(missing),
         "next_official_sources": " | ".join(
@@ -111,6 +122,7 @@ def describe(row: dict[str, Any]) -> dict[str, Any]:
 
 CSV_COLUMNS = [
     "fund_id", "ticker", "name", "provider", "sec_series_id", "sec_cik",
+    "reporting", "latest_report_date",
     "missing_count", "missing_fields", "next_official_sources", "next_actions",
     *[f"has_{field}" for field in FIELDS],
 ]
@@ -118,7 +130,10 @@ CSV_COLUMNS = [
 
 def summarize(rows: list[dict[str, Any]], described: list[dict[str, Any]]) -> dict[str, Any]:
     total = len(rows)
+    reporting_rows = [row for row in rows if row.get("reporting")]
     field_counts = {field: sum(1 for row in rows if not row.get(f"has_{field}")) for field in FIELDS}
+    reporting_counts = {field: sum(1 for row in reporting_rows if not row.get(f"has_{field}"))
+                        for field in FIELDS}
     missing_counts = Counter(item["missing_count"] for item in described)
     by_field_reason: dict[str, int] = {}
     for field in FIELDS:
@@ -149,6 +164,8 @@ def summarize(rows: list[dict[str, Any]], described: list[dict[str, Any]]) -> di
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "country": "US",
         "funds": total,
+        "reporting_funds": len(reporting_rows),
+        "dormant_funds": total - len(reporting_rows),
         "field_completeness": {
             field: {
                 "present": total - field_counts[field],
@@ -160,6 +177,15 @@ def summarize(rows: list[dict[str, Any]], described: list[dict[str, Any]]) -> di
             for field in FIELDS
         },
         "funds_by_missing_field_count": dict(sorted(missing_counts.items())),
+        "reporting_field_completeness": {
+            field: {
+                "present": len(reporting_rows) - reporting_counts[field],
+                "missing": reporting_counts[field],
+                "percent_complete": round(100 * (len(reporting_rows) - reporting_counts[field])
+                                          / len(reporting_rows), 2) if reporting_rows else 0,
+            }
+            for field in FIELDS
+        },
         "top_providers_by_missing_fields": top_providers,
     }
 
@@ -170,6 +196,10 @@ def render_markdown(summary: dict[str, Any]) -> str:
         "",
         f"Generated: {summary['generated_at']}",
         "",
+        f"U.S. funds: {summary['funds']:,} — reporting to the SEC in the observation window: "
+        f"{summary['reporting_funds']:,}; no filing in the window (dormant registration): "
+        f"{summary['dormant_funds']:,}.",
+        "",
         "## Completeness by field",
         "",
         "| Field | Present | Missing | Complete | Official source | Action |",
@@ -179,6 +209,13 @@ def render_markdown(summary: dict[str, Any]) -> str:
         lines.append(
             f"| `{field}` | {info['present']:,} | {info['missing']:,} | "
             f"{info['percent_complete']}% | {info['official_source']} | {info['action']} |")
+    lines += ["", "## Completeness by field — reporting funds only", "",
+              "Dormant registrations cannot report new values, so this is the",
+              "population that a production completeness target applies to.", "",
+              "| Field | Present | Missing | Complete |", "| --- | ---: | ---: | ---: |"]
+    for field, info in summary["reporting_field_completeness"].items():
+        lines.append(f"| `{field}` | {info['present']:,} | {info['missing']:,} | "
+                     f"{info['percent_complete']}% |")
     lines += ["", "## Records by number of missing fields", "",
               "| Missing fields | Funds |", "| ---: | ---: |"]
     lines += [f"| {count} | {funds:,} |"

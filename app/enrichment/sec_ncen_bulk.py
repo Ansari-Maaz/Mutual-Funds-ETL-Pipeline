@@ -199,6 +199,32 @@ def _local_series() -> dict[str, list[int]]:
     return grouped
 
 
+# Filed identifiers carry literal placeholders when a class has no symbol.
+_PLACEHOLDER = {"N/A", "NA", "N.A.", "NONE", "-", "--"}
+TICKER_PATTERN = re.compile(r"^[A-Z0-9][A-Z0-9.\-]{0,11}$")
+
+
+def _class_tickers(extract_dir: Path) -> dict[str, tuple[str, str]]:
+    """Return class id -> (ticker, class name) from Form N-CEN Item C.2.
+
+    Item C.2 requires the registrant to list every share class with its ticker
+    symbol, if any. It is the only official bulk file that publishes symbols for
+    classes the SEC ticker JSON and the prospectus cover pages omit.
+    """
+    path = extract_dir / "SHARES_OUTSTANDING.tsv"
+    result: dict[str, tuple[str, str]] = {}
+    for row in _rows(path):
+        class_id = _clean(row.get("CLASS_ID"))
+        ticker = (_clean(row.get("TICKER")) or "").upper()
+        if not class_id or not ticker or ticker in _PLACEHOLDER:
+            continue
+        if not TICKER_PATTERN.match(ticker):
+            continue
+        result[class_id] = (ticker, _clean(row.get("CLASS_NAME")) or class_id)
+    return result
+
+
+
 def _archive_rows(extract_dir: Path, wanted: set[str]) -> list[dict[str, str]]:
     return [row for row in _rows(extract_dir / "FUND_REPORTED_INFO.tsv")
             if _clean(row.get("SERIES_ID")) in wanted]
@@ -304,6 +330,17 @@ def _snapshots(accession: str, row: dict[str, str], *, adviser: dict[str, Any],
                                     "accession_number": accession, "source_url": source_url}
 
 
+def _fund_identities() -> tuple[dict[int, str], dict[int, str | None], set[str]]:
+    """Return fund id -> class id, fund id -> ticker, and the set of used tickers."""
+    with SessionLocal() as session:
+        rows = session.execute(select(Fund.id, Fund.source_fund_id, Fund.ticker).where(
+            Fund.domicile_country == "US")).all()
+    class_of = {fund_id: class_id for fund_id, class_id, _ in rows}
+    ticker_of = {fund_id: ticker for fund_id, _, ticker in rows}
+    taken = {(ticker or "").strip().upper() for _, _, ticker in rows if ticker}
+    return class_of, ticker_of, taken
+
+
 def sync_sec_ncen_bulk(*, quarters: int = 8, refresh: bool = False,
                        update_profiles: bool = True, write_nav: bool = True) -> dict[str, Any]:
     """Import N-CEN profile, fee, performance, classification and NAV snapshots."""
@@ -311,10 +348,11 @@ def sync_sec_ncen_bulk(*, quarters: int = 8, refresh: bool = False,
         raise ValueError("quarters must be at least 1")
     urls = discover_archives(limit=quarters)
     local = _local_series()
+    class_of, ticker_of, taken_tickers = _fund_identities()
     result: dict[str, Any] = {
         "source_id": SOURCE_ID, "archives": urls, "series_targeted": len(local),
         "filings_matched": 0, "series_matched": 0, "snapshot_rows": 0,
-        "nav_rows": 0, "profiles_updated": 0, "errors": [],
+        "nav_rows": 0, "profiles_updated": 0, "tickers_filled": 0, "errors": [],
     }
     if not local:
         return result
@@ -360,6 +398,7 @@ def sync_sec_ncen_bulk(*, quarters: int = 8, refresh: bool = False,
         pricing_services = _first_names(extract_dir, "PRICING_SERVICE.tsv", "PRICING_SERVICE_NAME")
         accountants = _first_names(extract_dir, "PUBLIC_ACCOUNTANT.tsv", "PUB_ACCOUNTANT_NAME")
         underwriters = _first_names(extract_dir, "PRINCIPAL_UNDERWRITER.tsv", "UNDERWRITER_NAME")
+        class_tickers = _class_tickers(extract_dir)
         for entry in entries:
             row = entry["row"]
             submission = entry["submission"]
@@ -393,6 +432,12 @@ def sync_sec_ncen_bulk(*, quarters: int = 8, refresh: bool = False,
                         updates["manager"] = adviser["name"][:300]
                     if administrator and "administrator" not in updates:
                         updates["administrator"] = administrator[:300]
+                    class_ticker = class_tickers.get(class_of.get(fund_id) or "")
+                    if (class_ticker and not (ticker_of.get(fund_id) or "").strip()
+                            and class_ticker[0] not in taken_tickers):
+                        updates["ticker"] = class_ticker[0]
+                        ticker_of[fund_id] = class_ticker[0]
+                        taken_tickers.add(class_ticker[0])
                     if row.get("DAILY_AVG_NET_ASSETS") or row.get("MONTHLY_AVG_NET_ASSETS"):
                         aum = _decimal(row.get("MONTHLY_AVG_NET_ASSETS") or row.get("DAILY_AVG_NET_ASSETS"))
                         if aum is not None:
@@ -443,6 +488,9 @@ def sync_sec_ncen_bulk(*, quarters: int = 8, refresh: bool = False,
                 applied["manager"] = updates["manager"]
             if not (fund.administrator or "").strip() and updates.get("administrator"):
                 applied["administrator"] = updates["administrator"]
+            if not (fund.ticker or "").strip() and updates.get("ticker"):
+                applied["ticker"] = updates["ticker"]
+                result["tickers_filled"] += 1
             if fund.net_assets is None and updates.get("net_assets") is not None:
                 applied["net_assets"] = updates["net_assets"]
                 applied["net_assets_date"] = updates.get("net_assets_date")

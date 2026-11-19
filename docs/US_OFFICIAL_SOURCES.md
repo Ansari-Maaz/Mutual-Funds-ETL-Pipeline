@@ -13,7 +13,9 @@ rather than being filled from a third-party feed.
 | SEC N-PORT filings (EDGAR) | Regulator filings | Per-filing holdings for selected/matched series | `python -m app.cli sync-sec-holdings` |
 | SEC Form N-MFP | Regulator filings | Money-market class NAV history snapshot (currency unassigned) | `python -m app.cli sync-sec-nmfp` |
 | SEC Form N-MFP monthly bulk data sets | Regulator bulk archive | Money-market portfolio holdings, adviser/administrator, class daily NAV | `python -m app.cli sync-sec-nmfp-bulk` |
-| SEC Form N-CEN quarterly bulk data sets | Regulator bulk archive | NAV/market price per share at period end, advisory fee and net expense ratios, average net assets, adviser and start date, administrator, custodian, transfer agent, pricing service, public accountant, underwriter, classification flags | `python -m app.cli sync-sec-ncen-bulk` |
+| SEC Form N-CEN quarterly bulk data sets | Regulator bulk archive | NAV/market price per share at period end, advisory fee and net expense ratios, average net assets, adviser and start date, administrator, custodian, transfer agent, pricing service, public accountant, underwriter, classification flags, and the Item C.2 class ticker table | `python -m app.cli sync-sec-ncen-bulk` |
+| SEC N-CEN / N-PORT / N-MFP reporting evidence | Regulator bulk archive | `filing_status` snapshot: whether the series still reports, newest report date per form | `python -m app.cli sync-sec-filing-status` |
+| SEC N-1A prospectus narrative (485/497 primary documents) | Regulator filings | Share-class inception date when the filing states a full commencement date for the named class | `python -m app.cli sync-sec-n1a-inception` |
 | Vanguard product pages | Asset manager | Dated NAV, inception date, expense ratio, category where published | `python -m app.cli enrich-us-funds --issuer-navs` |
 | SSGA / SPDR NAV workbooks | Asset manager | Dated NAV, shares outstanding, net assets | `python -m app.cli enrich-us-funds --issuer-navs` |
 | Capital Group / American Funds product pages | Asset manager | Current daily NAV for retail share classes | `python -m app.cli enrich-us-funds --issuer-navs` |
@@ -55,6 +57,23 @@ python -m app.cli sync-sec-nport-bulk --refresh             # re-download the ar
 - `--only-missing` restricts work to funds with no stored holdings. Replaying older
   quarters this way recovers the last official holdings for series that did not
   report in the newest quarter.
+
+## SEC reporting status
+
+```bash
+python -m app.cli sync-sec-filing-status --months 12
+```
+
+- Reads the N-CEN, N-PORT and N-MFP bulk archives already on disk and records the
+  newest report date per series for each form.
+- A series counts as reporting when any filing lands inside the window measured
+  back from the newest archive report date (not the wall clock, because the
+  archives lag publication).
+- Dormant registrations are not deleted and not marked terminated: absence is
+  stated as "no filing in the window". N-MFP `FINALFILINGFLAG` is kept as explicit
+  termination evidence when a money-market series files its last report.
+- The observation is exposed per fund as the API `reporting` object and on
+  `GET /api/v1/coverage/us` as `fields.reporting` / `fields.dormant`.
 
 ## Official issuer NAV adapters
 

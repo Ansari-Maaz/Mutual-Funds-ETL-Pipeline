@@ -78,6 +78,8 @@ function buildSummary(fund, snapshots, latestNav) {
   const yieldPayload = safeJson(yieldRow?.payload);
   const classificationRow = latestSnapshot(snapshots, 'classification');
   const classification = safeJson(classificationRow?.payload);
+  const filingStatusRow = latestSnapshot(snapshots, 'filing_status');
+  const filingStatus = safeJson(filingStatusRow?.payload);
   const classificationFlags = Object.fromEntries(Object.entries(classification)
     .filter(([key]) => !['effective_date', 'accession_number', 'source_url'].includes(key)));
   const manager = fund.manager || summary.manager || null;
@@ -108,6 +110,20 @@ function buildSummary(fund, snapshots, latestNav) {
       source_url: classification.source_url || classificationRow.source_url,
     } : null,
   };
+  if (filingStatusRow) {
+    result.reporting = {
+      reported_in_window: Boolean(filingStatus.reported_in_window),
+      window_months: filingStatus.window_months ?? null,
+      latest_report_date: filingStatus.latest_report_date || null,
+      ncen_last_report_date: filingStatus.ncen_last_report_date || null,
+      nport_last_report_date: filingStatus.nport_last_report_date || null,
+      nmfp_last_report_date: filingStatus.nmfp_last_report_date || null,
+      basis: filingStatus.basis || null,
+      note: filingStatus.note || null,
+      source_id: filingStatusRow.source_id,
+      source_url: filingStatusRow.source_url,
+    };
+  }
   const dividendYield = yieldPayload.values?.dividendYield;
   const secYield = yieldPayload.values?.secYield;
   result._field_provenance = {
@@ -118,6 +134,7 @@ function buildSummary(fund, snapshots, latestNav) {
     yield_candidates: yieldRow ? { source: snapshotMeta(yieldRow), dividend_yield: dividendYield || null,
       sec_yield: secYield || null, note: 'Yield bases are kept explicit; neither is silently substituted for a generic yield.' } : null,
     classification: snapshotMeta(classificationRow),
+    reporting: snapshotMeta(filingStatusRow),
   };
   result._missing_fields = ['min_investment', 'turnover_rate', 'yield', 'expense_ratio_net', 'category']
     .filter((field) => result[field] === null);

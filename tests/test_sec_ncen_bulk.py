@@ -81,3 +81,15 @@ def test_advisers_skip_sub_and_terminated_roles(tmp_path):
     assert advisers["a1"]["name"] == "Primary Co"
     assert advisers["a1"]["start_date"] == date(2010, 1, 1)
     assert "a2" not in advisers
+
+
+def test_class_tickers_skip_placeholders_and_invalid_symbols(tmp_path):
+    (tmp_path / "SHARES_OUTSTANDING.tsv").write_text(
+        "FUND_ID\tACCESSION_NUMBER\tCLASS_ID\tCLASS_NAME\tTICKER\tSHARES_OUTSTANDING\n"
+        "a1\tacc\tC000000001\tClass A\tABCDX\t100\n"
+        "a1\tacc\tC000000002\tClass C\tN/A\t100\n"
+        "a1\tacc\tC000000003\tClass I\tnone\t100\n"
+        "a1\tacc\tC000000004\tClass R\tabcdefghijklmnop\t100\n",
+        encoding="utf-8")
+    tickers = ncen._class_tickers(tmp_path)
+    assert tickers == {"C000000001": ("ABCDX", "Class A")}

@@ -336,6 +336,15 @@ def main() -> None:
     sec_ncsr.add_argument("--dry-run", action="store_true", help="Parse and report fills without writing to the database")
     sec_ncsr.add_argument("--workers", type=int, default=4, help="Parallel registrant fetch/parse workers (default: 4)")
     sec_ncsr.add_argument("--batch-size", type=int, default=100, help="Commit after this many registrants (default: 100)")
+    sec_status=sub.add_parser("sync-sec-filing-status", help="Record which US series still report to the SEC, so dormant registrations are not counted as data gaps")
+    sec_status.add_argument("--months", type=int, default=12, help="Observation window in months back from the newest archive report date (default: 12)")
+    sec_status.add_argument("--dry-run", action="store_true", help="Report counts without writing snapshots")
+    sec_n1a=sub.add_parser("sync-sec-n1a-inception", help="Fill share-class inception dates stated in N-1A prospectus narrative text")
+    sec_n1a.add_argument("--archives", type=int, default=4, help="Number of newest risk/return archives whose filings are read (default: 4)")
+    sec_n1a.add_argument("--workers", type=int, default=6, help="Parallel document fetch/parse workers (default: 6)")
+    sec_n1a.add_argument("--limit", type=int, help="Process only the first N filings (smoke test)")
+    sec_n1a.add_argument("--refresh", action="store_true", help="Re-download cached prospectus text")
+    sec_n1a.add_argument("--dry-run", action="store_true", help="Report matches without writing to the database")
     sec_rr=sub.add_parser("sync-sec-rr-profiles", help="Fill US class inception dates and tickers from SEC N-1A risk/return XBRL data sets")
     sec_rr.add_argument("--quarters", type=int, default=8, help="Number of newest quarterly archives to scan (default: 8; use 60 for the full history)")
     sec_rr.add_argument("--refresh", action="store_true", help="Redownload cached archives")
@@ -400,6 +409,15 @@ def main() -> None:
         from app.enrichment.sec_ncen_bulk import sync_sec_ncen_bulk
         print(json.dumps(tracked_run("sec-ncen-bulk", lambda: sync_sec_ncen_bulk(quarters=args.quarters, refresh=args.refresh,
             update_profiles=not args.no_profiles, write_nav=not args.no_nav)), indent=2))
+    elif args.cmd=="sync-sec-filing-status":
+        from app.enrichment.sec_filing_status import sync_sec_filing_status
+        job=lambda: sync_sec_filing_status(months=args.months, dry_run=args.dry_run)
+        print(json.dumps(job() if args.dry_run else tracked_run("sec-filing-status", job), indent=2, default=str))
+    elif args.cmd=="sync-sec-n1a-inception":
+        from app.enrichment.sec_n1a_inception import sync_sec_n1a_inception
+        job=lambda: sync_sec_n1a_inception(archives=args.archives, workers=args.workers,
+            dry_run=args.dry_run, refresh=args.refresh, limit=args.limit)
+        print(json.dumps(job() if args.dry_run else tracked_run("sec-n1a-inception", job), indent=2, default=str))
     elif args.cmd=="sync-sec-rr-profiles":
         from app.enrichment.sec_rr_profile import sync_sec_rr_profiles
         job=lambda: sync_sec_rr_profiles(quarters=args.quarters,refresh=args.refresh,dry_run=args.dry_run,fill_tickers=not args.no_tickers)

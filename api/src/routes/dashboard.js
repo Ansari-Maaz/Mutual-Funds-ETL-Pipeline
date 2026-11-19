@@ -54,14 +54,26 @@ router.get('/coverage/us', async (req, res, next) => {
                count(*) FILTER (WHERE NOT has_nav AND ticker IS NULL)::int AS missing_nav_no_ticker
         FROM us`),
       pool.query(`
+        WITH st AS (
+          SELECT fund_id, (payload->>'reported_in_window')::boolean AS reporting
+          FROM fund_profile_snapshots WHERE dataset = 'filing_status')
         SELECT count(*)::int AS total,
+               count(*) FILTER (WHERE st.reporting)::int AS reporting,
+               count(*) FILTER (WHERE NOT COALESCE(st.reporting, false))::int AS dormant,
                count(ticker)::int AS ticker,
                count(isin)::int AS isin,
                count(inception_date)::int AS inception_date,
                count(category) FILTER (WHERE btrim(category) <> '')::int AS category,
                count(manager) FILTER (WHERE btrim(manager) <> '')::int AS manager,
-               count(net_assets)::int AS net_assets
-        FROM funds WHERE domicile_country = 'US'`),
+               count(net_assets)::int AS net_assets,
+               count(ticker) FILTER (WHERE st.reporting)::int AS reporting_ticker,
+               count(isin) FILTER (WHERE st.reporting)::int AS reporting_isin,
+               count(inception_date) FILTER (WHERE st.reporting)::int AS reporting_inception_date,
+               count(category) FILTER (WHERE st.reporting AND btrim(category) <> '')::int AS reporting_category,
+               count(manager) FILTER (WHERE st.reporting AND btrim(manager) <> '')::int AS reporting_manager,
+               count(net_assets) FILTER (WHERE st.reporting)::int AS reporting_net_assets
+        FROM funds f LEFT JOIN st ON st.fund_id = f.id
+        WHERE f.domicile_country = 'US'`),
       pool.query(`
         SELECT count(*)::int AS total,
                count(*) FILTER (WHERE dataset = 'expense_ratio_history')::int AS expense_ratio,
@@ -71,7 +83,8 @@ router.get('/coverage/us', async (req, res, next) => {
                count(*) FILTER (WHERE dataset = 'asset_allocation')::int AS asset_allocation,
                count(*) FILTER (WHERE dataset = 'classification')::int AS classification,
                count(*) FILTER (WHERE dataset = 'service_providers')::int AS service_providers,
-               count(*) FILTER (WHERE dataset = 'aum_history')::int AS aum_history
+               count(*) FILTER (WHERE dataset = 'aum_history')::int AS aum_history,
+               count(*) FILTER (WHERE dataset = 'filing_status')::int AS filing_status
         FROM (SELECT DISTINCT fund_id, dataset FROM fund_profile_snapshots
               WHERE fund_id IN (SELECT id FROM funds WHERE domicile_country = 'US')) d`),
       pool.query(`
@@ -81,6 +94,8 @@ router.get('/coverage/us', async (req, res, next) => {
                min(ticker) AS sample_ticker
         FROM funds f
         WHERE domicile_country = 'US'
+          AND EXISTS (SELECT 1 FROM fund_profile_snapshots fs WHERE fs.fund_id = f.id
+                      AND fs.dataset = 'filing_status' AND (fs.payload->>'reported_in_window')::boolean)
           AND NOT EXISTS (SELECT 1 FROM nav_observations n WHERE n.fund_id = f.id AND n.nav > 0)
         GROUP BY provider ORDER BY missing DESC LIMIT 12`),
       pool.query(`
@@ -89,6 +104,8 @@ router.get('/coverage/us', async (req, res, next) => {
                min(ticker) AS sample_ticker
         FROM funds f
         WHERE domicile_country = 'US'
+          AND EXISTS (SELECT 1 FROM fund_profile_snapshots fs WHERE fs.fund_id = f.id
+                      AND fs.dataset = 'filing_status' AND (fs.payload->>'reported_in_window')::boolean)
           AND NOT EXISTS (SELECT 1 FROM portfolio_holdings h WHERE h.fund_id = f.id)
         GROUP BY provider ORDER BY missing DESC LIMIT 12`),
       pool.query(`

@@ -1,12 +1,14 @@
 {
-  "generated_at": "2026-11-18T12:24:00.977626+00:00",
+  "generated_at": "2026-11-19T20:18:47.585368+00:00",
   "country": "US",
   "funds": 39139,
+  "reporting_funds": 32627,
+  "dormant_funds": 6512,
   "field_completeness": {
     "ticker": {
-      "present": 31688,
-      "missing": 7451,
-      "percent_complete": 80.96,
+      "present": 32008,
+      "missing": 7131,
+      "percent_complete": 81.78,
       "official_source": "SEC company_tickers_mf.json, N-1A TradingSymbol/scn.tsv, N-CSR TradingSymbol",
       "action": "run enrich-us-funds --tickers and sync-sec-rr-profiles"
     },
@@ -55,19 +57,56 @@
   },
   "funds_by_missing_field_count": {
     "0": 14,
-    "1": 963,
-    "2": 14413,
-    "3": 14824,
-    "4": 3005,
+    "1": 969,
+    "2": 14526,
+    "3": 14900,
+    "4": 2810,
     "5": 704,
     "6": 2160,
     "7": 3056
+  },
+  "reporting_field_completeness": {
+    "ticker": {
+      "present": 28659,
+      "missing": 3968,
+      "percent_complete": 87.84
+    },
+    "isin": {
+      "present": 769,
+      "missing": 31858,
+      "percent_complete": 2.36
+    },
+    "category": {
+      "present": 1094,
+      "missing": 31533,
+      "percent_complete": 3.35
+    },
+    "inception_date": {
+      "present": 16661,
+      "missing": 15966,
+      "percent_complete": 51.07
+    },
+    "manager": {
+      "present": 31567,
+      "missing": 1060,
+      "percent_complete": 96.75
+    },
+    "administrator": {
+      "present": 30734,
+      "missing": 1893,
+      "percent_complete": 94.2
+    },
+    "net_assets": {
+      "present": 32588,
+      "missing": 39,
+      "percent_complete": 99.88
+    }
   },
   "top_providers_by_missing_fields": [
     {
       "provider": "ETF Opportunities Trust",
       "funds": 569,
-      "missing_total": 3559,
+      "missing_total": 3557,
       "missing_by_field": {
         "category": 569,
         "isin": 568,
@@ -75,7 +114,7 @@
         "manager": 501,
         "administrator": 501,
         "net_assets": 472,
-        "ticker": 401
+        "ticker": 399
       }
     },
     {
@@ -109,7 +148,7 @@
     {
       "provider": "Tidal Trust II",
       "funds": 548,
-      "missing_total": 2948,
+      "missing_total": 2943,
       "missing_by_field": {
         "category": 548,
         "isin": 541,
@@ -117,7 +156,7 @@
         "manager": 415,
         "administrator": 415,
         "net_assets": 362,
-        "ticker": 212
+        "ticker": 207
       }
     },
     {
@@ -179,12 +218,12 @@
     {
       "provider": "PIMCO FUNDS",
       "funds": 378,
-      "missing_total": 1171,
+      "missing_total": 1170,
       "missing_by_field": {
         "isin": 374,
         "category": 372,
         "inception_date": 366,
-        "ticker": 44,
+        "ticker": 43,
         "manager": 5,
         "administrator": 5,
         "net_assets": 5

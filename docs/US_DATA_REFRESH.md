@@ -73,10 +73,24 @@ archive fills official profile fields that N-PORT and N-MFP do not carry:
 It stores the series-level NAV/market-price snapshot, advisory fee and net
 operating-expense percentages, average net assets, adviser (with start date),
 administrator, custodian, transfer agent, pricing service, public accountant,
-principal underwriter, and classification flags. The newest report-ending period
-per series wins, so overlapping quarters are safe. A canonical NAV row is written
-only for series that map to a single local share class; multi-class series keep the
-figure in the `nav_snapshot` profile with its series scope.
+principal underwriter, classification flags, and the Item C.2 class ticker table.
+The newest report-ending period per series wins, so overlapping quarters are safe.
+A canonical NAV row is written only for series that map to a single local share
+class; multi-class series keep the figure in the `nav_snapshot` profile with its
+series scope. A class ticker from `SHARES_OUTSTANDING.tsv` is written only when the
+class has no ticker and the symbol is not already used by another fund.
+
+## SEC reporting status
+
+```bash
+./.venv/bin/python -m app.cli sync-sec-filing-status --months 12
+```
+
+Reads the N-CEN, N-PORT and N-MFP archives already on disk and records, per fund,
+the newest report date for each form plus whether any filing falls inside the
+window. This separates a live series from a dormant registration whose missing
+fields can never be filled. Run it after every bulk import; it makes no network
+requests.
 
 ## SEC prospectus risk/return and tailored shareholder report facts
 
