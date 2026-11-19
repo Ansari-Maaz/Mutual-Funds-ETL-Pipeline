@@ -84,7 +84,8 @@ router.get('/coverage/us', async (req, res, next) => {
                count(*) FILTER (WHERE dataset = 'classification')::int AS classification,
                count(*) FILTER (WHERE dataset = 'service_providers')::int AS service_providers,
                count(*) FILTER (WHERE dataset = 'aum_history')::int AS aum_history,
-               count(*) FILTER (WHERE dataset = 'filing_status')::int AS filing_status
+               count(*) FILTER (WHERE dataset = 'filing_status')::int AS filing_status,
+               count(*) FILTER (WHERE dataset = 'n1a_inception')::int AS n1a_inception
         FROM (SELECT DISTINCT fund_id, dataset FROM fund_profile_snapshots
               WHERE fund_id IN (SELECT id FROM funds WHERE domicile_country = 'US')) d`),
       pool.query(`

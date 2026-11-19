@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T20:18:47.585368+00:00",
+  "generated_at": "2026-11-19T21:33:18.204960+00:00",
   "country": "US",
   "funds": 39139,
   "reporting_funds": 32627,
@@ -27,9 +27,9 @@
       "action": "leave null unless an issuer publishes a category; run enrich-us-fund-categories"
     },
     "inception_date": {
-      "present": 16838,
-      "missing": 22301,
-      "percent_complete": 43.02,
+      "present": 17257,
+      "missing": 21882,
+      "percent_complete": 44.09,
       "official_source": "SEC N-1A prospectus XBRL PerfInceptionDate / N-CSR tailored shareholder report",
       "action": "run sync-sec-rr-profiles and sync-sec-ncsr-tsr"
     },
@@ -57,13 +57,13 @@
   },
   "funds_by_missing_field_count": {
     "0": 14,
-    "1": 969,
-    "2": 14526,
-    "3": 14900,
-    "4": 2810,
+    "1": 976,
+    "2": 14864,
+    "3": 14611,
+    "4": 2756,
     "5": 704,
-    "6": 2160,
-    "7": 3056
+    "6": 2165,
+    "7": 3049
   },
   "reporting_field_completeness": {
     "ticker": {
@@ -82,9 +82,9 @@
       "percent_complete": 3.35
     },
     "inception_date": {
-      "present": 16661,
-      "missing": 15966,
-      "percent_complete": 51.07
+      "present": 17071,
+      "missing": 15556,
+      "percent_complete": 52.32
     },
     "manager": {
       "present": 31567,
@@ -148,11 +148,11 @@
     {
       "provider": "Tidal Trust II",
       "funds": 548,
-      "missing_total": 2943,
+      "missing_total": 2942,
       "missing_by_field": {
         "category": 548,
         "isin": 541,
-        "inception_date": 455,
+        "inception_date": 454,
         "manager": 415,
         "administrator": 415,
         "net_assets": 362,
@@ -246,11 +246,11 @@
     {
       "provider": "GOLDMAN SACHS TRUST",
       "funds": 576,
-      "missing_total": 1119,
+      "missing_total": 1118,
       "missing_by_field": {
         "isin": 572,
         "category": 497,
-        "inception_date": 50
+        "inception_date": 49
       }
     },
     {
@@ -372,21 +372,21 @@
     {
       "provider": "HARTFORD MUTUAL FUNDS, INC",
       "funds": 297,
-      "missing_total": 820,
+      "missing_total": 799,
       "missing_by_field": {
         "isin": 297,
         "category": 297,
-        "inception_date": 226
+        "inception_date": 205
       }
     },
     {
       "provider": "RBB FUND, INC.",
       "funds": 183,
-      "missing_total": 790,
+      "missing_total": 787,
       "missing_by_field": {
         "category": 183,
         "isin": 167,
-        "inception_date": 137,
+        "inception_date": 134,
         "manager": 88,
         "administrator": 88,
         "net_assets": 72,
@@ -418,20 +418,6 @@
       }
     },
     {
-      "provider": "JANUS INVESTMENT FUND",
-      "funds": 256,
-      "missing_total": 766,
-      "missing_by_field": {
-        "isin": 256,
-        "category": 250,
-        "inception_date": 235,
-        "manager": 8,
-        "administrator": 8,
-        "net_assets": 8,
-        "ticker": 1
-      }
-    },
-    {
       "provider": "JPMorgan Trust I",
       "funds": 365,
       "missing_total": 754,
@@ -454,6 +440,20 @@
         "administrator": 99,
         "net_assets": 91,
         "ticker": 89
+      }
+    },
+    {
+      "provider": "JANUS INVESTMENT FUND",
+      "funds": 256,
+      "missing_total": 671,
+      "missing_by_field": {
+        "isin": 256,
+        "category": 250,
+        "inception_date": 140,
+        "manager": 8,
+        "administrator": 8,
+        "net_assets": 8,
+        "ticker": 1
       }
     },
     {

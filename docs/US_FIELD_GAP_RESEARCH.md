@@ -40,7 +40,7 @@ Worklists produced by the read-only audits:
 | `name` / `legal_name` | 0 | 0 | SEC investment-company series/class master | Already complete | — |
 | `ticker` | 7,131 | 3,968 | SEC `company_tickers_mf.json`, N-1A prospectus `TradingSymbol` (`scn.tsv`), N-CSR tailored shareholder report `TradingSymbol`, N-CEN Item C.2 class table `SHARES_OUTSTANDING.TICKER` | 32,008 present (320 added from the N-CEN class table) | Classes absent from all four files publish no symbol: variable-insurance separate accounts, 529 plan classes, and institutional classes. Borrowing a sibling class's ticker would be false. |
 | `isin` | 38,369 | 31,858 | SEC N-PORT `IDENTIFIERS` (portfolio security CUSIP/ISIN), with pattern and Luhn check-digit validation plus exact ticker/name agreement | 770 classes backed by a validated CUSIP/ISIN pair | The SEC series/class master explicitly has no ISIN. N-PORT identifiers describe portfolio securities, not the filer's own share classes. There is no official bulk US fund-ISIN feed, so a class that is never held by another filer cannot be assigned one. |
-| `inception_date` | 22,301 | 15,966 | N-1A prospectus XBRL `PerfInceptionDate`, N-CSR tailored shareholder report `PerfInceptionDate`, N-1A prospectus narrative ("commenced operations on"), Vanguard directory | 16,838 present | 14,611 classes publish the XBRL tag across every N-1A archive; TSR adds 2,382 more (the tag is only filed for classes younger than the 10-year performance window). The narrative extractor only accepts a full calendar date attached to the named class or to the single-class series, so the rest stays null rather than inferring a date from a first partial fiscal year. N-CEN has no inception field, and EDGAR `dateOfOrganization` is the registrant trust's organization date, so it is deliberately not written as fund inception. |
+| `inception_date` | 21,882 | 15,556 | N-1A prospectus XBRL `PerfInceptionDate`, N-CSR tailored shareholder report `PerfInceptionDate`, N-1A prospectus narrative ("commenced operations on"), Vanguard directory | 17,257 present (16,838 from XBRL/issuer sources plus 419 high-confidence narrative dates) | 14,611 classes publish the XBRL tag across every N-1A archive; TSR adds 2,382 more (the tag is only filed for classes younger than the 10-year performance window). The narrative extractor only accepts a full date in a prose sentence naming the class (or its single-class series), rejecting performance tables and "had not commenced" statements, so the rest stays null rather than inferring a date from a first partial fiscal year. N-CEN has no inception field, and EDGAR `dateOfOrganization` is the registrant trust's organization date, so it is deliberately not written as fund inception. |
 | `category` | 38,044 | 31,533 | N-CEN classification flags; Nasdaq Fund Information API; issuer product pages | 1,095 (money-market classification and issuer-published categories) | N-CEN reports vehicle/strategy flags (ETF, index, money market, target date, fund of funds), not an investment style; they are exposed as the API `classification` object instead. Nasdaq's fund-info response returns `Category = N/A` for most classes. No official source publishes a Morningstar-style category. |
 | `manager` | 6,059 | 1,060 | Form N-CEN `ADVISER` | 33,080 from eight quarters of N-CEN | The remainder is almost entirely dormant registrations that filed no N-CEN in the scanned quarters; among reporting funds only 1,060 lack a primary adviser, and those filings carry a blank adviser row. |
 | `administrator` | 6,920 | 1,893 | Form N-CEN `ADMIN` | 32,219 from eight quarters of N-CEN | Administration is optional in N-CEN; some advisers perform it without naming a separate administrator. |
@@ -69,6 +69,7 @@ Checked with a browser user agent:
 
 ```bash
 ./.venv/bin/python -m app.cli sync-sec-filing-status --months 12
+./.venv/bin/python -m app.cli sync-sec-n1a-inception --archives 4 --workers 8
 ./.venv/bin/python scripts/audit_us_field_gaps.py
 ./.venv/bin/python scripts/audit_us_fund_gaps.py
 ./.venv/bin/python scripts/backfill_us_isins_from_sec_holdings.py --apply
@@ -92,6 +93,14 @@ Checked with a browser user agent:
   published archive wrote 319,346 snapshots for 67,401 classes with expenses,
   27,705 with returns, 26,912 with objective/strategy text and 14,611 with
   inception dates.
+- **N-1A prospectus narrative inception** (`sync-sec-n1a-inception`) reads the
+  primary documents of the 485/497 filings indexed by the risk/return data sets
+  and records a share-class inception date only when the filing states a full
+  "commenced operations on <Month D, YYYY>" sentence naming that class (or the
+  series, when it has one class). Performance tables, bare years and "has/had not
+  commenced" statements are rejected. A replay of four archives read 1,895
+  filings and added 419 audited inception dates with the source sentence stored
+  in the `n1a_inception` snapshot.
 - **Tailored shareholder reports** (`sync-sec-ncsr-tsr`) add class-level
   `expense_ratio_history`, `performance`, `risk` (holdings count and turnover),
   `sector_allocation` and `ncsr_tsr_class` snapshots. The `--only-gaps` backfill
