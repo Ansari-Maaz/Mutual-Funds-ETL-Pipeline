@@ -14,7 +14,7 @@ FundFlow collects mutual-fund reference data, NAV observations, and selected por
 
 ## Demo
 
-[Watch or download the project demo](docs/media/Demo%20Video.webm).
+[Watch or download the project demo](docs/media/Demo%20Video.webm) · [Open the demo on Google Drive](https://drive.google.com/file/d/1qfQdj_8Oyg5KmDA0f5jcm379A3nfKV5t/view?usp=sharing).
 
 ## What the project does
 
