@@ -14,11 +14,7 @@ FundFlow collects mutual-fund reference data, NAV observations, and selected por
 
 ## Demo
 
-<!-- GitHub renders an inline player when this is a GitHub-uploaded video asset URL. -->
-<!-- Upload `docs/media/Demo Preview.mp4` in GitHub's README editor and paste its generated URL below. -->
-<!-- GITHUB_VIDEO_ASSET_URL -->
-
-> **Local preview:** [`docs/media/Demo Preview.mp4`](docs/media/Demo%20Preview.mp4) (compressed H.264 copy); original: [`docs/media/Demo Video.webm`](docs/media/Demo%20Video.webm). GitHub's inline player requires its generated `https://github.com/user-attachments/assets/...` URL on its own line.
+[Watch or download the project demo](docs/media/Demo%20Video.webm).
 
 ## What the project does
 
