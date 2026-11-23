@@ -334,11 +334,15 @@ ETL controls and source connectivity checks require the `X-API-Key` header. The 
 
 ## Screenshots
 
-The existing screenshots are retained below.
+Screenshots below show the current FundFlow dashboard and fund profile.
 
 ### Overview
 
-![FundFlow overview dashboard](docs/screenshots/fundflow-overview.png)
+![Latest FundFlow overview dashboard](docs/screenshots/fundflow-overview.png)
+
+### Fund Profile
+
+![Fund profile showing Vanguard 500 Index Fund details](docs/screenshots/fundflow-fund-profile.png)
 
 ### Fund Explorer
 
