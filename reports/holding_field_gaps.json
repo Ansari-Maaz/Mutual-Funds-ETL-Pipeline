@@ -1,0 +1,122 @@
+{
+  "all_positions": 85893970,
+  "latest_report_positions": 11923413,
+  "fields": {
+    "ticker": {
+      "missing_all": 37030794,
+      "present_all_pct": 56.89,
+      "missing_latest": 5382973,
+      "present_latest_pct": 54.85
+    },
+    "isin": {
+      "missing_all": 7099783,
+      "present_all_pct": 91.73,
+      "missing_latest": 1139714,
+      "present_latest_pct": 90.44
+    },
+    "cusip": {
+      "missing_all": 9764380,
+      "present_all_pct": 88.63,
+      "missing_latest": 1496750,
+      "present_latest_pct": 87.45
+    },
+    "quantity": {
+      "missing_all": 208855,
+      "present_all_pct": 99.76,
+      "missing_latest": 195785,
+      "present_latest_pct": 98.36
+    },
+    "market_value": {
+      "missing_all": 190124,
+      "present_all_pct": 99.78,
+      "missing_latest": 169120,
+      "present_latest_pct": 98.58
+    },
+    "portfolio_weight": {
+      "missing_all": 25043,
+      "present_all_pct": 99.97,
+      "missing_latest": 5569,
+      "present_latest_pct": 99.95
+    },
+    "unit": {
+      "missing_all": 292975,
+      "present_all_pct": 99.66,
+      "missing_latest": 290012,
+      "present_latest_pct": 97.57
+    },
+    "issuer_lei": {
+      "missing_all": 25698799,
+      "present_all_pct": 70.08,
+      "missing_latest": 3360874,
+      "present_latest_pct": 71.81
+    },
+    "issuer_type": {
+      "missing_all": 313239,
+      "present_all_pct": 99.64,
+      "missing_latest": 310276,
+      "present_latest_pct": 97.4
+    },
+    "asset_category": {
+      "missing_all": 295258,
+      "present_all_pct": 99.66,
+      "missing_latest": 292295,
+      "present_latest_pct": 97.55
+    },
+    "investment_country": {
+      "missing_all": 324659,
+      "present_all_pct": 99.62,
+      "missing_latest": 299977,
+      "present_latest_pct": 97.48
+    },
+    "is_restricted": {
+      "missing_all": 563944,
+      "present_all_pct": 99.34,
+      "missing_latest": 324038,
+      "present_latest_pct": 97.28
+    },
+    "fair_value_level": {
+      "missing_all": 610397,
+      "present_all_pct": 99.29,
+      "missing_latest": 330773,
+      "present_latest_pct": 97.23
+    },
+    "derivative_category": {
+      "missing_all": 79625290,
+      "present_all_pct": 7.3,
+      "missing_latest": 10964874,
+      "present_latest_pct": 8.04
+    },
+    "payoff_profile": {
+      "missing_all": 6488908,
+      "present_all_pct": 92.45,
+      "missing_latest": 1254139,
+      "present_latest_pct": 89.48
+    },
+    "exchange_rate": {
+      "missing_all": 70667502,
+      "present_all_pct": 17.73,
+      "missing_latest": 9888399,
+      "present_latest_pct": 17.07
+    },
+    "first_bought_date": {
+      "present_latest": 11259649,
+      "present_latest_pct": 94.43
+    },
+    "share_change_percentage": {
+      "present_latest": 8911451,
+      "present_latest_pct": 74.74
+    },
+    "one_year_return": {
+      "present_latest": 6563530,
+      "present_latest_pct": 55.05
+    },
+    "sector": {
+      "present_latest": 4032365,
+      "present_latest_pct": 33.82
+    },
+    "trailing_pe": {
+      "present_latest": 1248664,
+      "present_latest_pct": 10.47
+    }
+  }
+}

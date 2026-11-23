@@ -21533,7 +21533,7 @@
     "name": "BNY DREYFUS TREASURY SECURITIES CASH MANAGEMENT — Institutional Shares",
     "domicile_country": "US",
     "currency": "USD",
-    "isin": null
+    "isin": "US2619411083"
   },
   {
     "source_id": "sec_open_end_fund_classes",
@@ -21549,7 +21549,7 @@
     "name": "BNY DREYFUS TREASURY SECURITIES CASH MANAGEMENT — Administrative Shares",
     "domicile_country": "US",
     "currency": "USD",
-    "isin": null
+    "isin": "US2619413063"
   },
   {
     "source_id": "sec_open_end_fund_classes",
@@ -21589,7 +21589,7 @@
     "name": "BNY Dreyfus Government Cash Management — dreyfus government cash mangement - Institutional Shares",
     "domicile_country": "US",
     "currency": "USD",
-    "isin": null
+    "isin": "US2620062081"
   },
   {
     "source_id": "sec_open_end_fund_classes",

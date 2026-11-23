@@ -266,6 +266,18 @@ The main generated reports are:
 
 Raw provider files are stored under data/raw/ and are ignored by Git.
 
+Official SEC holding enrichment (all commands are idempotent):
+
+    python -m app.cli sync-sec-nport-bulk --quarter 2026q3
+    python -m app.cli sync-sec-nport-identifiers
+    python -m app.cli sync-sec-industry
+    python -m app.cli sync-sec-nport-metrics
+    python scripts/audit_holding_gaps.py
+
+The identifier, industry and derived-metric steps are documented in
+`docs/HOLDINGS_ENRICHMENT.md`. They fill the holding fields shown on the full
+fund profile page using only SEC filings and SEC identifier/SIC directories.
+
 
 10. CONFIGURE THE REST API
 ==========================

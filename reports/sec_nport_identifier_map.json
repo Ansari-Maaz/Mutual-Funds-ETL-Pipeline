@@ -1,0 +1,11 @@
+{
+  "quarters": [
+    "2026q3"
+  ],
+  "map_rows": 57476,
+  "apply": {
+    "ticker_rows_filled": 5467031,
+    "isin_rows_filled": 21017
+  },
+  "completed_at": "2026-11-20T17:25:54.320824+00:00"
+}

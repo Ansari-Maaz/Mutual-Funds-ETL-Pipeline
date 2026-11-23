@@ -13,6 +13,9 @@ rather than being filled from a third-party feed.
 | SEC N-PORT filings (EDGAR) | Regulator filings | Per-filing holdings for selected/matched series | `python -m app.cli sync-sec-holdings` |
 | SEC Form N-MFP | Regulator filings | Money-market class NAV history snapshot (currency unassigned) | `python -m app.cli sync-sec-nmfp` |
 | SEC Form N-MFP monthly bulk data sets | Regulator bulk archive | Money-market portfolio holdings, adviser/administrator, class daily NAV | `python -m app.cli sync-sec-nmfp-bulk` |
+| SEC Form N-CSR/N-CSRS statement of assets | Regulator filings | Class-level filed period-end NAV for classes without a ticker or daily feed | `python scripts/backfill_ncsr_nav.py` |
+| SEC Form N-CSR/N-CSRS schedule of investments | Regulator filings | Filed security names, quantities and market values for series missing from the N-PORT archives | `python scripts/backfill_ncsr_holdings.py` |
+| SEC individual N-MFP filings | Regulator filings | Money-market holdings and daily class NAV for series absent from the monthly bulk archive | `python scripts/backfill_nmfp_individual.py --assign-usd-nav` |
 | SEC Form N-CEN quarterly bulk data sets | Regulator bulk archive | NAV/market price per share at period end, advisory fee and net expense ratios, average net assets, adviser and start date, administrator, custodian, transfer agent, pricing service, public accountant, underwriter, classification flags, and the Item C.2 class ticker table | `python -m app.cli sync-sec-ncen-bulk` |
 | SEC N-CEN / N-PORT / N-MFP reporting evidence | Regulator bulk archive | `filing_status` snapshot: whether the series still reports, newest report date per form | `python -m app.cli sync-sec-filing-status` |
 | SEC N-1A prospectus narrative (485/497 primary documents) | Regulator filings | Share-class inception date when the filing states a full commencement date for the named class | `python -m app.cli sync-sec-n1a-inception` |
@@ -25,6 +28,20 @@ The enrichment commands also fill fund details from official data:
 `--net-assets` (N-PORT AUM), `--tickers` (live SEC series/class endpoint),
 `--isins` (validated N-PORT security identifiers) and `--vanguard` (Vanguard
 directory profiles).
+
+## SEC portfolio-holding enrichment
+
+The filing's full Item C.4 payload, the official CUSIP→ticker/ISIN crosswalk,
+the SEC EDGAR SIC industry map and the metrics derived from consecutive filings
+are documented in [HOLDINGS_ENRICHMENT.md](HOLDINGS_ENRICHMENT.md). The relevant
+commands are `sync-sec-nport-identifiers`, `sync-sec-industry`,
+`sync-sec-nport-metrics`, `sync-sec-eps` and `sync-sec-trailing-pe`.
+`sync-sec-eps` reads the issuer's SEC XBRL `EarningsPerShareDiluted` company
+concept (10-K/20-F/40-F annual facts) into `security_fundamentals`;
+`sync-sec-trailing-pe` divides the N-PORT filed price per share by that EPS and
+stores the ratio with its EPS period and XBRL URL. No sector, forward P/E or
+first-purchase date is invented: an unsupported field stays empty or is labelled
+with its derivation.
 
 ## SEC N-PORT bulk holdings
 
@@ -44,6 +61,17 @@ python -m app.cli sync-sec-nport-bulk --refresh             # re-download the ar
   per `HOLDING_ID` before joining; a direct join would duplicate positions.
 - Series-level holdings are duplicated across the series' matched share classes so
   that every class row can show the same reported portfolio.
+- The remaining `FUND_REPORTED_INFO` statement fields (assets, liabilities,
+  borrowings, cash, credit-spread ranges and three months of gains/flows) are
+  imported as a `nport_financials` snapshot by
+  `python scripts/import_nport_financial_snapshots.py`. It reads cached archives
+  only, keeps the newest report per series and never rewrites holdings or core
+  fund columns. Values are series-level and in USD.
+- The DERA archive exists from **2019q4** onward. Older quarters
+  (`--quarter 2019q4 … 2024q3 --only-missing --no-apply-identifiers`) recover the
+  newest official filing for funds whose series stopped reporting before the
+  newer bulk archives. `scripts/backfill_missing_nport_holdings.py` is the
+  individual-filing fallback for any series still without positions.
 - The filed `ASSET_CAT` value of every position is summed per category into an
   `asset_allocation` snapshot (`alloc` values as percentages of net assets). This is
   the official basis for the composition endpoint's asset allocation; derivatives
@@ -131,6 +159,7 @@ official reference and service-provider data that N-PORT does not carry:
 python -m app.cli sync-sec-ncen-bulk                       # newest 8 quarters
 python -m app.cli sync-sec-ncen-bulk --quarters 12 --refresh
 python -m app.cli sync-sec-ncen-bulk --no-nav --no-profiles
+python -m app.cli sync-sec-ncen-bulk --offline            # cached archives only
 ```
 
 - The newest report-ending period per SEC series across all scanned quarters is
@@ -138,9 +167,23 @@ python -m app.cli sync-sec-ncen-bulk --no-nav --no-profiles
 - `FUND_REPORTED_INFO` supplies NAV per share, market price per share, advisory
   fee and net operating expenses as percentages of net assets, average net
   assets, index-tracking difference/standard deviation, and classification flags.
+- The same table's Item C statement values are stored in a `financials`
+  snapshot: total assets, total liabilities, net assets, assets invested, cash,
+  borrowings, monthly realized/unrealized gains, monthly sales/reinvestment/
+  redemption flows, commissions/principal, and securities-lending income.
+- `REGISTRANT` and `REGISTRANT_WEBSITE` supply registrant-level name, file
+  number, CIK, LEI, address, phone, website and investment-company type in a
+  `registrant` snapshot. These facts describe the fund family, not the adviser.
+- `ETF` supplies series-level creation/redemption unit sizes, cash/non-cash
+  purchase and redemption percentages and standard deviations, fees, tracking
+  difference/standard deviation, and ETF flags in an `etf_profile` snapshot.
 - `ADVISER`, `ADMIN`, `CUSTODIAN`, `TRANSFER_AGENT`, `PRICING_SERVICE`,
   `PUBLIC_ACCOUNTANT` and `PRINCIPAL_UNDERWRITER` fill `funds.manager`,
   `funds.administrator` and the `service_providers` snapshot.
+- The series-level Legal Entity Identifier (`FUND_REPORTED_INFO.LEI`) is written
+  to `fund_identifiers` (`id_type='LEI'`) and to an `identity` profile snapshot.
+  The value belongs to the SEC series and is shared by all of its share classes;
+  `scripts/backfill_us_series_leis.py` applies the same mapping to cached archives.
 - The adviser start date is stored as manager tenure evidence, not as fund
   inception (N-CEN does not report inception).
 - Advisory fee and net operating expenses are reported as percentages of net
@@ -154,6 +197,17 @@ python -m app.cli sync-sec-ncen-bulk --no-nav --no-profiles
 - Index-tracking figures are labelled as fund-versus-index differences, never as
   absolute fund returns.
 
+## SEC N-MFP class-level facts
+
+Cached N-MFP monthly archives also carry a class-level table with minimum
+investment, class net assets and shares outstanding, weekly subscription and
+redemption flows, seven-day yield and shareholder composition. Run
+`python scripts/import_nmfp_class_snapshots.py` to store the newest filing per
+class as an `nmfp_class_financials` snapshot. NAV is never derived from net
+assets divided by shares; only values filed as NAV are used as NAV.
+`python scripts/backfill_nmfp_nav.py` writes those filed daily class NAVs as
+USD `nav_observations`, skipping dates already present for the same class.
+
 ## SEC N-1A prospectus risk/return data sets
 
 The SEC DERA "Mutual Fund Prospectus Risk/Return Summary" archives carry the XBRL
@@ -164,11 +218,23 @@ They are keyed by SEC class ID (`C000…`), the same value stored in
 ```bash
 python -m app.cli sync-sec-rr-profiles --quarters 4 --dry-run
 python -m app.cli sync-sec-rr-profiles --quarters 60   # every cached archive
+python -m app.cli sync-sec-rr-profiles --offline       # cached archives only
 ```
 
 - `num.tsv` supplies net/gross expense ratios, management, 12b-1 and other expense
   components, expense examples, portfolio turnover and publisher-reported
   average annual returns (4/12/20/40 quarters → 1/3/5/10 years).
+- The same table supplies the rest of the prospectus fee table: maximum sales
+  charges, deferred and cumulative sales charges, redemption/exchange fees,
+  account fees, fee waivers, acquired-fund fees, breakpoint minimums, and the
+  no-redemption expense example. These are stored in a `fees` snapshot with a
+  per-field unit and basis; percentage tags are already fractions.
+- Prospectus bar-chart highest/lowest quarterly and year-to-date returns are
+  stored in `performance`, and money-market 7-day/30-day yields in `yields`.
+  Bar-chart and yield rows without a class dimension are skipped when a filing
+  contains several unattributable values.
+- A value that appears twice for the same class/date/document with different
+  values is marked ambiguous and is not imported.
 - Benchmark-index rows (`IndexAxis`, `IndustrySectorAxis`) and sales-load variants
   other than `WithoutSalesLoad` are skipped, so a category or index return is
   never written as the class return.
@@ -176,10 +242,44 @@ python -m app.cli sync-sec-rr-profiles --quarters 60   # every cached archive
   `dei:TradingSymbol`, the objective and strategy text blocks, and `scn.tsv` the
   cover-page class/ticker table.
 - Snapshots: `inception_date`, `summary` (fees, turnover, objective, strategy,
-  share-class inception), `expense_ratio_history`, `performance` and
-  `n1a_prospectus`. Each keeps the accession number and report period.
+  share-class inception), `expense_ratio_history`, `performance`, `fees`,
+  `yields` and `n1a_prospectus`. Each keeps the accession number and report
+  period.
 - Only empty `funds.inception_date`/`funds.ticker` rows are filled, and a ticker is
   assigned only when no other U.S. class already owns it.
+
+## SEC N-CSR statement-of-assets NAV recovery
+
+`scripts/backfill_ncsr_nav.py` reads the latest annual/semi-annual report for each
+registrant that still has share classes with no NAV observation. The Statement of
+Assets and Liabilities files `Net asset value per share` for each class; the
+script parses four official layouts (single-row class labels, a NAV section with
+class rows, a Class/Net-asset-value column table, and the "offering and
+redemption price per share" sentence). The series name is resolved from the
+filing text immediately before the statement and mapped through the `summary`
+snapshot. Only positive filed NAVs are written, with the report date and SEC
+URL as `sec_ncsr_nav` observations; existing NAV rows are never changed.
+
+## SEC N-CSR schedule-of-investments holdings
+
+`scripts/backfill_ncsr_holdings.py` targets US classes that still have no
+portfolio holdings. It selects tables with a filed `Value` column and a
+`Shares` or `Principal amount` column, resolves the series from the filing text,
+and attaches the filed rows to every target share class of that series. Values
+filed under a `Value (000)` heading are converted with the stated thousands unit;
+principal amounts in thousands are not published as a quantity. All rows carry
+`data_source='sec_ncsr_holdings'`, the report date and the SEC URL, and conflicts
+with existing holdings are skipped.
+
+## SEC individual N-MFP filings
+
+`scripts/backfill_nmfp_individual.py` inspects the newest individual N-MFP family
+filings for registrants with missing NAV or holdings. It matches the filed
+`seriesId`/`classesId` to local funds, imports
+`scheduleOfPortfolioSecuritiesInfo` rows with filed CUSIP/ISIN, market value and
+net-asset percentage, and can write the filed daily class NAV history when
+`--assign-usd-nav` is explicitly passed (the filing does not state a currency).
+Use `--max-filings` to expand the search when a series stopped filing recently.
 
 ## SEC tailored shareholder reports (N-CSR / N-CSRS)
 

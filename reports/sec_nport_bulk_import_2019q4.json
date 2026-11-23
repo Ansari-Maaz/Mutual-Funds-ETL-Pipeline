@@ -1,0 +1,19 @@
+{
+  "dataset": "2019q4",
+  "url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2019q4_nport.zip",
+  "filings_in_dataset": 9117,
+  "series_in_dataset": 8690,
+  "local_series_matched": 4,
+  "filings_selected": 4,
+  "holding_rows_read": 2939568,
+  "identifier_rows_read": 3077454,
+  "identifier_map_rows": 62532,
+  "replaced_rows": 0,
+  "holding_rows_inserted": 78,
+  "aum_snapshots": 10,
+  "asset_allocation_snapshots": 6,
+  "funds_marked_available": 9,
+  "identifier_apply": {
+    "skipped": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "tickers_requested": 49849,
+  "tickers_resolved": 609,
+  "ciks_read": 1114,
+  "errors": [
+    {
+      "cik": "0002061473",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    }
+  ],
+  "completed_at": "2026-11-22T18:24:09.015763+00:00"
+}

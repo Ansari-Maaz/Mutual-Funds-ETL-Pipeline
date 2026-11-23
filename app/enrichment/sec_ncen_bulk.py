@@ -34,7 +34,7 @@ from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from app.db.session import SessionLocal
 from app.holdings.sec_nport import _request
-from app.models.schema import Fund, FundProfileSnapshot, NavObservation, Source
+from app.models.schema import Fund, FundIdentifier, FundProfileSnapshot, NavObservation, Source
 
 SOURCE_ID = "sec_ncen_bulk"
 DATASET_PAGE = "https://www.sec.gov/data-research/sec-markets-data/form-n-cen-data-sets"
@@ -114,6 +114,24 @@ def discover_archives(limit: int = 8) -> list[str]:
     return urls
 
 
+def cached_archives(limit: int = 8) -> list[tuple[str, Path]]:
+    """Return already extracted N-CEN archives as ``(label, directory)`` pairs.
+
+    Used by ``--offline`` so re-importing expanded snapshots never depends on
+    SEC site availability or re-downloads an unchanged archive.
+    """
+    found: list[tuple[tuple[int, int], str, Path]] = []
+    for path in RAW.iterdir() if RAW.exists() else []:
+        if not path.is_dir() or not (path / "FUND_REPORTED_INFO.tsv").exists():
+            continue
+        match = re.search(r"(\d{4})q([1-4])", path.name)
+        if not match:
+            continue
+        found.append(((int(match.group(1)), int(match.group(2))), path.name, path))
+    found.sort(key=lambda item: item[0], reverse=True)
+    return [(label, path) for _, label, path in found[:max(1, limit)]]
+
+
 def download_archive(url: str, *, refresh: bool = False) -> tuple[Path, Path]:
     RAW.mkdir(parents=True, exist_ok=True)
     archive = RAW / url.rsplit("/", 1)[-1]
@@ -165,6 +183,90 @@ def _first_names(extract_dir: Path, filename: str, column: str) -> dict[str, str
         name = _clean(row.get(column))
         if key and name and key not in result:
             result[key] = name
+    return result
+
+
+def _registrants(extract_dir: Path) -> dict[str, dict[str, Any]]:
+    """Registrant-level contact facts keyed by accession number.
+
+    Form N-CEN Item A describes the registrant (the fund family), not an
+    individual series, so the snapshot is labelled registrant-level.
+    """
+    result: dict[str, dict[str, Any]] = {}
+    for row in _rows(extract_dir / "REGISTRANT.tsv"):
+        accession = _clean(row.get("ACCESSION_NUMBER"))
+        if not accession:
+            continue
+        result[accession] = {
+            "registrant_name": _clean(row.get("REGISTRANT_NAME")),
+            "file_number": _clean(row.get("FILE_NUM")),
+            "cik": (_clean(row.get("CIK")) or "").zfill(10) or None,
+            "lei": _clean(row.get("LEI")),
+            "address1": _clean(row.get("ADDRESS1")),
+            "address2": _clean(row.get("ADDRESS2")),
+            "city": _clean(row.get("CITY")),
+            "state": _clean(row.get("STATE")),
+            "country": _clean(row.get("COUNTRY")),
+            "zip": _clean(row.get("ZIP")),
+            "phone": _clean(row.get("PHONE")),
+            "investment_company_type": _clean(row.get("INVESTMENT_COMPANY_TYPE")),
+            "total_series": _clean(row.get("TOTAL_SERIES")),
+            "is_family_investment_company": _flag(row.get("IS_FAMILY_INVESTMENT_COMPANY")),
+        }
+    for row in _rows(extract_dir / "REGISTRANT_WEBSITE.tsv"):
+        accession = _clean(row.get("ACCESSION_NUMBER"))
+        website = _clean(row.get("WEBPAGE"))
+        if accession and website:
+            result.setdefault(accession, {}).setdefault("website", website)
+    return result
+
+
+ETF_DECIMAL_FIELDS = {
+    "NUM_SHARES_PER_CREATION_UNIT": "creation_unit_shares",
+    "REDEEMED_SHARES_PER_CREATION_UNIT": "redeemed_shares_per_creation_unit",
+    "PURCHASED_AVG_PCT_CASH": "purchased_avg_pct_cash",
+    "PURCHASED_STDV_PCT_CASH": "purchased_stdv_pct_cash",
+    "PURCHASED_AVG_PCT_NON_CASH": "purchased_avg_pct_non_cash",
+    "PURCHASED_STDV_PCT_NON_CASH": "purchased_stdv_pct_non_cash",
+    "REDEEMED_AVG_PCT_CASH": "redeemed_avg_pct_cash",
+    "REDEEMED_STDV_PCT_CASH": "redeemed_stdv_pct_cash",
+    "REDEEMED_AVG_PCT_NON_CASH": "redeemed_avg_pct_non_cash",
+    "REDEEMED_STDV_PCT_NON_CASH": "redeemed_stdv_pct_non_cash",
+    "PURCH_AVG_FEE_PER_UNIT": "purchase_avg_fee_per_unit",
+    "PURCH_AVG_FEE_PERCENTAGE": "purchase_avg_fee_percentage",
+    "REDEEM_AVG_FEE_PER_UNIT": "redemption_avg_fee_per_unit",
+    "REDEEM_AVG_FEE_PERCENTAGE": "redemption_avg_fee_percentage",
+    "ANNUAL_DIFF_B4_FEE_EXPENSE": "annual_tracking_difference_before_fees",
+    "ANNUAL_DIFF_AFTER_FEE_EXPENSE": "annual_tracking_difference_after_fees",
+    "ANNUAL_STDV_B4_FEE_EXPENSE": "annual_tracking_stdv_before_fees",
+    "ANNUAL_STDV_AFTER_FEE_EXPENSE": "annual_tracking_stdv_after_fees",
+}
+ETF_FLAG_FIELDS = {
+    "IS_COLLATERAL_REQUIRED": "collateral_required",
+    "IS_PERF_TRACKED_AFFILIA_PERSON": "performance_tracked_by_affiliated_person",
+    "IS_PERF_TRACKED_EXCLUSIVELY": "performance_tracked_exclusively",
+    "IS_FUND_IN_KIND_ETF": "in_kind_etf",
+}
+
+
+def _etf_profiles(extract_dir: Path) -> dict[str, dict[str, Any]]:
+    """ETF creation/redemption facts keyed by FUND_ID (fallback accession)."""
+    result: dict[str, dict[str, Any]] = {}
+    for row in _rows(extract_dir / "ETF.tsv"):
+        key = _clean(row.get("FUND_ID")) or _clean(row.get("ACCESSION_NUMBER"))
+        if not key:
+            continue
+        payload: dict[str, Any] = {}
+        for column, label in ETF_DECIMAL_FIELDS.items():
+            value = _decimal(row.get(column))
+            if value is not None:
+                payload[label] = str(value)
+        for column, label in ETF_FLAG_FIELDS.items():
+            value = _flag(row.get(column))
+            if value is not None:
+                payload[label] = value
+        if payload:
+            result[key] = payload
     return result
 
 
@@ -249,12 +351,52 @@ def _ensure_source(session) -> None:
         set_={key: value for key, value in source.items() if key != "source_id"}))
 
 
+FINANCIAL_FIELDS = {
+    "TOTAL_ASSETS": "total_assets",
+    "TOTAL_LIABILITIES": "total_liabilities",
+    "NET_ASSETS": "net_assets",
+    "ASSETS_INVESTED": "assets_invested",
+    "CASH_NOT_RPTD_IN_C_OR_D": "cash_not_reported_in_c_or_d",
+    "BORROWING_PAY_WITHIN_1YR": "borrowings_payable_within_1yr",
+    "BORROWING_PAY_AFTER_1YR": "borrowings_payable_after_1yr",
+    "NET_REALIZE_GAIN_NONDERIV_MON1": "net_realized_gain_month1",
+    "NET_UNREALIZE_AP_NONDERIV_MON1": "net_unrealized_appreciation_month1",
+    "NET_REALIZE_GAIN_NONDERIV_MON2": "net_realized_gain_month2",
+    "NET_UNREALIZE_AP_NONDERIV_MON2": "net_unrealized_appreciation_month2",
+    "NET_REALIZE_GAIN_NONDERIV_MON3": "net_realized_gain_month3",
+    "NET_UNREALIZE_AP_NONDERIV_MON3": "net_unrealized_appreciation_month3",
+    "SALES_FLOW_MON1": "sales_flow_month1",
+    "REINVESTMENT_FLOW_MON1": "reinvestment_flow_month1",
+    "REDEMPTION_FLOW_MON1": "redemption_flow_month1",
+    "SALES_FLOW_MON2": "sales_flow_month2",
+    "REINVESTMENT_FLOW_MON2": "reinvestment_flow_month2",
+    "REDEMPTION_FLOW_MON2": "redemption_flow_month2",
+    "SALES_FLOW_MON3": "sales_flow_month3",
+    "REINVESTMENT_FLOW_MON3": "reinvestment_flow_month3",
+    "REDEMPTION_FLOW_MON3": "redemption_flow_month3",
+    "AGG_COMMISSION": "aggregate_commission",
+    "AGG_PRINCIPAL": "aggregate_principal",
+    "AVG_VALUE_SEC_LOAN": "average_value_securities_loan",
+    "NET_INCOME_SEC_LENDING": "net_income_securities_lending",
+}
+
+
 def _snapshots(accession: str, row: dict[str, str], *, adviser: dict[str, Any],
                administrator: str | None, custodian: str | None, transfer_agent: str | None,
                pricing_service: str | None, accountant: str | None,
-               underwriter: str | None, report_date, source_url: str):
+               underwriter: str | None, report_date, source_url: str,
+               registrant: dict[str, Any] | None = None,
+               etf: dict[str, Any] | None = None):
     """Yield (dataset, payload) snapshot candidates derived from one filing row."""
     period = report_date.isoformat() if report_date else None
+
+    lei = _clean(row.get("LEI"))
+    if lei:
+        yield "identity", {
+            "lei": lei, "identifier_type": "LEI",
+            "scope": "SEC series-level Legal Entity Identifier filed in Form N-CEN Item B",
+            "effective_date": period, "accession_number": accession,
+            "source_url": source_url}
 
     management_fee = _decimal(row.get("MANAGEMENT_FEE"))
     net_expenses = _decimal(row.get("NET_OPERATING_EXPENSES"))
@@ -316,6 +458,29 @@ def _snapshots(accession: str, row: dict[str, str], *, adviser: dict[str, Any],
         yield "classification", {**classification, "effective_date": period,
                                  "accession_number": accession, "source_url": source_url}
 
+    financials = {}
+    for column, label in FINANCIAL_FIELDS.items():
+        value = _decimal(row.get(column))
+        if value is not None:
+            financials[label] = str(value)
+    if financials:
+        yield "financials", {
+            **financials, "effective_date": period,
+            "scope": "series-level statement values as filed in Form N-CEN Item C",
+            "accession_number": accession, "source_url": source_url}
+
+    if registrant:
+        yield "registrant", {
+            **registrant, "effective_date": period,
+            "scope": "registrant-level (fund family) contact facts as filed in Form N-CEN Item A",
+            "accession_number": accession, "source_url": source_url}
+
+    if etf:
+        yield "etf_profile", {
+            **etf, "effective_date": period,
+            "scope": "series-level ETF creation/redemption and tracking facts as filed in Form N-CEN Item C.11",
+            "accession_number": accession, "source_url": source_url}
+
     providers = {
         "adviser": ({**adviser, "start_date": adviser["start_date"].isoformat()
                      if adviser and adviser.get("start_date") else None}
@@ -342,25 +507,31 @@ def _fund_identities() -> tuple[dict[int, str], dict[int, str | None], set[str]]
 
 
 def sync_sec_ncen_bulk(*, quarters: int = 8, refresh: bool = False,
-                       update_profiles: bool = True, write_nav: bool = True) -> dict[str, Any]:
+                       update_profiles: bool = True, write_nav: bool = True,
+                       offline: bool = False) -> dict[str, Any]:
     """Import N-CEN profile, fee, performance, classification and NAV snapshots."""
     if quarters < 1:
         raise ValueError("quarters must be at least 1")
-    urls = discover_archives(limit=quarters)
+    if offline:
+        archives = cached_archives(limit=quarters)
+    else:
+        archives = [(url, None) for url in discover_archives(limit=quarters)]
+    urls = [label for label, _ in archives]
     local = _local_series()
     class_of, ticker_of, taken_tickers = _fund_identities()
     result: dict[str, Any] = {
         "source_id": SOURCE_ID, "archives": urls, "series_targeted": len(local),
         "filings_matched": 0, "series_matched": 0, "snapshot_rows": 0,
-        "nav_rows": 0, "profiles_updated": 0, "tickers_filled": 0, "errors": [],
+        "nav_rows": 0, "lei_rows": 0, "profiles_updated": 0,
+        "tickers_filled": 0, "errors": [],
     }
     if not local:
         return result
 
     chosen: dict[str, dict[str, Any]] = {}
-    for url in urls:
+    for url, cached_dir in archives:
         try:
-            _, extract_dir = download_archive(url, refresh=refresh)
+            extract_dir = cached_dir if cached_dir is not None else download_archive(url, refresh=refresh)[1]
             submissions = _submissions(extract_dir)
             rows = _archive_rows(extract_dir, set(local))
         except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError,
@@ -389,6 +560,7 @@ def sync_sec_ncen_bulk(*, quarters: int = 8, refresh: bool = False,
 
     snapshot_values: dict[tuple[int, str], dict[str, Any]] = {}
     nav_values: list[dict[str, Any]] = []
+    lei_values: list[dict[str, Any]] = []
     fund_updates: dict[int, dict[str, Any]] = {}
     for extract_dir, entries in by_archive.items():
         advisers = _advisers(extract_dir)
@@ -399,6 +571,8 @@ def sync_sec_ncen_bulk(*, quarters: int = 8, refresh: bool = False,
         accountants = _first_names(extract_dir, "PUBLIC_ACCOUNTANT.tsv", "PUB_ACCOUNTANT_NAME")
         underwriters = _first_names(extract_dir, "PRINCIPAL_UNDERWRITER.tsv", "UNDERWRITER_NAME")
         class_tickers = _class_tickers(extract_dir)
+        registrants = _registrants(extract_dir)
+        etfs = _etf_profiles(extract_dir)
         for entry in entries:
             row = entry["row"]
             submission = entry["submission"]
@@ -415,9 +589,20 @@ def sync_sec_ncen_bulk(*, quarters: int = 8, refresh: bool = False,
                 transfer_agent=transfer_agents.get(filing_key) or transfer_agents.get(accession),
                 pricing_service=pricing_services.get(filing_key) or pricing_services.get(accession),
                 accountant=accountants.get(accession), underwriter=underwriters.get(accession),
-                report_date=report_date, source_url=source_url))
+                report_date=report_date, source_url=source_url,
+                registrant=registrants.get(accession),
+                etf=etfs.get(filing_key) or etfs.get(accession)))
 
             fund_ids = local[series_id]
+            lei = _clean(row.get("LEI"))
+            if lei:
+                for fund_id in fund_ids:
+                    lei_values.append({
+                        "fund_id": fund_id, "id_type": "LEI", "value": lei,
+                        "source_id": SOURCE_ID, "share_class": class_of.get(fund_id),
+                        "attributes": {"scope": "SEC series-level LEI; shared by all share classes of the series"},
+                        "source_url": source_url,
+                    })
             for fund_id in fund_ids:
                 for dataset, payload in payloads:
                     snapshot_key = f"{series_id}:{report_date.isoformat()}:{dataset}:{payload.get('measure') or payload.get('metric') or 'profile'}"
@@ -478,6 +663,15 @@ def sync_sec_ncen_bulk(*, quarters: int = 8, refresh: bool = False,
             session.execute(statement.on_conflict_do_nothing(
                 constraint="uq_nav_fund_date_currency"))
         result["nav_rows"] = len(nav_values)
+
+        lei_values = list({(row["fund_id"], row["value"]): row
+                           for row in lei_values}.values())
+        for offset in range(0, len(lei_values), 400):
+            chunk = lei_values[offset:offset + 400]
+            statement = pg_insert(FundIdentifier.__table__).values(chunk)
+            session.execute(statement.on_conflict_do_nothing(
+                constraint="uq_fund_identifier"))
+        result["lei_rows"] = len(lei_values)
 
         for fund_id, updates in fund_updates.items():
             fund = session.get(Fund, fund_id)

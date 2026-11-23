@@ -1,6 +1,6 @@
 from datetime import date, datetime
 from decimal import Decimal
-from sqlalchemy import Date, DateTime, ForeignKey, Numeric, String, Text, UniqueConstraint, func
+from sqlalchemy import Boolean, Date, DateTime, ForeignKey, Numeric, SmallInteger, String, Text, UniqueConstraint, func
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
@@ -83,6 +83,17 @@ class PortfolioHolding(Base):
     data_source: Mapped[str] = mapped_column(String(100), default="sec_edgar_nport")
     source_url: Mapped[str | None] = mapped_column(Text)
     retrieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    # Filed N-PORT Item C.4 attributes retained verbatim.
+    unit: Mapped[str | None] = mapped_column(String(4))
+    issuer_lei: Mapped[str | None] = mapped_column(String(20))
+    issuer_type: Mapped[str | None] = mapped_column(String(16))
+    asset_category: Mapped[str | None] = mapped_column(String(16))
+    investment_country: Mapped[str | None] = mapped_column(String(3))
+    is_restricted: Mapped[bool | None] = mapped_column(Boolean)
+    fair_value_level: Mapped[int | None] = mapped_column(SmallInteger)
+    derivative_category: Mapped[str | None] = mapped_column(String(8))
+    payoff_profile: Mapped[str | None] = mapped_column(String(200))
+    exchange_rate: Mapped[Decimal | None] = mapped_column(Numeric(24, 10))
 
 class HoldingMetric(Base):
     """Optional vendor/derived metrics; kept separate from filed portfolio positions."""
@@ -98,9 +109,56 @@ class HoldingMetric(Base):
     share_change_percentage: Mapped[Decimal | None] = mapped_column(Numeric(18, 12))
     one_year_return: Mapped[Decimal | None] = mapped_column(Numeric(18, 12))
     forward_pe: Mapped[Decimal | None] = mapped_column(Numeric(18, 8))
+    trailing_pe: Mapped[Decimal | None] = mapped_column(Numeric(18, 8))
+    trailing_eps: Mapped[Decimal | None] = mapped_column(Numeric(18, 8))
+    eps_period_end: Mapped[date | None] = mapped_column(Date)
+    trailing_pe_basis: Mapped[str | None] = mapped_column(Text)
     sector: Mapped[str | None] = mapped_column(String(200))
     calculation_basis: Mapped[str | None] = mapped_column(Text)
     retrieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+class SecurityIdentifierMap(Base):
+    """CUSIP -> ticker/ISIN evidence reported by SEC N-PORT filers."""
+    __tablename__ = "security_identifier_map"
+    cusip: Mapped[str] = mapped_column(String(12), primary_key=True)
+    ticker: Mapped[str | None] = mapped_column(String(50), index=True)
+    isin: Mapped[str | None] = mapped_column(String(12), index=True)
+    ticker_votes: Mapped[int] = mapped_column(default=0)
+    isin_votes: Mapped[int] = mapped_column(default=0)
+    evidence_rows: Mapped[int] = mapped_column(default=0)
+    latest_report_date: Mapped[date | None] = mapped_column(Date)
+    source_id: Mapped[str] = mapped_column(String(100), default="sec_nport_identifiers")
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+class SecurityIndustry(Base):
+    """SEC EDGAR SIC industry for a ticker (official issuer classification)."""
+    __tablename__ = "security_industry"
+    ticker: Mapped[str] = mapped_column(String(50), primary_key=True)
+    cik: Mapped[str | None] = mapped_column(String(10))
+    company_name: Mapped[str | None] = mapped_column(String(300))
+    sic: Mapped[str | None] = mapped_column(String(4), index=True)
+    sic_description: Mapped[str | None] = mapped_column(String(300))
+    sector: Mapped[str | None] = mapped_column(String(200))
+    exchange: Mapped[str | None] = mapped_column(String(80))
+    source_id: Mapped[str] = mapped_column(String(100), default="sec_edgar_sic")
+    source_url: Mapped[str | None] = mapped_column(Text)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+class SecurityFundamental(Base):
+    """Latest annual EPS filed with the SEC for a ticker (XBRL company concept)."""
+    __tablename__ = "security_fundamentals"
+    ticker: Mapped[str] = mapped_column(String(50), primary_key=True)
+    cik: Mapped[str | None] = mapped_column(String(10), index=True)
+    company_name: Mapped[str | None] = mapped_column(String(300))
+    eps: Mapped[Decimal | None] = mapped_column(Numeric(18, 8))
+    eps_measure: Mapped[str | None] = mapped_column(String(40))
+    eps_period_start: Mapped[date | None] = mapped_column(Date)
+    eps_period_end: Mapped[date | None] = mapped_column(Date)
+    eps_filed: Mapped[date | None] = mapped_column(Date)
+    fiscal_year: Mapped[int | None] = mapped_column()
+    source_id: Mapped[str] = mapped_column(String(100), default="sec_xbrl_eps")
+    source_url: Mapped[str | None] = mapped_column(Text)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 class NavObservation(Base):
     __tablename__ = "nav_observations"

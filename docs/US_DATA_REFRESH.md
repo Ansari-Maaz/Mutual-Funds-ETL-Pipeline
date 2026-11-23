@@ -41,6 +41,20 @@ recovers the last official holdings for series absent from the newest quarter.
 This bulk import belongs on the quarterly workflow, not the daily run: SEC posts
 the public structured data quarterly, and public holdings are delayed. The
 individual-filing `sync-sec-holdings` command remains part of the daily refresh.
+
+After loading one or more N-PORT quarters, run the holding enrichment once:
+
+```bash
+./.venv/bin/python -m app.cli sync-sec-nport-identifiers   # CUSIP -> ticker/ISIN from all filers
+./.venv/bin/python -m app.cli sync-sec-industry            # ticker -> SEC EDGAR CIK/SIC
+./.venv/bin/python -m app.cli sync-sec-nport-metrics       # first reported / share change / 1Y return
+./.venv/bin/python -m app.cli sync-sec-eps                 # SEC XBRL annual EPS by ticker
+./.venv/bin/python -m app.cli sync-sec-trailing-pe         # filed price / filed EPS
+./.venv/bin/python scripts/backfill_nport_filing_fields.py --download --apply  # older individual filings
+```
+
+See [HOLDINGS_ENRICHMENT.md](HOLDINGS_ENRICHMENT.md) for the official source of
+each field and why forward P/E is not populated.
 See [US_OFFICIAL_SOURCES.md](US_OFFICIAL_SOURCES.md) for the full source list and
 coverage reporting commands.
 
@@ -73,8 +87,11 @@ archive fills official profile fields that N-PORT and N-MFP do not carry:
 It stores the series-level NAV/market-price snapshot, advisory fee and net
 operating-expense percentages, average net assets, adviser (with start date),
 administrator, custodian, transfer agent, pricing service, public accountant,
-principal underwriter, classification flags, and the Item C.2 class ticker table.
-The newest report-ending period per series wins, so overlapping quarters are safe.
+principal underwriter, classification flags, the series LEI (`fund_identifiers`
+`id_type='LEI'` and `identity` snapshot), and the Item C.2 class ticker table.
+`scripts/backfill_us_series_leis.py` applies the LEI mapping to cached archives
+without a re-download. The newest report-ending period per series wins, so
+overlapping quarters are safe.
 A canonical NAV row is written only for series that map to a single local share
 class; multi-class series keep the figure in the `nav_snapshot` profile with its
 series scope. A class ticker from `SHARES_OUTSTANDING.tsv` is written only when the
@@ -147,6 +164,17 @@ official data:
 - Inception dates and tickers left empty after that pass are covered by
   `sync-sec-rr-profiles` and `sync-sec-ncsr-tsr`; a class is only given a ticker
   that no other U.S. class already uses.
+- `scripts/backfill_fund_fields_from_snapshots.py` promotes already-filed N-PORT
+  net assets and unclaimed N-1A/N-CSR tickers from profile snapshots into empty
+  core columns. It never overwrites a value or assigns a ticker owned by another
+  U.S. class; use `--dry-run` first.
+- `scripts/import_nport_financial_snapshots.py` stores the unused N-PORT statement
+  fields as `nport_financials` snapshots from cached archives, and the N-CEN
+  importer stores `financials`, `registrant` and `etf_profile` snapshots. Neither
+  script rewrites holdings or core fund fields.
+- `sync-sec-rr-profiles` additionally stores the prospectus fee table (`fees`),
+  bar-chart returns (`performance`) and money-market yields (`yields`); values
+  with two different filed amounts for the same class/date/document are skipped.
 
 `category` stays null unless an issuer publishes one. No official source publishes
 a Morningstar/Lipper-style style category; N-CEN vehicle/strategy flags are exposed
@@ -184,6 +212,27 @@ Fund Network, then loaded by the SEC connector:
 
 `--missing-nav` selects only funds with no stored NAV observation. Funds without
 a ticker are not requested, because there is no official symbol to query.
+
+## N-CSR / N-MFP recovery for classes with no NAV or holdings
+
+The DERA bulk archives do not cover every filing series. Three official
+fallbacks can be run when the standard imports are complete:
+
+```bash
+# Class-level period-end NAV from the N-CSR/N-CSRS Statement of Assets
+./.venv/bin/python scripts/backfill_ncsr_nav.py
+
+# Filed holdings from the N-CSR/N-CSRS Schedule of Investments
+./.venv/bin/python scripts/backfill_ncsr_holdings.py
+
+# Individual N-MFP XML (holdings always; NAV only with explicit USD opt-in)
+./.venv/bin/python scripts/backfill_nmfp_individual.py --assign-usd-nav
+```
+
+Each script caches submissions and filings under `data/raw/united_states/`, uses
+the same SEC pacing/user agent as the other EDGAR adapters, and never changes an
+existing NAV or holding. Add `--dry-run` to inspect counts first; N-CSR scripts
+accept `--cik` (repeatable) and `--limit-ciks`.
 
 ## Per-country freshness report
 

@@ -231,20 +231,39 @@ async function buildComposition(pool, fund, snapshots) {
   if (stored) return { payload: stored.payload, provenance: snapshotMeta(stored) };
   const { rows } = await pool.query(`
     SELECT h.reporting_date::text AS reporting_date,h.security_name,h.ticker,h.isin,h.cusip,h.portfolio_weight,
-      h.market_value,h.market_value_currency,h.data_source,h.source_url
-    FROM portfolio_holdings h WHERE h.fund_id=$1
+      h.market_value,h.market_value_currency,h.data_source,h.source_url,
+      h.unit,h.issuer_type,h.asset_category,h.investment_country,
+      m.first_bought_date,m.share_change_percentage,m.one_year_return,
+      m.trailing_pe,m.trailing_eps,m.eps_period_end::text AS eps_period_end,m.trailing_pe_basis,
+      COALESCE(m.sector,si.sector) AS sector,m.calculation_basis
+    FROM portfolio_holdings h
+    LEFT JOIN LATERAL (
+      SELECT first_bought_date,share_change_percentage,one_year_return,
+             trailing_pe,trailing_eps,eps_period_end,trailing_pe_basis,
+             sector,calculation_basis
+      FROM holding_metrics WHERE holding_id=h.id AND as_of_date=h.reporting_date
+      ORDER BY retrieved_at DESC,id DESC LIMIT 1
+    ) m ON true
+    LEFT JOIN security_industry si ON si.ticker = upper(btrim(h.ticker))
+    WHERE h.fund_id=$1
       AND h.reporting_date=(SELECT max(reporting_date) FROM portfolio_holdings WHERE fund_id=$1)
     ORDER BY h.portfolio_weight DESC NULLS LAST,h.market_value DESC NULLS LAST,h.holding_index
     LIMIT 20
   `, [fund.id]);
   if (!rows.length && !sectors.length && !assetAllocation.length) return null;
   return { payload: { top_holdings: rows.map((h) => ({ symbol: h.ticker, name: h.security_name,
-    weight: numeric(h.portfolio_weight), isin: h.isin, cusip: h.cusip })),
+    weight: numeric(h.portfolio_weight), isin: h.isin, cusip: h.cusip,
+    sector: h.sector, asset_category: h.asset_category, issuer_type: h.issuer_type,
+    country: h.investment_country, first_bought_date: dateOnly(h.first_bought_date),
+    share_change_percentage: numeric(h.share_change_percentage),
+    one_year_return: numeric(h.one_year_return),
+    trailing_pe: numeric(h.trailing_pe), trailing_eps: numeric(h.trailing_eps),
+    eps_period_end: dateOnly(h.eps_period_end) })),
     asset_allocation: assetAllocation.length ? assetAllocation : null,
     major_market_sectors: sectors.length ? sectors : null,
     _report_date: rows[0]?.reporting_date || dateOnly(sectorRow?.source_report_date), _scope: 'Filed portfolio holdings; FundFlow preserves whether the filing is series-level or fund-level.',
     _missing_fields: [...(sectors.length ? [] : ['major_market_sectors']),
-      ...(assetAllocation.length ? [] : ['asset_allocation']), 'bond_breakdown'] },
+      ...(assetAllocation.length ? [] : ['asset_allocation']), 'bond_breakdown', 'forward_pe'] },
     provenance: rows[0] ? { source_id: rows[0].data_source, source_url: rows[0].source_url, report_date: rows[0].reporting_date }
       : snapshotMeta(allocationRow || sectorRow) };
 }

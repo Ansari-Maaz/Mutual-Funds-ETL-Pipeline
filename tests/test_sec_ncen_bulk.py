@@ -28,6 +28,9 @@ def _row(**overrides):
         "RETURN_AFTR_FEES_AND_EXPENSES": "-0.0010",
         "STDV_AFTR_FEES_AND_EXPENSES": "0.0020",
         "IS_ETF": "N", "IS_INDEX": "Y", "IS_MONEY_MARKET": "N",
+        "TOTAL_ASSETS": "2000000", "TOTAL_LIABILITIES": "500000",
+        "NET_ASSETS": "1500000", "SALES_FLOW_MON1": "1000",
+        "REDEMPTION_FLOW_MON1": "-250",
     }
     row.update(overrides)
     return row
@@ -38,7 +41,8 @@ def _snapshots(row, **overrides):
         "0001-26-000001", row, adviser=overrides.get("adviser", {}),
         administrator=overrides.get("administrator"), custodian=None, transfer_agent=None,
         pricing_service=None, accountant=None, underwriter=None,
-        report_date=date(2026, 5, 31), source_url="https://example.test/filing"))
+        report_date=date(2026, 5, 31), source_url="https://example.test/filing",
+        registrant=overrides.get("registrant"), etf=overrides.get("etf")))
 
 
 def test_snapshots_are_labelled_as_percent_of_net_assets():
@@ -56,8 +60,21 @@ def test_snapshots_are_labelled_as_percent_of_net_assets():
     assert payloads["classification"][0]["exchange_traded_fund"] is False
     assert payloads["service_providers"][0]["adviser"]["name"] == "Adviser LLC"
     assert payloads["service_providers"][0]["administrator"] == "Admin LLC"
+    assert payloads["financials"][0]["total_assets"] == "2000000"
+    assert payloads["financials"][0]["net_assets"] == "1500000"
     # Index tracking figures must not be presented as absolute fund returns.
     assert payloads["performance"][0]["metric"] == "index_tracking_difference_after_fees"
+
+
+def test_snapshots_include_registrant_and_etf_profile():
+    snapshots = _snapshots(
+        _row(IS_ETF="Y"), registrant={"registrant_name": "Family Trust", "phone": "555-0100"},
+        etf={"creation_unit_shares": "50000", "in_kind_etf": True})
+    payloads = {dataset: payload for dataset, payload in snapshots}
+    assert payloads["registrant"]["registrant_name"] == "Family Trust"
+    assert payloads["registrant"]["scope"].startswith("registrant-level")
+    assert payloads["etf_profile"]["creation_unit_shares"] == "50000"
+    assert payloads["etf_profile"]["in_kind_etf"] is True
 
 
 def test_snapshots_skip_absent_values():
@@ -66,7 +83,9 @@ def test_snapshots_skip_absent_values():
                                 MARKET_PRICE_PER_SHARE="",
                                 RETURN_AFTR_FEES_AND_EXPENSES="",
                                 STDV_AFTR_FEES_AND_EXPENSES="",
-                                IS_ETF="", IS_INDEX="", IS_MONEY_MARKET=""))
+                                IS_ETF="", IS_INDEX="", IS_MONEY_MARKET="",
+                                TOTAL_ASSETS="", TOTAL_LIABILITIES="", NET_ASSETS="",
+                                SALES_FLOW_MON1="", REDEMPTION_FLOW_MON1=""))
     assert snapshots == []
 
 
@@ -93,3 +112,30 @@ def test_class_tickers_skip_placeholders_and_invalid_symbols(tmp_path):
         encoding="utf-8")
     tickers = ncen._class_tickers(tmp_path)
     assert tickers == {"C000000001": ("ABCDX", "Class A")}
+
+
+def test_registrants_merge_contact_and_website(tmp_path):
+    (tmp_path / "REGISTRANT.tsv").write_text(
+        "ACCESSION_NUMBER\tREGISTRANT_NAME\tFILE_NUM\tCIK\tLEI\tADDRESS1\tADDRESS2\tCITY\tSTATE\tCOUNTRY\tZIP\tPHONE\tIS_FAMILY_INVESTMENT_COMPANY\tINVESTMENT_COMPANY_TYPE\tTOTAL_SERIES\n"
+        "acc\tFamily Trust\t811-1\t123\tLEI1\t1 Main St\t\tBoston\tMA\tUS\t02110\t555-0100\tY\tOpen-End\t4\n",
+        encoding="utf-8")
+    (tmp_path / "REGISTRANT_WEBSITE.tsv").write_text(
+        "ACCESSION_NUMBER\tWEBPAGE\nacc\thttps://funds.example.test\n", encoding="utf-8")
+    registrants = ncen._registrants(tmp_path)
+    assert registrants["acc"]["registrant_name"] == "Family Trust"
+    assert registrants["acc"]["cik"] == "0000000123"
+    assert registrants["acc"]["phone"] == "555-0100"
+    assert registrants["acc"]["website"] == "https://funds.example.test"
+
+
+def test_etf_profiles_keep_filed_numeric_and_flag_values(tmp_path):
+    (tmp_path / "ETF.tsv").write_text(
+        "FUND_ID\tNUM_SHARES_PER_CREATION_UNIT\tPURCHASED_AVG_PCT_CASH\tANNUAL_DIFF_AFTER_FEE_EXPENSE\tIS_FUND_IN_KIND_ETF\n"
+        "f1\t50000\t0.95\t0.0012\tY\n"
+        "f2\t\t\t\tN\n",
+        encoding="utf-8")
+    profiles = ncen._etf_profiles(tmp_path)
+    assert profiles["f1"]["creation_unit_shares"] == "50000"
+    assert profiles["f1"]["purchased_avg_pct_cash"] == "0.95"
+    assert profiles["f1"]["in_kind_etf"] is True
+    assert profiles["f2"]["in_kind_etf"] is False

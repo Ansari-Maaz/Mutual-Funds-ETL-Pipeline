@@ -1,20 +1,25 @@
 import io
 import zipfile
 from datetime import date
+from decimal import Decimal
 
 from app.enrichment import sec_rr_profile as rr
 
 SUB = "adsh\tfiled\nA-1\t20250105\nA-2\t20251120\n"
 TXT_HEAD = "adsh\ttag\tversion\tddate\tqtrs\tseries\tclass\tmeasure\tdocument\totherdims\tlang\tvalue\n"
 SCN = "adsh\tseriesid\tseriesname\tclassid\tclassname\tticker\n"
+NUM_HEAD = ("adsh\ttag\tversion\tddate\tqtrs\tuom\tseries\tclass\tmeasure\tdocument\totherdims"
+            "\tiprx\tvalue\tfootnote\tfootlen\tdimn\tdcml\n")
 
 
-def make_archive(tmp_path, txt_rows, scn_rows):
+def make_archive(tmp_path, txt_rows, scn_rows, num_rows=None):
     path = tmp_path / "2025q4_rr1.zip"
     with zipfile.ZipFile(path, "w") as bundle:
         bundle.writestr("sub.tsv", SUB)
         bundle.writestr("txt.tsv", TXT_HEAD + "".join(txt_rows))
         bundle.writestr("scn.tsv", SCN + "".join(scn_rows))
+        if num_rows is not None:
+            bundle.writestr("num.tsv", NUM_HEAD + "".join(num_rows))
     return path
 
 
@@ -77,3 +82,39 @@ def test_collect_counts_conflicts_and_prefers_newest(tmp_path, monkeypatch):
     assert data["quarters_used"] == ["2025q4", "2025q3"]
     assert data["inception"]["C000000001"][1] == date(2011, 1, 1)
     assert data["inception_conflicts"] == 1
+
+
+def _num(adsh, tag, ddate, series, class_id, value, otherdims=""):
+    return (f"{adsh}\t{tag}\tv\t{ddate}\t0\tpure\t{series}\t{class_id}\t\tdoc\t"
+            f"{otherdims}\t\t{value}\t\t\t0\t4\n")
+
+
+def test_parse_archive_imports_fee_bar_chart_and_yield_facts(tmp_path):
+    archive = make_archive(tmp_path, [], [], [
+        _num("A-1", "MaximumSalesChargeImposedOnPurchasesOverOfferingPrice",
+             "20241231", "S000000001", "C000000001", "0.0575"),
+        _num("A-1", "ExpenseBreakpointMinimumInvestmentRequiredAmount",
+             "20241231", "S000000001", "", "100000"),
+        _num("A-1", "BarChartHighestQuarterlyReturn",
+             "20241231", "S000000001", "C000000001", "0.2417"),
+        _num("A-1", "BarChartHighestQuarterlyReturn",
+             "20241231", "S000000001", "", "0.1800"),
+        _num("A-1", "MoneyMarketSevenDayYield",
+             "20241231", "S000000001", "C000000001", "0.0319"),
+        # two unattributable values at the same class/date/document
+        _num("A-1", "FeeWaiverOrReimbursementOverAssets",
+             "20241231", "S000000001", "C000000001", "-0.0010"),
+        _num("A-1", "FeeWaiverOrReimbursementOverAssets",
+             "20241231", "S000000001", "C000000001", "-0.0015"),
+    ])
+    parsed = rr.parse_archive(archive)
+    sales = parsed["fees"][("class", "C000000001")]["maximum_sales_charge_purchases"]
+    assert sales["value"] == Decimal("0.0575")
+    assert sales["unit"] == "fraction"
+    minimum = parsed["fees"][("series", "S000000001")]["expense_breakpoint_minimum_investment"]
+    assert minimum["value"] == Decimal("100000")
+    assert minimum["unit"] == "USD"
+    assert parsed["charts"][("class", "C000000001")]["highest_quarterly_return"]["value"] == Decimal("0.2417")
+    assert ("series", "S000000001") not in parsed["charts"]
+    assert parsed["yields"][("class", "C000000001")]["money_market_seven_day_yield"]["value"] == Decimal("0.0319")
+    assert parsed["fees"][("class", "C000000001")]["fee_waiver_or_reimbursement"]["ambiguous"] is True

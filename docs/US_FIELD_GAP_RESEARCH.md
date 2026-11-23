@@ -53,6 +53,14 @@ Worklists produced by the read-only audits:
 | No NAV | 13,464 | 7,461 | N-PORT/N-MFP/N-CEN snapshots; issuer NAV adapters; Nasdaq Fund Network | 25,675 funds have a NAV. 7,371 of the missing funds have no ticker. The ticker-bearing gaps were sampled against Nasdaq Fund Network: 0 of 60 random tickers returned a quote, so they are institutional/insurance classes not disseminated there. |
 | No holdings | 5,767 | 7 | SEC N-PORT quarterly bulk, SEC N-MFP monthly bulk | 33,372 funds have holdings. The 4,492 missing series have **zero** overlap with the published bulk archives, so replaying earlier quarters recovers none of them. Among reporting funds only seven lack portfolio rows. |
 
+Per-position field gaps (empty ticker, sector, first-purchase date, share change,
+1-year return and forward P/E) were researched separately. The N-PORT filing
+does not publish a sector, a purchase date or a forward P/E; those fields are
+now either filled from official identifier/industry crosswalks, derived from
+consecutive SEC filings with a recorded calculation basis, or omitted when no
+official source exists. See [HOLDINGS_ENRICHMENT.md](HOLDINGS_ENRICHMENT.md) and
+the read-only audit `scripts/audit_holding_gaps.py`.
+
 ## Issuer-site automation results
 
 Checked with a browser user agent:
@@ -112,3 +120,36 @@ Checked with a browser user agent:
 - **`category` is not `classification`.** N-CEN vehicle/strategy flags are exposed
   as a separate API `classification` object with their own report date and source;
   they are never written to `funds.category`.
+
+## Exhaustive source check (2026-11-21/22)
+
+Every remaining reference-field gap was re-tested against all official bulk
+files already on disk, with these results:
+
+- **`ticker`**: the SEC mutual-fund ticker JSON, `scn.tsv` in all 22 risk/return
+  archives, and `SHARES_OUTSTANDING.tsv` in all N-CEN quarters were cross-matched
+  by class ID. Only 20 and 14 residual classes, respectively, have a symbol in
+  those files; each of those symbols is already owned by another US class, so
+  assigning it would create a false duplicate. The exchange ticker file
+  (`company_tickers_exchange.json`) lists operating-company issuers, not fund
+  series, and has zero matches for the missing classes. No further official
+  symbol source exists.
+- **`inception_date`**: all 22 risk/return `txt.tsv` files contain 14,640 distinct
+  class IDs with `PerfInceptionDate`/`AnnualReturnInceptionDate`. Only 27 of the
+  21,882 classes still missing an inception date appear in that set; the rest are
+  variable-insurance separate accounts and other reporters that never file an
+  N-1A risk/return summary. N-CEN and EDGAR submissions contain no series
+  inception date, and cached submissions contain no N-3/N-4 filings to parse.
+- **`isin`**: no official bulk US fund-ISIN feed exists. `fund_identifiers`
+  contains 4,293 non-US funds with ISINs, all already reflected in `funds.isin`;
+  no US class can gain one without another fund reporting it as a holding.
+- **New field — series LEI**: Form N-CEN Item B publishes a series-level Legal
+  Entity Identifier in 2,327 of 2,330 rows of 2026q3. It is now imported by
+  `sync-sec-ncen-bulk` into `fund_identifiers` (`id_type='LEI'`) with an
+  `identity` profile snapshot and full provenance. It is a series identifier
+  shared by its share classes, never a made-up class identifier. The fund API
+  returns it as `lei`, and the fund profile page shows it beside ISIN.
+- **New field — trailing P/E**: no official source publishes a forward estimate,
+  but a trailing ratio is derivable from filed facts (N-PORT price per share and
+  SEC XBRL annual diluted EPS). It is stored separately from `forward_pe`, which
+  remains null. See [HOLDINGS_ENRICHMENT.md](HOLDINGS_ENRICHMENT.md).

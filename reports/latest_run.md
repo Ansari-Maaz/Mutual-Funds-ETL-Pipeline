@@ -1,18 +1,18 @@
 # Latest execution report
 
-Generated at: 2026-11-17T19:11:35.425259+00:00
+Generated at: 2026-11-23T10:21:14.437362+00:00
 
 ## Ingestion results
 
 | Source | Status | Funds extracted | Funds loaded | NAV observations upserted | Rejected rows | Error |
 |---|---|---:|---:|---:|---:|---|
-| amf_geco | Succeeded | 28375 | 28375 | 0 | 0 |  |
+| sec_open_end_fund_classes | Succeeded | 39138 | 39138 | 469 | 3 |  |
 
 ## Database counts
 
 | Source | Funds | NAV observations |
 |---|---:|---:|
-| amf_geco | 28375 | 0 |
+| amf_geco | 28375 | 825030 |
 | asisa_cis_fund_list | 1945 | 0 |
 | au_user_managed_funds | 96 | 4 |
 | bmv_mexico_funds | 5151 | 3486 |
@@ -42,11 +42,11 @@ Generated at: 2026-11-17T19:11:35.425259+00:00
 | nl_bde_nonmonetary_funds | 1313 | 0 |
 | nl_euronext_fund_navs | 84 | 84 |
 | scotia_canada_daily_nav | 373 | 373 |
-| sec_open_end_fund_classes | 39138 | 598795 |
+| sec_open_end_fund_classes | 39138 | 640833 |
 | uk_ft_morningstar_prices | 253 | 253 |
 | uk_fundslibrary_unit_prices | 33 | 33 |
 | us_qqqm_etf | 1 | 7 |
-| **Total** | **187024** | **857733** |
+| **Total** | **187024** | **1724801** |
 - Database used: Configured project PostgreSQL database.
 - Raw snapshots are ignored by Git; source manifests record URLs, checksums, and sizes.
 - Source rejects are recorded in source-specific JSONL files under `reports/`.

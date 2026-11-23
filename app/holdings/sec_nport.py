@@ -58,6 +58,25 @@ def _decimal(value: str | None) -> Decimal | None:
         return None
 
 
+def _clean_field(value: str | None, limit: int) -> str | None:
+    """Return a filed attribute, rejecting the filer's literal placeholders."""
+    if not value:
+        return None
+    text = value.strip()
+    if not text or text.upper() in _PLACEHOLDERS:
+        return None
+    return text[:limit]
+
+
+def _int_field(value: str | None) -> int | None:
+    if not value:
+        return None
+    text = value.strip()
+    if text.upper() in _PLACEHOLDERS or not text.isdigit():
+        return None
+    return int(text)
+
+
 def parse_nport_xml(payload: bytes, *, accession_number: str, source_url: str) -> dict[str, Any] | None:
     """Parse a single SEC primary N-PORT XML document; never infer missing values."""
     root = ET.fromstring(payload)
@@ -78,7 +97,12 @@ def parse_nport_xml(payload: bytes, *, accession_number: str, source_url: str) -
         for child in node.iter():
             tag = _tag(child)
             value = child.text.strip() if child.text and child.text.strip() else None
-            if value and tag in {"name", "issuerName", "title", "cusip", "pctVal", "balance", "valUSD"}:
+            if value and tag in {
+                "name", "issuerName", "title", "cusip", "pctVal", "balance", "valUSD",
+                "units", "curCd", "lei", "issuerCat", "assetCat", "invCountry",
+                "isRestrictedSec", "fairValLevel", "derivativeCat", "payoffProfile",
+                "exchangeRate",
+            }:
                 fields.setdefault(tag, value)
             folded_tag = tag.casefold()
             if folded_tag == "ticker" and not ticker:
@@ -90,6 +114,7 @@ def parse_nport_xml(payload: bytes, *, accession_number: str, source_url: str) -
         if not name:
             continue
         market_value = _decimal(fields.get("valUSD"))
+        restricted = (fields.get("isRestrictedSec") or "").strip().upper()
         holdings.append({
             "holding_index": index,
             "security_name": name[:500] if name.strip().upper() not in _PLACEHOLDERS else None,
@@ -99,9 +124,20 @@ def parse_nport_xml(payload: bytes, *, accession_number: str, source_url: str) -
             if fields.get("cusip", "").strip().upper() not in _PLACEHOLDERS else None,
             "quantity": _decimal(fields.get("balance")),
             "market_value": market_value,
-            "market_value_currency": "USD" if market_value is not None else None,
+            "market_value_currency": fields.get("curCd") or ("USD" if market_value is not None else None),
             # Form N-PORT requests percentages as percentages, not decimals.
             "portfolio_weight": _decimal(fields.get("pctVal")),
+            # Full Item C.4 official attributes, retained verbatim.
+            "unit": _clean_field(fields.get("units"), 4),
+            "issuer_lei": _clean_field(fields.get("lei"), 20),
+            "issuer_type": _clean_field(fields.get("issuerCat"), 16),
+            "asset_category": _clean_field(fields.get("assetCat"), 16),
+            "investment_country": _clean_field(fields.get("invCountry"), 3),
+            "is_restricted": {"Y": True, "N": False}.get(restricted),
+            "fair_value_level": _int_field(fields.get("fairValLevel")),
+            "derivative_category": _clean_field(fields.get("derivativeCat"), 8),
+            "payoff_profile": _clean_field(fields.get("payoffProfile"), 200),
+            "exchange_rate": _decimal(fields.get("exchangeRate")),
         })
     return {"series_id": series_id, "report_date": report_date,
             # N-PORT places netAssets outside genInfo under fundInfo.

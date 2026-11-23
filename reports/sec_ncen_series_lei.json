@@ -1,0 +1,16 @@
+{
+  "source_id": "sec_ncen_bulk",
+  "archives": [
+    "2024q4_ncen_0",
+    "2025q1_ncen_0",
+    "2025q2_ncen_0",
+    "2025q3_ncen",
+    "2025q4_ncen",
+    "2026q1_ncen",
+    "2026q2_ncen",
+    "2026q3_ncen"
+  ],
+  "series_with_lei": 13454,
+  "identifiers_written": 33068,
+  "snapshots_written": 33068
+}

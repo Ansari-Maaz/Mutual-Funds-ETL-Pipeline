@@ -1,0 +1,209 @@
+{
+  "source_id": "sec_xbrl_eps",
+  "tickers_requested": 4752,
+  "ciks_requested": 4400,
+  "tickers_with_eps": 2301,
+  "errors": [
+    {
+      "cik": "0000029534",
+      "error": "us-gaap:EarningsPerShareDiluted: URLError"
+    },
+    {
+      "cik": "0000100885",
+      "error": "us-gaap:EarningsPerShareDiluted: URLError"
+    },
+    {
+      "cik": "0000110621",
+      "error": "us-gaap:EarningsPerShareDiluted: URLError"
+    },
+    {
+      "cik": "0000230557",
+      "error": "us-gaap:EarningsPerShareDiluted: URLError"
+    },
+    {
+      "cik": "0000275053",
+      "error": "us-gaap:EarningsPerShareDiluted: URLError"
+    },
+    {
+      "cik": "0000805267",
+      "error": "us-gaap:EarningsPerShareDiluted: URLError"
+    },
+    {
+      "cik": "0000813762",
+      "error": "ifrs-full:EarningsPerShareBasic: URLError"
+    },
+    {
+      "cik": "0001132597",
+      "error": "us-gaap:EarningsPerShareDiluted: URLError"
+    },
+    {
+      "cik": "0001306965",
+      "error": "ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001308648",
+      "error": "us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001313310",
+      "error": "us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001314102",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001314727",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001314052",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001315098",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001315257",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001315399",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001316835",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001317685",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001317945",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001318008",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001318220",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001318484",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001318605",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001319161",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001319947",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001320461",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001320350",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001320760",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001320854",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001321655",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001321732",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001322422",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001323404",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001323468",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001323885",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001324404",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001324424",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001325618",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001325670",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001325964",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001326160",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001326190",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001326205",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001326380",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001326801",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001327068",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001327567",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001327607",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    },
+    {
+      "cik": "0001327688",
+      "error": "us-gaap:EarningsPerShareDiluted: HTTPError; us-gaap:EarningsPerShareBasicAndDiluted: HTTPError; us-gaap:EarningsPerShareBasic: HTTPError; ifrs-full:EarningsPerShareDiluted: HTTPError; ifrs-full:EarningsPerShareBasic: HTTPError"
+    }
+  ],
+  "completed_at": "2026-11-21T19:20:05.235491+00:00"
+}

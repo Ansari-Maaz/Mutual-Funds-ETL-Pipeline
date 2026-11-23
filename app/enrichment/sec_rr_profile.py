@@ -85,6 +85,72 @@ EXPENSE_TAGS = {
 }
 RETURN_TAGS = {"AvgAnnlRtrPct": "average", "AnnlRtrPct": "annual"}
 
+# Prospectus fee-table facts that are not part of the recurring expense ratio.
+# ``unit`` is the filed unit; every percentage tag is already a fraction.
+FEE_TAGS = {
+    "MaximumSalesChargeImposedOnPurchasesOverOfferingPrice":
+        ("maximum_sales_charge_purchases", "fraction", "fraction of offering price"),
+    "MaximumDeferredSalesChargeOverOfferingPrice":
+        ("maximum_deferred_sales_charge_offering_price", "fraction", "fraction of offering price"),
+    "MaximumDeferredSalesChargeOverOther":
+        ("maximum_deferred_sales_charge_other", "fraction", "fraction as filed"),
+    "MaximumCumulativeSalesChargeOverOfferingPrice":
+        ("maximum_cumulative_sales_charge_offering_price", "fraction", "fraction of offering price"),
+    "MaximumCumulativeSalesChargeOverOther":
+        ("maximum_cumulative_sales_charge_other", "fraction", "fraction as filed"),
+    "RedemptionFeeOverRedemption":
+        ("redemption_fee_percentage", "fraction", "fraction of amount redeemed"),
+    "RedemptionFee": ("redemption_fee", "USD", "dollar amount as filed"),
+    "ExchangeFeeOverRedemption":
+        ("exchange_fee_percentage", "fraction", "fraction of amount redeemed"),
+    "ExchangeFee": ("exchange_fee", "USD", "dollar amount as filed"),
+    "MaximumAccountFee": ("maximum_account_fee", "USD", "dollar amount as filed"),
+    "MaximumAccountFeeOverAssets":
+        ("maximum_account_fee_percentage", "fraction", "fraction of assets"),
+    "ExpenseBreakpointMinimumInvestmentRequiredAmount":
+        ("expense_breakpoint_minimum_investment", "USD", "dollar amount as filed"),
+    "FeeWaiverOrReimbursementOverAssets":
+        ("fee_waiver_or_reimbursement", "fraction", "fraction of net assets; negative means a waiver"),
+    "AcquiredFundFeesAndExpensesOverAssets":
+        ("acquired_fund_fees_and_expenses", "fraction", "fraction of net assets"),
+    "ShareholderFeeOther": ("shareholder_fee_other", "USD", "dollar amount as filed"),
+    "DistributionOrSimilarNon12b1FeesOverAssets":
+        ("distribution_or_similar_non_12b1_fees", "fraction", "fraction of net assets"),
+    "Component1OtherExpensesOverAssets":
+        ("other_expenses_component_1", "fraction", "fraction of net assets"),
+    "Component2OtherExpensesOverAssets":
+        ("other_expenses_component_2", "fraction", "fraction of net assets"),
+    "Component3OtherExpensesOverAssets":
+        ("other_expenses_component_3", "fraction", "fraction of net assets"),
+    "ExpenseExampleNoRedemptionYear01":
+        ("expense_example_no_redemption_1y", "USD", "dollar cost on the prospectus example"),
+    "ExpenseExampleNoRedemptionYear03":
+        ("expense_example_no_redemption_3y", "USD", "dollar cost on the prospectus example"),
+    "ExpenseExampleNoRedemptionYear05":
+        ("expense_example_no_redemption_5y", "USD", "dollar cost on the prospectus example"),
+    "ExpenseExampleNoRedemptionYear10":
+        ("expense_example_no_redemption_10y", "USD", "dollar cost on the prospectus example"),
+}
+
+BAR_CHART_TAGS = {
+    "BarChartHighestQuarterlyReturn": (
+        "highest_quarterly_return",
+        "highest quarterly return shown in the prospectus bar chart"),
+    "BarChartLowestQuarterlyReturn": (
+        "lowest_quarterly_return",
+        "lowest quarterly return shown in the prospectus bar chart"),
+    "BarChartYearToDateReturn": (
+        "year_to_date_return",
+        "year-to-date return shown in the prospectus bar chart"),
+}
+
+YIELD_TAGS = {
+    "MoneyMarketSevenDayYield": (
+        "money_market_seven_day_yield", "fraction", "annualized seven-day yield as filed"),
+    "ThirtyDayYield": (
+        "thirty_day_yield", "fraction", "annualized thirty-day yield as filed"),
+}
+
 csv.field_size_limit(1 << 26)  # txt.tsv carries multi-kilobyte prose cells
 
 
@@ -107,6 +173,17 @@ def available_archives(limit: int | None = None) -> list[str]:
     with urllib.request.urlopen(request, timeout=timeout_seconds()) as response:
         html_page = response.read().decode("utf-8", errors="replace")
     labels = {m for m in re.findall(r"/([0-9]{4}(?:q[1-4]|-[0-9]{2})?)_rr1\.zip", html_page) if SUPPORTED_LABEL_RE.match(m)}
+    ordered = sorted(labels, key=_label_key, reverse=True)
+    return ordered[:limit] if limit else ordered
+
+
+def cached_archives(limit: int | None = None) -> list[str]:
+    """Newest-first labels of risk/return archives already on disk."""
+    labels: set[str] = set()
+    for archive in RAW.glob("*_rr1.zip"):
+        label = archive.stem[: -len("_rr1")]
+        if SUPPORTED_LABEL_RE.match(label):
+            labels.add(label)
     ordered = sorted(labels, key=_label_key, reverse=True)
     return ordered[:limit] if limit else ordered
 
@@ -185,6 +262,57 @@ def _filed(stamp: str, current: dict[str, Any] | None) -> bool:
     return current is None or stamp > current.get("stamp", "")
 
 
+def _fact_key(class_id: str, series_id: str) -> tuple[str, str] | None:
+    """Return the narrowest filed scope for a fact.
+
+    Class-level facts are attributed to one share class.  Series-level facts are
+    repeated on every class only when the filing leaves the class blank; they are
+    never spread across classes when several class values exist without a class
+    dimension.
+    """
+    if CLASS_RE.match(class_id):
+        return "class", class_id
+    if SERIES_RE.match(series_id):
+        return "series", series_id
+    return None
+
+
+def _record_fact(store: dict[tuple[str, str], dict[str, dict[str, Any]]],
+                 key: tuple[str, str], field: str, *, value: Decimal, unit: str,
+                 basis: str, ddate: date | None, stamp: str, adsh: str) -> None:
+    facts = store.setdefault(key, {})
+    current = facts.get(field)
+    if (current is None
+            or (ddate or date.min) > (current.get("ddate") or date.min)
+            or ((ddate or date.min) == (current.get("ddate") or date.min)
+                and stamp > current.get("stamp", ""))):
+        facts[field] = {"value": value, "unit": unit, "basis": basis,
+                        "ddate": ddate, "stamp": stamp, "adsh": adsh,
+                        "ambiguous": False}
+    elif (ddate or date.min) == (current.get("ddate") or date.min) and stamp == current.get("stamp"):
+        # Two facts at the same date/document without a distinguishing
+        # dimension cannot be attributed to a single value safely.
+        if value != current["value"]:
+            current["ambiguous"] = True
+
+
+def _merge_facts(target: dict[tuple[str, str], dict[str, dict[str, Any]]],
+                 incoming: dict[tuple[str, str], dict[str, dict[str, Any]]]) -> None:
+    for key, fields in incoming.items():
+        bucket = target.setdefault(key, {})
+        for field, fact in fields.items():
+            current = bucket.get(field)
+            if (current is None
+                    or (fact.get("ddate") or date.min) > (current.get("ddate") or date.min)
+                    or ((fact.get("ddate") or date.min) == (current.get("ddate") or date.min)
+                        and fact.get("stamp", "") > current.get("stamp", ""))):
+                bucket[field] = dict(fact)
+            elif ((fact.get("ddate") or date.min) == (current.get("ddate") or date.min)
+                  and fact.get("stamp", "") == current.get("stamp", "")
+                  and fact.get("value") != current.get("value")):
+                current["ambiguous"] = True
+
+
 def parse_archive(archive: Path) -> dict[str, Any]:
     """Extract class facts from one quarterly archive.
 
@@ -198,7 +326,8 @@ def parse_archive(archive: Path) -> dict[str, Any]:
     if missing:
         LOGGER.warning("Skipping %s: unsupported layout (missing %s)", archive.name, sorted(missing))
         return {"inception": {}, "tickers": {}, "expenses": {}, "returns": {},
-                "turnover": {}, "texts": {}, "unsupported": True}
+                "turnover": {}, "texts": {}, "fees": {}, "charts": {}, "yields": {},
+                "unsupported": True}
     filed: dict[str, str] = {}
     for row in _rows(archive, "sub.tsv"):
         filed[row["adsh"]] = (row.get("filed") or "")[:8]
@@ -252,10 +381,15 @@ def parse_archive(archive: Path) -> dict[str, Any]:
     expenses: dict[str, dict[str, Any]] = {}
     returns: dict[str, dict[int, dict[str, Any]]] = defaultdict(dict)
     turnover: dict[str, dict[str, Any]] = {}
+    fees: dict[tuple[str, str], dict[str, dict[str, Any]]] = {}
+    charts: dict[tuple[str, str], dict[str, dict[str, Any]]] = {}
+    yields: dict[tuple[str, str], dict[str, dict[str, Any]]] = {}
     if "num.tsv" in names:
         for row in _rows(archive, "num.tsv"):
             tag = row.get("tag")
-            if tag not in EXPENSE_TAGS and tag not in RETURN_TAGS and tag != "PortfolioTurnoverRate":
+            if (tag not in EXPENSE_TAGS and tag not in RETURN_TAGS
+                    and tag != "PortfolioTurnoverRate" and tag not in FEE_TAGS
+                    and tag not in BAR_CHART_TAGS and tag not in YIELD_TAGS):
                 continue
             stamp = filed.get(row["adsh"], "")
             class_id = (row.get("class") or "").strip()
@@ -304,8 +438,29 @@ def parse_archive(archive: Path) -> dict[str, Any]:
                         "stamp": stamp, "adsh": row["adsh"], "ddate": ddate,
                         "value": value, "years": years,
                     }
+            elif tag in FEE_TAGS:
+                key = _fact_key(class_id, series_id)
+                if key is not None:
+                    field, unit, basis = FEE_TAGS[tag]
+                    _record_fact(fees, key, field, value=value, unit=unit,
+                                 basis=basis, ddate=ddate, stamp=stamp,
+                                 adsh=row["adsh"])
+            elif tag in BAR_CHART_TAGS:
+                # Bar-chart values without a class dimension can describe
+                # several classes in one filing and cannot be attributed.
+                if CLASS_RE.match(class_id):
+                    metric, basis = BAR_CHART_TAGS[tag]
+                    _record_fact(charts, ("class", class_id), metric,
+                                 value=value, unit="fraction", basis=basis,
+                                 ddate=ddate, stamp=stamp, adsh=row["adsh"])
+            elif tag in YIELD_TAGS and CLASS_RE.match(class_id):
+                metric, unit, basis = YIELD_TAGS[tag]
+                _record_fact(yields, ("class", class_id), metric,
+                             value=value, unit=unit, basis=basis, ddate=ddate,
+                             stamp=stamp, adsh=row["adsh"])
     return {"inception": inception, "tickers": tickers, "expenses": expenses,
-            "returns": dict(returns), "turnover": turnover, "texts": texts}
+            "returns": dict(returns), "turnover": turnover, "texts": texts,
+            "fees": fees, "charts": charts, "yields": yields}
 
 
 def collect(quarters: list[str], *, refresh: bool = False) -> dict[str, Any]:
@@ -316,6 +471,9 @@ def collect(quarters: list[str], *, refresh: bool = False) -> dict[str, Any]:
     returns: dict[str, dict[int, dict[str, Any]]] = defaultdict(dict)
     turnover: dict[str, dict[str, Any]] = {}
     texts: dict[str, dict[str, Any]] = {}
+    fees: dict[tuple[str, str], dict[str, dict[str, Any]]] = {}
+    charts: dict[tuple[str, str], dict[str, dict[str, Any]]] = {}
+    yields: dict[tuple[str, str], dict[str, dict[str, Any]]] = {}
     conflicts = 0
     used: list[str] = []
     for quarter in quarters:
@@ -361,15 +519,20 @@ def collect(quarters: list[str], *, refresh: bool = False) -> dict[str, Any]:
             elif value["stamp"] == current["stamp"]:
                 current["objective"] = current.get("objective") or value.get("objective")
                 current["strategy"] = current.get("strategy") or value.get("strategy")
+        _merge_facts(fees, parsed["fees"])
+        _merge_facts(charts, parsed["charts"])
+        _merge_facts(yields, parsed["yields"])
     return {"quarters_used": used, "inception": inception, "tickers": tickers,
             "expenses": expenses, "returns": dict(returns), "turnover": turnover,
-            "texts": texts, "inception_conflicts": conflicts}
+            "texts": texts, "fees": fees, "charts": charts, "yields": yields,
+            "inception_conflicts": conflicts}
 
 
 def sync_sec_rr_profiles(*, quarters: int = 8, refresh: bool = False, dry_run: bool = False,
-                         fill_tickers: bool = True) -> dict[str, Any]:
+                         fill_tickers: bool = True, offline: bool = False) -> dict[str, Any]:
     """Fill US class identity and source-backed prospectus facts from N-1A XBRL."""
-    data = collect(available_archives(quarters), refresh=refresh)
+    archives = cached_archives(quarters) if offline else available_archives(quarters)
+    data = collect(archives, refresh=refresh)
     raw_url = database_url().replace("postgresql+psycopg://", "postgresql://", 1)
     result: dict[str, Any] = {
         "quarters_used": data["quarters_used"],
@@ -378,6 +541,9 @@ def sync_sec_rr_profiles(*, quarters: int = 8, refresh: bool = False, dry_run: b
         "classes_with_expenses_in_sec": len(data["expenses"]),
         "classes_with_returns_in_sec": len(data["returns"]),
         "series_with_text_in_sec": len(data["texts"]),
+        "classes_with_fee_facts_in_sec": len(data["fees"]),
+        "classes_with_bar_chart_in_sec": len(data["charts"]),
+        "classes_with_yield_in_sec": len(data["yields"]),
         "inception_conflicts": data["inception_conflicts"],
         "dry_run": dry_run,
     }
@@ -401,6 +567,24 @@ def sync_sec_rr_profiles(*, quarters: int = 8, refresh: bool = False, dry_run: b
             CREATE TEMP TABLE stg_rr_return (
                 class_id text, ddate date, years int, value numeric, adsh text,
                 PRIMARY KEY (class_id, years)
+            ) ON COMMIT DROP""")
+        cursor.execute("""
+            CREATE TEMP TABLE stg_rr_fee (
+                scope text, key_id text, ddate date, field text, value numeric,
+                unit text, basis text, adsh text,
+                PRIMARY KEY (scope, key_id, field)
+            ) ON COMMIT DROP""")
+        cursor.execute("""
+            CREATE TEMP TABLE stg_rr_chart (
+                scope text, key_id text, ddate date, metric text, value numeric,
+                basis text, adsh text,
+                PRIMARY KEY (scope, key_id, metric)
+            ) ON COMMIT DROP""")
+        cursor.execute("""
+            CREATE TEMP TABLE stg_rr_yield (
+                scope text, key_id text, ddate date, metric text, value numeric,
+                unit text, basis text, adsh text,
+                PRIMARY KEY (scope, key_id, metric)
             ) ON COMMIT DROP""")
         cursor.execute("""
             CREATE TEMP TABLE stg_rr_turnover (
@@ -444,6 +628,36 @@ def sync_sec_rr_profiles(*, quarters: int = 8, refresh: bool = False, dry_run: b
             for series_id, value in data["texts"].items():
                 copy.write_row((series_id, value.get("ddate"), value.get("objective"),
                                 value.get("strategy"), value.get("adsh")))
+
+        with cursor.copy("""COPY stg_rr_fee (scope, key_id, ddate, field, value, unit, basis, adsh)
+                FROM STDIN""") as copy:
+            for (scope, key_id), fields in data["fees"].items():
+                for field, fact in fields.items():
+                    if fact.get("ambiguous"):
+                        continue
+                    copy.write_row((scope, key_id, fact.get("ddate"), field,
+                                    fact.get("value"), fact.get("unit"),
+                                    fact.get("basis"), fact.get("adsh")))
+
+        with cursor.copy("""COPY stg_rr_chart (scope, key_id, ddate, metric, value, basis, adsh)
+                FROM STDIN""") as copy:
+            for (scope, key_id), fields in data["charts"].items():
+                for metric, fact in fields.items():
+                    if fact.get("ambiguous"):
+                        continue
+                    copy.write_row((scope, key_id, fact.get("ddate"), metric,
+                                    fact.get("value"), fact.get("basis"),
+                                    fact.get("adsh")))
+
+        with cursor.copy("""COPY stg_rr_yield (scope, key_id, ddate, metric, value, unit, basis, adsh)
+                FROM STDIN""") as copy:
+            for (scope, key_id), fields in data["yields"].items():
+                for metric, fact in fields.items():
+                    if fact.get("ambiguous"):
+                        continue
+                    copy.write_row((scope, key_id, fact.get("ddate"), metric,
+                                    fact.get("value"), fact.get("unit"),
+                                    fact.get("basis"), fact.get("adsh")))
 
         cursor.execute("""
             SELECT count(*) FROM funds f JOIN stg_rr s ON s.class_id = f.source_fund_id
@@ -558,9 +772,66 @@ def sync_sec_rr_profiles(*, quarters: int = 8, refresh: bool = False, dry_run: b
             (SOURCE_ID, URL_RR, SOURCE_ID))
         result["prospectus_snapshots"] = cursor.rowcount
 
+        cursor.execute(snapshot_sql.format(select="""
+            SELECT f.id, %s, 'fees', v.ddate,
+                   'rr:' || f.source_fund_id || ':' || v.scope || ':' || COALESCE(v.ddate::text, 'undated') || ':fees',
+                   jsonb_build_object(
+                       'effective_date', v.ddate::text,
+                       'scope', CASE v.scope WHEN 'class' THEN 'class-level prospectus fee table'
+                                             ELSE 'series-level prospectus fee table repeated on each class' END,
+                       'values', jsonb_object_agg(v.field, v.value::text),
+                       'units', jsonb_object_agg(v.field, v.unit),
+                       'bases', jsonb_object_agg(v.field, v.basis),
+                       'accession_numbers', jsonb_object_agg(v.field, v.adsh),
+                       'source', 'SEC N-1A prospectus XBRL'),
+                   %s, now()
+            FROM funds f
+            JOIN stg_rr_fee v ON (v.scope = 'class' AND v.key_id = f.source_fund_id)
+                              OR (v.scope = 'series' AND v.key_id = f.sec_series_id)
+            WHERE f.source_id = %s
+            GROUP BY f.id, f.source_fund_id, v.scope, v.ddate"""),
+            (SOURCE_ID, URL_RR, SOURCE_ID))
+        result["fee_snapshots"] = cursor.rowcount
+
+        cursor.execute(snapshot_sql.format(select="""
+            SELECT f.id, %s, 'performance', v.ddate,
+                   'rr:' || f.source_fund_id || ':' || v.scope || ':' || COALESCE(v.ddate::text, 'undated') || ':' || v.metric,
+                   jsonb_build_object(
+                       'metric', v.metric, 'value', v.value::text, 'unit', 'fraction',
+                       'end_date', v.ddate::text, 'effective_date', v.ddate::text,
+                       'period_basis', v.basis,
+                       'scope', v.scope || '-level prospectus bar chart',
+                       'accession_number', v.adsh,
+                       'source', 'SEC N-1A prospectus XBRL'),
+                   %s, now()
+            FROM funds f
+            JOIN stg_rr_chart v ON (v.scope = 'class' AND v.key_id = f.source_fund_id)
+                                OR (v.scope = 'series' AND v.key_id = f.sec_series_id)
+            WHERE f.source_id = %s"""),
+            (SOURCE_ID, URL_RR, SOURCE_ID))
+        result["bar_chart_snapshots"] = cursor.rowcount
+
+        cursor.execute(snapshot_sql.format(select="""
+            SELECT f.id, %s, 'yields', v.ddate,
+                   'rr:' || f.source_fund_id || ':' || v.scope || ':' || COALESCE(v.ddate::text, 'undated') || ':' || v.metric,
+                   jsonb_build_object(
+                       'metric', v.metric, 'value', v.value::text, 'unit', v.unit,
+                       'basis', v.basis, 'effective_date', v.ddate::text,
+                       'scope', v.scope || '-level prospectus yield table',
+                       'accession_number', v.adsh,
+                       'source', 'SEC N-1A prospectus XBRL'),
+                   %s, now()
+            FROM funds f
+            JOIN stg_rr_yield v ON (v.scope = 'class' AND v.key_id = f.source_fund_id)
+                                OR (v.scope = 'series' AND v.key_id = f.sec_series_id)
+            WHERE f.source_id = %s"""),
+            (SOURCE_ID, URL_RR, SOURCE_ID))
+        result["yield_snapshots"] = cursor.rowcount
+
         result["snapshots_written"] = sum(result.get(key, 0) for key in (
             "inception_snapshots", "summary_snapshots", "expense_snapshots",
-            "performance_snapshots", "prospectus_snapshots"))
+            "performance_snapshots", "prospectus_snapshots", "fee_snapshots",
+            "bar_chart_snapshots", "yield_snapshots"))
         if dry_run:
             connection.rollback()
             return result

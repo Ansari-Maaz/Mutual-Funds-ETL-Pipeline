@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-17T19:11:35.425259+00:00",
+  "generated_at": "2026-11-23T10:21:14.437362+00:00",
   "results": [
     {
-      "source_id": "amf_geco",
+      "source_id": "sec_open_end_fund_classes",
       "status": "Succeeded",
-      "records_extracted": 28375,
-      "records_loaded": 28375,
-      "navs_loaded": 0,
-      "rejected_records": 0
+      "records_extracted": 39138,
+      "records_loaded": 39138,
+      "navs_loaded": 469,
+      "rejected_records": 3
     }
   ]
 }

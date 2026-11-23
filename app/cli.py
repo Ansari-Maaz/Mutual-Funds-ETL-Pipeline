@@ -311,6 +311,22 @@ def main() -> None:
     sec_bulk.add_argument("--only-missing", action="store_true", help="Only import funds that currently have no stored holdings")
     sec_bulk.add_argument("--refresh", action="store_true", help="Redownload the SEC archive even if it is already cached")
     sec_bulk.add_argument("--no-identifiers", action="store_true", help="Skip the reported ISIN/ticker identifier join")
+    sec_bulk.add_argument("--no-apply-identifiers", action="store_true", help="Build the crosswalk but defer applying it to holding rows")
+    sec_ids=sub.add_parser("sync-sec-nport-identifiers", help="Rebuild the official CUSIP/ISIN/ticker crosswalk from extracted N-PORT archives and fill holdings")
+    sec_ids.add_argument("--quarter", action="append", help="Extracted quarter to scan, repeatable (default: every extracted quarter)")
+    sec_ids.add_argument("--no-apply", action="store_true", help="Build the crosswalk without updating holding rows")
+    sec_ids.add_argument("--latest-only", action="store_true", help="Apply the crosswalk only to each fund's newest report")
+    sec_ids.add_argument("--no-rebuild", action="store_true", help="Apply the existing crosswalk without re-reading the archives")
+    sec_industry=sub.add_parser("sync-sec-industry", help="Resolve holding tickers to SEC EDGAR CIK/SIC industry (official issuer classification)")
+    sec_industry.add_argument("--limit", type=int, help="Resolve at most this many new tickers (smoke test)")
+    sec_industry.add_argument("--latest-holdings", action="store_true", help="Resolve only tickers present in each fund's newest report")
+    sec_metrics=sub.add_parser("sync-sec-nport-metrics", help="Derive holding first-reported date, share change and 1Y price return from consecutive N-PORT filings")
+    sec_metrics.add_argument("--all-reports", action="store_true", help="Write metrics for every historical report date, not just each fund's newest")
+    sec_eps=sub.add_parser("sync-sec-eps", help="Cache annual diluted EPS for holding tickers from SEC XBRL company facts")
+    sec_eps.add_argument("--limit", type=int, help="Resolve at most this many tickers (smoke test)")
+    sec_eps.add_argument("--refresh", action="store_true", help="Ignore the on-disk company-concept cache")
+    sec_pe=sub.add_parser("sync-sec-trailing-pe", help="Compute trailing P/E from N-PORT filed price and SEC XBRL annual EPS")
+    sec_pe.add_argument("--all-reports", action="store_true", help="Compute for every historical report, not just each fund's newest")
     sec_nmfp=sub.add_parser("sync-sec-nmfp", help="Import official SEC money-market class NAV history (currency remains unassigned)")
     sec_nmfp.add_argument("--fund-id", type=int, action="append", help="Limit to local US fund IDs; repeat to select multiple funds")
     sec_nmfp.add_argument("--lookback-days", type=int, default=450, help="Look back this many days in SEC filing history")
@@ -325,6 +341,7 @@ def main() -> None:
     sec_ncen.add_argument("--refresh", action="store_true", help="Redownload and re-extract cached quarterly archives")
     sec_ncen.add_argument("--no-profiles", action="store_true", help="Skip manager, administrator and net-assets fund-field updates")
     sec_ncen.add_argument("--no-nav", action="store_true", help="Skip canonical NAV rows for single-class series")
+    sec_ncen.add_argument("--offline", action="store_true", help="Use already cached N-CEN archives without contacting the SEC")
     sec_ncsr=sub.add_parser("sync-sec-ncsr-tsr", help="Import SEC N-CSR/N-CSRS Tailored Shareholder Report XBRL (ticker, inception, fees, returns, sector weights)")
     sec_ncsr.add_argument("--since-days", type=int, default=420, help="Only read N-CSR/N-CSRS filings from this rolling window (default: 420)")
     sec_ncsr.add_argument("--max-filings", type=int, default=8, help="Maximum N-CSR/N-CSRS filings per registrant CIK (default: 8)")
@@ -350,6 +367,7 @@ def main() -> None:
     sec_rr.add_argument("--refresh", action="store_true", help="Redownload cached archives")
     sec_rr.add_argument("--no-tickers", action="store_true", help="Only fill inception dates")
     sec_rr.add_argument("--dry-run", action="store_true", help="Report what would be filled without writing")
+    sec_rr.add_argument("--offline", action="store_true", help="Use already cached archives without contacting the SEC")
     sec_profiles=sub.add_parser("sync-sec-class-profiles", help="Import cached SEC fund class metadata into profile snapshots")
     sec_profiles.add_argument("--fund-id", type=int, action="append", help="Limit to local US fund IDs; repeat to select multiple funds")
     sec_profiles.add_argument("--dry-run", action="store_true", help="Report exact matches without writing to the database")
@@ -395,7 +413,32 @@ def main() -> None:
         from app.holdings.sec_nport_bulk import import_nport_bulk
         print(json.dumps(tracked_run("sec-nport-bulk", lambda: import_nport_bulk(
             args.quarter, only_missing=args.only_missing, refresh=args.refresh,
-            include_identifiers=not args.no_identifiers)), indent=2))
+            include_identifiers=not args.no_identifiers,
+            apply_identifiers=not args.no_apply_identifiers)), indent=2))
+    elif args.cmd=="sync-sec-nport-identifiers":
+        from app.holdings.sec_nport_identifiers import apply_identifier_map, sync_identifier_map
+        if args.no_rebuild:
+            job=lambda: apply_identifier_map(latest_only=args.latest_only)
+        else:
+            job=lambda: sync_identifier_map(args.quarter, apply=not args.no_apply,
+                                            latest_only=args.latest_only)
+        print(json.dumps(tracked_run("sec-nport-identifiers", job), indent=2))
+    elif args.cmd=="sync-sec-industry":
+        from app.holdings.sec_nport_identifiers import sync_sec_industry
+        print(json.dumps(tracked_run("sec-industry", lambda: sync_sec_industry(
+            limit=args.limit, latest_holdings=args.latest_holdings)), indent=2))
+    elif args.cmd=="sync-sec-nport-metrics":
+        from app.holdings.sec_nport_metrics import sync_nport_holding_metrics
+        print(json.dumps(tracked_run("sec-nport-metrics", lambda: sync_nport_holding_metrics(
+            latest_only=not args.all_reports)), indent=2))
+    elif args.cmd=="sync-sec-eps":
+        from app.holdings.sec_fundamentals import sync_sec_eps
+        print(json.dumps(tracked_run("sec-eps", lambda: sync_sec_eps(
+            limit=args.limit, refresh=args.refresh)), indent=2))
+    elif args.cmd=="sync-sec-trailing-pe":
+        from app.holdings.sec_fundamentals import sync_trailing_pe
+        print(json.dumps(tracked_run("sec-trailing-pe", lambda: sync_trailing_pe(
+            latest_only=not args.all_reports)), indent=2))
     elif args.cmd=="sync-sec-nmfp":
         from app.holdings.sec_nmfp import sync_sec_nmfp
         print(json.dumps(tracked_run("sec-nmfp", lambda: sync_sec_nmfp(set(args.fund_id) if args.fund_id else None,
@@ -408,7 +451,8 @@ def main() -> None:
     elif args.cmd=="sync-sec-ncen-bulk":
         from app.enrichment.sec_ncen_bulk import sync_sec_ncen_bulk
         print(json.dumps(tracked_run("sec-ncen-bulk", lambda: sync_sec_ncen_bulk(quarters=args.quarters, refresh=args.refresh,
-            update_profiles=not args.no_profiles, write_nav=not args.no_nav)), indent=2))
+            update_profiles=not args.no_profiles, write_nav=not args.no_nav,
+            offline=args.offline)), indent=2))
     elif args.cmd=="sync-sec-filing-status":
         from app.enrichment.sec_filing_status import sync_sec_filing_status
         job=lambda: sync_sec_filing_status(months=args.months, dry_run=args.dry_run)
@@ -420,7 +464,7 @@ def main() -> None:
         print(json.dumps(job() if args.dry_run else tracked_run("sec-n1a-inception", job), indent=2, default=str))
     elif args.cmd=="sync-sec-rr-profiles":
         from app.enrichment.sec_rr_profile import sync_sec_rr_profiles
-        job=lambda: sync_sec_rr_profiles(quarters=args.quarters,refresh=args.refresh,dry_run=args.dry_run,fill_tickers=not args.no_tickers)
+        job=lambda: sync_sec_rr_profiles(quarters=args.quarters,refresh=args.refresh,dry_run=args.dry_run,fill_tickers=not args.no_tickers,offline=args.offline)
         print(json.dumps(job() if args.dry_run else tracked_run("sec-rr-profiles",job),indent=2,default=str))
     elif args.cmd=="sync-sec-ncsr-tsr":
         from app.enrichment.sec_ncsr_tsr import sync_sec_ncsr_tsr
@@ -462,7 +506,7 @@ def main() -> None:
         res = run_audit()
         print(f"Audit completed: {res['total_us_funds']:,} US funds evaluated.")
     elif args.cmd=="close-stale-runs":
-        from app.etl.runs import close_stale_runs, etl_lock
+        from app.etl.runs import close_stale_runs
         with etl_lock(wait_seconds=0):
             closed = close_stale_runs(args.hours)
         print(json.dumps({"stale_runs_closed": closed}))

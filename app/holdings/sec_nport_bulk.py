@@ -43,6 +43,7 @@ import psycopg
 
 from app.schemas.canonical import isin_check_digit_ok
 
+from app.holdings.sec_nport_identifiers import build_identifier_map_from_staging
 from app.config import database_url, timeout_seconds, user_agent
 from app.db.session import SessionLocal
 from app.models.schema import Fund, Source
@@ -328,24 +329,37 @@ def _copy_holdings(
     """Stream matching positions into a staging table preserving file order."""
     count = 0
     with cursor.copy(
-        "COPY stg_bulk_holdings (accession, holding_id, issuer_name, cusip, balance, "
-        "currency_code, currency_value, percentage, asset_cat) FROM STDIN"
+        "COPY stg_bulk_holdings (accession, holding_id, issuer_name, issuer_lei, cusip, "
+        "balance, unit, currency_code, currency_value, exchange_rate, percentage, "
+        "payoff_profile, asset_cat, issuer_type, investment_country, "
+        "is_restricted, fair_value_level, derivative_cat) FROM STDIN"
     ) as copy:
         for row in _rows(quarter_dir / "FUND_REPORTED_HOLDING.tsv"):
             accession = (row.get("ACCESSION_NUMBER") or "").strip()
-            if accession not in targets:
-                continue
+            # Every filing is staged so the identifier crosswalk learns from
+            # the whole fund population; the insert below still joins only the
+            # accessions that map to local funds.
+            restricted = (row.get("IS_RESTRICTED_SECURITY") or "").strip().upper()
             copy.write_row((
                 accession,
                 _int(row.get("HOLDING_ID")),
                 _clean_text(row.get("ISSUER_NAME"), limit=500)
                 or _clean_text(row.get("ISSUER_TITLE"), limit=500),
+                _clean_text(row.get("ISSUER_LEI"), limit=20),
                 _clean_text(row.get("ISSUER_CUSIP"), limit=12),
                 _decimal(row.get("BALANCE")),
+                (_clean_text(row.get("UNIT"), limit=4) or "").upper() or None,
                 _clean_text(row.get("CURRENCY_CODE"), limit=3),
                 _decimal(row.get("CURRENCY_VALUE")),
+                _decimal(row.get("EXCHANGE_RATE")),
                 _decimal(row.get("PERCENTAGE")),
+                _clean_text(row.get("PAYOFF_PROFILE"), limit=200),
                 (row.get("ASSET_CAT") or "").strip().upper() or None,
+                (row.get("ISSUER_TYPE") or "").strip().upper()[:16] or None,
+                (row.get("INVESTMENT_COUNTRY") or "").strip().upper()[:3] or None,
+                {"Y": True, "N": False}.get(restricted),
+                _int(row.get("FAIR_VALUE_LEVEL")),
+                (row.get("DERIVATIVE_CAT") or "").strip().upper()[:8] or None,
             ))
             count += 1
     return count
@@ -377,6 +391,7 @@ def import_nport_bulk(
     refresh: bool = False,
     include_identifiers: bool = True,
     limit_filings: int | None = None,
+    apply_identifiers: bool = True,
 ) -> dict[str, Any]:
     """Import one SEC N-PORT quarterly data set into PostgreSQL.
 
@@ -425,12 +440,21 @@ def import_nport_bulk(
                     accession text NOT NULL,
                     holding_id bigint,
                     issuer_name text,
+                    issuer_lei text,
                     cusip text,
                     balance numeric,
+                    unit text,
                     currency_code text,
                     currency_value numeric,
+                    exchange_rate numeric,
                     percentage numeric,
-                    asset_cat text
+                    payoff_profile text,
+                    asset_cat text,
+                    issuer_type text,
+                    investment_country text,
+                    is_restricted boolean,
+                    fair_value_level smallint,
+                    derivative_cat text
                 ) ON COMMIT DROP;
                 CREATE TEMP TABLE stg_bulk_identifiers (
                     holding_id bigint,
@@ -471,6 +495,20 @@ def import_nport_bulk(
                 ANALYZE stg_bulk_holdings;
                 ANALYZE stg_bulk_identifiers;
             """)
+            # Aggregate identifier evidence from the whole filing population,
+            # not just the holdings selected for local funds.
+            cursor.execute("""
+                CREATE TEMP TABLE stg_map_holdings ON COMMIT DROP AS
+                SELECT holding_id, upper(btrim(cusip)) AS cusip
+                FROM stg_bulk_holdings WHERE cusip IS NOT NULL;
+                ALTER TABLE stg_bulk_holdings RENAME TO stg_bulk_holdings_scoped;
+                ALTER TABLE stg_map_holdings RENAME TO stg_bulk_holdings;
+            """)
+            counts["identifier_map_rows"] = build_identifier_map_from_staging(cursor)
+            cursor.execute("""
+                ALTER TABLE stg_bulk_holdings RENAME TO stg_map_holdings;
+                ALTER TABLE stg_bulk_holdings_scoped RENAME TO stg_bulk_holdings;
+            """)
             # Replace any earlier rows for the same official report period.
             cursor.execute("""
                 DELETE FROM portfolio_holdings ph
@@ -486,13 +524,18 @@ def import_nport_bulk(
                     fund_id, reporting_date, accession_number, holding_index,
                     security_name, ticker, isin, cusip, quantity, market_value,
                     market_value_currency, portfolio_weight, data_source,
-                    source_url, retrieved_at
+                    source_url, retrieved_at, unit, issuer_lei, issuer_type,
+                    asset_category, investment_country, is_restricted,
+                    fair_value_level, derivative_category, payoff_profile, exchange_rate
                 )
                 SELECT f.id, a.report_date, a.accession,
                        (row_number() OVER (PARTITION BY a.accession, f.id ORDER BY h.holding_id NULLS LAST, h.seq) - 1)::int,
                        h.issuer_name, i.ticker, i.isin, h.cusip, h.balance,
                        h.currency_value, h.currency_code, h.percentage,
-                       'sec_edgar_nport_bulk', a.source_url, now()
+                       'sec_edgar_nport_bulk', a.source_url, now(),
+                       h.unit, h.issuer_lei, h.issuer_type, h.asset_cat,
+                       h.investment_country, h.is_restricted, h.fair_value_level,
+                       h.derivative_cat, h.payoff_profile, h.exchange_rate
                 FROM stg_bulk_holdings h
                 JOIN stg_bulk_accessions a ON a.accession = h.accession
                 JOIN funds f ON f.sec_series_id = a.series_id AND f.domicile_country = 'US'
@@ -596,6 +639,12 @@ def import_nport_bulk(
             """)
             counts["funds_marked_available"] = cursor.rowcount
         connection.commit()
+
+    if apply_identifiers:
+        from app.holdings.sec_nport_identifiers import apply_identifier_map
+        counts["identifier_apply"] = apply_identifier_map()
+    else:
+        counts["identifier_apply"] = {"skipped": True}
 
     result = {
         "dataset": quarter, "url": manifest["url"],

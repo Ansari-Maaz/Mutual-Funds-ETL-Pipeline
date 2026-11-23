@@ -1,0 +1,37 @@
+{
+  "source_id": "sec_edgar_nport",
+  "purpose": "Fill official N-PORT Item C.4 fields on rows written by the older individual-filing importer",
+  "runs": [
+    {
+      "mode": "download + apply",
+      "pending_accessions": 925,
+      "rows_to_fill": 540050,
+      "downloaded": 645,
+      "cached_accessions": 923,
+      "parse_failures": 0,
+      "series_mismatch": 0,
+      "accessions_parsed": 923,
+      "rows_updated": 539547
+    },
+    {
+      "mode": "retry two transient download failures",
+      "pending_accessions": 2,
+      "rows_to_fill": 503,
+      "downloaded": 2,
+      "cached_accessions": 2,
+      "parse_failures": 0,
+      "series_mismatch": 0,
+      "accessions_parsed": 2,
+      "rows_updated": 503
+    }
+  ],
+  "final_coverage": {
+    "total_individual_rows": 540050,
+    "unit": 540050,
+    "issuer_lei": 430995,
+    "asset_category": 538324,
+    "investment_country": 532389,
+    "fair_value_level": 539484
+  },
+  "notes": "Nulls in issuer_lei and a few other attributes are values the filer did not report, not import failures. Parsed filing text is cached in data/raw/united_states/nport_filings."
+}

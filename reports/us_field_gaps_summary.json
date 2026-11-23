@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-19T21:33:18.204960+00:00",
+  "generated_at": "2026-11-23T12:09:42.144096+00:00",
   "country": "US",
   "funds": 39139,
   "reporting_funds": 32627,
   "dormant_funds": 6512,
   "field_completeness": {
     "ticker": {
-      "present": 32008,
-      "missing": 7131,
-      "percent_complete": 81.78,
+      "present": 32148,
+      "missing": 6991,
+      "percent_complete": 82.14,
       "official_source": "SEC company_tickers_mf.json, N-1A TradingSymbol/scn.tsv, N-CSR TradingSymbol",
       "action": "run enrich-us-funds --tickers and sync-sec-rr-profiles"
     },
@@ -27,9 +27,9 @@
       "action": "leave null unless an issuer publishes a category; run enrich-us-fund-categories"
     },
     "inception_date": {
-      "present": 17257,
-      "missing": 21882,
-      "percent_complete": 44.09,
+      "present": 18036,
+      "missing": 21103,
+      "percent_complete": 46.08,
       "official_source": "SEC N-1A prospectus XBRL PerfInceptionDate / N-CSR tailored shareholder report",
       "action": "run sync-sec-rr-profiles and sync-sec-ncsr-tsr"
     },
@@ -48,28 +48,28 @@
       "action": "run sync-sec-ncen-bulk"
     },
     "net_assets": {
-      "present": 34130,
-      "missing": 5009,
-      "percent_complete": 87.2,
+      "present": 34475,
+      "missing": 4664,
+      "percent_complete": 88.08,
       "official_source": "SEC N-PORT quarterly bulk NET_ASSETS; N-CEN and N-CSR series net assets",
       "action": "run sync-sec-nport-bulk, sync-sec-ncen-bulk and sync-sec-ncsr-tsr"
     }
   },
   "funds_by_missing_field_count": {
     "0": 14,
-    "1": 976,
-    "2": 14864,
-    "3": 14611,
-    "4": 2756,
-    "5": 704,
-    "6": 2165,
-    "7": 3049
+    "1": 988,
+    "2": 15668,
+    "3": 13828,
+    "4": 2752,
+    "5": 975,
+    "6": 1939,
+    "7": 2975
   },
   "reporting_field_completeness": {
     "ticker": {
-      "present": 28659,
-      "missing": 3968,
-      "percent_complete": 87.84
+      "present": 28776,
+      "missing": 3851,
+      "percent_complete": 88.2
     },
     "isin": {
       "present": 769,
@@ -82,9 +82,9 @@
       "percent_complete": 3.35
     },
     "inception_date": {
-      "present": 17071,
-      "missing": 15556,
-      "percent_complete": 52.32
+      "present": 17587,
+      "missing": 15040,
+      "percent_complete": 53.9
     },
     "manager": {
       "present": 31567,
@@ -97,37 +97,37 @@
       "percent_complete": 94.2
     },
     "net_assets": {
-      "present": 32588,
-      "missing": 39,
-      "percent_complete": 99.88
+      "present": 32623,
+      "missing": 4,
+      "percent_complete": 99.99
     }
   },
   "top_providers_by_missing_fields": [
     {
       "provider": "ETF Opportunities Trust",
       "funds": 569,
-      "missing_total": 3557,
+      "missing_total": 3552,
       "missing_by_field": {
         "category": 569,
         "isin": 568,
         "inception_date": 547,
         "manager": 501,
         "administrator": 501,
-        "net_assets": 472,
-        "ticker": 399
+        "net_assets": 468,
+        "ticker": 398
       }
     },
     {
       "provider": "GraniteShares ETF Trust",
       "funds": 527,
-      "missing_total": 3199,
+      "missing_total": 3198,
       "missing_by_field": {
         "isin": 527,
         "category": 527,
         "inception_date": 445,
         "manager": 444,
         "administrator": 444,
-        "net_assets": 441,
+        "net_assets": 440,
         "ticker": 371
       }
     },
@@ -148,15 +148,15 @@
     {
       "provider": "Tidal Trust II",
       "funds": 548,
-      "missing_total": 2942,
+      "missing_total": 2871,
       "missing_by_field": {
         "category": 548,
         "isin": 541,
-        "inception_date": 454,
         "manager": 415,
         "administrator": 415,
-        "net_assets": 362,
-        "ticker": 207
+        "inception_date": 407,
+        "net_assets": 342,
+        "ticker": 203
       }
     },
     {
@@ -190,29 +190,29 @@
     {
       "provider": "Investment Managers Series Trust II",
       "funds": 332,
-      "missing_total": 1709,
+      "missing_total": 1685,
       "missing_by_field": {
         "category": 332,
         "isin": 331,
         "inception_date": 263,
         "manager": 251,
         "administrator": 251,
-        "net_assets": 208,
+        "net_assets": 184,
         "ticker": 73
       }
     },
     {
       "provider": "John Hancock Funds II",
       "funds": 387,
-      "missing_total": 1388,
+      "missing_total": 1382,
       "missing_by_field": {
         "isin": 387,
         "category": 387,
-        "inception_date": 364,
+        "inception_date": 359,
         "manager": 66,
         "administrator": 66,
         "net_assets": 66,
-        "ticker": 52
+        "ticker": 51
       }
     },
     {
@@ -232,35 +232,35 @@
     {
       "provider": "PROSHARES TRUST",
       "funds": 264,
-      "missing_total": 1157,
+      "missing_total": 1151,
       "missing_by_field": {
         "category": 263,
         "isin": 251,
         "inception_date": 205,
         "manager": 113,
         "administrator": 113,
-        "net_assets": 113,
+        "net_assets": 107,
         "ticker": 99
       }
     },
     {
       "provider": "GOLDMAN SACHS TRUST",
       "funds": 576,
-      "missing_total": 1118,
+      "missing_total": 1104,
       "missing_by_field": {
         "isin": 572,
         "category": 497,
-        "inception_date": 49
+        "inception_date": 35
       }
     },
     {
       "provider": "NATIONWIDE MUTUAL FUNDS",
       "funds": 299,
-      "missing_total": 1087,
+      "missing_total": 1076,
       "missing_by_field": {
         "isin": 299,
         "category": 296,
-        "inception_date": 263,
+        "inception_date": 252,
         "manager": 61,
         "administrator": 61,
         "net_assets": 61,
@@ -284,12 +284,12 @@
     {
       "provider": "NATIONWIDE VARIABLE INSURANCE TRUST",
       "funds": 235,
-      "missing_total": 1030,
+      "missing_total": 1028,
       "missing_by_field": {
         "ticker": 235,
         "isin": 235,
         "category": 229,
-        "inception_date": 193,
+        "inception_date": 191,
         "manager": 46,
         "administrator": 46,
         "net_assets": 46
@@ -322,38 +322,25 @@
     {
       "provider": "ETF Series Solutions",
       "funds": 176,
-      "missing_total": 881,
+      "missing_total": 878,
       "missing_by_field": {
         "category": 176,
         "isin": 165,
         "inception_date": 130,
         "manager": 111,
         "administrator": 111,
-        "net_assets": 101,
+        "net_assets": 98,
         "ticker": 87
       }
     },
     {
       "provider": "TIAA-CREF FUNDS",
       "funds": 336,
-      "missing_total": 878,
+      "missing_total": 869,
       "missing_by_field": {
         "isin": 335,
         "category": 330,
-        "inception_date": 213
-      }
-    },
-    {
-      "provider": "PRINCIPAL FUNDS, INC.",
-      "funds": 303,
-      "missing_total": 859,
-      "missing_by_field": {
-        "isin": 303,
-        "category": 299,
-        "inception_date": 250,
-        "manager": 3,
-        "administrator": 3,
-        "ticker": 1
+        "inception_date": 204
       }
     },
     {
@@ -370,13 +357,16 @@
       }
     },
     {
-      "provider": "HARTFORD MUTUAL FUNDS, INC",
-      "funds": 297,
-      "missing_total": 799,
+      "provider": "PRINCIPAL FUNDS, INC.",
+      "funds": 303,
+      "missing_total": 841,
       "missing_by_field": {
-        "isin": 297,
-        "category": 297,
-        "inception_date": 205
+        "isin": 303,
+        "category": 299,
+        "inception_date": 232,
+        "manager": 3,
+        "administrator": 3,
+        "ticker": 1
       }
     },
     {
@@ -405,6 +395,16 @@
       }
     },
     {
+      "provider": "HARTFORD MUTUAL FUNDS, INC",
+      "funds": 297,
+      "missing_total": 780,
+      "missing_by_field": {
+        "isin": 297,
+        "category": 297,
+        "inception_date": 186
+      }
+    },
+    {
       "provider": "iSHARES TRUST",
       "funds": 390,
       "missing_total": 767,
@@ -420,11 +420,11 @@
     {
       "provider": "JPMorgan Trust I",
       "funds": 365,
-      "missing_total": 754,
+      "missing_total": 748,
       "missing_by_field": {
         "isin": 359,
         "category": 326,
-        "inception_date": 65,
+        "inception_date": 59,
         "ticker": 4
       }
     },
@@ -445,11 +445,11 @@
     {
       "provider": "JANUS INVESTMENT FUND",
       "funds": 256,
-      "missing_total": 671,
+      "missing_total": 669,
       "missing_by_field": {
         "isin": 256,
         "category": 250,
-        "inception_date": 140,
+        "inception_date": 138,
         "manager": 8,
         "administrator": 8,
         "net_assets": 8,
@@ -485,11 +485,11 @@
     {
       "provider": "EA Series Trust",
       "funds": 165,
-      "missing_total": 640,
+      "missing_total": 638,
       "missing_by_field": {
         "category": 165,
         "isin": 159,
-        "inception_date": 106,
+        "inception_date": 104,
         "manager": 77,
         "administrator": 77,
         "net_assets": 52,

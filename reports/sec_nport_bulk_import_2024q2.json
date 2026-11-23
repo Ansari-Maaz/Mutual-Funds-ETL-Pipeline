@@ -1,0 +1,19 @@
+{
+  "dataset": "2024q2",
+  "url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2024q2_nport.zip",
+  "filings_in_dataset": 13231,
+  "series_in_dataset": 12560,
+  "local_series_matched": 4,
+  "filings_selected": 7,
+  "holding_rows_read": 6673064,
+  "identifier_rows_read": 4682411,
+  "identifier_map_rows": 63518,
+  "replaced_rows": 0,
+  "holding_rows_inserted": 177,
+  "aum_snapshots": 7,
+  "asset_allocation_snapshots": 7,
+  "funds_marked_available": 4,
+  "identifier_apply": {
+    "skipped": true
+  }
+}

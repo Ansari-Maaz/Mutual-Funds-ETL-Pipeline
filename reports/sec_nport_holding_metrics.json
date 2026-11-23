@@ -1,0 +1,7 @@
+{
+  "metric_rows_computed": 11259683,
+  "metric_rows_written": 11259683,
+  "metric_source": "sec_nport_derived",
+  "industry_source": "sec_edgar_sic",
+  "completed_at": "2026-11-22T17:11:47.957401+00:00"
+}

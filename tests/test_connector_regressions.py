@@ -145,7 +145,11 @@ def test_nport_parser_preserves_series_level_net_assets_and_holdings():
       <seriesId>S000002839</seriesId><repPdDate>2026-06-30</repPdDate>
       <netAssets>1671231561960.14</netAssets>
     </genInfo><invstOrSec><name>Example issuer</name><cusip>123456789</cusip>
-      <balance>10</balance><valUSD>1000</valUSD><pctVal>0.25</pctVal>
+      <lei>98450079DA0B78DD6764</lei>
+      <balance>10</balance><units>NS</units><valUSD>1000</valUSD><pctVal>0.25</pctVal>
+      <payoffProfile>Long</payoffProfile><assetCat>EC</assetCat><issuerCat>CORP</issuerCat>
+      <invCountry>US</invCountry><isRestrictedSec>N</isRestrictedSec>
+      <fairValLevel>1</fairValLevel>
     </invstOrSec></formData></edgarSubmission>"""
     parsed = parse_nport_xml(payload, accession_number="0000036405-26-000473",
                              source_url="https://www.sec.gov/Archives/example.txt")
@@ -155,6 +159,15 @@ def test_nport_parser_preserves_series_level_net_assets_and_holdings():
     assert str(parsed["net_assets"]) == "1671231561960.14"
     assert parsed["holdings"][0]["security_name"] == "Example issuer"
     assert str(parsed["holdings"][0]["portfolio_weight"]) == "0.25"
+    position = parsed["holdings"][0]
+    assert position["unit"] == "NS"
+    assert position["issuer_lei"] == "98450079DA0B78DD6764"
+    assert position["issuer_type"] == "CORP"
+    assert position["asset_category"] == "EC"
+    assert position["investment_country"] == "US"
+    assert position["is_restricted"] is False
+    assert position["fair_value_level"] == 1
+    assert position["payoff_profile"] == "Long"
 
 
 def test_sec_class_master_exposes_official_share_class_and_registrant_fields():

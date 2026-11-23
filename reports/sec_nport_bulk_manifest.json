@@ -1,11 +1,11 @@
 {
   "source_id": "sec_nport_bulk",
-  "dataset": "2026q3",
-  "url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2026q3_nport.zip",
-  "archive": "data/raw/united_states/nport_bulk/2026q3_nport.zip",
-  "directory": "data/raw/united_states/nport_bulk/2026q3",
-  "bytes": 462371568,
-  "sha256": "2f5ee059234d2e28f16d0451d9fcb405aab3dad5d92cded74c8ea9ffc4b66c38",
+  "dataset": "2019q4",
+  "url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2019q4_nport.zip",
+  "archive": "data/raw/united_states/nport_bulk/2019q4_nport.zip",
+  "directory": "data/raw/united_states/nport_bulk/2019q4",
+  "bytes": 240007320,
+  "sha256": "f8e10bce83ac2251bcdb80111faa362b7c2b1ffb6581513e11559af0eac31390",
   "downloaded": false,
-  "checked_at": "2026-11-17T17:48:15.553111+00:00"
+  "checked_at": "2026-11-23T08:36:33.951922+00:00"
 }

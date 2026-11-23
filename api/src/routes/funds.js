@@ -41,6 +41,7 @@ const jsonFund = (r) => ({
   }],
   market_data_sources: r.market_data_sources || null,
   isin: r.isin,
+  lei: r.lei || null,
   provider: r.provider,
   category: r.category,
   fundType: r.fund_type,
@@ -142,7 +143,8 @@ router.get('/:id', async (req, res, next) => {
              latest.low AS latest_nav_low,latest.close AS latest_nav_close,
              latest.ohlc_basis AS latest_nav_ohlc_basis,
              latest.source_id AS latest_nav_source_id,latest.source_url AS latest_nav_source_url,
-             market_meta.payload AS market_meta_payload
+             market_meta.payload AS market_meta_payload,
+             ident.value AS lei
       FROM funds f
       LEFT JOIN sources s ON s.source_id = f.source_id
       LEFT JOIN LATERAL (
@@ -159,6 +161,11 @@ router.get('/:id', async (req, res, next) => {
         ORDER BY source_report_date DESC NULLS LAST,retrieved_at DESC,id DESC
         LIMIT 1
       ) market_meta ON true
+      LEFT JOIN LATERAL (
+        SELECT value FROM fund_identifiers
+        WHERE fund_id=f.id AND id_type='LEI'
+        ORDER BY retrieved_at DESC,id DESC LIMIT 1
+      ) ident ON true
       WHERE f.id=$1
     `, [Number(req.params.id)]);
     if (!rows.length) return res.status(404).json({ error: { code: 'FUND_NOT_FOUND', message: 'Fund not found' } });
@@ -216,14 +223,23 @@ router.get('/:id/completeness', async (req, res, next) => {
       FROM funds WHERE id=$1`, [fundId]);
     if (!funds.length) return res.status(404).json({ error: { code: 'FUND_NOT_FOUND', message: 'Fund not found' } });
     const fund = funds[0];
-    const [{ rows: navRows }, { rows: holdingRows }, { rows: snapshotRows }, { rows: summaryRows }] = await Promise.all([
+    const [{ rows: navRows }, { rows: holdingRows }, { rows: snapshotRows }, { rows: summaryRows },
+      { rows: financialRows }, { rows: nportFinancialRows }, { rows: registrantRows }, { rows: etfRows }] = await Promise.all([
       req.app.locals.pool.query('SELECT count(*)::int AS count,count(source_id)::int AS sourced_count,count(source_url)::int AS url_count,min(valuation_date)::text AS first_date,max(valuation_date)::text AS latest_date FROM nav_observations WHERE fund_id=$1 AND nav > 0', [fundId]),
       req.app.locals.pool.query('SELECT count(*)::int AS count,min(reporting_date)::text AS first_date,max(reporting_date)::text AS latest_date FROM portfolio_holdings WHERE fund_id=$1', [fundId]),
       req.app.locals.pool.query(`SELECT dataset,count(*)::int AS count,count(DISTINCT source_report_date)::int AS report_dates,count(DISTINCT COALESCE(payload->>'scope','unspecified'))::int AS scopes,min(source_report_date)::text AS first_date,max(source_report_date)::text AS latest_date FROM fund_profile_snapshots WHERE fund_id=$1 GROUP BY dataset`, [fundId]),
       req.app.locals.pool.query(`SELECT payload FROM fund_profile_snapshots WHERE fund_id=$1 AND dataset='summary' ORDER BY retrieved_at DESC,id DESC LIMIT 1`, [fundId]),
+      req.app.locals.pool.query(`SELECT payload FROM fund_profile_snapshots WHERE fund_id=$1 AND dataset='financials' ORDER BY source_report_date DESC NULLS LAST,retrieved_at DESC,id DESC LIMIT 1`, [fundId]),
+      req.app.locals.pool.query(`SELECT payload FROM fund_profile_snapshots WHERE fund_id=$1 AND dataset='nport_financials' ORDER BY source_report_date DESC NULLS LAST,retrieved_at DESC,id DESC LIMIT 1`, [fundId]),
+      req.app.locals.pool.query(`SELECT payload FROM fund_profile_snapshots WHERE fund_id=$1 AND dataset='registrant' ORDER BY source_report_date DESC NULLS LAST,retrieved_at DESC,id DESC LIMIT 1`, [fundId]),
+      req.app.locals.pool.query(`SELECT payload FROM fund_profile_snapshots WHERE fund_id=$1 AND dataset='etf_profile' ORDER BY source_report_date DESC NULLS LAST,retrieved_at DESC,id DESC LIMIT 1`, [fundId]),
     ]);
     const snapshotByDataset = Object.fromEntries(snapshotRows.map((row) => [row.dataset, row]));
     const profileSummary = summaryRows[0]?.payload || {};
+    const financial = financialRows[0]?.payload || {};
+    const nportFinancial = nportFinancialRows[0]?.payload || {};
+    const registrant = registrantRows[0]?.payload || {};
+    const etf = etfRows[0]?.payload || {};
     const requiredFields = [
       ['name', fund.name], ['legal_name', fund.legal_name], ['ticker', fund.ticker],
       ['provider', fund.provider], ['category', fund.category || profileSummary.category],
@@ -242,6 +258,12 @@ router.get('/:id/completeness', async (req, res, next) => {
       ['factsheet_url', profileSummary.factsheet_url], ['prospectus_url', profileSummary.prospectus_url],
       ['investment_objective', profileSummary.objective || profileSummary.investment_objective || profileSummary.overview],
       ['management_style', profileSummary.management_style],
+      ['total_assets', financial.total_assets || nportFinancial.total_assets],
+      ['total_liabilities', financial.total_liabilities || nportFinancial.total_liabilities],
+      ['registrant_name', registrant.registrant_name],
+      ['registrant_phone', registrant.phone],
+      ['registrant_website', registrant.website],
+      ['creation_unit_shares', etf.creation_unit_shares],
     ];
     const fields = requiredFields.map(([field, value]) => ({ field, status: value != null && value !== '' ? 'available' : 'requires_verification', ...(value != null ? { value } : {}) }));
     const makeDataset = (name, count, { notApplicable = false, confirmedUnavailable = false, statusOverride = null, firstDate = null, latestDate = null, note = null } = {}) => ({
@@ -258,6 +280,9 @@ router.get('/:id/completeness', async (req, res, next) => {
       ['performance', 'performance'], ['risk', 'risk'], ['yields', 'yields'], ['fees', 'fees'],
       ['distributions', 'distributions'], ['official_documents', 'official_documents'],
       ['composition', 'composition'], ['money_market_nav_history', 'nav_history'],
+      ['financials', 'financials'], ['nport_financials', 'nport_financials'],
+      ['nmfp_class_financials', 'nmfp_class_financials'],
+      ['registrant', 'registrant'], ['etf_profile', 'etf_profile'],
     ].map(([dataset, key]) => makeDataset(dataset, snapshotByDataset[key]?.count || 0, {
       statusOverride: snapshotByDataset[key]?.count ? 'partially_available' : null,
       firstDate: snapshotByDataset[key]?.first_date || null,
@@ -303,17 +328,25 @@ router.get('/:id/holdings', async (req, res, next) => {
              h.quantity,h.market_value,h.market_value_currency AS currency,
              COALESCE(h.portfolio_weight,m.portfolio_weight) AS portfolio_weight,
              h.data_source,h.source_url,h.accession_number,
-             CASE WHEN h.data_source='sec_edgar_nport' THEN 'SEC series-level; shared across share classes'
+             h.unit,h.issuer_lei,h.issuer_type,h.asset_category,h.investment_country,
+             h.is_restricted,h.fair_value_level,h.derivative_category,h.payoff_profile,h.exchange_rate,
+             CASE WHEN h.data_source IN ('sec_edgar_nport','sec_edgar_nport_bulk') THEN 'SEC series-level; shared across share classes'
+                  WHEN h.data_source='sec_nmfp_bulk' THEN 'SEC N-MFP reported portfolio'
+                  WHEN h.data_source='fi_sweden_quarterly_holdings' THEN 'Swedish FSA fund-level report'
                   ELSE 'Publisher-reported fund scope' END AS data_scope,
              f.sec_series_id,
-             m.first_bought_date,m.share_change_percentage,m.one_year_return,
-             m.forward_pe,m.sector,m.data_source AS metrics_source,
+             m.first_bought_date::text AS first_bought_date,m.share_change_percentage,m.one_year_return,
+             m.trailing_pe,m.trailing_eps,m.eps_period_end::text AS eps_period_end,m.trailing_pe_basis,
+             m.forward_pe,COALESCE(m.sector,si.sector) AS sector,m.data_source AS metrics_source,
              m.source_url AS metrics_source_url,m.as_of_date::text AS metrics_as_of_date,
-             m.calculation_basis AS metrics_calculation_basis
+             m.calculation_basis AS metrics_calculation_basis,
+             si.sic AS sector_code, si.sic_description AS sector_description
       FROM portfolio_holdings h
       LEFT JOIN funds f ON f.id=h.fund_id
+      LEFT JOIN security_industry si ON si.ticker = upper(btrim(h.ticker))
       LEFT JOIN LATERAL (
-        SELECT first_bought_date,portfolio_weight,share_change_percentage,one_year_return,forward_pe,
+        SELECT first_bought_date::text AS first_bought_date,portfolio_weight,share_change_percentage,one_year_return,
+               trailing_pe,trailing_eps,eps_period_end,trailing_pe_basis,forward_pe,
                sector,data_source,source_url,as_of_date,calculation_basis
         FROM holding_metrics WHERE holding_id=h.id AND as_of_date=h.reporting_date
         ORDER BY retrieved_at DESC,id DESC LIMIT 1

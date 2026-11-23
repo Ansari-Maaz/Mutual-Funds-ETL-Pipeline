@@ -1,0 +1,19 @@
+{
+  "dataset": "2022q1",
+  "url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2022q1_nport.zip",
+  "filings_in_dataset": 12321,
+  "series_in_dataset": 11681,
+  "local_series_matched": 6,
+  "filings_selected": 6,
+  "holding_rows_read": 6331478,
+  "identifier_rows_read": 4323183,
+  "identifier_map_rows": 80003,
+  "replaced_rows": 0,
+  "holding_rows_inserted": 3747,
+  "aum_snapshots": 12,
+  "asset_allocation_snapshots": 12,
+  "funds_marked_available": 12,
+  "identifier_apply": {
+    "skipped": true
+  }
+}

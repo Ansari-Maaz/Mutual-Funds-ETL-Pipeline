@@ -1,0 +1,19 @@
+{
+  "dataset": "2025q4",
+  "url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2025q4_nport.zip",
+  "filings_in_dataset": 13328,
+  "series_in_dataset": 12625,
+  "local_series_matched": 12494,
+  "filings_selected": 12545,
+  "holding_rows_read": 5105506,
+  "identifier_rows_read": 4606426,
+  "identifier_map_rows": 56720,
+  "replaced_rows": 690528,
+  "holding_rows_inserted": 10587269,
+  "aum_snapshots": 30572,
+  "asset_allocation_snapshots": 30570,
+  "funds_marked_available": 302,
+  "identifier_apply": {
+    "skipped": true
+  }
+}

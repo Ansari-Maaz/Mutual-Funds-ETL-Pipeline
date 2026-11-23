@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Activity, ArrowRight, BarChart3, CheckCircle2, ChevronDown, Database, FileJson2, Globe2, LayoutDashboard, Menu, Moon, PanelLeftClose, PanelLeftOpen, RefreshCw, Sun, Terminal, WalletCards, X, XCircle } from 'lucide-react';
+import { Activity, ArrowRight, BarChart3, CheckCircle2, ChevronDown, Database, FileJson2, FileText, Globe2, LayoutDashboard, Menu, Moon, PanelLeftClose, PanelLeftOpen, RefreshCw, Sun, Terminal, WalletCards, X, XCircle } from 'lucide-react';
 import { request } from './api';
 import ApiDocumentation from './ApiDocumentation.jsx';
+import FundProfile from './FundProfile.jsx';
 import { ApiExplorer, EtlControl, FundExplorer, Overview, Sources, UsCoverage } from './DashboardPages.jsx';
 
 const nav = [
@@ -9,11 +10,18 @@ const nav = [
   { id: 'explorer', label: 'API explorer', icon: Terminal },
   { id: 'etl', label: 'ETL control', icon: Activity },
   { id: 'funds', label: 'Fund explorer', icon: WalletCards },
+  { id: 'profile', label: 'Fund profile', icon: FileText },
   { id: 'us-coverage', label: 'US coverage', icon: Globe2 },
   { id: 'sources', label: 'Data sources', icon: Database },
 ];
+
+function fundIdFromPath() {
+  const match = window.location.pathname.match(/^\/fund\/(\d+)\/?$/);
+  return match ? match[1] : null;
+}
 function App() {
-  const [page, setPage] = useState('overview');
+  const [page, setPage] = useState(() => (fundIdFromPath() ? 'profile' : 'overview'));
+  const [profileId, setProfileId] = useState(() => fundIdFromPath() || '');
   const [theme, setTheme] = useState(() => localStorage.getItem('fundflow-theme') || 'light');
   const [stats, setStats] = useState(null);
   const [sources, setSources] = useState([]);
@@ -43,12 +51,26 @@ function App() {
     } catch (error) { setHealth('offline'); setLoadError(error.message || 'Could not load dashboard data from the API.'); }
   }, []);
   useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    const onPop = () => { const id = fundIdFromPath(); setProfileId(id || ''); setPage(id ? 'profile' : 'overview'); };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
   useEffect(() => { document.documentElement.dataset.theme = theme; localStorage.setItem('fundflow-theme', theme); }, [theme]);
   useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(''), 3200); return () => clearTimeout(t); }, [toast]);
 
   if (window.location.pathname.startsWith('/docs')) return <ApiDocumentation />;
 
-  const navigate = (nextPage) => { setPage(nextPage); setSidebarOpen(false); };
+  const navigate = (nextPage) => {
+    if (nextPage !== 'profile' && window.location.pathname.startsWith('/fund/')) history.pushState({}, '', '/');
+    setPage(nextPage); setSidebarOpen(false);
+  };
+  const openProfile = (id) => {
+    setProfileId(String(id));
+    history.pushState({}, '', `/fund/${id}`);
+    setPage('profile'); setSidebarOpen(false);
+    window.scrollTo({ top: 0 });
+  };
   return <div className={`shell ${sidebarOpen ? 'sidebar-open' : ''} ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
     <button className="sidebar-backdrop" aria-label="Close navigation" onClick={() => setSidebarOpen(false)}/>
     <aside className="sidebar" aria-label="Primary navigation">
@@ -60,7 +82,7 @@ function App() {
     </aside>
     <main className="main">
       <header className="topbar"><button className="desktop-sidebar-toggle icon-btn" aria-label={sidebarCollapsed ? 'Expand navigation' : 'Collapse navigation'} aria-expanded={!sidebarCollapsed} onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>{sidebarCollapsed ? <PanelLeftOpen size={19}/> : <PanelLeftClose size={19}/>}</button><button className="menu-toggle icon-btn" aria-label="Open navigation" aria-expanded={sidebarOpen} onClick={() => setSidebarOpen(true)}><Menu size={19}/></button><a href="/" className="mobile-brand" aria-label="FundFlow home"><span className="mobile-brandmark"><BarChart3 size={16}/></span><b>FUNDFLOW</b></a><div className="crumb"><span>Workspace</span><span className="slash">/</span><b>{nav.find((n) => n.id === page)?.label}</b></div><div className="top-actions"><span className={`live-pill ${health}`}><i/> {health === 'online' ? 'DATABASE ONLINE' : health === 'checking' ? 'CHECKING DATABASE' : 'DATABASE OFFLINE'}</span><button className="theme-toggle icon-btn" title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme === 'light' ? <Moon size={16}/> : <Sun size={16}/>}</button><button className="avatar" title="Administrator">A</button></div></header>
-      <div className="content">{loadError && <div className="error-box" role="alert">Dashboard data could not be loaded: {loadError}</div>}{page === 'overview' && <Overview stats={stats} sources={sources} countries={countries} runs={runs} funds={funds} onNavigate={setPage} refresh={load}/>} {page === 'explorer' && <ApiExplorer notify={setToast}/>} {page === 'etl' && <EtlControl countries={countries} sources={sources} runs={runs} notify={setToast} refresh={load}/>} {page === 'funds' && <FundExplorer notify={setToast}/>} {page === 'sources' && <Sources sources={sources} refresh={load} notify={setToast}/>} {page === 'us-coverage' && <UsCoverage notify={setToast}/>}</div>
+      <div className={`content ${page === 'profile' ? 'content-profile' : ''}`}>{loadError && page !== 'profile' && <div className="error-box" role="alert">Dashboard data could not be loaded: {loadError}</div>}{page === 'overview' && <Overview stats={stats} sources={sources} countries={countries} runs={runs} funds={funds} onNavigate={navigate} refresh={load}/>} {page === 'explorer' && <ApiExplorer notify={setToast}/>} {page === 'etl' && <EtlControl countries={countries} sources={sources} runs={runs} notify={setToast} refresh={load}/>} {page === 'funds' && <FundExplorer notify={setToast} onOpenFund={openProfile}/>} {page === 'profile' && <FundProfile fundId={profileId} onBack={() => navigate('funds')} onOpenFund={(id) => { setProfileId(String(id)); history.pushState({}, '', `/fund/${id}`); }}/>} {page === 'sources' && <Sources sources={sources} refresh={load} notify={setToast}/>} {page === 'us-coverage' && <UsCoverage notify={setToast}/>}</div>
       <footer className="footer"><span>FundFlow <b>ETL Console</b></span><span>Source registry & data coverage reflect your configured PostgreSQL database.</span><a href="/docs" aria-label="Open FundFlow API documentation">API documentation <ArrowRight size={11}/></a></footer>
     </main>
     {toast && <div className="toast"><CheckCircle2 size={17}/>{toast}<button onClick={() => setToast('')}><XCircle size={15}/></button></div>}

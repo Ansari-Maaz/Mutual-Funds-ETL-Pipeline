@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-16T16:32:01.610195+00:00",
+  "generated_at": "2026-11-23T12:45:24.339775+00:00",
   "countries": [
     {
       "country": "US",
       "funds": 39139,
-      "with_nav": 25694,
-      "latest_nav_date": "2026-11-15",
-      "with_holdings": 33372,
+      "with_nav": 27245,
+      "latest_nav_date": "2026-11-20",
+      "with_holdings": 35224,
       "latest_holdings_date": "2026-10-31"
     },
     {
@@ -20,8 +20,8 @@
     {
       "country": "FR",
       "funds": 28465,
-      "with_nav": 90,
-      "latest_nav_date": "2026-10-22",
+      "with_nav": 784,
+      "latest_nav_date": "2026-11-16",
       "with_holdings": 0,
       "latest_holdings_date": null
     },
@@ -75,7 +75,7 @@
     },
     {
       "country": null,
-      "funds": 3689,
+      "funds": 3613,
       "with_nav": 302,
       "latest_nav_date": "2026-10-23",
       "with_holdings": 0,
@@ -142,8 +142,8 @@
       "funds": 726,
       "with_nav": 0,
       "latest_nav_date": null,
-      "with_holdings": 0,
-      "latest_holdings_date": null
+      "with_holdings": 677,
+      "latest_holdings_date": "2026-06-30"
     },
     {
       "country": "CA",
