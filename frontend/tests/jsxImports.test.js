@@ -23,11 +23,20 @@ function moduleBindings(source) {
   return bindings;
 }
 
+function withoutStringsAndComments(source) {
+  return source
+    .replace(/\/\*[\s\S]*?\*\//g, ' ')
+    .replace(/\/\/.*$/gm, ' ')
+    .replace(/`(?:\\.|[^`])*`/g, ' ')
+    .replace(/"(?:\\.|[^"\\])*"/g, ' ')
+    .replace(/'(?:\\.|[^'\\])*'/g, ' ');
+}
+
 test('dashboard JSX component names are imported or declared in their module', async () => {
   for (const filename of ['App.jsx', 'DashboardPages.jsx', 'DashboardComponents.jsx', 'ApiDocumentation.jsx']) {
     const source = await readFile(path.join(sourceDir, filename), 'utf8');
     const bindings = moduleBindings(source);
-    const usedComponents = new Set([...source.matchAll(/<([A-Z][A-Za-z0-9_$]*)\b/g)].map((match) => match[1]));
+    const usedComponents = new Set([...withoutStringsAndComments(source).matchAll(/<([A-Z][A-Za-z0-9_$]*)\b/g)].map((match) => match[1]));
     const unresolved = [...usedComponents].filter((name) => !bindings.has(name));
     assert.deepEqual(unresolved, [], `${filename} has unresolved JSX names: ${unresolved.join(', ')}`);
   }

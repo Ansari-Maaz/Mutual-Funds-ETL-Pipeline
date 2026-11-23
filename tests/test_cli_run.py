@@ -1,5 +1,6 @@
 import types
 import sys
+from contextlib import nullcontext
 
 import pytest
 
@@ -16,6 +17,7 @@ def test_run_all_allows_partial_failures(monkeypatch, tmp_path):
         {"source_id": "bad_source", "status": "Failed", "error": "HTTPError: HTTP Error 404: Not Found"},
     ]
     monkeypatch.setitem(sys.modules, "app.etl.orchestrator", fake_orchestrator)
+    monkeypatch.setattr(cli, "etl_lock", lambda: nullcontext())
     monkeypatch.setattr(cli, "export_database_samples", lambda: {"funds": 1, "nav_observations": 1, "by_source": {}})
     monkeypatch.setattr(cli, "write_latest_run_report", lambda *_args, **_kwargs: None)
 
@@ -31,6 +33,7 @@ def test_run_source_still_fails_when_connector_fails(monkeypatch, tmp_path):
         {"source_id": "bad_source", "status": "Failed", "error": "HTTPError: HTTP Error 404: Not Found"},
     ]
     monkeypatch.setitem(sys.modules, "app.etl.orchestrator", fake_orchestrator)
+    monkeypatch.setattr(cli, "etl_lock", lambda: nullcontext())
 
     with pytest.raises(SystemExit) as exc:
         cli.main()

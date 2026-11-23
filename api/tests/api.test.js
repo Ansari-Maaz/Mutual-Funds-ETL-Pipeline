@@ -159,7 +159,11 @@ describe('REST API contract', () => {
       .mockResolvedValueOnce({ rows: [{ count: 2, first_date: '2026-10-01', latest_date: '2026-10-02' }] })
       .mockResolvedValueOnce({ rows: [{ count: 0, first_date: null, latest_date: null }] })
       .mockResolvedValueOnce({ rows: [{ dataset: 'nav_history', count: 2, report_dates: 2, scopes: 1, first_date: '2026-08-31', latest_date: '2026-09-30' }] })
-      .mockResolvedValueOnce({ rows: [{ payload: { cusip: '123456789', benchmark: 'Example Index', objective: 'Tracks an example index.' } }] });
+      .mockResolvedValueOnce({ rows: [{ payload: { cusip: '123456789', benchmark: 'Example Index', objective: 'Tracks an example index.' } }] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] });
     const response = await request(createApp({ pool: fakePool(query) })).get('/api/v1/funds/7/completeness').expect(200);
     expect(response.body.data.status).toBe('incomplete');
     expect(response.body.data.datasets.find((item) => item.dataset === 'daily_nav_history')).toMatchObject({ status: 'partially_available', records: 2 });
@@ -181,6 +185,10 @@ describe('REST API contract', () => {
       .mockResolvedValueOnce({ rows: [{ count: 0, first_date: null, latest_date: null }] })
       .mockResolvedValueOnce({ rows: [{ count: 0, first_date: null, latest_date: null }] })
       .mockResolvedValueOnce({ rows: [{ dataset: 'aum_history', count: 3, report_dates: 2, scopes: 2, first_date: '2026-06-30', latest_date: '2026-10-31' }] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
       .mockResolvedValueOnce({ rows: [] });
     const response = await request(createApp({ pool: fakePool(query) })).get('/api/v1/funds/7/completeness').expect(200);
     expect(response.body.data.datasets.find((item) => item.dataset === 'aum_history')).toMatchObject({
@@ -194,6 +202,10 @@ describe('REST API contract', () => {
       .mockResolvedValueOnce({ rows: [{ count: 0, first_date: null, latest_date: null }] })
       .mockResolvedValueOnce({ rows: [{ count: 0, first_date: null, latest_date: null }] })
       .mockResolvedValueOnce({ rows: [{ dataset: 'performance', count: 2, report_dates: 2, scopes: 1, first_date: '2025-10-31', latest_date: '2026-10-31' }] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
       .mockResolvedValueOnce({ rows: [] });
     const response = await request(createApp({ pool: fakePool(query) })).get('/api/v1/funds/7/completeness').expect(200);
     expect(response.body.data.datasets.find((item) => item.dataset === 'performance')).toMatchObject({
