@@ -402,6 +402,7 @@ def main() -> None:
                 "us_qqqm_etf": [ROOT / "data/raw/united_states/qqqm_nav.csv"],
                 "scotia_canada_daily_nav": [ROOT / "data/raw/canada/scotia_daily_nav.xlsx"],
                 "bmv_mexico_funds": [ROOT / "data/raw/mexico/bmv_mexico_funds.csv", ROOT / "data/raw/mexico/bmv_mexico_navs.csv"],
+                "de_bundesanzeiger_navs": [ROOT / "data/raw/germany/bundesanzeiger_fund_prices.csv"],
                 "it_borsa_navs": [ROOT / "data/raw/italy/borsa_italiana_daily_nav.csv"],
                 "fr_lacotebleue_navs": [ROOT / "data/raw/france/lacote_bleue_navs.csv"],
                 "nl_euronext_fund_navs": [ROOT / "data/raw/netherlands/euronext_amsterdam_funds.csv"],
@@ -427,7 +428,9 @@ def main() -> None:
             counts=export_database_samples()
             write_latest_run_report(run_report,counts)
         print(json.dumps(results,indent=2))
-        if any(row.get("status") == "Failed" for row in results):
+        failed=any(row.get("status")=="Failed" for row in results)
+        succeeded=any(row.get("status")=="Succeeded" for row in results)
+        if failed and (not args.all or not succeeded):
             raise SystemExit(1)
 
 if __name__=="__main__": main()
