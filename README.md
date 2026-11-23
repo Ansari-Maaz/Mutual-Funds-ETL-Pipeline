@@ -14,11 +14,7 @@ FundFlow collects mutual-fund reference data, NAV observations, and selected por
 
 ## Demo
 
-<!-- GitHub renders an inline player when this is a GitHub-uploaded video asset URL. -->
-<!-- Upload `docs/media/Demo Preview.mp4` in GitHub's README editor and paste its generated URL below. -->
-<!-- GITHUB_VIDEO_ASSET_URL -->
-
-> **Local preview:** [`docs/media/Demo Preview.mp4`](docs/media/Demo%20Preview.mp4) (compressed H.264 copy); original: [`docs/media/Demo Video.webm`](docs/media/Demo%20Video.webm). GitHub's inline player requires its generated `https://github.com/user-attachments/assets/...` URL on its own line.
+[Watch or download the project demo](docs/media/Demo%20Video.webm) · [Open the demo on Google Drive](https://drive.google.com/file/d/1qfQdj_8Oyg5KmDA0f5jcm379A3nfKV5t/view?usp=sharing).
 
 ## What the project does
 
@@ -227,7 +223,7 @@ SELECT id, name, domicile_country, currency, isin FROM funds ORDER BY id LIMIT 2
 SELECT fund_id, valuation_date, nav, currency FROM nav_observations ORDER BY valuation_date DESC LIMIT 20;
 ```
 
-Tables include `sources`, `funds`, `nav_observations`, `portfolio_holdings`, `holding_metrics`, `fund_profile_snapshots`, `fund_identifiers`, `etl_runs`, `api_etl_runs`, and `api_source_checks`. Alembic also creates `alembic_version` to track migrations.
+Tables include `sources`, `funds`, `nav_observations`, `portfolio_holdings`, `holding_metrics`, `security_identifier_map`, `security_industry`, `fund_profile_snapshots`, `fund_identifiers`, `etl_runs`, `api_etl_runs`, and `api_source_checks`. Alembic also creates `alembic_version` to track migrations. `portfolio_holdings` keeps every filed N-PORT Item C.4 position attribute; `security_identifier_map` and `security_industry` hold the official identifier and SIC crosswalks described in [docs/HOLDINGS_ENRICHMENT.md](docs/HOLDINGS_ENRICHMENT.md).
 
 For a GUI, connect DBeaver or pgAdmin with host `localhost`, port `5433`, database `mfetl`, username `mfetl`, and password `mfetl`. Expand **Schemas → public → Tables**, then use the table’s data view. To export an entire table from `psql`, use `\copy funds TO 'funds.csv' CSV HEADER`; replace `funds` with another table. Large tables can contain millions of rows.
 
@@ -338,11 +334,15 @@ ETL controls and source connectivity checks require the `X-API-Key` header. The 
 
 ## Screenshots
 
-The existing screenshots are retained below.
+Screenshots below show the current FundFlow dashboard and fund profile.
 
 ### Overview
 
-![FundFlow overview dashboard](docs/screenshots/fundflow-overview.png)
+![Latest FundFlow overview dashboard](docs/screenshots/fundflow-overview.png)
+
+### Fund Profile
+
+![Fund profile showing Vanguard 500 Index Fund details](docs/screenshots/fundflow-fund-profile.png)
 
 ### Fund Explorer
 
